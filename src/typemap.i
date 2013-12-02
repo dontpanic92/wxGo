@@ -19,3 +19,8 @@
 */
 
 %typedef int wxWindowID;
+%typedef int wxBitmapType;
+%typedef int wxPolygonFillMode;
+%typedef int wxStockCursor;
+%typedef int8 wxInt8;
+%typedef int wxStockGDI::Item;

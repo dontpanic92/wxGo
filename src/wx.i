@@ -6,3 +6,5 @@
 %include wxObject.i
 %include wxApp.i
 %include wxFrame.i
+%include wxStatusBar.i
+%include gdicmn.i

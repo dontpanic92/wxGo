@@ -1,3 +1,4 @@
+%rename(Frame) wxFrame;
 
 %{
 	#include "wx/wx.h"

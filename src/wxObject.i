@@ -1,3 +1,4 @@
+%rename(Object) wxObject;
 
 %{
 	#include "wx/wx.h"

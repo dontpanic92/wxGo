@@ -118,14 +118,13 @@ public:
 
     void ShowWithoutActivating();
 
-    // return true if the frame is in fullscreen mode
+
     bool IsFullScreen() const;
 
-    // the title of the top level window: the text which the
-    // window shows usually at the top of the frame/dialog in dedicated bar
     void SetTitle(const wxString& title);
 
-
+    wxString GetTitle() const;
+    
     bool EnableCloseButton(bool enable );
 
 

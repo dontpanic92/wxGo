@@ -1,4 +1,4 @@
-%rename(wxApp) wxGoApp;
+%rename(App) wxGoApp;
 %{
 	#include "wx/wx.h"
 	#include "wx/display.h"
