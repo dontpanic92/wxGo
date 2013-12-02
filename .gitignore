@@ -2,10 +2,22 @@
 *.o
 *.a
 *.so
+*.6
+6.out
+
 
 # Folders
 _obj
 _test
+wxWidgets/wxWidgets-3.0.0/*
+
+swig_wrap_output/*
+!swig_wrap_output/gcccit.sh
+!swig_wrap_output/make_shared_lib.sh
+
+swig_lib_output/*
+!swig_lib_output/make_static_lib.sh
+
 
 # Architecture specific extensions/prefixes
 *.[568vq]
@@ -20,3 +32,6 @@ _cgo_export.*
 _testmain.go
 
 *.exe
+
+*.6
+6.out
