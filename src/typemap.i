@@ -24,3 +24,4 @@
 %typedef int wxStockCursor;
 %typedef int8 wxInt8;
 %typedef int wxStockGDI::Item;
+%typedef int wxItemKind;
