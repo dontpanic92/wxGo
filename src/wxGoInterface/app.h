@@ -1,9 +1,9 @@
-class wxApp : public wxAppConsole
+class wxGoApp : public wxApp
 {
 public:
-	
-    wxApp();
-    ~wxApp();
+
+    wxGoApp();
+    ~wxGoApp();
 
     bool Initialize(int& argc, wxChar **argv);
 
@@ -24,16 +24,14 @@ public:
     bool SafeYield(wxWindow *win, bool onlyIfNeeded);
     bool SafeYieldFor(wxWindow *win, long eventsToProcess);
 
-    bool IsActive() const { return m_isActive; }
+    bool IsActive() const ;
 
-    void SetTopWindow(wxWindow *win) { m_topWindow = win; }
+    void SetTopWindow(wxWindow *win);
 
     wxWindow *GetTopWindow() const;
 
-    void SetExitOnFrameDelete(bool flag)
-       { m_exitOnFrameDelete = flag ? Yes : No; }
-    bool GetExitOnFrameDelete() const
-       { return m_exitOnFrameDelete == Yes; }
+    void SetExitOnFrameDelete(bool flag);
+    bool GetExitOnFrameDelete() const;
 
 
     void SetUseBestVisual( bool flag, bool forceTrueColour = false );
@@ -70,24 +68,7 @@ public:
     
     bool Dispatch();
 
-    //int MainLoop();
-    
-    %extend {
-    	void MyInit(){
-    		wxApp::SetInstance(self);
-    		
-			int argc = 1;
-			wxChar* argv[][10] = {wxT("wxGo"), '\0'};
-    		self->Initialize(argc, (wxChar**)argv);
-    	}
-    
-		int MainLoop(void* func) {
-			int argc = 1;
-			wxChar* argv[][10] = {wxT("wxGo"), '\0'};
-			wxEntry(argc, (char**)argv);
-			return 0;
-		}
-	}
+    int MainLoop();
     
     void ExitMainLoop();
 

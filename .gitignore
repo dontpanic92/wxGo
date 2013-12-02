@@ -10,6 +10,7 @@
 _obj
 _test
 wxWidgets/wxWidgets-3.0.0/*
+!wxWidgets/wxWidgets-3.0.0/WX_SOURCE_ROOT
 
 swig_wrap_output/*
 !swig_wrap_output/gcccit.sh
