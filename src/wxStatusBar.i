@@ -1,5 +1,3 @@
-%rename(StatusBar) wxStatusBar;
-%rename(StatusBarPan) wxStatusBarPane;
 
 %{
 	#include "wx/wx.h"

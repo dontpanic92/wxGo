@@ -18,6 +18,8 @@
 }
 */
 
+%rename("%(strip:[wx])s") "";
+
 %typedef int wxWindowID;
 %typedef int wxBitmapType;
 %typedef int wxPolygonFillMode;

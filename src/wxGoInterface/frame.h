@@ -167,7 +167,21 @@ public:
     void SetMinSize(const wxSize& minSize);
     void SetMaxSize(const wxSize& maxSize);
 
+	void SetAutoLayout( bool autoLayout ) { m_autoLayout = autoLayout; }
+    bool GetAutoLayout() const { return m_autoLayout; }
 
+        // lay out the window and its children
+    virtual bool Layout();
+
+        // sizers
+    void SetSizer(wxSizer *sizer, bool deleteOld = true );
+    void SetSizerAndFit( wxSizer *sizer, bool deleteOld = true );
+
+    wxSizer *GetSizer() const { return m_windowSizer; }
+
+    // Track if this window is a member of a sizer
+    void SetContainingSizer(wxSizer* sizer);
+    wxSizer *GetContainingSizer() const { return m_containingSizer; }
 
     void SetRepresentedFilename(const wxString& filename);
 
