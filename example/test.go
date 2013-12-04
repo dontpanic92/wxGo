@@ -3,18 +3,11 @@ package main
 import "./wx"
 import "fmt"
 
-type mynullwindow struct{
-}
-
-func (window mynullwindow)Swigcptr()(uintptr){
-	return 0
-}
 
 func InitFrame(){
 	frame := wx.NewFrame()
-	m := new(mynullwindow)
 	str := wx.NewString("GoLang wxWidgets Wrapper")
-	frame.Create(m, -1, str)
+	frame.Create(wx.NullWindow(), -1, str)
 	statusbar := frame.CreateStatusBar()
 	statusbar.SetStatusText(wx.NewString("Welcome to wxWidgets"))
 	
@@ -28,6 +21,9 @@ func InitFrame(){
 	menubar.Append(menuFile, wx.NewString("File"))
 	frame.SetMenuBar(menubar)
 
+	mainSizer := wx.NewBoxSizer( 0x0004 )
+	frame.SetSizer(mainSizer)
+	
 	frame.Show()
 	
 	point := frame.GetClientAreaOrigin()

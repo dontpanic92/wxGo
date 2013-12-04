@@ -35,7 +35,6 @@ public:
     void FitInside(wxWindow* window);
     virtual bool InformFirstDirection(int direction, int size, int availableOtherDir);
     wxSizerItemList& GetChildren();
-    const wxSizerItemList& GetChildren() const;
     wxWindow* GetContainingWindow() const;
     void SetContainingWindow(wxWindow *window);
     size_t GetItemCount() const;
