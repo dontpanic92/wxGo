@@ -8,7 +8,7 @@
 
 //From JeroenD
 %insert(go_wrapper) %{
-	func NullWindow() Window {
+	func GetNullWindow() Window {
         return SwigcptrWindow(0)
 	}
 %}

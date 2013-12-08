@@ -57,6 +57,9 @@ public:
     void SetString(const wxString& string);
    
 };
+
+typedef int wxEventType;
+
 class wxEvtHandler : public wxObject, public wxTrackable
 {
 public:
@@ -64,10 +67,10 @@ public:
     virtual ~wxEvtHandler();
     virtual void QueueEvent(wxEvent *event);
     virtual void AddPendingEvent(const wxEvent& event);
-    template<typename T, typename T1, ...>
+    /*template<typename T, typename T1, ...>
     void CallAfter(void (T::*method)(T1, ...), T1 x1, ...);
     template<typename T>
-    void CallAfter(const T& functor);
+    void CallAfter(const T& functor);*/
     virtual bool ProcessEvent(wxEvent& event);
     bool ProcessEventLocally(wxEvent& event);
     bool SafelyProcessEvent(wxEvent& event);
@@ -75,10 +78,16 @@ public:
     void DeletePendingEvents();
     virtual bool SearchEventTable(wxEventTable& table,
                                   wxEvent& event);
-    void Connect(int id, int lastId, wxEventType eventType,
+    /*void Connect(int id, int lastId, wxEventType eventType,
                  wxObjectEventFunction function,
                  wxObject* userData = NULL,
                  wxEvtHandler* eventSink = NULL);
+    bool Disconnect(int id, int lastId,
+                    wxEventType eventType,
+                    wxObjectEventFunction function = NULL,
+                    wxObject* userData = NULL,
+                    wxEvtHandler* eventSink = NULL);
+    /*
     void Connect(int id, wxEventType eventType,
                  wxObjectEventFunction function,
                  wxObject* userData = NULL,
@@ -100,7 +109,7 @@ public:
                     wxEventType eventType,
                     wxObjectEventFunction function = NULL,
                     wxObject* userData = NULL,
-                    wxEvtHandler* eventSink = NULL);
+                    wxEvtHandler* eventSink = NULL);*/
     /*template <typename EventTag, typename Functor>
     void Bind(const EventTag& eventType,
               Functor functor,
@@ -127,6 +136,21 @@ public:
                 int id = wxID_ANY,
                 int lastId = wxID_ANY,
                 wxObject *userData = NULL );*/
+	/*
+    template <typename EventTag, typename EventArg>
+    void Bind(const EventTag& eventType,
+              void (*function)(EventArg &),
+              int winid = wxID_ANY,
+              int lastId = wxID_ANY,
+              wxObject *userData = NULL);
+
+
+    template <typename EventTag, typename EventArg>
+    bool Unbind(const EventTag& eventType,
+                void (*function)(EventArg &),
+                int winid = wxID_ANY,
+                int lastId = wxID_ANY,
+                wxObject *userData = NULL);*/
     void* GetClientData() const;
     wxClientData* GetClientObject() const;
     void SetClientData(void* data);
@@ -410,7 +434,7 @@ public:
     bool IsAllowed() const;
     void Veto();
 };
-class wxThreadEvent : public wxEvent
+/*class wxThreadEvent : public wxEvent
 {
 public:
     wxThreadEvent(wxEventType eventType = wxEVT_THREAD, int id = wxID_ANY);
@@ -426,7 +450,7 @@ public:
     void SetExtraLong(long extraLong);
     void SetInt(int intCommand);
     void SetString(const wxString& string);
-};
+};*/
 class wxHelpEvent : public wxCommandEvent
 {
 public:
@@ -569,11 +593,131 @@ public:
     void SetCursor(const wxCursor& cursor);
 };
 
-typedef int wxEventType;
-extern const wxEventType wxEVT_NULL;
-extern const wxEventType wxEVT_ANY;
+const wxEventType wxEVT_NULL;
+const wxEventType wxEVT_ANY;
 wxEventType wxNewEventType();
 
 void wxPostEvent(wxEvtHandler* dest, const wxEvent& event);
 void wxQueueEvent(wxEvtHandler* dest, wxEvent *event);
+
+const wxEventType wxEVT_BUTTON;
+const wxEventType wxEVT_CHECKBOX;
+const wxEventType wxEVT_CHOICE;
+const wxEventType wxEVT_LISTBOX;
+const wxEventType wxEVT_LISTBOX_DCLICK;
+const wxEventType wxEVT_CHECKLISTBOX;
+const wxEventType wxEVT_MENU;
+const wxEventType wxEVT_SLIDER;
+const wxEventType wxEVT_RADIOBOX;
+const wxEventType wxEVT_RADIOBUTTON;
+const wxEventType wxEVT_SCROLLBAR;
+const wxEventType wxEVT_VLBOX;
+const wxEventType wxEVT_COMBOBOX;
+const wxEventType wxEVT_TOOL_RCLICKED;
+const wxEventType wxEVT_TOOL_DROPDOWN;
+const wxEventType wxEVT_TOOL_ENTER;
+const wxEventType wxEVT_COMBOBOX_DROPDOWN;
+const wxEventType wxEVT_COMBOBOX_CLOSEUP;
+const wxEventType wxEVT_THREAD;
+const wxEventType wxEVT_LEFT_DOWN;
+const wxEventType wxEVT_LEFT_UP;
+const wxEventType wxEVT_MIDDLE_DOWN;
+const wxEventType wxEVT_MIDDLE_UP; 
+const wxEventType wxEVT_RIGHT_DOWN;
+const wxEventType wxEVT_RIGHT_UP;
+const wxEventType wxEVT_MOTION;
+const wxEventType wxEVT_ENTER_WINDOW;
+const wxEventType wxEVT_LEAVE_WINDOW;
+const wxEventType wxEVT_LEFT_DCLICK;
+const wxEventType wxEVT_MIDDLE_DCLICK;
+const wxEventType wxEVT_RIGHT_DCLICK;
+const wxEventType wxEVT_SET_FOCUS;
+const wxEventType wxEVT_KILL_FOCUS;
+const wxEventType wxEVT_CHILD_FOCUS;
+const wxEventType wxEVT_MOUSEWHEEL;
+const wxEventType wxEVT_AUX1_DOWN;
+const wxEventType wxEVT_AUX1_UP;
+const wxEventType wxEVT_AUX1_DCLICK;
+const wxEventType wxEVT_AUX2_DOWN;
+const wxEventType wxEVT_AUX2_UP;
+const wxEventType wxEVT_AUX2_DCLICK;
+const wxEventType wxEVT_CHAR;
+const wxEventType wxEVT_CHAR_HOOK;
+const wxEventType wxEVT_NAVIGATION_KEY;
+const wxEventType wxEVT_KEY_DOWN;
+const wxEventType wxEVT_KEY_UP;
+//const wxEventType wxEVT_HOTKEY;
+const wxEventType wxEVT_SET_CURSOR;
+const wxEventType wxEVT_SCROLL_TOP;
+const wxEventType wxEVT_SCROLL_BOTTOM;
+const wxEventType wxEVT_SCROLL_LINEUP;
+const wxEventType wxEVT_SCROLL_LINEDOWN;
+const wxEventType wxEVT_SCROLL_PAGEUP;
+const wxEventType wxEVT_SCROLL_PAGEDOWN;
+const wxEventType wxEVT_SCROLL_THUMBTRACK;
+const wxEventType wxEVT_SCROLL_THUMBRELEASE;
+const wxEventType wxEVT_SCROLL_CHANGED;
+const wxEventType wxEVT_SPIN_UP;
+const wxEventType wxEVT_SPIN_DOWN;
+const wxEventType wxEVT_SPIN;
+const wxEventType wxEVT_SCROLLWIN_TOP;
+const wxEventType wxEVT_SCROLLWIN_BOTTOM;
+const wxEventType wxEVT_SCROLLWIN_LINEUP;
+const wxEventType wxEVT_SCROLLWIN_LINEDOWN;
+const wxEventType wxEVT_SCROLLWIN_PAGEUP;
+const wxEventType wxEVT_SCROLLWIN_PAGEDOWN;
+const wxEventType wxEVT_SCROLLWIN_THUMBTRACK;
+const wxEventType wxEVT_SCROLLWIN_THUMBRELEASE;
+const wxEventType wxEVT_SIZE;
+const wxEventType wxEVT_MOVE;
+const wxEventType wxEVT_CLOSE_WINDOW;
+const wxEventType wxEVT_END_SESSION;
+const wxEventType wxEVT_QUERY_END_SESSION;
+const wxEventType wxEVT_ACTIVATE_APP;
+const wxEventType wxEVT_ACTIVATE;
+const wxEventType wxEVT_CREATE;
+const wxEventType wxEVT_DESTROY;
+const wxEventType wxEVT_SHOW;
+const wxEventType wxEVT_ICONIZE;
+const wxEventType wxEVT_MAXIMIZE;
+const wxEventType wxEVT_MOUSE_CAPTURE_CHANGED;
+const wxEventType wxEVT_MOUSE_CAPTURE_LOST;
+const wxEventType wxEVT_PAINT;
+const wxEventType wxEVT_ERASE_BACKGROUND;
+const wxEventType wxEVT_NC_PAINT;
+const wxEventType wxEVT_MENU_OPEN;
+const wxEventType wxEVT_MENU_CLOSE;
+const wxEventType wxEVT_MENU_HIGHLIGHT;
+const wxEventType wxEVT_CONTEXT_MENU;
+const wxEventType wxEVT_SYS_COLOUR_CHANGED;
+const wxEventType wxEVT_DISPLAY_CHANGED;
+const wxEventType wxEVT_QUERY_NEW_PALETTE;
+const wxEventType wxEVT_PALETTE_CHANGED;
+const wxEventType wxEVT_JOY_BUTTON_DOWN;
+const wxEventType wxEVT_JOY_BUTTON_UP;
+const wxEventType wxEVT_JOY_MOVE;
+const wxEventType wxEVT_JOY_ZMOVE;
+const wxEventType wxEVT_DROP_FILES;
+const wxEventType wxEVT_INIT_DIALOG;
+const wxEventType wxEVT_IDLE;
+const wxEventType wxEVT_UPDATE_UI;
+const wxEventType wxEVT_SIZING;
+const wxEventType wxEVT_MOVING;
+const wxEventType wxEVT_MOVE_START;
+const wxEventType wxEVT_MOVE_END;
+const wxEventType wxEVT_HIBERNATE;
+const wxEventType wxEVT_TEXT_COPY;
+const wxEventType wxEVT_TEXT_CUT;
+const wxEventType wxEVT_TEXT_PASTE;
+const wxEventType wxEVT_COMMAND_LEFT_CLICK;
+const wxEventType wxEVT_COMMAND_LEFT_DCLICK;
+const wxEventType wxEVT_COMMAND_RIGHT_CLICK;
+const wxEventType wxEVT_COMMAND_RIGHT_DCLICK;
+const wxEventType wxEVT_COMMAND_SET_FOCUS;
+const wxEventType wxEVT_COMMAND_KILL_FOCUS;
+const wxEventType wxEVT_COMMAND_ENTER;
+const wxEventType wxEVT_HELP;
+const wxEventType wxEVT_DETAILED_HELP;
+const wxEventType wxEVT_TOOL;
+const wxEventType wxEVT_WINDOW_MODAL_DIALOG_CLOSED;
 

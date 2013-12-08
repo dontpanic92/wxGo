@@ -27,3 +27,9 @@
 %typedef int8 wxInt8;
 %typedef int wxStockGDI::Item;
 %typedef int wxItemKind;
+
+%insert(go_wrapper) %{
+	func Get() Window {
+        return SwigcptrWindow(0)
+	}
+%}

@@ -3,11 +3,14 @@ package main
 import "./wx"
 import "fmt"
 
+func evtMenu(wx.Event){
+	fmt.Println("hi")
+}
 
 func InitFrame(){
 	frame := wx.NewFrame()
 	str := wx.NewString("GoLang wxWidgets Wrapper")
-	frame.Create(wx.NullWindow(), -1, str)
+	frame.Create(wx.GetNullWindow(), -1, str)
 	statusbar := frame.CreateStatusBar()
 	statusbar.SetStatusText(wx.NewString("Welcome to wxWidgets"))
 	
@@ -24,10 +27,10 @@ func InitFrame(){
 	mainSizer := wx.NewBoxSizer( 0x0004 )
 	frame.SetSizer(mainSizer)
 	
-	frame.Show()
+	wx.Bind( frame, wx.GetEVT_MENU(), evtMenu, menuItemNew.GetId() )
+	//wx.Unbind( frame, wx.GetEVT_MENU(), evtMenu, menuItemNew.GetId() )
 	
-	point := frame.GetClientAreaOrigin()
-	fmt.Println(point.GetX())
+	frame.Show()
 }
 
 func main(){

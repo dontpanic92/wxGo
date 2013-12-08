@@ -1,4 +1,4 @@
-%module wx
+%module(directors="1") wx
 
 
 %import typemap.i

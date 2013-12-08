@@ -18,6 +18,7 @@ swig_wrap_output/*
 
 swig_lib_output/*
 !swig_lib_output/make_static_lib.sh
+!swig_lib_output/go_helper.go
 
 
 # Architecture specific extensions/prefixes
