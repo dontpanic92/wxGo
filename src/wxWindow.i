@@ -5,7 +5,6 @@
 
 %include "wxGoInterface/window.h"
 
-
 //From JeroenD
 %insert(go_wrapper) %{
 	func GetNullWindow() Window {

@@ -20,16 +20,5 @@
 
 %rename("%(strip:[wx])s") "";
 
-%typedef int wxWindowID;
-%typedef int wxBitmapType;
-%typedef int wxPolygonFillMode;
-%typedef int wxStockCursor;
-%typedef int8 wxInt8;
 %typedef int wxStockGDI::Item;
-%typedef int wxItemKind;
 
-%insert(go_wrapper) %{
-	func Get() Window {
-        return SwigcptrWindow(0)
-	}
-%}

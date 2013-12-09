@@ -3,6 +3,8 @@
 
 %import typemap.i
 
+%include typedef.i
+
 %include wxObject.i
 %include wxString.i
 %include wxApp.i
