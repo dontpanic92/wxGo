@@ -16,4 +16,6 @@
 %include wxSizer.i
 %include wxMenu.i
 %include wxStatusBar.i
+%include wxDialog.i
+%include wxMsgDlg.i
 %include gdicmn.i

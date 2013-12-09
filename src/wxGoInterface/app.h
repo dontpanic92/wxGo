@@ -1,4 +1,4 @@
-class wxGoApp : public wxApp
+class wxGoApp
 {
 public:
 

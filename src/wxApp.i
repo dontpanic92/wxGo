@@ -4,23 +4,17 @@
 	#include "wx/display.h"
 	
 	class wxGoApp : public wxApp{
-		
 	public:
 		wxGoApp(){
 			wxApp::SetInstance(this);
-			wxChar* argv[10] = {wxT("wxGo"), NULL};
+			char progName[] = {"wxGo"};
+			char* argv[] = {progName, NULL};
 			int argc = 1;
-    		wxEntryStart(argc, (wxChar**)argv);
+    		wxEntryStart(argc, argv);
+    		SetExitOnFrameDelete(true);
 		}
-		
-  		void OnWindowDestroy(wxWindowDestroyEvent &event) 
-  		{
-			wxExit();
-  		}
 
 		int MainLoop(){
-			this->Connect(wxEVT_DESTROY,
-					wxWindowDestroyEventHandler(wxGoApp::OnWindowDestroy));
 			return wxApp::MainLoop();
 		}
 		

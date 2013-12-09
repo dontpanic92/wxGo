@@ -1,16 +1,15 @@
 package main
 
 import "./wx"
-import "fmt"
 
 func evtMenu(wx.Event){
-        fmt.Println("hi")
+		wx.MessageBox(wx.NewString("Welcome to wxWidgets!"));
 }
 
 func InitFrame(){
         frame := wx.NewFrame()
         str := wx.NewString("GoLang wxWidgets Wrapper")
-        frame.Create(wx.GetNullWindow(), -1, str)
+        frame.Create(wx.NullWindow, -1, str)
         statusbar := frame.CreateStatusBar()
         statusbar.SetStatusText(wx.NewString("Welcome to wxWidgets"))
         

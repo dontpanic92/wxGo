@@ -5,6 +5,30 @@
 typedef int wxCoord;
 enum {  wxDefaultCoord = -1 };
 
+typedef signed char wxInt8;
+typedef unsigned char wxUint8;
+typedef wxUint8 wxByte;
+
+typedef signed short wxInt16;
+typedef unsigned short wxUint16;
+typedef wxUint16 wxWord;
+typedef wxUint16 wxChar16;
+
+typedef int wxInt32;
+typedef unsigned int wxUint32;
+typedef wxUint32 wxDword;
+typedef wxUint32 wxChar32;
+
+typedef ssize_t wxIntPtr;
+typedef size_t wxUIntPtr;
+
+typedef float wxFloat32;
+
+typedef double wxFloat64;
+
+typedef double wxDouble;
+
+
 enum wxGeometryCentre
 {
     wxCENTRE                  = 0x0001,
@@ -105,9 +129,9 @@ enum wxBorder
 #define wxFULL_REPAINT_ON_RESIZE 0x00010000
 #define wxNO_FULL_REPAINT_ON_RESIZE 0
 //#define wxWINDOW_STYLE_MASK     \
-//    (wxVSCROLL|wxHSCROLL|wxBORDER_MASK|wxALWAYS_SHOW_SB|wxCLIP_CHILDREN| \
-//     wxCLIP_SIBLINGS|wxTRANSPARENT_WINDOW|wxTAB_TRAVERSAL|wxWANTS_CHARS| \
-//     wxRETAINED|wxPOPUP_WINDOW|wxFULL_REPAINT_ON_RESIZE)
+    //(wxVSCROLL|wxHSCROLL|wxBORDER_MASK|wxALWAYS_SHOW_SB|wxCLIP_CHILDREN| \
+     //wxCLIP_SIBLINGS|wxTRANSPARENT_WINDOW|wxTAB_TRAVERSAL|wxWANTS_CHARS| \
+     //wxRETAINED|wxPOPUP_WINDOW|wxFULL_REPAINT_ON_RESIZE)
 %constant wxWINDOW_STYLE_MASK = (wxVSCROLL|wxHSCROLL|wxBORDER_MASK|wxALWAYS_SHOW_SB|wxCLIP_CHILDREN| \
      wxCLIP_SIBLINGS|wxTRANSPARENT_WINDOW|wxTAB_TRAVERSAL|wxWANTS_CHARS| \
      wxRETAINED|wxPOPUP_WINDOW|wxFULL_REPAINT_ON_RESIZE);

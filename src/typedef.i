@@ -8,3 +8,4 @@
 %typedef int wxBitmapType;
 %typedef int wxPolygonFillMode;
 %typedef int wxStockCursor;
+
