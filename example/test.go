@@ -10,6 +10,7 @@ func InitFrame(){
         frame := wx.NewFrame()
         str := wx.NewString("GoLang wxWidgets Wrapper")
         frame.Create(wx.NullWindow, -1, str)
+        
         statusbar := frame.CreateStatusBar()
         statusbar.SetStatusText(wx.NewString("Welcome to wxWidgets"))
         
@@ -26,8 +27,14 @@ func InitFrame(){
         mainSizer := wx.NewBoxSizer(int(wx.HORIZONTAL) )
         frame.SetSizer(mainSizer)
         
-        wx.Bind( frame, wx.GetEVT_MENU(), evtMenu, menuItemNew.GetId() )
-        //wx.Unbind( frame, wx.GetEVT_MENU(), evtMenu, menuItemNew.GetId() )
+        textCtrl := wx.NewTextCtrl(frame, int(wx.ID_ANY), wx.NewString(""), wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE)
+        textCtrl.SetMinSize(wx.NewSize(600, 400))
+        mainSizer.Add(textCtrl, 1, int(wx.EXPAND), 5)
+        
+        frame.Layout()
+		mainSizer.Fit(frame)
+        wx.Bind( frame, wx.EVT_MENU, evtMenu, menuItemNew.GetId() )
+        //wx.Unbind( frame, wx.EVT_MENU, evtMenu, menuItemNew.GetId() )
         
         frame.Show()
 }

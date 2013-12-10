@@ -310,8 +310,8 @@ public:
     void SetCaret(wxCaret* caret);
     virtual bool SetCursor(const wxCursor& cursor);
     virtual void WarpPointer(int x, int y);
-    wxHitTest HitTest(wxCoord x, wxCoord y) const;
-    wxHitTest HitTest(const wxPoint& pt) const;
+    //wxHitTest HitTest(wxCoord x, wxCoord y) const;
+    //wxHitTest HitTest(const wxPoint& pt) const;
     wxBorder GetBorder(long flags) const;
     wxBorder GetBorder() const;
     virtual void DoUpdateWindowUI(wxUpdateUIEvent& event);

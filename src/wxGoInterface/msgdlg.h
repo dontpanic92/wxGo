@@ -1,5 +1,3 @@
-const char wxMessageBoxCaptionStr[] = "Message";
-
 int wxMessageBox(const wxString& message,
                  const wxString& caption = wxMessageBoxCaptionStr,
                  int style = wxOK | wxCENTRE,

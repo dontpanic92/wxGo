@@ -9,7 +9,7 @@ public:
                      int flag = 0,
                      int border = 0,
                      wxObject* userData = NULL);
-    wxSizerItem* Add(wxSizer* sizer, const wxSizerFlags& flags);
+    /*wxSizerItem* Add(wxSizer* sizer, const wxSizerFlags& flags);
     wxSizerItem* Add(wxSizer* sizer,
                      int proportion = 0,
                      int flag = 0,
@@ -21,7 +21,7 @@ public:
                      int border = 0,
                      wxObject* userData = NULL);
     wxSizerItem* Add( int width, int height, const wxSizerFlags& flags);
-    wxSizerItem* Add(wxSizerItem* item);
+    wxSizerItem* Add(wxSizerItem* item);*/
     virtual wxSizerItem *AddSpacer(int size);
     wxSizerItem* AddStretchSpacer(int prop = 1);
     virtual wxSize CalcMin() = 0;

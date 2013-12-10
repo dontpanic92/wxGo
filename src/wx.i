@@ -19,3 +19,6 @@
 %include wxDialog.i
 %include wxMsgDlg.i
 %include gdicmn.i
+%include wxColour.i
+%include wxFont.i
+%include wxTextCtrl.i

@@ -1,224 +1,214 @@
-class wxSize
+enum wxBitmapType
 {
-public:
-    int x, y;
-
-    wxSize(int xx, int yy) : x(xx), y(yy) { }
-
-    void IncTo(const wxSize& sz)
-        { if ( sz.x > x ) x = sz.x; if ( sz.y > y ) y = sz.y; }
-    void DecTo(const wxSize& sz)
-        { if ( sz.x < x ) x = sz.x; if ( sz.y < y ) y = sz.y; }
-    void DecToIfSpecified(const wxSize& sz)
-    {
-        if ( sz.x != wxDefaultCoord && sz.x < x )
-            x = sz.x;
-        if ( sz.y != wxDefaultCoord && sz.y < y )
-            y = sz.y;
-    }
-
-    void IncBy(int dx, int dy) { x += dx; y += dy; }
-    void IncBy(const wxPoint& pt);
-    void IncBy(const wxSize& sz) { IncBy(sz.x, sz.y); }
-    void IncBy(int d) { IncBy(d, d); }
-
-    void DecBy(int dx, int dy) { IncBy(-dx, -dy); }
-    void DecBy(const wxPoint& pt);
-    void DecBy(const wxSize& sz) { DecBy(sz.x, sz.y); }
-    void DecBy(int d) { DecBy(d, d); }
-
-
-    wxSize& Scale(float xscale, float yscale)
-        { x = (int)(x*xscale); y = (int)(y*yscale); return *this; }
-
-    // accessors
-    void Set(int xx, int yy) { x = xx; y = yy; }
-    void SetWidth(int w) { x = w; }
-    void SetHeight(int h) { y = h; }
-
-    int GetWidth() const { return x; }
-    int GetHeight() const { return y; }
-
-    bool IsFullySpecified() const { return x != wxDefaultCoord && y != wxDefaultCoord; }
-
-    // combine this size with the other one replacing the default (i.e. equal
-    // to wxDefaultCoord) components of this object with those of the other
-    void SetDefaults(const wxSize& size)
-    {
-        if ( x == wxDefaultCoord )
-            x = size.x;
-        if ( y == wxDefaultCoord )
-            y = size.y;
-    }
+    wxBITMAP_TYPE_INVALID,
+    wxBITMAP_TYPE_BMP,
+    wxBITMAP_TYPE_BMP_RESOURCE,
+    wxBITMAP_TYPE_RESOURCE = wxBITMAP_TYPE_BMP_RESOURCE,
+    wxBITMAP_TYPE_ICO,
+    wxBITMAP_TYPE_ICO_RESOURCE,
+    wxBITMAP_TYPE_CUR,
+    wxBITMAP_TYPE_CUR_RESOURCE,
+    wxBITMAP_TYPE_XBM,
+    wxBITMAP_TYPE_XBM_DATA,
+    wxBITMAP_TYPE_XPM,
+    wxBITMAP_TYPE_XPM_DATA,
+    wxBITMAP_TYPE_TIFF,
+    wxBITMAP_TYPE_TIF = wxBITMAP_TYPE_TIFF,
+    wxBITMAP_TYPE_TIFF_RESOURCE,
+    wxBITMAP_TYPE_TIF_RESOURCE = wxBITMAP_TYPE_TIFF_RESOURCE,
+    wxBITMAP_TYPE_GIF,
+    wxBITMAP_TYPE_GIF_RESOURCE,
+    wxBITMAP_TYPE_PNG,
+    wxBITMAP_TYPE_PNG_RESOURCE,
+    wxBITMAP_TYPE_JPEG,
+    wxBITMAP_TYPE_JPEG_RESOURCE,
+    wxBITMAP_TYPE_PNM,
+    wxBITMAP_TYPE_PNM_RESOURCE,
+    wxBITMAP_TYPE_PCX,
+    wxBITMAP_TYPE_PCX_RESOURCE,
+    wxBITMAP_TYPE_PICT,
+    wxBITMAP_TYPE_PICT_RESOURCE,
+    wxBITMAP_TYPE_ICON,
+    wxBITMAP_TYPE_ICON_RESOURCE,
+    wxBITMAP_TYPE_ANI,
+    wxBITMAP_TYPE_IFF,
+    wxBITMAP_TYPE_TGA,
+    wxBITMAP_TYPE_MACCURSOR,
+    wxBITMAP_TYPE_MACCURSOR_RESOURCE,
+    wxBITMAP_TYPE_ANY = 50
 };
-
+enum wxPolygonFillMode
+{
+    wxODDEVEN_RULE = 1,
+    wxWINDING_RULE
+};
+enum wxStockCursor
+{
+    wxCURSOR_NONE,
+    wxCURSOR_ARROW,             
+    wxCURSOR_RIGHT_ARROW,       
+    wxCURSOR_BULLSEYE,          
+    wxCURSOR_CHAR,              
+    wxCURSOR_CROSS,             
+    wxCURSOR_HAND,              
+    wxCURSOR_IBEAM,             
+    wxCURSOR_LEFT_BUTTON,       
+    wxCURSOR_MAGNIFIER,         
+    wxCURSOR_MIDDLE_BUTTON,     
+    wxCURSOR_NO_ENTRY,          
+    wxCURSOR_PAINT_BRUSH,       
+    wxCURSOR_PENCIL,            
+    wxCURSOR_POINT_LEFT,        
+    wxCURSOR_POINT_RIGHT,       
+    wxCURSOR_QUESTION_ARROW,    
+    wxCURSOR_RIGHT_BUTTON,      
+    wxCURSOR_SIZENESW,          
+    wxCURSOR_SIZENS,            
+    wxCURSOR_SIZENWSE,          
+    wxCURSOR_SIZEWE,            
+    wxCURSOR_SIZING,            
+    wxCURSOR_SPRAYCAN,          
+    wxCURSOR_WAIT,              
+    wxCURSOR_WATCH,             
+    wxCURSOR_BLANK,             
+    wxCURSOR_DEFAULT,           
+    //wxCURSOR_COPY_ARROW ,       
+    //wxCURSOR_CROSS_REVERSE,     
+    //wxCURSOR_DOUBLE_ARROW,      
+    //wxCURSOR_BASED_ARROW_UP,    
+    //wxCURSOR_BASED_ARROW_DOWN,  
+    wxCURSOR_ARROWWAIT,         
+    wxCURSOR_MAX
+};
 class wxRealPoint
 {
 public:
+    wxRealPoint();
+    wxRealPoint(double x, double y);
+    wxRealPoint(const wxPoint& pt);
     double x;
     double y;
-
-    wxRealPoint() : x(0.0), y(0.0) { }
-    wxRealPoint(double xx, double yy) : x(xx), y(yy) { }
-    wxRealPoint(const wxPoint& pt);
-
-};
-
-class wxPoint
-{
-public:
-    int x, y;
-
-    wxPoint() : x(0), y(0) { }
-    wxPoint(int xx, int yy) : x(xx), y(yy) { }
-    wxPoint(const wxRealPoint& pt) : x(int(pt.x)), y(int(pt.y)) { }
-
-    bool IsFullySpecified() const { return x != wxDefaultCoord && y != wxDefaultCoord; }
-
-    void SetDefaults(const wxPoint& pt)
-    {
-        if ( x == wxDefaultCoord )
-            x = pt.x;
-        if ( y == wxDefaultCoord )
-            y = pt.y;
-    }
 };
 class wxRect
 {
 public:
-    wxRect()
-        : x(0), y(0), width(0), height(0)
-        { }
-    wxRect(int xx, int yy, int ww, int hh)
-        : x(xx), y(yy), width(ww), height(hh)
-        { }
+    wxRect();
+    wxRect(int x, int y, int width, int height);
     wxRect(const wxPoint& topLeft, const wxPoint& bottomRight);
-    wxRect(const wxPoint& pt, const wxSize& size)
-        : x(pt.x), y(pt.y), width(size.x), height(size.y)
-        { }
-    wxRect(const wxSize& size)
-        : x(0), y(0), width(size.x), height(size.y)
-        { }
-
-    wxPoint GetPosition() const { return wxPoint(x, y); }
-    void SetPosition( const wxPoint &p ) { x = p.x; y = p.y; }
-
-    wxSize GetSize() const { return wxSize(width, height); }
-    void SetSize( const wxSize &s ) { width = s.GetWidth(); height = s.GetHeight(); }
-
-    bool IsEmpty() const { return (width <= 0) || (height <= 0); }
-
-    int GetLeft()   const { return x; }
-    int GetTop()    const { return y; }
-    int GetBottom() const { return y + height - 1; }
-    int GetRight()  const { return x + width - 1; }
-
-    void SetLeft(int left) { x = left; }
-    void SetRight(int right) { width = right - x + 1; }
-    void SetTop(int top) { y = top; }
-    void SetBottom(int bottom) { height = bottom - y + 1; }
-
-    wxPoint GetTopLeft() const { return GetPosition(); }
-    wxPoint GetLeftTop() const { return GetTopLeft(); }
-    void SetTopLeft(const wxPoint &p) { SetPosition(p); }
-    void SetLeftTop(const wxPoint &p) { SetTopLeft(p); }
-
-    wxPoint GetBottomRight() const { return wxPoint(GetRight(), GetBottom()); }
-    wxPoint GetRightBottom() const { return GetBottomRight(); }
-    void SetBottomRight(const wxPoint &p) { SetRight(p.x); SetBottom(p.y); }
-    void SetRightBottom(const wxPoint &p) { SetBottomRight(p); }
-
-    wxPoint GetTopRight() const { return wxPoint(GetRight(), GetTop()); }
-    wxPoint GetRightTop() const { return GetTopRight(); }
-    void SetTopRight(const wxPoint &p) { SetRight(p.x); SetTop(p.y); }
-    void SetRightTop(const wxPoint &p) { SetTopRight(p); }
-
-    wxPoint GetBottomLeft() const { return wxPoint(GetLeft(), GetBottom()); }
-    wxPoint GetLeftBottom() const { return GetBottomLeft(); }
-    void SetBottomLeft(const wxPoint &p) { SetLeft(p.x); SetBottom(p.y); }
-    void SetLeftBottom(const wxPoint &p) { SetBottomLeft(p); }
-
-    // operations with rect
-    wxRect& Inflate(wxCoord dx, wxCoord dy);
-    wxRect& Inflate(const wxSize& d) { return Inflate(d.x, d.y); }
-    wxRect& Inflate(wxCoord d) { return Inflate(d, d); }
-
-
-    wxRect& Deflate(wxCoord dx, wxCoord dy) { return Inflate(-dx, -dy); }
-    wxRect& Deflate(const wxSize& d) { return Inflate(-d.x, -d.y); }
-    wxRect& Deflate(wxCoord d) { return Inflate(-d); }
-
-    void Offset(wxCoord dx, wxCoord dy) { x += dx; y += dy; }
-    void Offset(const wxPoint& pt) { Offset(pt.x, pt.y); }
-
-    wxRect& Intersect(const wxRect& rect);
-
-    wxRect& Union(const wxRect& rect);
-
-    // return true if the point is (not strcitly) inside the rect
+    wxRect(const wxPoint& pos, const wxSize& size);
+    wxRect(const wxSize& size);
+    wxRect CentreIn(const wxRect& r, int dir = wxBOTH) const;
+    wxRect CenterIn(const wxRect& r, int dir = wxBOTH) const;
     bool Contains(int x, int y) const;
-    bool Contains(const wxPoint& pt) const { return Contains(pt.x, pt.y); }
-    // return true if the rectangle 'rect' is (not strictly) inside this rect
+    bool Contains(const wxPoint& pt) const;
     bool Contains(const wxRect& rect) const;
-
+    wxRect& Deflate(wxCoord dx, wxCoord dy);
+    wxRect& Deflate(const wxSize& diff);
+    wxRect& Deflate(wxCoord diff);
+    //wxRect  Deflate(wxCoord dx, wxCoord dy) const;
+    int GetBottom() const;
+    wxPoint GetBottomLeft() const;
+    wxPoint GetBottomRight() const;
+    int GetHeight() const;
+    int GetLeft() const;
+    wxPoint GetPosition() const;
+    int GetRight() const;
+    wxSize GetSize() const;
+    int GetTop() const;
+    wxPoint GetTopLeft() const;
+    wxPoint GetTopRight() const;
+    int GetWidth() const;
+    int GetX() const;
+    int GetY() const;
+    wxRect& Inflate(wxCoord dx, wxCoord dy);
+    wxRect& Inflate(const wxSize& diff);
+    wxRect& Inflate(wxCoord diff);
+    //wxRect Inflate(wxCoord dx, wxCoord dy) const;
+    wxRect& Intersect(const wxRect& rect);
+    //wxRect Intersect(const wxRect& rect) const;
     bool Intersects(const wxRect& rect) const;
-
-    wxRect CentreIn(const wxRect& r, int dir = wxBOTH) const
-    {
-        return wxRect(dir & wxHORIZONTAL ? r.x + (r.width - width)/2 : x,
-                      dir & wxVERTICAL ? r.y + (r.height - height)/2 : y,
-                      width, height);
-    }
-
-    wxRect CenterIn(const wxRect& r, int dir = wxBOTH) const
-    {
-        return CentreIn(r, dir);
-    }
-
-public:
-    int x, y, width, height;
+    bool IsEmpty() const;
+    void Offset(wxCoord dx, wxCoord dy);
+    void Offset(const wxPoint& pt);
+    void SetHeight(int height);
+    void SetPosition(const wxPoint& pos);
+    void SetSize(const wxSize& s);
+    void SetWidth(int width);
+    void SetX(int x);
+    void SetY(int y);
+    void SetLeft(int left);
+    void SetRight(int right);
+    void SetTop(int top);
+    void SetBottom(int bottom);
+    void SetTopLeft(const wxPoint &p);
+    void SetBottomRight(const wxPoint &p);
+    void SetTopRight(const wxPoint &p);
+    void SetBottomLeft(const wxPoint &p);
+    //wxRect Union(const wxRect& rect) const;
+    wxRect& Union(const wxRect& rect);
+    /*int height;
+    int width;
+    int x;
+    int y;*/
 };
-
-
-inline void wxSize::IncBy(const wxPoint& pt) { IncBy(pt.x, pt.y); }
-inline void wxSize::DecBy(const wxPoint& pt) { DecBy(pt.x, pt.y); }
-
-typedef wxInt8 wxDash;
-
-class wxStockGDI
+class wxPoint
 {
 public:
-	class Item;
-	
-    wxStockGDI();
-    ~wxStockGDI();
-    static void DeleteAll();
-
-    static wxStockGDI& instance() { return *ms_instance; }
-
-    static const wxBrush* GetBrush(Item item);
-    static const wxColour* GetColour(Item item);
-    static const wxCursor* GetCursor(Item item);
-    const wxFont* GetFont(Item item);
-    static const wxPen* GetPen(Item item);
+    wxPoint();
+    wxPoint(int x, int y);
+    wxPoint(const wxRealPoint& pt);
+    bool IsFullySpecified() const;
+    void SetDefaults(const wxPoint& pt);
+    int x;
+    int  y;
 };
-
-void wxInitializeStockLists();
-void wxDeleteStockLists();
-
+%constant wxPoint wxDefaultPosition;
+class wxColourDatabase
+{
+public:
+    wxColourDatabase();
+    void AddColour(const wxString& colourName, const wxColour& colour);
+    wxColour Find(const wxString& colourName) const;
+    wxString FindName(const wxColour& colour) const;
+};
+%constant wxColourDatabase* wxTheColourDatabase;
+class wxSize
+{
+public:
+    wxSize();
+    wxSize(int width, int height);
+    void DecBy(const wxPoint& pt);
+    void DecBy(const wxSize& size);
+    void DecBy(int dx, int dy);
+    void DecBy(int d);
+    void DecTo(const wxSize& size);
+    void DecToIfSpecified(const wxSize& size);
+    int GetHeight() const;
+    int GetWidth() const;
+    void IncBy(const wxPoint& pt);
+    void IncBy(const wxSize& size);
+    void IncBy(int dx, int dy);
+    void IncBy(int d);
+    void IncTo(const wxSize& size);
+    bool IsFullySpecified() const;
+    wxSize& Scale(float xscale, float yscale);
+    void Set(int width, int height);
+    void SetDefaults(const wxSize& sizeDefault);
+    void SetHeight(int height);
+    void SetWidth(int width);
+};
+%constant wxSize wxDefaultSize;
+#define wxBITMAP(bitmapName)
+#define wxBITMAP_PNG(bitmapName)
+#define wxBITMAP_PNG_FROM_DATA(bitmapName)
+#define wxICON(iconName)
 bool wxColourDisplay();
-
 int wxDisplayDepth();
-
-void wxDisplaySize(int *width, int *height);
-wxSize wxGetDisplaySize();
-void wxDisplaySizeMM(int *width, int *height);
-wxSize wxGetDisplaySizeMM();
-wxSize wxGetDisplayPPI();
-
-
-void wxClientDisplayRect(int *x, int *y, int *width, int *height);
-wxRect wxGetClientDisplayRect();
-
 void wxSetCursor(const wxCursor& cursor);
-
+void wxClientDisplayRect(int* x, int* y, int* width, int* height);
+wxRect wxGetClientDisplayRect();
+wxSize wxGetDisplayPPI();
+void wxDisplaySize(int* width, int* height);
+wxSize wxGetDisplaySize();
+void wxDisplaySizeMM(int* width, int* height);
+wxSize wxGetDisplaySizeMM();

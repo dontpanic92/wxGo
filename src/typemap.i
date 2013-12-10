@@ -21,4 +21,6 @@
 %rename("%(strip:[wx])s") "";
 
 %typedef int wxStockGDI::Item;
+%apply int { long };
+%apply unsigned int { unsigned long };
 
