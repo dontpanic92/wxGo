@@ -1,22 +1,21 @@
 
-//%typedef string wxString;
-/*
-%typemap(in) wxString{
-	$1 = wxString($input, wxConvUTF8, $input.n)
-}
+//Still need testing
 
-%typemap(out) wxString{ 
-	$result = _swig_makegostring($1.data(), $1.length());
-}
+%typemap(gotype) string, wxString "string"
+%typemap(gotype) string, const wxString& "string"
+%typemap(gotype) string, const wxString* "string"
 
-%typemap(in) wxString*, wxString&{
-	$1 = new wxString($input, wxConvUTF8, $input->n);
-}
+%typemap(in) wxString "$1 = wxString($input.p);"
 
-%typemap(out) wxString*, wxString&{ 
-	$result = _swig_makegostring($1.data(), $1.length());
-}
-*/
+%typemap(in) const wxString& "$1 = new wxString($input.p, wxConvUTF8);"
+%typemap(in) const wxString* "$1 = new wxString($input.p, wxConvUTF8);"
+
+%typemap(freearg) wxString& "delete $1;"
+%typemap(freearg) wxString* "delete $1;"
+
+%typemap(out) wxString "$result = _swig_makegostring($1.utf8_str(), $1.length());"
+%typemap(out) const wxString& "$result = _swig_makegostring($1->utf8_str(), $1->length());"
+%typemap(varout) wxString "$result = _swig_makegostring($1->utf8_str(), $1->length());"
 
 %rename("%(strip:[wx])s") "";
 
