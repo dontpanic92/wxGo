@@ -17,9 +17,6 @@
 %typemap(out) const wxString& "$result = _swig_makegostring($1->utf8_str(), $1->length());"
 %typemap(varout) wxString "$result = _swig_makegostring($1->utf8_str(), $1->length());"
 
-%rename("%(strip:[wx])s") "";
-
-%typedef int wxStockGDI::Item;
 %apply int { long };
 %apply unsigned int { unsigned long };
 

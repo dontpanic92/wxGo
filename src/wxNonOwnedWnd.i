@@ -1,7 +1,3 @@
-
-%{
-	#include "wx/wx.h"
-%}
 #define wxFRAME_SHAPED          0x0010 
 
 class wxNonOwnedWindow : public wxWindow

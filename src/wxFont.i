@@ -1,8 +1,3 @@
-
-%{
-	#include "wx/wx.h"
-%}
-
 %import "wxGdiobj.i"
 %include "wxGoInterface/font.h"
 

@@ -1,7 +1,3 @@
-%{
-        #include "wx/wx.h"
-%}
-
 %import wxTrackable.i
 
 enum wxMouseButton

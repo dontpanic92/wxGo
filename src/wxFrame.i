@@ -1,6 +1,5 @@
 
 %{
-	#include "wx/wx.h"
 	#include "wx/gtk/frame.h"
 %}
 

@@ -1,12 +1,17 @@
 %module(directors="1") wx
 
+%rename("%(strip:[wx])s") "";
 
+%{
+	#include "wx/wx.h"
+%}
+
+%include wxString.i
 %import typemap.i
 
 %include typedef.i
 
 %include wxObject.i
-%include wxString.i
 %include wxApp.i
 %include wxEvent.i
 %include wxWindow.i
@@ -22,3 +27,5 @@
 %include wxColour.i
 %include wxFont.i
 %include wxTextCtrl.i
+%include wxPanel.i
+%include wxNoteBook.i

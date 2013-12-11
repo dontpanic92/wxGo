@@ -3,7 +3,9 @@ package main
 import "./wx"
 
 func evtMenu(wx.Event){
-		wx.MessageBox("Welcome to wxWidgets!\nUTF-8 test|编码测试|編碼測試|符号化試験|인코딩 테스트");
+		s := wx.NewString("Welcome to wxWidgets!\nString test|测试|測試|試験|테스트")
+		str := s.Utf8_str()
+		wx.MessageBox(str);
 }
 
 func InitFrame(){
@@ -19,7 +21,7 @@ func InitFrame(){
         
         menubar := wx.NewMenuBar()
         menuFile := wx.NewMenu()
-        menuItemNew := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "File", "Create New File", wx.ITEM_NORMAL)
+        menuItemNew := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "Hello", "Create New File", wx.ITEM_NORMAL)
         menuFile.Append(menuItemNew)
         menubar.Append(menuFile, "File")
         frame.SetMenuBar(menubar)
@@ -27,9 +29,23 @@ func InitFrame(){
         mainSizer := wx.NewBoxSizer(int(wx.HORIZONTAL) )
         frame.SetSizer(mainSizer)
         
-        textCtrl := wx.NewTextCtrl(frame, int(wx.ID_ANY), "", wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE)
+        notebook := wx.NewNotebook( frame, int(wx.ID_ANY), wx.DefaultPosition, wx.DefaultSize, 0 )
+        
+        mainSizer.Add(notebook, 1, int(wx.EXPAND), 5)
+        
+        panel := wx.NewPanel(notebook, int(wx.ID_ANY), wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL)
+
+	textCtrl := wx.NewTextCtrl(panel, int(wx.ID_ANY), "", wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE)
         textCtrl.SetMinSize(wx.NewSize(600, 400))
-        mainSizer.Add(textCtrl, 1, int(wx.EXPAND), 5)
+
+		bSizer := wx.NewBoxSizer(int(wx.VERTICAL))
+        bSizer.Add(textCtrl, 1, int(wx.EXPAND), 5)
+
+		panel.SetSizer(bSizer)
+		panel.Layout()
+		bSizer.Fit(panel)
+		notebook.AddPage(panel, "This is a page", true)
+		textCtrl.SetFocus()
         
         frame.Layout()
 		mainSizer.Fit(frame)

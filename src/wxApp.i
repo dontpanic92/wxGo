@@ -1,6 +1,5 @@
 %rename(App) wxGoApp;
 %{
-	#include "wx/wx.h"
 	#include "wx/display.h"
 	
 	class wxGoApp : public wxApp{

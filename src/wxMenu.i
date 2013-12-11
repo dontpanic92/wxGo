@@ -1,5 +1,4 @@
 %{
-	#include "wx/wx.h"
 	#include "wx/menu.h"
 %}
 
