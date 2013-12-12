@@ -2,62 +2,76 @@ package main
 
 import "../lib/wx"
 
-func evtMenu(wx.Event){
-		s := wx.NewString("Welcome to wxWidgets!\nString test|测试|測試|試験|테스트")
-		str := s.Utf8_str()
-		wx.MessageBox(str);
+type myframe struct {
+	frame wx.Frame
+	statusbar wx.StatusBar
+	menubar wx.MenuBar
+	notebook wx.Notebook
 }
 
-func InitFrame(){
-        frame := wx.NewFrame()
-        str := "GoLang wxWidgets Wrapper"
-        frame.Create(wx.NullWindow, -1, str)
-        
-        statusbar := frame.CreateStatusBar()
-        statusbar.SetStatusText("Welcome to wxWidgets")
-        
-        statusbar.SetFieldsCount(2)
-        statusbar.SetStatusText("This is a statusbar!", 1)
-        
-        menubar := wx.NewMenuBar()
-        menuFile := wx.NewMenu()
-        menuItemNew := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "Hello", "Create New File", wx.ITEM_NORMAL)
-        menuFile.Append(menuItemNew)
-        menubar.Append(menuFile, "File")
-        frame.SetMenuBar(menubar)
 
-        mainSizer := wx.NewBoxSizer(int(wx.HORIZONTAL) )
-        frame.SetSizer(mainSizer)
-        
-        notebook := wx.NewNotebook( frame, int(wx.ID_ANY), wx.DefaultPosition, wx.DefaultSize, 0 )
-        
-        mainSizer.Add(notebook, 1, int(wx.EXPAND), 5)
-        
-        panel := wx.NewPanel(notebook, int(wx.ID_ANY), wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL)
+func (f *myframe)evtFont(wx.Event){
+	fontdlg := wx.NewFontDialog(f.frame)
+	fontdlg.ShowModal()
+	font := fontdlg.GetFontData().GetChosenFont()
+	f.notebook.GetCurrentPage().SetFont(font)
+	fontdlg.Destroy()
+}
 
-	textCtrl := wx.NewTextCtrl(panel, int(wx.ID_ANY), "", wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE)
-        textCtrl.SetMinSize(wx.NewSize(600, 400))
+func (f *myframe)evtAbout(wx.Event){		
+	wx.MessageBox("Welcome to wxWidgets!\nString test|测试|測試|試験|테스트")
+}
 
-		bSizer := wx.NewBoxSizer(int(wx.VERTICAL))
-        bSizer.Add(textCtrl, 1, int(wx.EXPAND), 5)
+func (f *myframe)InitFrame(){
+    f.frame = wx.NewFrame()
+    f.frame.Create(wx.NullWindow, -1, "GoLang wxWidgets Wrapper")
+        
+    f.statusbar = f.frame.CreateStatusBar()
+    f.statusbar.SetStatusText("Welcome to wxWidgets")
+        
+    f.statusbar.SetFieldsCount(2)
+    f.statusbar.SetStatusText("This is a statusbar!", 1)
+        
+    f.menubar = wx.NewMenuBar()
+    menuFile := wx.NewMenu()
+    
+    menuItemFont := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "Font...", "Select A Font", wx.ITEM_NORMAL)
+    menuFile.Append(menuItemFont)
+    menuItemAbout := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "About", "About", wx.ITEM_NORMAL)
+    menuFile.Append(menuItemAbout)
+    
+    f.menubar.Append(menuFile, "File")
+    f.frame.SetMenuBar(f.menubar)
 
-		panel.SetSizer(bSizer)
-		panel.Layout()
-		bSizer.Fit(panel)
-		notebook.AddPage(panel, "This is a page", true)
-		textCtrl.SetFocus()
+    mainSizer := wx.NewBoxSizer(int(wx.HORIZONTAL) )
+    f.frame.SetSizer(mainSizer)
         
-        frame.Layout()
-		mainSizer.Fit(frame)
-        wx.Bind( frame, wx.EVT_MENU, evtMenu, menuItemNew.GetId() )
-        //wx.Unbind( frame, wx.EVT_MENU, evtMenu, menuItemNew.GetId() )
+    f.notebook = wx.NewNotebook( f.frame, int(wx.ID_ANY), wx.DefaultPosition, wx.DefaultSize, 0 )
         
-        frame.Show()
+    mainSizer.Add(f.notebook, 1, int(wx.EXPAND), 5)
+        
+    
+
+	textCtrl := wx.NewTextCtrl(f.notebook, int(wx.ID_ANY), "", wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE)
+    textCtrl.SetMinSize(wx.NewSize(600, 400))
+
+	f.notebook.AddPage(textCtrl, "This is a page", true)
+	textCtrl.SetFocus()
+        
+    f.frame.Layout()
+	mainSizer.Fit(f.frame)
+    wx.Bind( f.frame, wx.EVT_MENU, f.evtFont, menuItemFont.GetId() )
+    wx.Bind( f.frame, wx.EVT_MENU, f.evtAbout, menuItemAbout.GetId() )
+    //wx.Unbind( f.frame, wx.EVT_MENU, f.evtFont, menuItemFont.GetId() )
+    //wx.Unbind( f.frame, wx.EVT_MENU, f.evtAbout, menuItemAbout.GetId() )
+    
+    
+    f.frame.Show()
 }
 
 func main(){
-        wx1 := wx.NewApp()
-        InitFrame();
-        wx1.MainLoop()
-        
+    wx1 := wx.NewApp()
+    var f myframe
+    f.InitFrame()
+    wx1.MainLoop()
 }

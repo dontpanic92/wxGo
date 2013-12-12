@@ -26,6 +26,7 @@
 %include gdicmn.i
 %include wxColour.i
 %include wxFont.i
+%include wxFontDlg.i
 %include wxTextCtrl.i
 %include wxPanel.i
 %include wxNoteBook.i
