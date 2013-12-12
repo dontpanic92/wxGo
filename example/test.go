@@ -1,6 +1,6 @@
 package main
 
-import "./wx"
+import "../lib/wx"
 
 func evtMenu(wx.Event){
 		s := wx.NewString("Welcome to wxWidgets!\nString test|测试|測試|試験|테스트")

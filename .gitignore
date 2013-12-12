@@ -3,7 +3,7 @@
 *.a
 *.so
 *.6
-6.out
+*.out
 
 
 # Folders
@@ -12,13 +12,7 @@ _test
 wxWidgets/wxWidgets-3.0.0/*
 !wxWidgets/wxWidgets-3.0.0/WX_SOURCE_ROOT
 
-swig_wrap_output/*
-!swig_wrap_output/gcccit.sh
-!swig_wrap_output/make_shared_lib.sh
-
-swig_lib_output/*
-!swig_lib_output/make_static_lib.sh
-!swig_lib_output/go_helper.go
+build/out
 
 
 # Architecture specific extensions/prefixes
@@ -35,5 +29,3 @@ _testmain.go
 
 *.exe
 
-*.6
-6.out
