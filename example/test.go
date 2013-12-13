@@ -9,12 +9,22 @@ type myframe struct {
 	notebook wx.Notebook
 }
 
+func (f *myframe)evtColour(wx.Event){
+	colourdlg := wx.NewColourDialog(f.frame)
+	if colourdlg.ShowModal() == int(wx.ID_OK){
+		colour := colourdlg.GetColourData().GetColour()
+		f.notebook.GetCurrentPage().SetForegroundColour(colour)
+	}
+	colourdlg.Destroy()	
+}
+
 
 func (f *myframe)evtFont(wx.Event){
 	fontdlg := wx.NewFontDialog(f.frame)
-	fontdlg.ShowModal()
-	font := fontdlg.GetFontData().GetChosenFont()
-	f.notebook.GetCurrentPage().SetFont(font)
+	if fontdlg.ShowModal() == int(wx.ID_OK){
+		font := fontdlg.GetFontData().GetChosenFont()
+		f.notebook.GetCurrentPage().SetFont(font)
+	}
 	fontdlg.Destroy()
 }
 
@@ -37,6 +47,8 @@ func (f *myframe)InitFrame(){
     
     menuItemFont := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "Font...", "Select A Font", wx.ITEM_NORMAL)
     menuFile.Append(menuItemFont)
+    menuItemColour := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "Colour...", "Select A Colour", wx.ITEM_NORMAL)
+    menuFile.Append(menuItemColour)
     menuItemAbout := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "About", "About", wx.ITEM_NORMAL)
     menuFile.Append(menuItemAbout)
     
@@ -54,6 +66,7 @@ func (f *myframe)InitFrame(){
 
 	textCtrl := wx.NewTextCtrl(f.notebook, int(wx.ID_ANY), "", wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE)
     textCtrl.SetMinSize(wx.NewSize(600, 400))
+	//textCtrl.SetDefaultStyle(wx.NewTextAttr(wx.RED))
 
 	f.notebook.AddPage(textCtrl, "This is a page", true)
 	textCtrl.SetFocus()
@@ -61,6 +74,7 @@ func (f *myframe)InitFrame(){
     f.frame.Layout()
 	mainSizer.Fit(f.frame)
     wx.Bind( f.frame, wx.EVT_MENU, f.evtFont, menuItemFont.GetId() )
+    wx.Bind( f.frame, wx.EVT_MENU, f.evtColour, menuItemColour.GetId() )
     wx.Bind( f.frame, wx.EVT_MENU, f.evtAbout, menuItemAbout.GetId() )
     //wx.Unbind( f.frame, wx.EVT_MENU, f.evtFont, menuItemFont.GetId() )
     //wx.Unbind( f.frame, wx.EVT_MENU, f.evtAbout, menuItemAbout.GetId() )
