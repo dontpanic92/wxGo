@@ -1,6 +1,8 @@
 %import "wxGdiobj.i"
 %include "wxGoInterface/font.h"
 
+WXGO_DECL_TYPECONV(Font)
+
 %inline {
 	const wxFont* GetNORMAL_FONT(){
 		return wxNORMAL_FONT;

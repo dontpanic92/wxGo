@@ -2,6 +2,7 @@ package main
 
 import "../lib/wx"
 
+//Frame Struct def
 type myframe struct {
 	frame wx.Frame
 	statusbar wx.StatusBar
@@ -9,6 +10,8 @@ type myframe struct {
 	notebook wx.Notebook
 }
 
+
+//Menu Event Functions def
 func (f *myframe)evtColour(wx.Event){
 	colourdlg := wx.NewColourDialog(f.frame)
 	if colourdlg.ShowModal() == int(wx.ID_OK){
@@ -28,10 +31,16 @@ func (f *myframe)evtFont(wx.Event){
 	fontdlg.Destroy()
 }
 
+func (f *myframe)evtOpenFile(wx.Event){
+	wx.ToTextCtrl(f.notebook.GetCurrentPage()).LoadFile(wx.LoadFileSelector("Text", "*"))
+}
+
 func (f *myframe)evtAbout(wx.Event){		
 	wx.MessageBox("Welcome to wxWidgets!\nString test|测试|測試|試験|테스트")
 }
 
+
+//Frame Init def
 func (f *myframe)InitFrame(){
     f.frame = wx.NewFrame()
     f.frame.Create(wx.NullWindow, -1, "GoLang wxWidgets Wrapper")
@@ -45,10 +54,12 @@ func (f *myframe)InitFrame(){
     f.menubar = wx.NewMenuBar()
     menuFile := wx.NewMenu()
     
-    menuItemFont := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "Font...", "Select A Font", wx.ITEM_NORMAL)
+    menuItemFont := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "Font...", "Select a Font", wx.ITEM_NORMAL)
     menuFile.Append(menuItemFont)
-    menuItemColour := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "Colour...", "Select A Colour", wx.ITEM_NORMAL)
+    menuItemColour := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "Colour...", "Select a Colour", wx.ITEM_NORMAL)
     menuFile.Append(menuItemColour)
+    menuItemOpenFile := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "Open...", "Open a File", wx.ITEM_NORMAL)
+    menuFile.Append(menuItemOpenFile)
     menuItemAbout := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "About", "About", wx.ITEM_NORMAL)
     menuFile.Append(menuItemAbout)
     
@@ -73,16 +84,20 @@ func (f *myframe)InitFrame(){
         
     f.frame.Layout()
 	mainSizer.Fit(f.frame)
+	
     wx.Bind( f.frame, wx.EVT_MENU, f.evtFont, menuItemFont.GetId() )
     wx.Bind( f.frame, wx.EVT_MENU, f.evtColour, menuItemColour.GetId() )
+    wx.Bind( f.frame, wx.EVT_MENU, f.evtOpenFile, menuItemOpenFile.GetId() )
     wx.Bind( f.frame, wx.EVT_MENU, f.evtAbout, menuItemAbout.GetId() )
-    //wx.Unbind( f.frame, wx.EVT_MENU, f.evtFont, menuItemFont.GetId() )
+
     //wx.Unbind( f.frame, wx.EVT_MENU, f.evtAbout, menuItemAbout.GetId() )
     
     
     f.frame.Show()
 }
 
+
+//Main Function
 func main(){
     wx1 := wx.NewApp()
     var f myframe

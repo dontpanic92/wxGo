@@ -10,6 +10,8 @@
 %import typemap.i
 
 %include typedef.i
+%include define.i
+
 
 %include wxObject.i
 %include wxApp.i
@@ -28,6 +30,7 @@
 %include wxColourDlg.i
 %include wxFont.i
 %include wxFontDlg.i
+%include wxFileDlg.i
 %include wxTextCtrl.i
 %include wxPanel.i
 %include wxNoteBook.i
