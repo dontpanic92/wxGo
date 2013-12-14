@@ -37,6 +37,12 @@ func (f *myframe)evtOpenFile(wx.Event){
 
 func (f *myframe)evtAbout(wx.Event){		
 	wx.MessageBox("Welcome to wxWidgets!\nString test|测试|測試|試験|테스트")
+	aboutinfo := wx.NewAboutDialogInfo()
+	aboutinfo.SetName("wxGo Example")
+	aboutinfo.AddDeveloper("wxGo Developers")
+	aboutinfo.SetWebSite("http://github.com/acehypocrisy/wxGo")
+	aboutinfo.SetVersion("0.1")
+	wx.AboutBox(aboutinfo)
 }
 
 

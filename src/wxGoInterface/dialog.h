@@ -63,6 +63,7 @@ public:
     virtual int ShowModal();
     void ShowWindowModal();
 };
+
 class wxDialogLayoutAdapter
 {
 public:
@@ -70,6 +71,7 @@ public:
     virtual bool CanDoLayoutAdaptation(wxDialog* dialog) = 0;
     virtual bool DoLayoutAdaptation(wxDialog* dialog) = 0;
 };
+
 class wxWindowModalDialogEvent  : public wxCommandEvent
 {
 public:

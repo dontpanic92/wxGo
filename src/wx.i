@@ -31,6 +31,7 @@
 %include wxFont.i
 %include wxFontDlg.i
 %include wxFileDlg.i
+%include wxAboutDlg.i
 %include wxTextCtrl.i
 %include wxPanel.i
 %include wxNoteBook.i

@@ -1,385 +1,155 @@
-%nodefaultctor wxMenuItemBase;
-class wxMenuItemBase : public wxObject
+class wxMenuBar : public wxWindow
 {
 public:
-    static wxMenuItem *New(wxMenu *parentMenu = NULL,
-                           int itemid = wxID_SEPARATOR,
-                           const wxString& text = wxEmptyString,
-                           const wxString& help = wxEmptyString,
-                           wxItemKind kind = wxITEM_NORMAL,
-                           wxMenu *subMenu = NULL);
-
-    virtual ~wxMenuItemBase();
-
-    wxMenu *GetMenu() const { return m_parentMenu; }
-    void SetMenu(wxMenu* menu) { m_parentMenu = menu; }
-
-    void SetId(int itemid) { m_id = itemid; }
-    int  GetId() const { return m_id; }
-
-    virtual void SetItemLabel(const wxString& str);	
-
-
-    virtual wxString GetItemLabel() const;
-    virtual wxString GetItemLabelText() const ;
-    static wxString GetLabelText(const wxString& label);
-
-
-    wxItemKind GetKind() const { return m_kind; }
-    void SetKind(wxItemKind kind) { m_kind = kind; }
-    bool IsSeparator() const { return m_kind == wxITEM_SEPARATOR; }
-
-    bool IsCheck() const { return m_kind == wxITEM_CHECK; }
-    bool IsRadio() const { return m_kind == wxITEM_RADIO; }
-
-    virtual void SetCheckable(bool checkable);
-
-    bool IsCheckable() const;
-    bool IsSubMenu() const { return m_subMenu != NULL; }
-    void SetSubMenu(wxMenu *menu) { m_subMenu = menu; }
-    wxMenu *GetSubMenu() const { return m_subMenu; }
-
-
-    virtual void Enable(bool enable = true) { m_isEnabled = enable; }
-    virtual bool IsEnabled() const { return m_isEnabled; }
-
-    virtual void Check(bool check = true) { m_isChecked = check; }
-    virtual bool IsChecked() const { return m_isChecked; }
-    void Toggle() { Check(!m_isChecked); }
-
-    void SetHelp(const wxString& str);
-    const wxString& GetHelp() const { return m_help; }
-
-    static wxMenuItem *New(wxMenu *parentMenu,
-                           int itemid,
-                           const wxString& text,
-                           const wxString& help,
-                           bool isCheckable,
-                           wxMenu *subMenu = NULL);
-};
-
-
-class wxMenuItem : public wxMenuItemBase
-{
-public:
-    wxMenuItem(wxMenu *parentMenu = NULL,
-               int id = wxID_SEPARATOR,
-               const wxString& text = wxEmptyString,
-               const wxString& help = wxEmptyString,
-               wxItemKind kind = wxITEM_NORMAL,
-               wxMenu *subMenu = NULL);
-    virtual ~wxMenuItem();
-
-    virtual void SetItemLabel( const wxString& str );
-    virtual void Enable( bool enable = true );
-    virtual void Check( bool check = true );
-    virtual bool IsChecked() const;
-    virtual void SetBitmap(const wxBitmap& bitmap);
-    virtual const wxBitmap& GetBitmap() const { return m_bitmap; }
-
-    void SetMenuItem(GtkWidget *menuItem);
-    GtkWidget *GetMenuItem() const { return m_menuItem; }
-    void SetGtkLabel();
-};
-
-
-class wxMenuBase : public wxEvtHandler
-{
-public:
-
-    static wxMenu *New(const wxString& title = wxEmptyString, long style = 0);
-
-    wxMenuBase(const wxString& title, long style = 0);
-    wxMenuBase(long style = 0);
-
-    virtual ~wxMenuBase();
-
-    wxMenuItem* Append(int itemid,
-                       const wxString& text = wxEmptyString,
-                       const wxString& help = wxEmptyString,
-                       wxItemKind kind = wxITEM_NORMAL);
-                       
-    wxMenuItem* AppendSeparator();
-
-    wxMenuItem* AppendCheckItem(int itemid,
-                                const wxString& text,
-                                const wxString& help = wxEmptyString);
-
-    wxMenuItem* AppendRadioItem(int itemid,
-                                const wxString& text,
-                                const wxString& help = wxEmptyString);
-                                
-    wxMenuItem* AppendSubMenu(wxMenu *submenu,
-                              const wxString& text,
-                              const wxString& help = wxEmptyString);
-
-
-    wxMenuItem* Append(wxMenuItem *item) ;
-
-    virtual void Break();
-
-    wxMenuItem* Insert(size_t pos, wxMenuItem *item);
-
-    wxMenuItem* Insert(size_t pos,
-                       int itemid,
-                       const wxString& text = wxEmptyString,
-                       const wxString& help = wxEmptyString,
-                       wxItemKind kind = wxITEM_NORMAL);
-
-    wxMenuItem* InsertSeparator(size_t pos);
-
-    wxMenuItem* InsertCheckItem(size_t pos,
-                                int itemid,
-                                const wxString& text,
-                                const wxString& help = wxEmptyString);
-
-    wxMenuItem* InsertRadioItem(size_t pos,
-                                 int itemid,
-                                 const wxString& text,
-                                 const wxString& help = wxEmptyString);
-
-    wxMenuItem* Insert(size_t pos,
-                       int itemid,
-                       const wxString& text,
-                       wxMenu *submenu,
-                       const wxString& help = wxEmptyString);
-
-    wxMenuItem* Prepend(wxMenuItem *item);
-
-    wxMenuItem* Prepend(int itemid,
-                        const wxString& text = wxEmptyString,
-                        const wxString& help = wxEmptyString,
-                        wxItemKind kind = wxITEM_NORMAL);
-
-
-    wxMenuItem* PrependSeparator();
-
-
-    wxMenuItem* PrependCheckItem(int itemid,
-                                 const wxString& text,
-                                 const wxString& help = wxEmptyString);
-
-
-    wxMenuItem* PrependRadioItem(int itemid,
-                                 const wxString& text,
-                                 const wxString& help = wxEmptyString);
-
-
-    wxMenuItem* Prepend(int itemid,
-                        const wxString& text,
-                        wxMenu *submenu,
-                        const wxString& help = wxEmptyString);
-
-
-    wxMenuItem *Remove(int itemid);
-    wxMenuItem *Remove(wxMenuItem *item);
-
-
-    bool Delete(int itemid);
-    bool Delete(wxMenuItem *item);
-
-    bool Destroy(int itemid);
-    bool Destroy(wxMenuItem *item);
-
-
-    size_t GetMenuItemCount() const;
-
-    wxMenuItemList& GetMenuItems() ;
-
-    virtual int FindItem(const wxString& item) const;
-    wxMenuItem* FindItem(int itemid, wxMenu **menu = NULL) const;
-
-    wxMenuItem* FindItemByPosition(size_t position) const;
-
-    void Enable(int itemid, bool enable);
-    bool IsEnabled(int itemid) const;
-
-    void Check(int itemid, bool check);
-    bool IsChecked(int itemid) const;
-
-    void SetLabel(int itemid, const wxString& label);
-    wxString GetLabel(int itemid) const;
-
-    wxString GetLabelText(int itemid) const ;
-
-    virtual void SetHelpString(int itemid, const wxString& helpString);
-    virtual wxString GetHelpString(int itemid) const;
-
-
-    virtual void SetTitle(const wxString& title) { m_title = title; }
-    const wxString& GetTitle() const { return m_title; }
-
-
-    void SetEventHandler(wxEvtHandler *handler) { m_eventHandler = handler; }
-    wxEvtHandler *GetEventHandler() const { return m_eventHandler; }
-
-    void SetInvokingWindow(wxWindow *win);
-    wxWindow *GetInvokingWindow() const { return m_invokingWindow; }
-
-    wxWindow *GetWindow() const;
-
-    long GetStyle() const { return m_style; }
-
-    void UpdateUI(wxEvtHandler* source = NULL);
-
-    wxMenuBar *GetMenuBar() const;
-
-    virtual void Attach(wxMenuBarBase *menubar);
-    virtual void Detach();
-
-    bool IsAttached() const;
-
-    void SetParent(wxMenu *parent) ;
-    wxMenu *GetParent() const ;
-
-    wxMenuItem *FindChildItem(int itemid, size_t *pos = NULL) const;
-
-    bool SendEvent(int itemid, int checked = -1);
-
-    void Append(int itemid,
-                const wxString& text,
-                const wxString& help,
-                bool isCheckable);
-
-    wxMenuItem* Append(int itemid,
-                       const wxString& text,
-                       wxMenu *submenu,
-                       const wxString& help = wxEmptyString);
-
-    void Insert(size_t pos,
-                int itemid,
-                const wxString& text,
-                const wxString& help,
-                bool isCheckable);
-
-    void Prepend(int itemid,
-                 const wxString& text,
-                 const wxString& help,
-                 bool isCheckable);
-
-    static void LockAccels(bool locked);
-};
-
-
-class wxMenuBarBase : public wxWindow
-{
-public:
-    wxMenuBarBase();
-
-    virtual ~wxMenuBarBase();
-
-    virtual bool Append(wxMenu *menu, const wxString& title);
-
-    virtual bool Insert(size_t pos, wxMenu *menu, const wxString& title);
-
-
-    size_t GetMenuCount() const ;
-    wxMenu *GetMenu(size_t pos) const;
-
-    virtual wxMenu *Replace(size_t pos, wxMenu *menu, const wxString& title);
-
-    virtual wxMenu *Remove(size_t pos);
-
-    virtual void EnableTop(size_t pos, bool enable) = 0;
-
-    virtual bool IsEnabledTop(size_t pos) const ;
-    virtual void SetMenuLabel(size_t pos, const wxString& label);
-    virtual wxString GetMenuLabel(size_t pos) const;
-
-    virtual wxString GetMenuLabelText(size_t pos) const;
-    
-    virtual int FindMenuItem(const wxString& menu, const wxString& item) const;
-
-    virtual wxMenuItem* FindItem(int itemid, wxMenu **menu = NULL) const;
-
+    wxMenuBar(long style = 0);
+    wxMenuBar(size_t n, wxMenu* menus[], const wxString titles[],
+              long style = 0);
+    virtual ~wxMenuBar();
+    virtual bool Append(wxMenu* menu, const wxString& title);
+    void Check(int id, bool check);
+    void Enable(int id, bool enable);
+    bool IsEnabledTop(size_t pos) const;
+    virtual void EnableTop(size_t pos, bool enable);
+    virtual wxMenuItem* FindItem(int id, wxMenu** menu = NULL) const;
     int FindMenu(const wxString& title) const;
-
-    void Enable(int itemid, bool enable);
-    void Check(int itemid, bool check);
-    bool IsChecked(int itemid) const;
-    bool IsEnabled(int itemid) const;
-    virtual bool IsEnabled() const ;
-    
-    void SetLabel(int itemid, const wxString &label);
-    wxString GetLabel(int itemid) const;
-
-    void SetHelpString(int itemid, const wxString& helpString);
-    wxString GetHelpString(int itemid) const;
-
-
-    wxFrame *GetFrame() const;
-
-    bool IsAttached() const ;
-
-    virtual void Attach(wxFrame *frame);
-
-    virtual void Detach();
-
-    virtual bool Enable(bool enable = true);
-    virtual void SetLabel(const wxString& s);
-    virtual wxString GetLabel() const;
-
-    virtual bool AcceptsFocusFromKeyboard() const;
-
-    virtual void UpdateMenus();
-
-    virtual bool CanBeOutsideClientArea() const { return true; }
-};
-
-
-class wxMenuBar : public wxMenuBarBase
-{
-public:
-    wxMenuBar();
-    wxMenuBar(long style);
-    wxMenuBar(size_t n, wxMenu *menus[], const wxString titles[], long style = 0);
-    ~wxMenuBar();
-
-    virtual bool Append( wxMenu *menu, const wxString &title );
-    virtual bool Insert(size_t pos, wxMenu *menu, const wxString& title);
-    virtual wxMenu *Replace(size_t pos, wxMenu *menu, const wxString& title);
-    virtual wxMenu *Remove(size_t pos);
-
     virtual int FindMenuItem(const wxString& menuString,
                              const wxString& itemString) const;
-    virtual wxMenuItem* FindItem( int id, wxMenu **menu = NULL ) const;
-
-    virtual void EnableTop( size_t pos, bool flag );
-    virtual bool IsEnabledTop(size_t pos) const;
-    virtual void SetMenuLabel( size_t pos, const wxString& label );
-    virtual wxString GetMenuLabel( size_t pos ) const;
-
-    void SetLayoutDirection(wxLayoutDirection dir);
-    wxLayoutDirection GetLayoutDirection() const;
-
+    wxString GetHelpString(int id) const;
+    wxString GetLabel(int id) const;
+    wxMenu* GetMenu(size_t menuIndex) const;
+    size_t GetMenuCount() const;
+    virtual wxString GetMenuLabel(size_t pos) const;
+    virtual wxString GetMenuLabelText(size_t pos) const;
+    virtual bool Insert(size_t pos, wxMenu* menu, const wxString& title);
+    bool IsChecked(int id) const;
+    bool IsEnabled(int id) const;
+    virtual void Refresh(bool eraseBackground = true, const wxRect* rect = NULL);
+    virtual wxMenu* Remove(size_t pos);
+    virtual wxMenu* Replace(size_t pos, wxMenu* menu, const wxString& title);
+    void SetHelpString(int id, const wxString& helpString);
+    void SetLabel(int id, const wxString& label);
+    virtual void SetMenuLabel(size_t pos, const wxString& label);
+    //static void MacSetCommonMenuBar(wxMenuBar* menubar);
+    //static wxMenuBar* MacGetCommonMenuBar();
+    wxFrame *GetFrame() const;
+    bool IsAttached() const;
     virtual void Attach(wxFrame *frame);
     virtual void Detach();
-
 };
-
-class wxMenu : public wxMenuBase
+class wxMenu : public wxEvtHandler
 {
 public:
-    wxMenu(const wxString& title, long style = 0)
-        : wxMenuBase(title, style) { Init(); }
-
-    wxMenu(long style = 0) : wxMenuBase(style);
-
+    wxMenu();
+    wxMenu(long style);
+    wxMenu(const wxString& title, long style = 0);
     virtual ~wxMenu();
-
-    void Attach(wxMenuBarBase *menubar);
-
-    void SetLayoutDirection(const wxLayoutDirection dir);
-    wxLayoutDirection GetLayoutDirection() const;
-
+    wxMenuItem* Append(int id, const wxString& item = wxEmptyString,
+                       const wxString& helpString = wxEmptyString,
+                       wxItemKind kind = wxITEM_NORMAL);
+    wxMenuItem* Append(int id, const wxString& item, wxMenu* subMenu,
+                       const wxString& helpString = wxEmptyString);
+    wxMenuItem* Append(wxMenuItem* menuItem);
+    wxMenuItem* AppendCheckItem(int id, const wxString& item,
+                                const wxString& help = wxEmptyString);
+    wxMenuItem* AppendRadioItem(int id, const wxString& item,
+                                const wxString& help = wxEmptyString);
+    wxMenuItem* AppendSeparator();
+    wxMenuItem* AppendSubMenu(wxMenu* submenu, const wxString& text,
+                              const wxString& help = wxEmptyString);
+    virtual void Break();
+    void Check(int id, bool check);
+    bool Delete(int id);
+    bool Delete(wxMenuItem* item);
+    bool Destroy(int id);
+    bool Destroy(wxMenuItem* item);
+    void Enable(int id, bool enable);
+    wxMenuItem *FindChildItem(int id, size_t *pos = NULL) const;
+    virtual int FindItem(const wxString& itemString) const;
+    wxMenuItem* FindItem(int id, wxMenu** menu = NULL) const;
+    wxMenuItem* FindItemByPosition(size_t position) const;
+    virtual wxString GetHelpString(int id) const;
+    wxString GetLabel(int id) const;
+    wxString GetLabelText(int id) const;
+    size_t GetMenuItemCount() const;
+    const wxMenuItemList& GetMenuItems() const;
     wxString GetTitle() const;
-
+    wxMenuItem* Insert(size_t pos, wxMenuItem* menuItem);
+    wxMenuItem* Insert(size_t pos, int id,
+                       const wxString& item = wxEmptyString,
+                       const wxString& helpString = wxEmptyString,
+                       wxItemKind kind = wxITEM_NORMAL);
+    wxMenuItem* InsertCheckItem(size_t pos, int id, const wxString& item,
+                                const wxString& helpString = wxEmptyString);
+    wxMenuItem* InsertRadioItem(size_t pos, int id, const wxString& item,
+                                const wxString& helpString = wxEmptyString);
+    wxMenuItem* InsertSeparator(size_t pos);
+    bool IsChecked(int id) const;
+    bool IsEnabled(int id) const;
+    wxMenuItem* Prepend(wxMenuItem* item);
+    wxMenuItem* Prepend(int id, const wxString& item = wxEmptyString,
+                        const wxString& helpString = wxEmptyString,
+                        wxItemKind kind = wxITEM_NORMAL);
+    wxMenuItem* PrependCheckItem(int id, const wxString& item,
+                                 const wxString& helpString = wxEmptyString);
+    wxMenuItem* PrependRadioItem(int id, const wxString& item,
+                                 const wxString& helpString = wxEmptyString);
+    wxMenuItem* PrependSeparator();
+    wxMenuItem* Remove(int id);
+    wxMenuItem* Remove(wxMenuItem* item);
+    virtual void SetHelpString(int id, const wxString& helpString);
+    void SetLabel(int id, const wxString& label);
     virtual void SetTitle(const wxString& title);
-
-
-    GtkWidget       *m_menu;
-    GtkWidget       *m_owner;
-    GtkAccelGroup   *m_accel;
-    bool m_popupShown;
+    void UpdateUI(wxEvtHandler* source = NULL);
+    void SetInvokingWindow(wxWindow *win);
+    wxWindow *GetInvokingWindow() const;
+    wxWindow *GetWindow() const;
+    long GetStyle() const;
+    void SetParent(wxMenu *parent);
+    wxMenu *GetParent() const;
+    virtual void Attach(wxMenuBar *menubar);
+    virtual void Detach();
+    bool IsAttached() const;
 };
-
+class wxMenuItem : public wxObject
+{
+public:
+    wxMenuItem(wxMenu* parentMenu = NULL, int id = wxID_SEPARATOR,
+               const wxString& text = wxEmptyString,
+               const wxString& helpString = wxEmptyString,
+               wxItemKind kind = wxITEM_NORMAL,
+               wxMenu* subMenu = NULL);
+    virtual ~wxMenuItem();
+    virtual void Check(bool check = true);
+    virtual void Enable(bool enable = true);
+    static wxString GetLabelText(const wxString& text);
+    //wxColour& GetBackgroundColour() const;
+    //virtual const wxBitmap& GetBitmap() const;
+    //wxFont& GetFont() const;
+    const wxString& GetHelp() const;
+    int GetId() const;
+    virtual wxString GetItemLabel() const;
+    virtual wxString GetItemLabelText() const;
+    wxItemKind GetKind() const;
+    wxMenu* GetMenu() const;
+    wxMenu* GetSubMenu() const;
+    //wxColour& GetTextColour() const;
+    bool IsCheck() const;
+    bool IsCheckable() const;
+    virtual bool IsChecked() const;
+    virtual bool IsEnabled() const;
+    bool IsRadio() const;
+    bool IsSeparator() const;
+    bool IsSubMenu() const;
+    //void SetBackgroundColour(const wxColour& colour);
+    //virtual void SetBitmap(const wxBitmap& bmp, bool checked = true);
+    //void SetBitmaps(const wxBitmap& checked,
+    //                const wxBitmap& unchecked = wxNullBitmap);
+    //void SetFont(const wxFont& font);
+    void SetHelp(const wxString& helpString);
+    virtual void SetItemLabel(const wxString& label);
+    //void SetMarginWidth(int width);
+    void SetMenu(wxMenu* menu);
+    void SetSubMenu(wxMenu* menu);
+    //virtual void SetText(const wxString& text);
+    //void SetTextColour(const wxColour& colour);
+};
