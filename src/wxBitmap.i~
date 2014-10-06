@@ -1,6 +1,0 @@
-
-%{
-	#include "wx/bitmap.h"
-%}
-
-%include "wxGoInterface/taskbar.h"
