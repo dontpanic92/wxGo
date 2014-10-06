@@ -35,3 +35,8 @@
 %include wxTextCtrl.i
 %include wxPanel.i
 %include wxNoteBook.i
+%include wxAnyButton.i
+%include wxButton.i
+%include wxTaskBar.i
+%include wxToolBar.i
+%include wxBitmap.i

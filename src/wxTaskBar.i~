@@ -1,0 +1,6 @@
+
+%{
+	#include "wx/taskbar.h"
+%}
+
+%include "wxGoInterface/statusbr.h"

@@ -6,8 +6,11 @@ import "../lib/wx"
 type myframe struct {
 	frame wx.Frame
 	statusbar wx.StatusBar
+	toolbar wx.ToolBar
 	menubar wx.MenuBar
 	notebook wx.Notebook
+	
+	
 }
 
 
@@ -40,7 +43,7 @@ func (f *myframe)evtAbout(wx.Event){
 	aboutinfo := wx.NewAboutDialogInfo()
 	aboutinfo.SetName("wxGo Example")
 	aboutinfo.AddDeveloper("wxGo Developers")
-	aboutinfo.SetWebSite("http://github.com/acehypocrisy/wxGo")
+	aboutinfo.SetWebSite("http://github.com/dontpanic92/wxGo")
 	aboutinfo.SetVersion("0.1")
 	wx.AboutBox(aboutinfo)
 }
@@ -71,6 +74,14 @@ func (f *myframe)InitFrame(){
     
     f.menubar.Append(menuFile, "File")
     f.frame.SetMenuBar(f.menubar)
+
+
+    f.toolbar = f.frame.CreateToolBar( wx.TB_HORIZONTAL, int(wx.ID_ANY) ) 
+    f.toolbar.AddTool( int(wx.ID_ANY), "tool", wx.GetNullBitmap()) 
+    f.toolbar.AddSeparator()
+    f.toolbar.AddTool( int(wx.ID_ANY), "tool", wx.GetNullBitmap()) 
+    f.toolbar.Realize()
+
 
     mainSizer := wx.NewBoxSizer(int(wx.HORIZONTAL) )
     f.frame.SetSizer(mainSizer)
