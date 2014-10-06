@@ -1,52 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>wxGo by acehypocrisy</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="wxGo : Golang wxWidgets Wrapper">
 
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>wxGo</title>
   </head>
+
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/acehypocrisy/wxGo">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/acehypocrisy/wxGo/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/acehypocrisy/wxGo/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
 
-    <div class="wrapper">
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/dontpanic92/wxGo">View on GitHub</a>
 
-      <section>
-        <div id="title">
-          <h1>wxGo</h1>
-          <p>Golang wxWidgets Wrapper</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/acehypocrisy">acehypocrisy</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
-        </div>
+          <h1 id="project_title">wxGo</h1>
+          <h2 id="project_tagline">Golang wxWidgets Wrapper</h2>
 
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/dontpanic92/wxGo/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/dontpanic92/wxGo/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h3>
 <a name="welcome-to-wxgo" class="anchor" href="#welcome-to-wxgo"><span class="octicon octicon-link"></span></a>Welcome to wxGo</h3>
 
 <p>wxGo is a Golang Wrapper for wxWidgets and now is under developing.</p>
 
 <h3>
+<a name="issues" class="anchor" href="#issues"><span class="octicon octicon-link"></span></a>Issues</h3>
+
+<p>Since GoLang only supports static-link currently, the size of the final executalble program grows larger as more classes are added into wxGo. Is GoLang really suitable for user applications?</p>
+
+<h3>
 <a name="screen-shot" class="anchor" href="#screen-shot"><span class="octicon octicon-link"></span></a>Screen Shot</h3>
 
-<p><img src="images/screenshot.jpg" alt="screenshot"></p>
+<p><img src="https://github.com/acehypocrisy/wxGo/blob/master/example/screenshot.jpg" alt="screenshot"></p>
 
 <h3>
 <a name="have-a-try" class="anchor" href="#have-a-try"><span class="octicon octicon-link"></span></a>Have a Try</h3>
@@ -66,7 +64,7 @@
 <li>
 <p>Compile wxGo</p>
 
-<p>Just switch to build/ and run <code>./make_lib_oneclick.sh</code>. Then it will generate the library file in lib/ and temporary files in build/out/ . <em>This script is just for amd64 architecture.</em> If you are using 32bit system, maybe you have to modify the script in <strong>at least</strong> one place: change <code>-intgosize 64</code> to <code>-intgosize 32</code>.</p>
+<p>Just switch to build/ and run <code>./make_lib_oneclick.sh</code> and it will generate the library file in lib/ and temporary files in build/out/ . <em>This script is just for amd64 architecture.</em> If you are using 32bit system, maybe you have to modify the script in <strong>at least</strong> one place: change <code>-intgosize 64</code> to <code>-intgosize 32</code>.</p>
 </li>
 <li>
 <p>How to Use</p>
@@ -78,9 +76,17 @@
 <li><p>Have Fun!</p></li>
 </ol>
       </section>
-
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">wxGo maintained by <a href="https://github.com/dontpanic92">dontpanic92</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
     
+
   </body>
 </html>
