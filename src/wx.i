@@ -40,3 +40,5 @@
 %include wxTaskBar.i
 %include wxToolBar.i
 %include wxBitmap.i
+%include wxStaticText.i
+
