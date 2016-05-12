@@ -41,4 +41,5 @@
 %include wxToolBar.i
 %include wxBitmap.i
 %include wxStaticText.i
-
+%include wxCtrlSub.i
+%include wxListBox.i

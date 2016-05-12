@@ -39,12 +39,12 @@ func (f *myframe)evtOpenFile(wx.Event){
 }
 
 func (f *myframe)evtAbout(wx.Event){		
-	wx.MessageBox("Welcome to wxWidgets!\nString test|测试|測試|試験|테스트")
+	wx.MessageBox(wx.NewString("Welcome to wxWidgets!\nString test|测试|測試|試験|테스트"))
 	aboutinfo := wx.NewAboutDialogInfo()
-	aboutinfo.SetName("wxGo Example")
-	aboutinfo.AddDeveloper("wxGo Developers")
-	aboutinfo.SetWebSite("http://github.com/dontpanic92/wxGo")
-	aboutinfo.SetVersion("0.1")
+	/*aboutinfo.SetName(wx.NewString("wxGo Example"))
+	aboutinfo.AddDeveloper(wx.NewString("wxGo Developers"))
+	aboutinfo.SetWebSite(wx.NewString("http://github.com/dontpanic92/wxGo"))
+	aboutinfo.SetVersion(wx.NewString("0.1"))*/
 	wx.AboutBox(aboutinfo)
 }
 
@@ -52,34 +52,34 @@ func (f *myframe)evtAbout(wx.Event){
 //Frame Init def
 func (f *myframe)InitFrame(){
     f.frame = wx.NewFrame()
-    f.frame.Create(wx.NullWindow, -1, "GoLang wxWidgets Wrapper")
+    f.frame.Create(wx.NullWindow, -1, wx.NewString("GoLang wxWidgets Wrapper"))
         
     f.statusbar = f.frame.CreateStatusBar()
-    f.statusbar.SetStatusText("Welcome to wxWidgets")
+    f.statusbar.SetStatusText(wx.NewString("Welcome to wxWidgets"))
         
     f.statusbar.SetFieldsCount(2)
-    f.statusbar.SetStatusText("This is a statusbar!", 1)
+    f.statusbar.SetStatusText(wx.NewString("This is a statusbar!"), 1)
         
     f.menubar = wx.NewMenuBar()
     menuFile := wx.NewMenu()
     
-    menuItemFont := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "Font...", "Select a Font", wx.ITEM_NORMAL)
+    /*menuItemFont := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "Font...", "Select a Font", wx.ITEM_NORMAL)
     menuFile.Append(menuItemFont)
     menuItemColour := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "Colour...", "Select a Colour", wx.ITEM_NORMAL)
     menuFile.Append(menuItemColour)
     menuItemOpenFile := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "Open...", "Open a File", wx.ITEM_NORMAL)
-    menuFile.Append(menuItemOpenFile)
-    menuItemAbout := wx.NewMenuItem(menuFile, int(wx.ID_ANY), "About", "About", wx.ITEM_NORMAL)
+    menuFile.Append(menuItemOpenFile)*/
+    menuItemAbout := wx.NewMenuItem(menuFile, int(wx.ID_ANY), wx.NewString("About"), wx.NewString("About"), wx.ITEM_NORMAL)
     menuFile.Append(menuItemAbout)
     
-    f.menubar.Append(menuFile, "File")
+    f.menubar.Append(menuFile, wx.NewString("File"))
     f.frame.SetMenuBar(f.menubar)
 
 
     f.toolbar = f.frame.CreateToolBar( wx.TB_HORIZONTAL, int(wx.ID_ANY) ) 
-    f.toolbar.AddTool( int(wx.ID_ANY), "tool", wx.GetNullBitmap()) 
+    //f.toolbar.AddTool( int(wx.ID_ANY), "tool", wx.GetNullBitmap()) 
     f.toolbar.AddSeparator()
-    f.toolbar.AddTool( int(wx.ID_ANY), "tool", wx.GetNullBitmap()) 
+    //f.toolbar.AddTool( int(wx.ID_ANY), "tool", wx.GetNullBitmap()) 
     f.toolbar.Realize()
 
 
@@ -92,19 +92,19 @@ func (f *myframe)InitFrame(){
         
     
 
-	textCtrl := wx.NewTextCtrl(f.notebook, int(wx.ID_ANY), "", wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE)
+	textCtrl := wx.NewTextCtrl(f.notebook, int(wx.ID_ANY), wx.NewString(""), wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE)
     textCtrl.SetMinSize(wx.NewSize(600, 400))
 	//textCtrl.SetDefaultStyle(wx.NewTextAttr(wx.RED))
 
-	f.notebook.AddPage(textCtrl, "This is a page", true)
+	f.notebook.AddPage(textCtrl, wx.NewString("This is a page"), true)
 	textCtrl.SetFocus()
         
     f.frame.Layout()
 	mainSizer.Fit(f.frame)
 	
-    wx.Bind( f.frame, wx.EVT_MENU, f.evtFont, menuItemFont.GetId() )
+    /*wx.Bind( f.frame, wx.EVT_MENU, f.evtFont, menuItemFont.GetId() )
     wx.Bind( f.frame, wx.EVT_MENU, f.evtColour, menuItemColour.GetId() )
-    wx.Bind( f.frame, wx.EVT_MENU, f.evtOpenFile, menuItemOpenFile.GetId() )
+    wx.Bind( f.frame, wx.EVT_MENU, f.evtOpenFile, menuItemOpenFile.GetId() )*/
     wx.Bind( f.frame, wx.EVT_MENU, f.evtAbout, menuItemAbout.GetId() )
 
     //wx.Unbind( f.frame, wx.EVT_MENU, f.evtAbout, menuItemAbout.GetId() )
@@ -113,11 +113,11 @@ func (f *myframe)InitFrame(){
     f.frame.Show()
 }
 
-
 //Main Function
 func main(){
     wx1 := wx.NewApp()
     var f myframe
     f.InitFrame()
     wx1.MainLoop()
+    return
 }

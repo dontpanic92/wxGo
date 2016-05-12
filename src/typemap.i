@@ -1,5 +1,5 @@
 
-//Still need testing
+/*Still need testing
 
 %typemap(gotype) string, wxString "string"
 %typemap(gotype) string, const wxString& "string"
@@ -16,6 +16,7 @@
 %typemap(out) wxString "$result = _swig_makegostring($1.utf8_str(), $1.length());"
 %typemap(out) const wxString& "$result = _swig_makegostring($1->utf8_str(), $1->length());"
 %typemap(varout) wxString "$result = _swig_makegostring($1->utf8_str(), $1->length());"
+*/
 
 %apply int { long };
 %apply unsigned int { unsigned long };

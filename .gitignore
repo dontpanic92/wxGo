@@ -9,8 +9,7 @@
 # Folders
 _obj
 _test
-wxWidgets/wxWidgets-3.0.0/*
-!wxWidgets/wxWidgets-3.0.0/WX_SOURCE_ROOT
+wxWidgets/*
 
 build/out
 lib/*
