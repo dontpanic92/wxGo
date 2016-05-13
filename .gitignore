@@ -9,10 +9,6 @@
 # Folders
 _obj
 _test
-wxWidgets/*
-
-build/out
-lib/*
 
 
 # Architecture specific extensions/prefixes
@@ -29,3 +25,20 @@ _testmain.go
 
 *.exe
 
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Fortran module files
+*.mod
+
+# Executables
+*.exe
+*.out
+*.app
