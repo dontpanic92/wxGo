@@ -1,23 +1,17 @@
 
-/*Still need testing
-
 %typemap(gotype) string, wxString "string"
 %typemap(gotype) string, const wxString& "string"
-%typemap(gotype) string, const wxString* "string"
 
-%typemap(in) wxString "$1 = wxString($input.p);"
+%typemap(in) wxString "$1 = wxString($input.p, wxConvUTF8);"
 
-%typemap(in) const wxString& "$1 = new wxString($input.p, wxConvUTF8);"
-%typemap(in) const wxString* "$1 = new wxString($input.p, wxConvUTF8);"
+%typemap(in) const wxString&
+%{
+  $*1_ltype $1_str($input.p, wxConvUTF8);
+  $1 = &$1_str;
+%}
 
-%typemap(freearg) wxString& "delete $1;"
-%typemap(freearg) wxString* "delete $1;"
+%typemap(out,fragment="AllocateString") wxString
+%{ $result = Swig_AllocateString($1.utf8_str(), $1.length()); %}
 
-%typemap(out) wxString "$result = _swig_makegostring($1.utf8_str(), $1.length());"
-%typemap(out) const wxString& "$result = _swig_makegostring($1->utf8_str(), $1->length());"
-%typemap(varout) wxString "$result = _swig_makegostring($1->utf8_str(), $1->length());"
-*/
-
-%apply int { long };
-%apply unsigned int { unsigned long };
-
+%typemap(out,fragment="AllocateString") const wxString&
+%{ $result = Swig_AllocateString($1->utf8_str(), $1->length()); %}
