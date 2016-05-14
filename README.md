@@ -19,6 +19,7 @@ Note
 - Exe file size will be ~40MB
 
 **About types**
+
 Golang is strongly typed, so there are some tips about types:
 
 - Anywhere a `long` type required by a function of wxWidgets, there should be a `int64` type in go
