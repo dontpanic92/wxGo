@@ -1,92 +1,93 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="wxGo : Golang wxWidgets Wrapper">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-    <title>wxGo</title>
+    <title>wxGo by dontpanic92</title>
   </head>
 
   <body>
+    <header>
+      <div class="inner">
+        <h1>wxGo</h1>
+        <h2>Golang wxWidgets Wrapper</h2>
+        <a href="https://github.com/dontpanic92/wxGo" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/dontpanic92/wxGo">View on GitHub</a>
-
-          <h1 id="project_title">wxGo</h1>
-          <h2 id="project_tagline">Golang wxWidgets Wrapper</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/dontpanic92/wxGo/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/dontpanic92/wxGo/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-wxgo" class="anchor" href="#welcome-to-wxgo"><span class="octicon octicon-link"></span></a>Welcome to wxGo</h3>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h3>
+<a id="welcome-to-wxgo" class="anchor" href="#welcome-to-wxgo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to wxGo</h3>
 
 <p>wxGo is a Golang Wrapper for wxWidgets and now is under developing.</p>
 
 <h3>
-<a name="issues" class="anchor" href="#issues"><span class="octicon octicon-link"></span></a>Issues</h3>
+<a id="screen-shot" class="anchor" href="#screen-shot" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Screen Shot</h3>
 
-<p>Since GoLang only supports static-link currently, the size of the final executalble program grows larger as more classes are added into wxGo. Is GoLang really suitable for user applications?</p>
+<p><img src="https://raw.githubusercontent.com/dontpanic92/wxGo/master/examples/screenshot.jpg" alt="screenshot"></p>
 
-<h3>
-<a name="screen-shot" class="anchor" href="#screen-shot"><span class="octicon octicon-link"></span></a>Screen Shot</h3>
+<h2>
+<a id="note" class="anchor" href="#note" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Note</h2>
 
-<p><img src="https://github.com/acehypocrisy/wxGo/blob/master/example/screenshot.jpg" alt="screenshot"></p>
+<ul>
+<li>Currently wxWidgets is statically linked into wxGo and for convenience (go build-able) a pre-compiled version of wxWidgets is used</li>
+<li>To use your customized version of wxWidgets, please modify <code>src/define.i</code> where the <code>CPPFLAGS</code> and <code>LDFALGS</code> are</li>
+<li>Only linux_amd64 supported and tested now</li>
+</ul>
 
-<h3>
-<a name="have-a-try" class="anchor" href="#have-a-try"><span class="octicon octicon-link"></span></a>Have a Try</h3>
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 
-<p>The project has only been built and tested on Linux_amd_64 currently.</p>
+<pre><code>go get github.com/dontpanic92/wxGo
+</code></pre>
 
-<ol>
-<li>
-<p>Compile wxWidgets</p>
+<p>You can add <code>-x</code> option to print each command it executes. Then</p>
 
-<p>You can compile wxWidgets using your favourite configuration option. However, if you want to build wxGo as shared library, you have to add <code>-fPIC</code> flag to cflags/cppflags/cxxflags. </p>
+<pre><code>import "github.com/dontpanic92/wxGo/wx"
+</code></pre>
 
-<blockquote>
-<p>When compiling wxGo, it will use the file <code>WX_SOURCE_ROOT/wx-config</code> (which is used to generate cxxflags and libflags for wxGo) and the files under<code>WX_SOURCE_ROOT/lib/</code> (which contains your generated wx-libs and the script that wx-config is linked to). So in fact these files are enough (but need to keep the directory structure).</p>
-</blockquote>
-</li>
-<li>
-<p>Compile wxGo</p>
+<p>and have fun!</p>
 
-<p>Just switch to build/ and run <code>./make_lib_oneclick.sh</code> and it will generate the library file in lib/ and temporary files in build/out/ . <em>This script is just for amd64 architecture.</em> If you are using 32bit system, maybe you have to modify the script in <strong>at least</strong> one place: change <code>-intgosize 64</code> to <code>-intgosize 32</code>.</p>
-</li>
-<li>
-<p>How to Use</p>
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
 
-<p>In your go file, add <code>import "./wx"</code>. The path depends on the place where <code>wx.a</code> is. <code>example/test.go</code> can be refered.</p>
+<p>Examples are in <code>examples</code> folder. <code>Dapeton</code> is a simple notepad, and <code>controls</code> is a dialog that contains several widgets.</p>
 
-<p>When compiling, please use <code>go tool 6g FileName.go</code> &amp; <code>go tool 6l FileName.6</code> to compile the code. Also, please make sure <code>wxgo.so</code> is in your system library path, or you can use <code>export LD_LIBRARY_PATH=WXGO_SO_PATH:$LD_LIBRARY_PATH</code> (replace WXGO_SO_PATH using your own path) to add lib path.</p>
-</li>
-<li><p>Have Fun!</p></li>
-</ol>
-      </section>
+<h2>
+<a id="issues" class="anchor" href="#issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Issues</h2>
+
+<p>The size of the final executalble program grows larger as more classes added into wxGo. Both examples are ~50MB large. You can use <code>strip</code> command to reduce the size, but it will remove the symbols.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/dontpanic92/wxGo/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/dontpanic92/wxGo/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/dontpanic92/wxGo"></a> is maintained by <a href="https://github.com/dontpanic92">dontpanic92</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">wxGo maintained by <a href="https://github.com/dontpanic92">dontpanic92</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
+  
   </body>
 </html>
