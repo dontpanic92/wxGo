@@ -7,7 +7,7 @@
 %}
 
 %include wxString.i
-%import typemap.i
+%include typemap.i
 
 %include typedef.i
 %include define.i
@@ -17,6 +17,7 @@
 %include wxApp.i
 %include wxEvent.i
 %include wxWindow.i
+%include wxCtrlSub.i
 %include wxControl.i
 %include wxTopLevelWindow.i
 %include wxFrame.i
@@ -41,5 +42,8 @@
 %include wxToolBar.i
 %include wxBitmap.i
 %include wxStaticText.i
-%include wxCtrlSub.i
 %include wxListBox.i
+%include wxSlider.i
+%include wxGauge.i
+
+%include wxAui.i

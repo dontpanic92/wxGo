@@ -1,42 +1,8 @@
-//FIXME:Only wxGTK Fully Supported
-
-#define wxNOT_FOUND       (-1)
-
-typedef int wxCoord;
-enum {  wxDefaultCoord = -1 };
-
-typedef signed char wxInt8;
-typedef unsigned char wxUint8;
-typedef wxUint8 wxByte;
-
-typedef signed short wxInt16;
-typedef unsigned short wxUint16;
-typedef wxUint16 wxWord;
-typedef wxUint16 wxChar16;
-
-typedef int wxInt32;
-typedef unsigned int wxUint32;
-typedef wxUint32 wxDword;
-typedef wxUint32 wxChar32;
-
-typedef ssize_t wxIntPtr;
-typedef size_t wxUIntPtr;
-
-typedef float wxFloat32;
-
-typedef double wxFloat64;
-
-typedef double wxDouble;
-
-
 enum wxGeometryCentre
 {
     wxCENTRE                  = 0x0001,
     wxCENTER                  = wxCENTRE
 };
-#define wxCENTER_FRAME          0x0000
-#define wxCENTRE_ON_SCREEN      0x0002
-#define wxCENTER_ON_SCREEN      wxCENTRE_ON_SCREEN
 enum wxOrientation
 {
     wxHORIZONTAL              = 0x0004,
@@ -103,8 +69,14 @@ enum wxBorder
     wxBORDER_THEME  = wxBORDER_DOUBLE,
     wxBORDER_MASK   = 0x1f200000
 };
-
-#define wxDEFAULT_CONTROL_BORDER    wxBORDER_SUNKEN
+#define wxSIZE_AUTO_WIDTH       0x0001
+#define wxSIZE_AUTO_HEIGHT      0x0002
+#define wxSIZE_AUTO             (wxSIZE_AUTO_WIDTH|wxSIZE_AUTO_HEIGHT)
+#define wxSIZE_USE_EXISTING     0x0000
+#define wxSIZE_ALLOW_MINUS_ONE  0x0004
+#define wxSIZE_NO_ADJUSTMENTS   0x0008
+#define wxSIZE_FORCE            0x0010
+#define wxSIZE_FORCE_EVENT      0x0020
 #define wxVSCROLL               0x80000000
 #define wxHSCROLL               0x40000000
 #define wxCAPTION               0x20000000
@@ -121,21 +93,19 @@ enum wxBorder
 #define wxTRANSPARENT_WINDOW    0x00100000
 #define wxTAB_TRAVERSAL         0x00080000
 #define wxWANTS_CHARS           0x00040000
-
+#ifdef __WXMOTIF__
+#define wxRETAINED              0x00020000
+#else
 #define wxRETAINED              0x00000000
-
+#endif
 #define wxBACKINGSTORE          wxRETAINED
 #define wxPOPUP_WINDOW          0x00020000
 #define wxFULL_REPAINT_ON_RESIZE 0x00010000
 #define wxNO_FULL_REPAINT_ON_RESIZE 0
-//#define wxWINDOW_STYLE_MASK     \
-    //(wxVSCROLL|wxHSCROLL|wxBORDER_MASK|wxALWAYS_SHOW_SB|wxCLIP_CHILDREN| \
-     //wxCLIP_SIBLINGS|wxTRANSPARENT_WINDOW|wxTAB_TRAVERSAL|wxWANTS_CHARS| \
-     //wxRETAINED|wxPOPUP_WINDOW|wxFULL_REPAINT_ON_RESIZE)
-%constant wxWINDOW_STYLE_MASK = (wxVSCROLL|wxHSCROLL|wxBORDER_MASK|wxALWAYS_SHOW_SB|wxCLIP_CHILDREN| \
+#define wxWINDOW_STYLE_MASK     \
+    (wxVSCROLL|wxHSCROLL|wxBORDER_MASK|wxALWAYS_SHOW_SB|wxCLIP_CHILDREN| \
      wxCLIP_SIBLINGS|wxTRANSPARENT_WINDOW|wxTAB_TRAVERSAL|wxWANTS_CHARS| \
-     wxRETAINED|wxPOPUP_WINDOW|wxFULL_REPAINT_ON_RESIZE);
-#define wxWS_EX_VALIDATE_RECURSIVELY    0x00000001
+     wxRETAINED|wxPOPUP_WINDOW|wxFULL_REPAINT_ON_RESIZE)
 #define wxWS_EX_BLOCK_EVENTS            0x00000002
 #define wxWS_EX_TRANSIENT               0x00000004
 #define wxWS_EX_THEMED_BACKGROUND       0x00000008
@@ -218,33 +188,21 @@ enum wxBorder
 #define wxSETUP                 0x00020000
 #define wxICON_NONE             0x00040000
 #define wxICON_AUTH_NEEDED      0x00080000
-//#define wxICON_MASK \
-//    (wxICON_EXCLAMATION|wxICON_HAND|wxICON_QUESTION|wxICON_INFORMATION|wxICON_NONE|wxICON_AUTH_NEEDED)
-%constant wxICON_MASK = (wxICON_EXCLAMATION|wxICON_HAND|wxICON_QUESTION|wxICON_INFORMATION|wxICON_NONE|wxICON_AUTH_NEEDED);
+#define wxICON_MASK \
+    (wxICON_EXCLAMATION|wxICON_HAND|wxICON_QUESTION|wxICON_INFORMATION|wxICON_NONE)
+#define wxNOT_FOUND       (-1)
 enum wxBackgroundStyle
 {
     wxBG_STYLE_ERASE,
     wxBG_STYLE_SYSTEM,
     wxBG_STYLE_PAINT,
-    wxBG_STYLE_TRANSPARENT,
     wxBG_STYLE_COLOUR,
-    wxBG_STYLE_CUSTOM = wxBG_STYLE_PAINT
-};
-enum wxKeyType
-{
-    wxKEY_NONE,
-    wxKEY_INTEGER,
-    wxKEY_STRING
+    wxBG_STYLE_TRANSPARENT,
 };
 enum wxStandardID
 {
-#if defined(__WXMSW__) || wxUSE_AUTOID_MANAGEMENT
-    wxID_AUTO_LOWEST = -32000,
-    wxID_AUTO_HIGHEST = -2000,
-#else
-    wxID_AUTO_LOWEST = -1000000,
-    wxID_AUTO_HIGHEST = -2000,
-#endif
+    wxID_AUTO_LOWEST,
+    wxID_AUTO_HIGHEST,
     wxID_NONE = -3,
     wxID_SEPARATOR = -2,
     wxID_ANY = -1,
@@ -376,11 +334,6 @@ enum wxStandardID
     wxID_MDI_WINDOW_PREV,
     wxID_MDI_WINDOW_NEXT,
     wxID_MDI_WINDOW_LAST = wxID_MDI_WINDOW_NEXT,
-    wxID_OSX_MENU_FIRST = 5250,
-    wxID_OSX_HIDE = wxID_OSX_MENU_FIRST,
-    wxID_OSX_HIDEOTHERS,
-    wxID_OSX_SHOWALL,
-    wxID_OSX_MENU_LAST = wxID_OSX_SHOWALL,
     wxID_FILEDLGG = 5900,
     wxID_FILECTRL = 5950,
     wxID_HIGHEST = 5999
@@ -393,12 +346,6 @@ enum wxItemKind
     wxITEM_RADIO,
     wxITEM_DROPDOWN,
     wxITEM_MAX
-};
-enum wxCheckBoxState
-{
-    wxCHK_UNCHECKED,
-    wxCHK_CHECKED,
-    wxCHK_UNDETERMINED 
 };
 enum wxHitTest
 {
@@ -418,70 +365,6 @@ enum wxHitTest
     wxHT_WINDOW_HORZ_SCROLLBAR,     
     wxHT_WINDOW_CORNER,             
     wxHT_MAX
-};
-#define wxSIZE_AUTO_WIDTH       0x0001
-#define wxSIZE_AUTO_HEIGHT      0x0002
-#define wxSIZE_AUTO             (wxSIZE_AUTO_WIDTH|wxSIZE_AUTO_HEIGHT)
-#define wxSIZE_USE_EXISTING     0x0000
-#define wxSIZE_ALLOW_MINUS_ONE  0x0004
-#define wxSIZE_NO_ADJUSTMENTS   0x0008
-#define wxSIZE_FORCE            0x0010
-#define wxSIZE_FORCE_EVENT      0x0020
-enum wxHatchStyle
-{
-    wxHATCHSTYLE_INVALID = -1,
-    wxHATCHSTYLE_FIRST = 111,
-    wxHATCHSTYLE_BDIAGONAL = wxHATCHSTYLE_FIRST,
-    wxHATCHSTYLE_CROSSDIAG,
-    wxHATCHSTYLE_FDIAGONAL,
-    wxHATCHSTYLE_CROSS,
-    wxHATCHSTYLE_HORIZONTAL,
-    wxHATCHSTYLE_VERTICAL,
-    wxHATCHSTYLE_LAST = wxHATCHSTYLE_VERTICAL
-};
-#if FUTURE_WXWIN_COMPATIBILITY_3_0
-enum wxDeprecatedGUIConstants
-{
-    wxDEFAULT    = 70,
-    wxDECORATIVE,
-    wxROMAN,
-    wxSCRIPT,
-    wxSWISS,
-    wxMODERN,
-    wxTELETYPE,  
-    wxVARIABLE   = 80,
-    wxFIXED,
-    wxNORMAL     = 90,
-    wxLIGHT,
-    wxBOLD,
-    wxITALIC,
-    wxSLANT,
-    wxSOLID      =   100,
-    wxDOT,
-    wxLONG_DASH,
-    wxSHORT_DASH,
-    wxDOT_DASH,
-    wxUSER_DASH,
-    wxTRANSPARENT,
-    wxSTIPPLE_MASK_OPAQUE, 
-    wxSTIPPLE_MASK,        
-    wxSTIPPLE =          110,
-    wxBDIAGONAL_HATCH = wxHATCHSTYLE_BDIAGONAL,
-    wxCROSSDIAG_HATCH = wxHATCHSTYLE_CROSSDIAG,
-    wxFDIAGONAL_HATCH = wxHATCHSTYLE_FDIAGONAL,
-    wxCROSS_HATCH = wxHATCHSTYLE_CROSS,
-    wxHORIZONTAL_HATCH = wxHATCHSTYLE_HORIZONTAL,
-    wxVERTICAL_HATCH = wxHATCHSTYLE_VERTICAL,
-    wxFIRST_HATCH = wxHATCHSTYLE_FIRST,
-    wxLAST_HATCH = wxHATCHSTYLE_LAST
-};
-#endif
-enum
-{
-    wxTOOL_TOP = 1,
-    wxTOOL_BOTTOM,
-    wxTOOL_LEFT,
-    wxTOOL_RIGHT
 };
 enum wxDataFormatId
 {
@@ -535,7 +418,7 @@ enum wxKeyCode
     WXK_CONTROL_X,
     WXK_CONTROL_Y,
     WXK_CONTROL_Z,
-    WXK_BACK    =    8, 
+    WXK_BACK    =    8,     
     WXK_TAB     =    9,
     WXK_RETURN  =    13,
     WXK_ESCAPE  =    27,
@@ -550,6 +433,7 @@ enum wxKeyCode
     WXK_SHIFT,
     WXK_ALT,
     WXK_CONTROL,
+    WXK_RAW_CONTROL,
     WXK_MENU,
     WXK_PAUSE,
     WXK_CAPITAL,
@@ -637,12 +521,7 @@ enum wxKeyCode
     WXK_WINDOWS_LEFT,
     WXK_WINDOWS_RIGHT,
     WXK_WINDOWS_MENU ,
-#ifdef __WXOSX__
-    WXK_RAW_CONTROL,
-#else
-    WXK_RAW_CONTROL = WXK_CONTROL,
-#endif
-    WXK_COMMAND = WXK_CONTROL,
+    WXK_COMMAND,
     WXK_SPECIAL1 = 193,
     WXK_SPECIAL2,
     WXK_SPECIAL3,
@@ -662,7 +541,24 @@ enum wxKeyCode
     WXK_SPECIAL17,
     WXK_SPECIAL18,
     WXK_SPECIAL19,
-    WXK_SPECIAL20
+    WXK_SPECIAL20,
+    WXK_BROWSER_BACK = 501,
+    WXK_BROWSER_FORWARD,
+    WXK_BROWSER_REFRESH,
+    WXK_BROWSER_STOP,
+    WXK_BROWSER_SEARCH,
+    WXK_BROWSER_FAVORITES,
+    WXK_BROWSER_HOME,
+    WXK_VOLUME_MUTE,
+    WXK_VOLUME_DOWN,
+    WXK_VOLUME_UP,
+    WXK_MEDIA_NEXT_TRACK,
+    WXK_MEDIA_PREV_TRACK,
+    WXK_MEDIA_STOP,
+    WXK_MEDIA_PLAY_PAUSE,
+    WXK_LAUNCH_MAIL,
+    WXK_LAUNCH_APP1,
+    WXK_LAUNCH_APP2
 };
 enum wxKeyModifier
 {
@@ -673,139 +569,133 @@ enum wxKeyModifier
     wxMOD_SHIFT     = 0x0004,
     wxMOD_META      = 0x0008,
     wxMOD_WIN       = wxMOD_META,
-#if defined(__WXMAC__) || defined(__WXCOCOA__)
-    wxMOD_RAW_CONTROL = 0x0010,
-#else
-    wxMOD_RAW_CONTROL = wxMOD_CONTROL,
-#endif
+    wxMOD_RAW_CONTROL,
     wxMOD_CMD       = wxMOD_CONTROL,
     wxMOD_ALL       = 0xffff
 };
-typedef enum
+enum wxPaperSize
 {
-    wxPAPER_NONE,               
-    wxPAPER_LETTER,             
-    wxPAPER_LEGAL,              
-    wxPAPER_A4,                 
-    wxPAPER_CSHEET,             
-    wxPAPER_DSHEET,             
-    wxPAPER_ESHEET,             
-    wxPAPER_LETTERSMALL,        
-    wxPAPER_TABLOID,            
-    wxPAPER_LEDGER,             
-    wxPAPER_STATEMENT,          
-    wxPAPER_EXECUTIVE,          
-    wxPAPER_A3,                 
-    wxPAPER_A4SMALL,            
-    wxPAPER_A5,                 
-    wxPAPER_B4,                 
-    wxPAPER_B5,                 
-    wxPAPER_FOLIO,              
-    wxPAPER_QUARTO,             
+    wxPAPER_10X11,              
     wxPAPER_10X14,              
     wxPAPER_11X17,              
-    wxPAPER_NOTE,               
-    wxPAPER_ENV_9,              
+    wxPAPER_12X11,              
+    wxPAPER_15X11,              
+    wxPAPER_9X11,               
+    wxPAPER_A2,                 
+    wxPAPER_A3,                 
+    wxPAPER_A3_EXTRA,           
+    wxPAPER_A3_EXTRA_TRANSVERSE, 
+    wxPAPER_A3_ROTATED,         
+    wxPAPER_A3_TRANSVERSE,      
+    wxPAPER_A4,                 
+    wxPAPER_A4SMALL,            
+    wxPAPER_A4_EXTRA,           
+    wxPAPER_A4_PLUS,            
+    wxPAPER_A4_ROTATED,         
+    wxPAPER_A4_TRANSVERSE,      
+    wxPAPER_A5,                 
+    wxPAPER_A5_EXTRA,           
+    wxPAPER_A5_ROTATED,         
+    wxPAPER_A5_TRANSVERSE,      
+    wxPAPER_A6,                 
+    wxPAPER_A6_ROTATED,         
+    wxPAPER_A_PLUS,             
+    wxPAPER_B4,                 
+    wxPAPER_B4_JIS_ROTATED,     
+    wxPAPER_B5,                 
+    wxPAPER_B5_EXTRA,           
+    wxPAPER_B5_JIS_ROTATED,     
+    wxPAPER_B5_TRANSVERSE,      
+    wxPAPER_B6_JIS,             
+    wxPAPER_B6_JIS_ROTATED,     
+    wxPAPER_B_PLUS,             
+    wxPAPER_CSHEET,             
+    wxPAPER_DBL_JAPANESE_POSTCARD, 
+    wxPAPER_DBL_JAPANESE_POSTCARD_ROTATED, 
+    wxPAPER_DSHEET,             
     wxPAPER_ENV_10,             
     wxPAPER_ENV_11,             
     wxPAPER_ENV_12,             
     wxPAPER_ENV_14,             
-    wxPAPER_ENV_DL,             
-    wxPAPER_ENV_C5,             
-    wxPAPER_ENV_C3,             
-    wxPAPER_ENV_C4,             
-    wxPAPER_ENV_C6,             
-    wxPAPER_ENV_C65,            
+    wxPAPER_ENV_9,              
     wxPAPER_ENV_B4,             
     wxPAPER_ENV_B5,             
     wxPAPER_ENV_B6,             
+    wxPAPER_ENV_C3,             
+    wxPAPER_ENV_C4,             
+    wxPAPER_ENV_C5,             
+    wxPAPER_ENV_C6,             
+    wxPAPER_ENV_C65,            
+    wxPAPER_ENV_DL,             
+    wxPAPER_ENV_INVITE,         
     wxPAPER_ENV_ITALY,          
     wxPAPER_ENV_MONARCH,        
     wxPAPER_ENV_PERSONAL,       
-    wxPAPER_FANFOLD_US,         
-    wxPAPER_FANFOLD_STD_GERMAN, 
+    wxPAPER_ESHEET,             
+    wxPAPER_EXECUTIVE,          
     wxPAPER_FANFOLD_LGL_GERMAN, 
+    wxPAPER_FANFOLD_STD_GERMAN, 
+    wxPAPER_FANFOLD_US,         
+    wxPAPER_FOLIO,              
     wxPAPER_ISO_B4,             
     wxPAPER_JAPANESE_POSTCARD,  
-    wxPAPER_9X11,               
-    wxPAPER_10X11,              
-    wxPAPER_15X11,              
-    wxPAPER_ENV_INVITE,         
-    wxPAPER_LETTER_EXTRA,       
-    wxPAPER_LEGAL_EXTRA,        
-    wxPAPER_TABLOID_EXTRA,      
-    wxPAPER_A4_EXTRA,           
-    wxPAPER_LETTER_TRANSVERSE,  
-    wxPAPER_A4_TRANSVERSE,      
-    wxPAPER_LETTER_EXTRA_TRANSVERSE, 
-    wxPAPER_A_PLUS,             
-    wxPAPER_B_PLUS,             
-    wxPAPER_LETTER_PLUS,        
-    wxPAPER_A4_PLUS,            
-    wxPAPER_A5_TRANSVERSE,      
-    wxPAPER_B5_TRANSVERSE,      
-    wxPAPER_A3_EXTRA,           
-    wxPAPER_A5_EXTRA,           
-    wxPAPER_B5_EXTRA,           
-    wxPAPER_A2,                 
-    wxPAPER_A3_TRANSVERSE,      
-    wxPAPER_A3_EXTRA_TRANSVERSE, 
-    wxPAPER_DBL_JAPANESE_POSTCARD,
-    wxPAPER_A6,                 
-    wxPAPER_JENV_KAKU2,         
-    wxPAPER_JENV_KAKU3,         
+    wxPAPER_JAPANESE_POSTCARD_ROTATED, 
     wxPAPER_JENV_CHOU3,         
-    wxPAPER_JENV_CHOU4,         
-    wxPAPER_LETTER_ROTATED,     
-    wxPAPER_A3_ROTATED,         
-    wxPAPER_A4_ROTATED,         
-    wxPAPER_A5_ROTATED,         
-    wxPAPER_B4_JIS_ROTATED,     
-    wxPAPER_B5_JIS_ROTATED,     
-    wxPAPER_JAPANESE_POSTCARD_ROTATED,
-    wxPAPER_DBL_JAPANESE_POSTCARD_ROTATED,
-    wxPAPER_A6_ROTATED,         
-    wxPAPER_JENV_KAKU2_ROTATED, 
-    wxPAPER_JENV_KAKU3_ROTATED, 
     wxPAPER_JENV_CHOU3_ROTATED, 
+    wxPAPER_JENV_CHOU4,         
     wxPAPER_JENV_CHOU4_ROTATED, 
-    wxPAPER_B6_JIS,             
-    wxPAPER_B6_JIS_ROTATED,     
-    wxPAPER_12X11,              
+    wxPAPER_JENV_KAKU2,         
+    wxPAPER_JENV_KAKU2_ROTATED, 
+    wxPAPER_JENV_KAKU3,         
+    wxPAPER_JENV_KAKU3_ROTATED, 
     wxPAPER_JENV_YOU4,          
     wxPAPER_JENV_YOU4_ROTATED,  
+    wxPAPER_LEDGER,             
+    wxPAPER_LEGAL,              
+    wxPAPER_LEGAL_EXTRA,        
+    wxPAPER_LETTER,             
+    wxPAPER_LETTERSMALL,        
+    wxPAPER_LETTER_EXTRA,       
+    wxPAPER_LETTER_EXTRA_TRANSVERSE, 
+    wxPAPER_LETTER_PLUS,        
+    wxPAPER_LETTER_ROTATED,     
+    wxPAPER_LETTER_TRANSVERSE,  
+    wxPAPER_NONE,               
+    wxPAPER_NOTE,               
     wxPAPER_P16K,               
+    wxPAPER_P16K_ROTATED,       
     wxPAPER_P32K,               
     wxPAPER_P32KBIG,            
-    wxPAPER_PENV_1,             
-    wxPAPER_PENV_2,             
-    wxPAPER_PENV_3,             
-    wxPAPER_PENV_4,             
-    wxPAPER_PENV_5,             
-    wxPAPER_PENV_6,             
-    wxPAPER_PENV_7,             
-    wxPAPER_PENV_8,             
-    wxPAPER_PENV_9,             
-    wxPAPER_PENV_10,            
-    wxPAPER_P16K_ROTATED,       
-    wxPAPER_P32K_ROTATED,       
     wxPAPER_P32KBIG_ROTATED,    
-    wxPAPER_PENV_1_ROTATED,     
-    wxPAPER_PENV_2_ROTATED,     
-    wxPAPER_PENV_3_ROTATED,     
-    wxPAPER_PENV_4_ROTATED,     
-    wxPAPER_PENV_5_ROTATED,     
-    wxPAPER_PENV_6_ROTATED,     
-    wxPAPER_PENV_7_ROTATED,     
-    wxPAPER_PENV_8_ROTATED,     
-    wxPAPER_PENV_9_ROTATED,     
+    wxPAPER_P32K_ROTATED,       
+    wxPAPER_PENV_1,             
+    wxPAPER_PENV_10,            
     wxPAPER_PENV_10_ROTATED,    
-    wxPAPER_A0,                 
-    wxPAPER_A1                  
-} wxPaperSize;
+    wxPAPER_PENV_1_ROTATED,     
+    wxPAPER_PENV_2,             
+    wxPAPER_PENV_2_ROTATED,     
+    wxPAPER_PENV_3,             
+    wxPAPER_PENV_3_ROTATED,     
+    wxPAPER_PENV_4,             
+    wxPAPER_PENV_4_ROTATED,     
+    wxPAPER_PENV_5,             
+    wxPAPER_PENV_5_ROTATED,     
+    wxPAPER_PENV_6,             
+    wxPAPER_PENV_6_ROTATED,     
+    wxPAPER_PENV_7,             
+    wxPAPER_PENV_7_ROTATED,     
+    wxPAPER_PENV_8,             
+    wxPAPER_PENV_8_ROTATED,     
+    wxPAPER_PENV_9,             
+    wxPAPER_PENV_9_ROTATED,     
+    wxPAPER_QUARTO,             
+    wxPAPER_STATEMENT,          
+    wxPAPER_TABLOID,            
+    wxPAPER_TABLOID_EXTRA       
+};
 enum wxPrintOrientation
 {
-   wxPORTRAIT = 1,
+   wxPORTRAIT,
    wxLANDSCAPE
 };
 enum wxDuplexMode
@@ -829,63 +719,76 @@ enum wxPrintMode
 };
 enum wxUpdateUI
 {
-    wxUPDATE_UI_NONE          = 0x0000,
-    wxUPDATE_UI_RECURSE       = 0x0001,
-    wxUPDATE_UI_FROMIDLE      = 0x0002 
+    wxUPDATE_UI_NONE,
+    wxUPDATE_UI_RECURSE,
+    wxUPDATE_UI_FROMIDLE  
 };
-
-typedef unsigned long COLORREF;
-#define GetRValue(rgb) ((unsigned char)((rgb) >> 16))
-#define GetGValue(rgb) ((unsigned char)(((unsigned short)(rgb)) >> 8))
-#define GetBValue(rgb) ((unsigned char)(rgb))
-
-#ifdef __WXGTK__
-typedef struct _GSList GSList;
-typedef struct _GdkColor        GdkColor;
-typedef struct _GdkCursor       GdkCursor;
-typedef struct _GdkDragContext  GdkDragContext;
-#if defined(__WXGTK20__)
-    typedef struct _GdkAtom* GdkAtom;
-#else
-    typedef unsigned long GdkAtom;
-#endif
-#if !defined(__WXGTK3__)
-    typedef struct _GdkColormap GdkColormap;
-    typedef struct _GdkFont GdkFont;
-    typedef struct _GdkGC GdkGC;
-    typedef struct _GdkRegion GdkRegion;
-#endif
-#if defined(__WXGTK3__)
-    typedef struct _GdkWindow GdkWindow;
-#elif defined(__WXGTK20__)
-    typedef struct _GdkDrawable GdkWindow;
-    typedef struct _GdkDrawable GdkPixmap;
-#else
-    typedef struct _GdkWindow GdkWindow;
-    typedef struct _GdkWindow GdkBitmap;
-    typedef struct _GdkWindow GdkPixmap;
-#endif
-typedef struct _GtkWidget         GtkWidget;
-typedef struct _GtkRcStyle        GtkRcStyle;
-typedef struct _GtkAdjustment     GtkAdjustment;
-typedef struct _GtkToolbar        GtkToolbar;
-typedef struct _GtkNotebook       GtkNotebook;
-typedef struct _GtkNotebookPage   GtkNotebookPage;
-typedef struct _GtkAccelGroup     GtkAccelGroup;
-typedef struct _GtkSelectionData  GtkSelectionData;
-typedef struct _GtkTextBuffer     GtkTextBuffer;
-typedef struct _GtkRange          GtkRange;
-typedef struct _GtkCellRenderer   GtkCellRenderer;
-typedef GtkWidget *WXWidget;
-#endif
-typedef struct _PangoContext         PangoContext;
-typedef struct _PangoLayout          PangoLayout;
-typedef struct _PangoFontDescription PangoFontDescription;
-
-enum
-{
-    wxPRIORITY_MIN     = 0u,   
-    wxPRIORITY_DEFAULT = 50u,  
-    wxPRIORITY_MAX     = 100u  
-};
-
+#define wxSTAY_ON_TOP           0x8000
+#define wxICONIZE               0x4000
+#define wxMINIMIZE              wxICONIZE
+#define wxMAXIMIZE              0x2000
+#define wxCLOSE_BOX             0x1000
+#define wxSYSTEM_MENU           0x0800
+#define wxMINIMIZE_BOX          0x0400
+#define wxMAXIMIZE_BOX          0x0200
+#define wxTINY_CAPTION          0x0080  
+#define wxRESIZE_BORDER         0x0040
+#define wxINT8_MIN CHAR_MIN
+#define wxINT8_MAX CHAR_MAX
+#define wxUINT8_MAX UCHAR_MAX
+#define wxINT16_MIN SHRT_MIN
+#define wxINT16_MAX SHRT_MAX
+#define wxUINT16_MAX USHRT_MAX
+#define wxINT32_MIN INT_MIN-or-LONG_MIN
+#define wxINT32_MAX INT_MAX-or-LONG_MAX
+#define wxUINT32_MAX UINT_MAX-or-LONG_MAX
+#define wxINT64_MIN LLONG_MIN
+#define wxINT64_MAX LLONG_MAX
+#define wxUINT64_MAX ULLONG_MAX
+typedef int wxCoord;
+%constant wxCoord wxDefaultCoord = -1;
+typedef signed char wxInt8;
+typedef unsigned char wxUint8;
+typedef wxUint8 wxByte;
+typedef signed short wxInt16;
+typedef unsigned short wxUint16;
+typedef wxUint16 wxWord;
+typedef wxUint16 wxChar16;
+typedef int wxInt32;
+typedef unsigned int wxUint32;
+typedef wxUint32 wxDword;
+typedef wxUint32 wxChar32;
+typedef wxLongLong_t wxInt64;
+typedef wxULongLong_t wxUint64;
+typedef ssize_t wxIntPtr;
+typedef size_t wxUIntPtr;
+typedef float wxFloat32;
+typedef double wxFloat64;
+typedef double wxDouble;
+#define wxINT32_SWAP_ALWAYS( wxInt32_value )
+#define wxUINT32_SWAP_ALWAYS( wxUint32_value )
+#define wxINT16_SWAP_ALWAYS( wxInt16_value )
+#define wxUINT16_SWAP_ALWAYS( wxUint16_value )
+#define wxINT32_SWAP_ON_BE( wxInt32_value )
+#define wxUINT32_SWAP_ON_BE( wxUint32_value )
+#define wxINT16_SWAP_ON_BE( wxInt16_value )
+#define wxUINT16_SWAP_ON_BE( wxUint16_value )
+#define wxINT32_SWAP_ON_LE( wxInt32_value )
+#define wxUINT32_SWAP_ON_LE( wxUint32_value )
+#define wxINT16_SWAP_ON_LE( wxInt16_value )
+#define wxUINT16_SWAP_ON_LE( wxUint16_value )
+#define wxDECLARE_NO_ASSIGN_CLASS(classname)
+#define wxDECLARE_NO_COPY_CLASS(classname)
+#define wxDECLARE_NO_COPY_TEMPLATE_CLASS(classname, arg)
+#define wxDECLARE_NO_COPY_TEMPLATE_CLASS_2(classname, arg1, arg2)
+template <typename T> wxDELETE(T*& ptr);
+template <typename T> wxDELETEA(T*& array);
+#define wxDEPRECATED(function)
+#define wxDEPRECATED_BUT_USED_INTERNALLY(function)
+#define wxDEPRECATED_INLINE(func, body)
+#define wxDEPRECATED_ACCESSOR(func, what)
+#define wxDEPRECATED_BUT_USED_INTERNALLY_INLINE(func, body)
+#define wxEXPLICIT
+#define wxOVERRIDE
+#define wxSUPPRESS_GCC_PRIVATE_DTOR_WARNING(name)
+template <typename T> wxSwap(T& first, T& second);

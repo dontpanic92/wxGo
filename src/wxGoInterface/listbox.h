@@ -3,14 +3,14 @@ class wxListBox : public wxControl,
 {
 public:
     wxListBox();
-    wxListBox(wxWindow* parent, wxWindowID id,
+    /*wxListBox(wxWindow* parent, wxWindowID id,
               const wxPoint& pos = wxDefaultPosition,
               const wxSize& size = wxDefaultSize,
               int n = 0,
               const wxString choices[] = NULL,
               long style = 0,
               const wxValidator& validator = wxDefaultValidator,
-              const wxString& name = wxListBoxNameStr);
+              const wxString& name = wxListBoxNameStr);*/
     wxListBox(wxWindow* parent, wxWindowID id,
               const wxPoint& pos,
               const wxSize& size,
@@ -19,13 +19,13 @@ public:
               const wxValidator& validator = wxDefaultValidator,
               const wxString& name = wxListBoxNameStr);
     virtual ~wxListBox();
-    bool Create(wxWindow *parent, wxWindowID id,
+    /*bool Create(wxWindow *parent, wxWindowID id,
                 const wxPoint& pos = wxDefaultPosition,
                 const wxSize& size = wxDefaultSize,
                 int n = 0, const wxString choices[] = NULL,
                 long style = 0,
                 const wxValidator& validator = wxDefaultValidator,
-                const wxString& name = wxListBoxNameStr);
+                const wxString& name = wxListBoxNameStr);*/
     bool Create(wxWindow *parent, wxWindowID id,
                 const wxPoint& pos,
                 const wxSize& size,
@@ -41,8 +41,8 @@ public:
     virtual int GetSelections(wxArrayInt& selections) const;
     int HitTest(const wxPoint& point) const;
     int HitTest(int x, int y) const;
-    void InsertItems(unsigned int nItems, const wxString *items,
-                     unsigned int pos);
+    /*void InsertItems(unsigned int nItems, const wxString *items,
+                     unsigned int pos);*/
     void InsertItems(const wxArrayString& items,
                      unsigned int pos);
     virtual bool IsSelected(int n) const;
