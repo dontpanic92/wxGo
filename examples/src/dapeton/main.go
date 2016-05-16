@@ -18,7 +18,7 @@ func (f *MyFrame)evtColour(wx.Event) {
         colour := colourdlg.GetColourData().GetColour()
         f.notebook.GetCurrentPage().SetForegroundColour(colour)
     }
-    colourdlg.Destroy()    
+    colourdlg.Destroy()
 }
 
 func (f *MyFrame)evtFont(wx.Event) {
@@ -49,13 +49,13 @@ func (f *MyFrame)evtAbout(wx.Event) {
     aboutinfo.SetWebSite("http://github.com/dontpanic92/wxGo")
     aboutinfo.SetVersion("0.1")
     wx.AboutBox(aboutinfo)
+    wx.DeleteAboutDialogInfo(aboutinfo)
 }
 
 //Frame Init def
 func NewMyFrame() MyFrame {
-    var f MyFrame
-    f.Frame = wx.NewFrame()
-    f.Create(wx.NullWindow, -1, "Dapeton")
+    f := MyFrame{}
+    f.Frame = wx.NewFrame(wx.NullWindow, -1, "Dapeton")
         
     f.statusbar = f.CreateStatusBar()
     f.statusbar.SetStatusText("Welcome to wxWidgets")
@@ -113,7 +113,7 @@ func NewMyFrame() MyFrame {
     wx.Bind( f, wx.EVT_MENU, f.evtAbout, menuItemAbout.GetId() )
 
     //wx.Unbind( f, wx.EVT_MENU, f.evtAbout, menuItemAbout.GetId() )
-
+    
     return f
 }
 
