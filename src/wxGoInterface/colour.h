@@ -1,8 +1,6 @@
-enum {
-    wxC2S_NAME             = 1,   
-    wxC2S_CSS_SYNTAX       = 2,   
-    wxC2S_HTML_SYNTAX      = 4    
-};
+#define wxC2S_NAME              1
+#define wxC2S_CSS_SYNTAX        2
+#define wxC2S_HTML_SYNTAX       4
 %constant const unsigned char wxALPHA_TRANSPARENT = 0;
 %constant const unsigned char wxALPHA_OPAQUE = 0xff;
 class wxColour : public wxObject
@@ -30,30 +28,15 @@ public:
              unsigned char alpha = wxALPHA_OPAQUE);
     void Set(unsigned long RGB);
     bool Set(const wxString& str);
-    //bool operator !=(const wxColour& colour) const;
-    //wxColour& operator=(const wxColour& colour);
-    //bool operator ==(const wxColour& colour) const;
     static void MakeMono(unsigned char* r, unsigned char* g, unsigned char* b, bool on);
-    //static void MakeDisabled(unsigned char* r, unsigned char* g, unsigned char* b, unsigned char brightness = 255);
     wxColour& MakeDisabled(unsigned char brightness = 255);
     static void MakeGrey(unsigned char* r, unsigned char* g, unsigned char* b);
     static void MakeGrey(unsigned char* r, unsigned char* g, unsigned char* b,
                          double weight_r, double weight_g, double weight_b);
     static unsigned char AlphaBlend(unsigned char fg, unsigned char bg, double alpha);
-    //static void ChangeLightness(unsigned char* r, unsigned char* g, unsigned char* b, int ialpha);
     wxColour ChangeLightness(int ialpha) const;
 };
 %constant const wxColour wxNullColour;
 %constant const wxColour wxTransparentColour;
-/*
-wxColour* wxBLACK;
-wxColour* wxBLUE;
-wxColour* wxCYAN;
-wxColour* wxGREEN;
-wxColour* wxYELLOW;
-wxColour* wxLIGHT_GREY;
-wxColour* wxRED;
-wxColour* wxWHITE;
-*/
 bool wxFromString(const wxString& string, wxColour* colour);
 wxString wxToString(const wxColour& colour);

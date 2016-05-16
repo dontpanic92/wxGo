@@ -222,13 +222,11 @@ public:
     wxSizerFlags& Top();
     wxSizerFlags& TripleBorder(int direction = wxALL);
 };
-enum wxFlexSizerGrowMode
-{
-    wxFLEX_GROWMODE_NONE,
-    wxFLEX_GROWMODE_SPECIFIED,
-    wxFLEX_GROWMODE_ALL
-};
-
+%ignore wxFlexSizerGrowMode;
+enum wxFlexSizerGrowMode;
+#define wxFLEX_GROWMODE_NONE 0
+#define wxFLEX_GROWMODE_SPECIFIED wxFLEX_GROWMODE_NONE + 1
+#define wxFLEX_GROWMODE_ALL wxFLEX_GROWMODE_SPECIFIED + 1
 class wxGridSizer : public wxSizer
 {
 public:

@@ -1,9 +1,8 @@
-enum wxDialogLayoutAdaptationMode
-{
-    wxDIALOG_ADAPTATION_MODE_DEFAULT = 0,   
-    wxDIALOG_ADAPTATION_MODE_ENABLED = 1,   
-    wxDIALOG_ADAPTATION_MODE_DISABLED = 2   
-};
+%ignore wxDialogLayoutAdaptationMode;
+enum wxDialogLayoutAdaptationMode;
+#define wxDIALOG_ADAPTATION_MODE_DEFAULT  0
+#define wxDIALOG_ADAPTATION_MODE_ENABLED  1
+#define wxDIALOG_ADAPTATION_MODE_DISABLED  2
 #define wxDIALOG_NO_PARENT      0x00000020  
 #define wxDEFAULT_DIALOG_STYLE  (wxCAPTION | wxSYSTEM_MENU | wxCLOSE_BOX)
 #define wxDIALOG_ADAPTATION_NONE             0  
@@ -63,7 +62,6 @@ public:
     virtual int ShowModal();
     void ShowWindowModal();
 };
-
 class wxDialogLayoutAdapter
 {
 public:
@@ -71,7 +69,6 @@ public:
     virtual bool CanDoLayoutAdaptation(wxDialog* dialog) = 0;
     virtual bool DoLayoutAdaptation(wxDialog* dialog) = 0;
 };
-
 class wxWindowModalDialogEvent  : public wxCommandEvent
 {
 public:

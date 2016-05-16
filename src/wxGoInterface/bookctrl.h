@@ -1,12 +1,8 @@
-
-enum
-{
-    wxBK_HITTEST_NOWHERE = 1,
-    wxBK_HITTEST_ONICON  = 2,
-    wxBK_HITTEST_ONLABEL = 4,
-    wxBK_HITTEST_ONITEM  = wxBK_HITTEST_ONICON | wxBK_HITTEST_ONLABEL,
-    wxBK_HITTEST_ONPAGE  = 8
-};
+#define wxBK_HITTEST_NOWHERE  1
+#define wxBK_HITTEST_ONICON   2
+#define wxBK_HITTEST_ONLABEL  4
+#define wxBK_HITTEST_ONITEM   wxBK_HITTEST_ONICON | wxBK_HITTEST_ONLABEL
+#define wxBK_HITTEST_ONPAGE   8
 #define wxBK_DEFAULT          0x0000
 #define wxBK_TOP              0x0010
 #define wxBK_BOTTOM           0x0020

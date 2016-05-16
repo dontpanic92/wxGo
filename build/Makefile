@@ -1,5 +1,9 @@
 
-all: linux_amd64
+all: preprocess linux_amd64
 
 linux_amd64:
-	cd ../wx/linux_amd64/ && ./make.sh
+	$(MAKE) -C ../wx/linux_amd64 all
+
+preprocess:
+	if [ -d "../src/wxGoInterface" ]; then rm -r ../src/wxGoInterface; fi
+	python2 preprocess.py ../src/wxGoInterface_original ../src/wxGoInterface

@@ -1,20 +1,15 @@
-enum wxEventPropagation
-{
-    wxEVENT_PROPAGATE_NONE = 0,
-    wxEVENT_PROPAGATE_MAX = INT_MAX
-};
-enum wxEventCategory
-{
-    wxEVT_CATEGORY_UI = 1,
-    wxEVT_CATEGORY_USER_INPUT = 2,
-    wxEVT_CATEGORY_SOCKET = 4,
-    wxEVT_CATEGORY_TIMER = 8,
-    wxEVT_CATEGORY_THREAD = 16,
-    wxEVT_CATEGORY_ALL =
-        wxEVT_CATEGORY_UI|wxEVT_CATEGORY_USER_INPUT|wxEVT_CATEGORY_SOCKET| \
-        wxEVT_CATEGORY_TIMER|wxEVT_CATEGORY_THREAD
-};
-
+%ignore wxEventPropagation;
+enum wxEventPropagation;
+#define wxEVENT_PROPAGATE_NONE  0
+#define wxEVENT_PROPAGATE_MAX  INT_MAX
+%ignore wxEventCategory;
+enum wxEventCategory;
+#define wxEVT_CATEGORY_UI  1
+#define wxEVT_CATEGORY_USER_INPUT  2
+#define wxEVT_CATEGORY_SOCKET  4
+#define wxEVT_CATEGORY_TIMER  8
+#define wxEVT_CATEGORY_THREAD  16
+#define wxEVT_CATEGORY_ALL  wxEVT_CATEGORY_UI|wxEVT_CATEGORY_USER_INPUT|wxEVT_CATEGORY_SOCKET| \        wxEVT_CATEGORY_TIMER|wxEVT_CATEGORY_THREAD
 %nodefaultctor wxEvent;
 class wxEvent : public wxObject
 {
@@ -36,7 +31,6 @@ public:
     void Skip(bool skip = true);
     int StopPropagation();
 };
-
 class wxCommandEvent : public wxEvent
 {
 public:
@@ -55,11 +49,8 @@ public:
     void SetExtraLong(long extraLong);
     void SetInt(int intCommand);
     void SetString(const wxString& string);
-   
 };
-
 typedef int wxEventType;
-
 class wxEvtHandler : public wxObject, public wxTrackable
 {
 public:
@@ -67,10 +58,6 @@ public:
     virtual ~wxEvtHandler();
     virtual void QueueEvent(wxEvent *event);
     virtual void AddPendingEvent(const wxEvent& event);
-    /*template<typename T, typename T1, ...>
-    void CallAfter(void (T::*method)(T1, ...), T1 x1, ...);
-    template<typename T>
-    void CallAfter(const T& functor);*/
     virtual bool ProcessEvent(wxEvent& event);
     bool ProcessEventLocally(wxEvent& event);
     bool SafelyProcessEvent(wxEvent& event);
@@ -78,79 +65,6 @@ public:
     void DeletePendingEvents();
     virtual bool SearchEventTable(wxEventTable& table,
                                   wxEvent& event);
-    /*void Connect(int id, int lastId, wxEventType eventType,
-                 wxObjectEventFunction function,
-                 wxObject* userData = NULL,
-                 wxEvtHandler* eventSink = NULL);
-    bool Disconnect(int id, int lastId,
-                    wxEventType eventType,
-                    wxObjectEventFunction function = NULL,
-                    wxObject* userData = NULL,
-                    wxEvtHandler* eventSink = NULL);
-    /*
-    void Connect(int id, wxEventType eventType,
-                 wxObjectEventFunction function,
-                 wxObject* userData = NULL,
-                 wxEvtHandler* eventSink = NULL);
-    void Connect(wxEventType eventType,
-                 wxObjectEventFunction function,
-                 wxObject* userData = NULL,
-                 wxEvtHandler* eventSink = NULL);
-    bool Disconnect(wxEventType eventType,
-                    wxObjectEventFunction function,
-                    wxObject* userData = NULL,
-                    wxEvtHandler* eventSink = NULL);
-    bool Disconnect(int id = wxID_ANY,
-                    wxEventType eventType = wxEVT_NULL,
-                    wxObjectEventFunction function = NULL,
-                    wxObject* userData = NULL,
-                    wxEvtHandler* eventSink = NULL);
-    bool Disconnect(int id, int lastId,
-                    wxEventType eventType,
-                    wxObjectEventFunction function = NULL,
-                    wxObject* userData = NULL,
-                    wxEvtHandler* eventSink = NULL);*/
-    /*template <typename EventTag, typename Functor>
-    void Bind(const EventTag& eventType,
-              Functor functor,
-              int id = wxID_ANY,
-              int lastId = wxID_ANY,
-              wxObject *userData = NULL);
-    template <typename EventTag, typename Class, typename EventArg, typename EventHandler>
-    void Bind(const EventTag &eventType,
-              void (Class::*method)(EventArg &),
-              EventHandler *handler,
-              int id = wxID_ANY,
-              int lastId = wxID_ANY,
-              wxObject *userData = NULL);
-    template <typename EventTag, typename Functor>
-    bool Unbind(const EventTag& eventType,
-                Functor functor,
-                int id = wxID_ANY,
-                int lastId = wxID_ANY,
-                wxObject *userData = NULL);
-    template <typename EventTag, typename Class, typename EventArg, typename EventHandler>
-    bool Unbind(const EventTag &eventType,
-                void (Class::*method)(EventArg&),
-                EventHandler *handler,
-                int id = wxID_ANY,
-                int lastId = wxID_ANY,
-                wxObject *userData = NULL );*/
-	/*
-    template <typename EventTag, typename EventArg>
-    void Bind(const EventTag& eventType,
-              void (*function)(EventArg &),
-              int winid = wxID_ANY,
-              int lastId = wxID_ANY,
-              wxObject *userData = NULL);
-
-
-    template <typename EventTag, typename EventArg>
-    bool Unbind(const EventTag& eventType,
-                void (*function)(EventArg &),
-                int winid = wxID_ANY,
-                int lastId = wxID_ANY,
-                wxObject *userData = NULL);*/
     void* GetClientData() const;
     wxClientData* GetClientObject() const;
     void SetClientData(void* data);
@@ -166,8 +80,6 @@ public:
     static void AddFilter(wxEventFilter* filter);
     static void RemoveFilter(wxEventFilter* filter);
 };
-
-
 class wxEventBlocker : public wxEvtHandler
 {
 public:
@@ -187,15 +99,14 @@ public:
     wxPropagateOnce(wxEvent& event);
     ~wxPropagateOnce();
 };
-enum wxKeyCategoryFlags
-{
-    WXK_CATEGORY_ARROW,
-    WXK_CATEGORY_PAGING,
-    WXK_CATEGORY_JUMP,
-    WXK_CATEGORY_TAB,
-    WXK_CATEGORY_CUT,
-    WXK_CATEGORY_NAVIGATION
-};
+%ignore wxKeyCategoryFlags;
+enum wxKeyCategoryFlags;
+#define WXK_CATEGORY_ARROW 0
+#define WXK_CATEGORY_PAGING WXK_CATEGORY_ARROW + 1
+#define WXK_CATEGORY_JUMP WXK_CATEGORY_PAGING + 1
+#define WXK_CATEGORY_TAB WXK_CATEGORY_JUMP + 1
+#define WXK_CATEGORY_CUT WXK_CATEGORY_TAB + 1
+#define WXK_CATEGORY_NAVIGATION WXK_CATEGORY_CUT + 1
 class wxKeyEvent : public wxEvent,
                    public wxKeyboardState
 {
@@ -213,19 +124,13 @@ public:
     void DoAllowNextEvent();
     bool IsNextEventAllowed() const;
 };
-enum
-{
-    wxJOYSTICK1,
-    wxJOYSTICK2
-};
-enum
-{
-    wxJOY_BUTTON_ANY = -1,
-    wxJOY_BUTTON1    = 1,
-    wxJOY_BUTTON2    = 2,
-    wxJOY_BUTTON3    = 4,
-    wxJOY_BUTTON4    = 8
-};
+#define wxJOYSTICK1 0
+#define wxJOYSTICK2 wxJOYSTICK1 + 1
+#define wxJOY_BUTTON_ANY  -1
+#define wxJOY_BUTTON1     1
+#define wxJOY_BUTTON2     2
+#define wxJOY_BUTTON3     4
+#define wxJOY_BUTTON4     8
 class wxJoystickEvent : public wxEvent
 {
 public:
@@ -275,11 +180,10 @@ class wxMaximizeEvent : public wxEvent
 public:
     wxMaximizeEvent(int id = 0);
 };
-enum wxUpdateUIMode
-{
-    wxUPDATE_UI_PROCESS_ALL,
-    wxUPDATE_UI_PROCESS_SPECIFIED
-};
+%ignore wxUpdateUIMode;
+enum wxUpdateUIMode;
+#define wxUPDATE_UI_PROCESS_ALL 0
+#define wxUPDATE_UI_PROCESS_SPECIFIED wxUPDATE_UI_PROCESS_ALL + 1
 class wxUpdateUIEvent : public wxCommandEvent
 {
 public:
@@ -308,11 +212,10 @@ class wxClipboardTextEvent : public wxCommandEvent
 public:
     wxClipboardTextEvent(wxEventType commandType = wxEVT_NULL, int id = 0);
 };
-enum wxMouseWheelAxis
-{
-    wxMOUSE_WHEEL_VERTICAL,     
-    wxMOUSE_WHEEL_HORIZONTAL    
-};
+%ignore wxMouseWheelAxis;
+enum wxMouseWheelAxis;
+#define wxMOUSE_WHEEL_VERTICAL 0
+#define wxMOUSE_WHEEL_HORIZONTAL wxMOUSE_WHEEL_VERTICAL + 1
 class wxMouseEvent : public wxEvent,
                      public wxMouseState
 {
@@ -434,23 +337,6 @@ public:
     bool IsAllowed() const;
     void Veto();
 };
-/*class wxThreadEvent : public wxEvent
-{
-public:
-    wxThreadEvent(wxEventType eventType = wxEVT_THREAD, int id = wxID_ANY);
-    virtual wxEvent *Clone() const;
-    virtual wxEventCategory GetEventCategory() const;
-    template<typename T>
-    void SetPayload(const T& payload);
-    template<typename T>
-    T GetPayload() const;
-    long GetExtraLong() const;
-    int GetInt() const;
-    wxString GetString() const;
-    void SetExtraLong(long extraLong);
-    void SetInt(int intCommand);
-    void SetString(const wxString& string);
-};*/
 class wxHelpEvent : public wxCommandEvent
 {
 public:
@@ -479,11 +365,10 @@ public:
     void SetOrientation(int orient);
     void SetPosition(int pos);    
 };
-enum wxIdleMode
-{
-    wxIDLE_PROCESS_ALL,
-    wxIDLE_PROCESS_SPECIFIED
-};
+%ignore wxIdleMode;
+enum wxIdleMode;
+#define wxIDLE_PROCESS_ALL 0
+#define wxIDLE_PROCESS_SPECIFIED wxIDLE_PROCESS_ALL + 1
 class wxIdleEvent : public wxEvent
 {
 public:
@@ -592,14 +477,11 @@ public:
     bool HasCursor() const;
     void SetCursor(const wxCursor& cursor);
 };
-
 %constant wxEventType wxEVT_NULL;
 %constant wxEventType wxEVT_ANY;
 wxEventType wxNewEventType();
-
 void wxPostEvent(wxEvtHandler* dest, const wxEvent& event);
 void wxQueueEvent(wxEvtHandler* dest, wxEvent *event);
-
 %constant wxEventType wxEVT_BUTTON;
 %constant wxEventType wxEVT_CHECKBOX;
 %constant wxEventType wxEVT_CHOICE;
@@ -646,7 +528,6 @@ void wxQueueEvent(wxEvtHandler* dest, wxEvent *event);
 %constant wxEventType wxEVT_NAVIGATION_KEY;
 %constant wxEventType wxEVT_KEY_DOWN;
 %constant wxEventType wxEVT_KEY_UP;
-//%constant wxEventType wxEVT_HOTKEY;
 %constant wxEventType wxEVT_SET_CURSOR;
 %constant wxEventType wxEVT_SCROLL_TOP;
 %constant wxEventType wxEVT_SCROLL_BOTTOM;
@@ -720,4 +601,3 @@ void wxQueueEvent(wxEvtHandler* dest, wxEvent *event);
 %constant wxEventType wxEVT_DETAILED_HELP;
 %constant wxEventType wxEVT_TOOL;
 %constant wxEventType wxEVT_WINDOW_MODAL_DIALOG_CLOSED;
-

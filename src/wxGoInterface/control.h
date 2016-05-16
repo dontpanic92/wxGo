@@ -1,18 +1,15 @@
-enum wxEllipsizeFlags
-{
-    wxELLIPSIZE_FLAGS_NONE = 0,
-    wxELLIPSIZE_FLAGS_PROCESS_MNEMONICS = 1,
-    wxELLIPSIZE_FLAGS_EXPAND_TABS = 2,
-    wxELLIPSIZE_FLAGS_DEFAULT = wxELLIPSIZE_FLAGS_PROCESS_MNEMONICS|
-                                wxELLIPSIZE_FLAGS_EXPAND_TABS
-};
-enum wxEllipsizeMode
-{
-    wxELLIPSIZE_NONE,
-    wxELLIPSIZE_START,
-    wxELLIPSIZE_MIDDLE,
-    wxELLIPSIZE_END
-};
+%ignore wxEllipsizeFlags;
+enum wxEllipsizeFlags;
+#define wxELLIPSIZE_FLAGS_NONE  0
+#define wxELLIPSIZE_FLAGS_PROCESS_MNEMONICS  1
+#define wxELLIPSIZE_FLAGS_EXPAND_TABS  2
+#define wxELLIPSIZE_FLAGS_DEFAULT  wxELLIPSIZE_FLAGS_PROCESS_MNEMONICS|                                wxELLIPSIZE_FLAGS_EXPAND_TABS
+%ignore wxEllipsizeMode;
+enum wxEllipsizeMode;
+#define wxELLIPSIZE_NONE 0
+#define wxELLIPSIZE_START wxELLIPSIZE_NONE + 1
+#define wxELLIPSIZE_MIDDLE wxELLIPSIZE_START + 1
+#define wxELLIPSIZE_END wxELLIPSIZE_MIDDLE + 1
 class wxControl : public wxWindow
 {
 public:

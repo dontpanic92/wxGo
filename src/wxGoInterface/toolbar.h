@@ -1,29 +1,25 @@
-enum wxToolBarToolStyle
-{
-    wxTOOL_STYLE_BUTTON    = 1,
-    wxTOOL_STYLE_SEPARATOR = 2,
-    wxTOOL_STYLE_CONTROL
-};
-enum
-{
-    wxTB_HORIZONTAL  = wxHORIZONTAL,
-    wxTB_TOP         = wxTB_HORIZONTAL,
-    wxTB_VERTICAL    = wxVERTICAL,
-    wxTB_LEFT        = wxTB_VERTICAL,
-    wxTB_3DBUTTONS,
-    wxTB_FLAT,
-    wxTB_DOCKABLE,
-    wxTB_NOICONS,
-    wxTB_TEXT,
-    wxTB_NODIVIDER,
-    wxTB_NOALIGN,
-    wxTB_HORZ_LAYOUT,
-    wxTB_HORZ_TEXT   = wxTB_HORZ_LAYOUT | wxTB_TEXT,
-    wxTB_NO_TOOLTIPS,
-    wxTB_BOTTOM,
-    wxTB_RIGHT,
-    wxTB_DEFAULT_STYLE = wxTB_HORIZONTAL | wxTB_FLAT
-};
+%ignore wxToolBarToolStyle;
+enum wxToolBarToolStyle;
+#define wxTOOL_STYLE_BUTTON     1
+#define wxTOOL_STYLE_SEPARATOR  2
+#define wxTOOL_STYLE_CONTROL wxTOOL_STYLE_SEPARATOR  + 1
+#define wxTB_HORIZONTAL   wxHORIZONTAL
+#define wxTB_TOP          wxTB_HORIZONTAL
+#define wxTB_VERTICAL     wxVERTICAL
+#define wxTB_LEFT         wxTB_VERTICAL
+#define wxTB_3DBUTTONS wxTB_LEFT         + 1
+#define wxTB_FLAT wxTB_3DBUTTONS + 1
+#define wxTB_DOCKABLE wxTB_FLAT + 1
+#define wxTB_NOICONS wxTB_DOCKABLE + 1
+#define wxTB_TEXT wxTB_NOICONS + 1
+#define wxTB_NODIVIDER wxTB_TEXT + 1
+#define wxTB_NOALIGN wxTB_NODIVIDER + 1
+#define wxTB_HORZ_LAYOUT wxTB_NOALIGN + 1
+#define wxTB_HORZ_TEXT    wxTB_HORZ_LAYOUT | wxTB_TEXT
+#define wxTB_NO_TOOLTIPS wxTB_HORZ_TEXT    + 1
+#define wxTB_BOTTOM wxTB_NO_TOOLTIPS + 1
+#define wxTB_RIGHT wxTB_BOTTOM + 1
+#define wxTB_DEFAULT_STYLE  wxTB_HORIZONTAL | wxTB_FLAT
 class wxToolBarToolBase : public wxObject
 {
 public:

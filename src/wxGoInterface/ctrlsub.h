@@ -1,22 +1,19 @@
-%nodefaultctor wxItemContainerImmutable;
 class wxItemContainerImmutable
 {
 public:
-    //wxItemContainerImmutable();
-    //virtual unsigned int GetCount() const = 0;
+    wxItemContainerImmutable();
+    virtual unsigned int GetCount() const = 0;
     bool IsEmpty() const;
-    //virtual wxString GetString(unsigned int n) const = 0;
+    virtual wxString GetString(unsigned int n) const = 0;
     wxArrayString GetStrings() const;
-    //virtual void SetString(unsigned int n, const wxString& string) = 0;
+    virtual void SetString(unsigned int n, const wxString& string) = 0;
     virtual int FindString(const wxString& string, bool caseSensitive = false) const;
-    //virtual void SetSelection(int n) = 0;
-    //virtual int GetSelection() const = 0;
+    virtual void SetSelection(int n) = 0;
+    virtual int GetSelection() const = 0;
     bool SetStringSelection(const wxString& string);
     virtual wxString GetStringSelection() const;
     void Select(int n);
 };
-
-%nodefaultctor wxItemContainer;
 class wxItemContainer : public wxItemContainerImmutable
 {
 public:
@@ -65,7 +62,3 @@ public:
     void Set(unsigned int n, const wxString* items, void** clientData);
     void Set(unsigned int n, const wxString* items, wxClientData** clientData);
 };
-/*class wxControlWithItems : public wxControl, public wxItemContainer
-{
-};
-*/

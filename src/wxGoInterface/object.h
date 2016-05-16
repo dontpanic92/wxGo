@@ -5,4 +5,3 @@ public:
     virtual ~wxObject();
     bool IsSameAs(const wxObject& obj) const;
 };
-

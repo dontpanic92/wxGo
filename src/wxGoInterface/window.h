@@ -1,36 +1,31 @@
-enum wxShowEffect
-{
-    wxSHOW_EFFECT_NONE,
-    wxSHOW_EFFECT_ROLL_TO_LEFT,
-    wxSHOW_EFFECT_ROLL_TO_RIGHT,
-    wxSHOW_EFFECT_ROLL_TO_TOP,
-    wxSHOW_EFFECT_ROLL_TO_BOTTOM,
-    wxSHOW_EFFECT_SLIDE_TO_LEFT,
-    wxSHOW_EFFECT_SLIDE_TO_RIGHT,
-    wxSHOW_EFFECT_SLIDE_TO_TOP,
-    wxSHOW_EFFECT_SLIDE_TO_BOTTOM,
-    wxSHOW_EFFECT_BLEND,
-    wxSHOW_EFFECT_EXPAND,
-    wxSHOW_EFFECT_MAX
-};
-enum
-{
-    wxSEND_EVENT_POST = 1
-};
+%ignore wxShowEffect;
+enum wxShowEffect;
+#define wxSHOW_EFFECT_NONE 0
+#define wxSHOW_EFFECT_ROLL_TO_LEFT wxSHOW_EFFECT_NONE + 1
+#define wxSHOW_EFFECT_ROLL_TO_RIGHT wxSHOW_EFFECT_ROLL_TO_LEFT + 1
+#define wxSHOW_EFFECT_ROLL_TO_TOP wxSHOW_EFFECT_ROLL_TO_RIGHT + 1
+#define wxSHOW_EFFECT_ROLL_TO_BOTTOM wxSHOW_EFFECT_ROLL_TO_TOP + 1
+#define wxSHOW_EFFECT_SLIDE_TO_LEFT wxSHOW_EFFECT_ROLL_TO_BOTTOM + 1
+#define wxSHOW_EFFECT_SLIDE_TO_RIGHT wxSHOW_EFFECT_SLIDE_TO_LEFT + 1
+#define wxSHOW_EFFECT_SLIDE_TO_TOP wxSHOW_EFFECT_SLIDE_TO_RIGHT + 1
+#define wxSHOW_EFFECT_SLIDE_TO_BOTTOM wxSHOW_EFFECT_SLIDE_TO_TOP + 1
+#define wxSHOW_EFFECT_BLEND wxSHOW_EFFECT_SLIDE_TO_BOTTOM + 1
+#define wxSHOW_EFFECT_EXPAND wxSHOW_EFFECT_BLEND + 1
+#define wxSHOW_EFFECT_MAX wxSHOW_EFFECT_EXPAND + 1
+#define wxSEND_EVENT_POST  1
 struct  wxVisualAttributes
 {
     wxFont font;
     wxColour colFg;
     wxColour colBg;
 };
-enum wxWindowVariant
-{
-    wxWINDOW_VARIANT_NORMAL,  
-    wxWINDOW_VARIANT_SMALL,   
-    wxWINDOW_VARIANT_MINI,    
-    wxWINDOW_VARIANT_LARGE,   
-    wxWINDOW_VARIANT_MAX
-};
+%ignore wxWindowVariant;
+enum wxWindowVariant;
+#define wxWINDOW_VARIANT_NORMAL 0
+#define wxWINDOW_VARIANT_SMALL wxWINDOW_VARIANT_NORMAL + 1
+#define wxWINDOW_VARIANT_MINI wxWINDOW_VARIANT_SMALL + 1
+#define wxWINDOW_VARIANT_LARGE wxWINDOW_VARIANT_MINI + 1
+#define wxWINDOW_VARIANT_MAX wxWINDOW_VARIANT_LARGE + 1
 class wxWindow : public wxEvtHandler
 {
 public:
@@ -97,9 +92,6 @@ public:
     virtual void Fit();
     virtual void FitInside();
     wxSize GetBestSize() const;
-    //int GetBestHeight(int width) const;
-    //int GetBestWidth(int height) const;
-    //void GetClientSize(int* width, int* height) const;
     wxSize GetClientSize() const;
     virtual wxSize GetEffectiveMinSize() const;
     virtual wxSize GetMaxClientSize() const;
@@ -110,10 +102,8 @@ public:
     int GetMinHeight() const;
     int GetMaxWidth() const;
     int GetMaxHeight() const;
-    //void GetSize(int* width, int* height) const;
     wxSize GetSize() const;
     wxSize GetVirtualSize() const;
-    //void GetVirtualSize(int* width, int* height) const;
     virtual wxSize GetBestVirtualSize() const;
     virtual double GetContentScaleFactor() const;
     virtual wxSize GetWindowBorderSize() const;
@@ -126,50 +116,33 @@ public:
     void PostSizeEventToParent();
     virtual void SendSizeEvent(int flags = 0);
     void SendSizeEventToParent(int flags = 0);
-    //void SetClientSize(int width, int height);
     void SetClientSize(const wxSize& size);
-    //void SetClientSize(const wxRect& rect);
     void SetContainingSizer(wxSizer* sizer);
     void SetInitialSize(const wxSize& size = wxDefaultSize);
     virtual void SetMaxClientSize(const wxSize& size);
     virtual void SetMaxSize(const wxSize& size);
     virtual void SetMinClientSize(const wxSize& size);
     virtual void SetMinSize(const wxSize& size);
-    //void SetSize(int x, int y, int width, int height,
-                 //int sizeFlags = wxSIZE_AUTO);
-    //void SetSize(const wxRect& rect);
     void SetSize(const wxSize& size);
-    //void SetSize(int width, int height);
     virtual void SetSizeHints( const wxSize& minSize,
                                const wxSize& maxSize=wxDefaultSize,
                                const wxSize& incSize=wxDefaultSize);
-   // virtual void SetSizeHints( int minW, int minH,
-   //                            int maxW = -1, int maxH = -1,
-   //                            int incW = -1, int incH = -1 );
-    //void SetVirtualSize(int width, int height);
     void SetVirtualSize(const wxSize& size);
     void Center(int dir = wxBOTH);
     void CenterOnParent(int dir = wxBOTH);
-    //void Centre(int direction = wxBOTH);
-    //void CentreOnParent(int direction = wxBOTH);
-    //void GetPosition(int* x, int* y) const;
     wxPoint GetPosition() const;
     wxRect GetRect() const;
-    //void GetScreenPosition(int* x, int* y) const;
     wxPoint GetScreenPosition() const;
     wxRect GetScreenRect() const;
     virtual wxPoint GetClientAreaOrigin() const;
     wxRect GetClientRect() const;
-    //void Move(int x, int y, int flags = wxSIZE_USE_EXISTING);
     void Move(const wxPoint& pt, int flags = wxSIZE_USE_EXISTING);
     void SetPosition(const wxPoint& pt);
-    //void ClientToScreen(int* x, int* y) const;
     wxPoint ClientToScreen(const wxPoint& pt) const;
     wxPoint ConvertDialogToPixels(const wxPoint& pt) const;
     wxSize ConvertDialogToPixels(const wxSize& sz) const;
     wxPoint ConvertPixelsToDialog(const wxPoint& pt) const;
     wxSize ConvertPixelsToDialog(const wxSize& sz) const;
-    //void ScreenToClient(int* x, int* y) const;
     wxPoint ScreenToClient(const wxPoint& pt) const;
     virtual void ClearBackground();
     void Freeze();
@@ -182,11 +155,6 @@ public:
     virtual wxVisualAttributes GetDefaultAttributes() const;
     wxFont GetFont() const;
     wxColour GetForegroundColour() const;
-    //void GetTextExtent(const wxString& string,
-    //                   int* w, int* h,
-    //                   int* descent = NULL,
-    //                   int* externalLeading = NULL,
-    //                   const wxFont* font = NULL) const;
     wxSize GetTextExtent(const wxString& string) const;
     const wxRegion& GetUpdateRegion() const;
     wxRect GetUpdateClientRect() const;
@@ -241,9 +209,7 @@ public:
     virtual bool HideWithEffect(wxShowEffect effect,
                                 unsigned int timeout = 0);
     bool IsEnabled() const;
-    //bool IsExposed(int x, int y) const;
     bool IsExposed(wxPoint& pt) const;
-    //bool IsExposed(int x, int y, int w, int h) const;
     bool IsExposed(wxRect& rect) const;
     virtual bool IsShown() const;
     virtual bool IsShownOnScreen() const;
@@ -263,10 +229,8 @@ public:
     void UnsetToolTip();
     int GetPopupMenuSelectionFromUser(wxMenu& menu,
                                       const wxPoint& pos = wxDefaultPosition);
-    //int GetPopupMenuSelectionFromUser(wxMenu& menu, int x, int y);
     bool PopupMenu(wxMenu* menu,
                    const wxPoint& pos = wxDefaultPosition);
-    //bool PopupMenu(wxMenu* menu, int x, int y);
     virtual wxValidator* GetValidator();
     virtual void SetValidator(const wxValidator& validator);
     virtual bool TransferDataFromWindow();
@@ -310,8 +274,6 @@ public:
     void SetCaret(wxCaret* caret);
     virtual bool SetCursor(const wxCursor& cursor);
     virtual void WarpPointer(int x, int y);
-    //wxHitTest HitTest(wxCoord x, wxCoord y) const;
-    //wxHitTest HitTest(const wxPoint& pt) const;
     wxBorder GetBorder(long flags) const;
     wxBorder GetBorder() const;
     virtual void DoUpdateWindowUI(wxUpdateUIEvent& event);
@@ -327,16 +289,12 @@ public:
     virtual void OnInternalIdle();
     virtual bool SendIdleEvents(wxIdleEvent& event);
     virtual void UpdateWindowUI(long flags = wxUPDATE_UI_NONE);
-    //static wxVisualAttributes GetClassDefaultAttributes(wxWindowVariant variant = wxWINDOW_VARIANT_NORMAL);
     static wxWindow* FindFocus();
     static wxWindow* FindWindowById(long id, const wxWindow* parent = 0);
     static wxWindow* FindWindowByLabel(const wxString& label,
                                        const wxWindow* parent = 0);
     static wxWindow* FindWindowByName(const wxString& name,
                                       const wxWindow* parent = 0);
-    //static wxWindow* GetCapture();
-    //static wxWindowID NewControlId(int count = 1);
-    //static void UnreserveControlId(wxWindowID id, int count = 1);
 };
 wxWindow* wxFindWindowAtPointer(wxPoint& pt);
 wxWindow* wxGetActiveWindow();

@@ -29,8 +29,6 @@ public:
     void SetHelpString(int id, const wxString& helpString);
     void SetLabel(int id, const wxString& label);
     virtual void SetMenuLabel(size_t pos, const wxString& label);
-    //static void MacSetCommonMenuBar(wxMenuBar* menubar);
-    //static wxMenuBar* MacGetCommonMenuBar();
     wxFrame *GetFrame() const;
     bool IsAttached() const;
     virtual void Attach(wxFrame *frame);
@@ -122,9 +120,6 @@ public:
     virtual void Check(bool check = true);
     virtual void Enable(bool enable = true);
     static wxString GetLabelText(const wxString& text);
-    //wxColour& GetBackgroundColour() const;
-    //virtual const wxBitmap& GetBitmap() const;
-    //wxFont& GetFont() const;
     const wxString& GetHelp() const;
     int GetId() const;
     virtual wxString GetItemLabel() const;
@@ -132,7 +127,6 @@ public:
     wxItemKind GetKind() const;
     wxMenu* GetMenu() const;
     wxMenu* GetSubMenu() const;
-    //wxColour& GetTextColour() const;
     bool IsCheck() const;
     bool IsCheckable() const;
     virtual bool IsChecked() const;
@@ -140,16 +134,8 @@ public:
     bool IsRadio() const;
     bool IsSeparator() const;
     bool IsSubMenu() const;
-    //void SetBackgroundColour(const wxColour& colour);
-    //virtual void SetBitmap(const wxBitmap& bmp, bool checked = true);
-    //void SetBitmaps(const wxBitmap& checked,
-    //                const wxBitmap& unchecked = wxNullBitmap);
-    //void SetFont(const wxFont& font);
     void SetHelp(const wxString& helpString);
     virtual void SetItemLabel(const wxString& label);
-    //void SetMarginWidth(int width);
     void SetMenu(wxMenu* menu);
     void SetSubMenu(wxMenu* menu);
-    //virtual void SetText(const wxString& text);
-    //void SetTextColour(const wxColour& colour);
 };

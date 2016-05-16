@@ -6,11 +6,6 @@ public:
     void AddDeveloper(const wxString& developer);
     void AddDocWriter(const wxString& docwriter);
     void AddTranslator(const wxString& translator);
-    //wxString GetName() const;
-    //bool HasDescription() const;
-    //const wxString& GetDescription();
-    //bool HasCopyright() const;
-    //const wxString& GetCopyright() const;
     void SetArtists(const wxArrayString& artists);
     void SetCopyright(const wxString& copyright);
     void SetDescription(const wxString& desc);
@@ -18,7 +13,6 @@ public:
     void SetDocWriters(const wxArrayString& docwriters);
     void SetIcon(const wxIcon& icon);
     void SetLicence(const wxString& licence);
-    //void SetLicense(const wxString& licence);
     void SetName(const wxString& name);
     void SetTranslators(const wxArrayString& translators);
     void SetVersion(const wxString& version, const wxString& longVersion = wxString());

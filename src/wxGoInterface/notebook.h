@@ -8,14 +8,11 @@ public:
     void SetOldSelection(int page);
     void SetSelection(int page);
 };
-enum
-{
-    wxNB_HITTEST_NOWHERE = wxBK_HITTEST_NOWHERE,
-    wxNB_HITTEST_ONICON  = wxBK_HITTEST_ONICON,
-    wxNB_HITTEST_ONLABEL = wxBK_HITTEST_ONLABEL,
-    wxNB_HITTEST_ONITEM  = wxBK_HITTEST_ONITEM,
-    wxNB_HITTEST_ONPAGE  = wxBK_HITTEST_ONPAGE
-};
+#define wxNB_HITTEST_NOWHERE  wxBK_HITTEST_NOWHERE
+#define wxNB_HITTEST_ONICON   wxBK_HITTEST_ONICON
+#define wxNB_HITTEST_ONLABEL  wxBK_HITTEST_ONLABEL
+#define wxNB_HITTEST_ONITEM   wxBK_HITTEST_ONITEM
+#define wxNB_HITTEST_ONPAGE   wxBK_HITTEST_ONPAGE
 #define wxNB_DEFAULT          wxBK_DEFAULT
 #define wxNB_TOP              wxBK_TOP
 #define wxNB_BOTTOM           wxBK_BOTTOM
@@ -44,7 +41,6 @@ public:
                 const wxString& name = wxNotebookNameStr);
     virtual int GetRowCount() const;
     virtual wxColour GetThemeBackgroundColour() const;
-    //void OnSelChange(wxBookCtrlEvent& event);
     virtual void SetPadding(const wxSize& padding);
     virtual int GetPageImage(size_t nPage) const;
     virtual bool SetPageImage(size_t page, int image);

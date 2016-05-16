@@ -1,85 +1,77 @@
-enum wxBitmapType
-{
-    wxBITMAP_TYPE_INVALID,
-    wxBITMAP_TYPE_BMP,
-    wxBITMAP_TYPE_BMP_RESOURCE,
-    wxBITMAP_TYPE_RESOURCE = wxBITMAP_TYPE_BMP_RESOURCE,
-    wxBITMAP_TYPE_ICO,
-    wxBITMAP_TYPE_ICO_RESOURCE,
-    wxBITMAP_TYPE_CUR,
-    wxBITMAP_TYPE_CUR_RESOURCE,
-    wxBITMAP_TYPE_XBM,
-    wxBITMAP_TYPE_XBM_DATA,
-    wxBITMAP_TYPE_XPM,
-    wxBITMAP_TYPE_XPM_DATA,
-    wxBITMAP_TYPE_TIFF,
-    wxBITMAP_TYPE_TIF = wxBITMAP_TYPE_TIFF,
-    wxBITMAP_TYPE_TIFF_RESOURCE,
-    wxBITMAP_TYPE_TIF_RESOURCE = wxBITMAP_TYPE_TIFF_RESOURCE,
-    wxBITMAP_TYPE_GIF,
-    wxBITMAP_TYPE_GIF_RESOURCE,
-    wxBITMAP_TYPE_PNG,
-    wxBITMAP_TYPE_PNG_RESOURCE,
-    wxBITMAP_TYPE_JPEG,
-    wxBITMAP_TYPE_JPEG_RESOURCE,
-    wxBITMAP_TYPE_PNM,
-    wxBITMAP_TYPE_PNM_RESOURCE,
-    wxBITMAP_TYPE_PCX,
-    wxBITMAP_TYPE_PCX_RESOURCE,
-    wxBITMAP_TYPE_PICT,
-    wxBITMAP_TYPE_PICT_RESOURCE,
-    wxBITMAP_TYPE_ICON,
-    wxBITMAP_TYPE_ICON_RESOURCE,
-    wxBITMAP_TYPE_ANI,
-    wxBITMAP_TYPE_IFF,
-    wxBITMAP_TYPE_TGA,
-    wxBITMAP_TYPE_MACCURSOR,
-    wxBITMAP_TYPE_MACCURSOR_RESOURCE,
-    wxBITMAP_TYPE_ANY = 50
-};
-enum wxPolygonFillMode
-{
-    wxODDEVEN_RULE = 1,
-    wxWINDING_RULE
-};
-enum wxStockCursor
-{
-    wxCURSOR_NONE,
-    wxCURSOR_ARROW,             
-    wxCURSOR_RIGHT_ARROW,       
-    wxCURSOR_BULLSEYE,          
-    wxCURSOR_CHAR,              
-    wxCURSOR_CROSS,             
-    wxCURSOR_HAND,              
-    wxCURSOR_IBEAM,             
-    wxCURSOR_LEFT_BUTTON,       
-    wxCURSOR_MAGNIFIER,         
-    wxCURSOR_MIDDLE_BUTTON,     
-    wxCURSOR_NO_ENTRY,          
-    wxCURSOR_PAINT_BRUSH,       
-    wxCURSOR_PENCIL,            
-    wxCURSOR_POINT_LEFT,        
-    wxCURSOR_POINT_RIGHT,       
-    wxCURSOR_QUESTION_ARROW,    
-    wxCURSOR_RIGHT_BUTTON,      
-    wxCURSOR_SIZENESW,          
-    wxCURSOR_SIZENS,            
-    wxCURSOR_SIZENWSE,          
-    wxCURSOR_SIZEWE,            
-    wxCURSOR_SIZING,            
-    wxCURSOR_SPRAYCAN,          
-    wxCURSOR_WAIT,              
-    wxCURSOR_WATCH,             
-    wxCURSOR_BLANK,             
-    wxCURSOR_DEFAULT,           
-    //wxCURSOR_COPY_ARROW ,       
-    //wxCURSOR_CROSS_REVERSE,     
-    //wxCURSOR_DOUBLE_ARROW,      
-    //wxCURSOR_BASED_ARROW_UP,    
-    //wxCURSOR_BASED_ARROW_DOWN,  
-    wxCURSOR_ARROWWAIT,         
-    wxCURSOR_MAX
-};
+%ignore wxBitmapType;
+enum wxBitmapType;
+#define wxBITMAP_TYPE_INVALID 0
+#define wxBITMAP_TYPE_BMP wxBITMAP_TYPE_INVALID + 1
+#define wxBITMAP_TYPE_BMP_RESOURCE wxBITMAP_TYPE_BMP + 1
+#define wxBITMAP_TYPE_RESOURCE  wxBITMAP_TYPE_BMP_RESOURCE
+#define wxBITMAP_TYPE_ICO wxBITMAP_TYPE_RESOURCE  + 1
+#define wxBITMAP_TYPE_ICO_RESOURCE wxBITMAP_TYPE_ICO + 1
+#define wxBITMAP_TYPE_CUR wxBITMAP_TYPE_ICO_RESOURCE + 1
+#define wxBITMAP_TYPE_CUR_RESOURCE wxBITMAP_TYPE_CUR + 1
+#define wxBITMAP_TYPE_XBM wxBITMAP_TYPE_CUR_RESOURCE + 1
+#define wxBITMAP_TYPE_XBM_DATA wxBITMAP_TYPE_XBM + 1
+#define wxBITMAP_TYPE_XPM wxBITMAP_TYPE_XBM_DATA + 1
+#define wxBITMAP_TYPE_XPM_DATA wxBITMAP_TYPE_XPM + 1
+#define wxBITMAP_TYPE_TIFF wxBITMAP_TYPE_XPM_DATA + 1
+#define wxBITMAP_TYPE_TIF  wxBITMAP_TYPE_TIFF
+#define wxBITMAP_TYPE_TIFF_RESOURCE wxBITMAP_TYPE_TIF  + 1
+#define wxBITMAP_TYPE_TIF_RESOURCE  wxBITMAP_TYPE_TIFF_RESOURCE
+#define wxBITMAP_TYPE_GIF wxBITMAP_TYPE_TIF_RESOURCE  + 1
+#define wxBITMAP_TYPE_GIF_RESOURCE wxBITMAP_TYPE_GIF + 1
+#define wxBITMAP_TYPE_PNG wxBITMAP_TYPE_GIF_RESOURCE + 1
+#define wxBITMAP_TYPE_PNG_RESOURCE wxBITMAP_TYPE_PNG + 1
+#define wxBITMAP_TYPE_JPEG wxBITMAP_TYPE_PNG_RESOURCE + 1
+#define wxBITMAP_TYPE_JPEG_RESOURCE wxBITMAP_TYPE_JPEG + 1
+#define wxBITMAP_TYPE_PNM wxBITMAP_TYPE_JPEG_RESOURCE + 1
+#define wxBITMAP_TYPE_PNM_RESOURCE wxBITMAP_TYPE_PNM + 1
+#define wxBITMAP_TYPE_PCX wxBITMAP_TYPE_PNM_RESOURCE + 1
+#define wxBITMAP_TYPE_PCX_RESOURCE wxBITMAP_TYPE_PCX + 1
+#define wxBITMAP_TYPE_PICT wxBITMAP_TYPE_PCX_RESOURCE + 1
+#define wxBITMAP_TYPE_PICT_RESOURCE wxBITMAP_TYPE_PICT + 1
+#define wxBITMAP_TYPE_ICON wxBITMAP_TYPE_PICT_RESOURCE + 1
+#define wxBITMAP_TYPE_ICON_RESOURCE wxBITMAP_TYPE_ICON + 1
+#define wxBITMAP_TYPE_ANI wxBITMAP_TYPE_ICON_RESOURCE + 1
+#define wxBITMAP_TYPE_IFF wxBITMAP_TYPE_ANI + 1
+#define wxBITMAP_TYPE_TGA wxBITMAP_TYPE_IFF + 1
+#define wxBITMAP_TYPE_MACCURSOR wxBITMAP_TYPE_TGA + 1
+#define wxBITMAP_TYPE_MACCURSOR_RESOURCE wxBITMAP_TYPE_MACCURSOR + 1
+#define wxBITMAP_TYPE_ANY  50
+%ignore wxPolygonFillMode;
+enum wxPolygonFillMode;
+#define wxODDEVEN_RULE  1
+#define wxWINDING_RULE wxODDEVEN_RULE  + 1
+%ignore wxStockCursor;
+enum wxStockCursor;
+#define wxCURSOR_NONE 0
+#define wxCURSOR_ARROW wxCURSOR_NONE + 1
+#define wxCURSOR_RIGHT_ARROW wxCURSOR_ARROW + 1
+#define wxCURSOR_BULLSEYE wxCURSOR_RIGHT_ARROW + 1
+#define wxCURSOR_CHAR wxCURSOR_BULLSEYE + 1
+#define wxCURSOR_CROSS wxCURSOR_CHAR + 1
+#define wxCURSOR_HAND wxCURSOR_CROSS + 1
+#define wxCURSOR_IBEAM wxCURSOR_HAND + 1
+#define wxCURSOR_LEFT_BUTTON wxCURSOR_IBEAM + 1
+#define wxCURSOR_MAGNIFIER wxCURSOR_LEFT_BUTTON + 1
+#define wxCURSOR_MIDDLE_BUTTON wxCURSOR_MAGNIFIER + 1
+#define wxCURSOR_NO_ENTRY wxCURSOR_MIDDLE_BUTTON + 1
+#define wxCURSOR_PAINT_BRUSH wxCURSOR_NO_ENTRY + 1
+#define wxCURSOR_PENCIL wxCURSOR_PAINT_BRUSH + 1
+#define wxCURSOR_POINT_LEFT wxCURSOR_PENCIL + 1
+#define wxCURSOR_POINT_RIGHT wxCURSOR_POINT_LEFT + 1
+#define wxCURSOR_QUESTION_ARROW wxCURSOR_POINT_RIGHT + 1
+#define wxCURSOR_RIGHT_BUTTON wxCURSOR_QUESTION_ARROW + 1
+#define wxCURSOR_SIZENESW wxCURSOR_RIGHT_BUTTON + 1
+#define wxCURSOR_SIZENS wxCURSOR_SIZENESW + 1
+#define wxCURSOR_SIZENWSE wxCURSOR_SIZENS + 1
+#define wxCURSOR_SIZEWE wxCURSOR_SIZENWSE + 1
+#define wxCURSOR_SIZING wxCURSOR_SIZEWE + 1
+#define wxCURSOR_SPRAYCAN wxCURSOR_SIZING + 1
+#define wxCURSOR_WAIT wxCURSOR_SPRAYCAN + 1
+#define wxCURSOR_WATCH wxCURSOR_WAIT + 1
+#define wxCURSOR_BLANK wxCURSOR_WATCH + 1
+#define wxCURSOR_DEFAULT wxCURSOR_BLANK + 1
+#define wxCURSOR_ARROWWAIT wxCURSOR_DEFAULT + 1
+#define wxCURSOR_MAX wxCURSOR_ARROWWAIT + 1
 class wxRealPoint
 {
 public:
@@ -105,7 +97,6 @@ public:
     wxRect& Deflate(wxCoord dx, wxCoord dy);
     wxRect& Deflate(const wxSize& diff);
     wxRect& Deflate(wxCoord diff);
-    //wxRect  Deflate(wxCoord dx, wxCoord dy) const;
     int GetBottom() const;
     wxPoint GetBottomLeft() const;
     wxPoint GetBottomRight() const;
@@ -123,9 +114,7 @@ public:
     wxRect& Inflate(wxCoord dx, wxCoord dy);
     wxRect& Inflate(const wxSize& diff);
     wxRect& Inflate(wxCoord diff);
-    //wxRect Inflate(wxCoord dx, wxCoord dy) const;
     wxRect& Intersect(const wxRect& rect);
-    //wxRect Intersect(const wxRect& rect) const;
     bool Intersects(const wxRect& rect) const;
     bool IsEmpty() const;
     void Offset(wxCoord dx, wxCoord dy);
@@ -144,12 +133,7 @@ public:
     void SetBottomRight(const wxPoint &p);
     void SetTopRight(const wxPoint &p);
     void SetBottomLeft(const wxPoint &p);
-    //wxRect Union(const wxRect& rect) const;
     wxRect& Union(const wxRect& rect);
-    /*int height;
-    int width;
-    int x;
-    int y;*/
 };
 class wxPoint
 {

@@ -41,9 +41,11 @@
 %include wxTaskBar.i
 %include wxToolBar.i
 %include wxBitmap.i
-%include wxStaticText.i
+%include wxStatic.i
 %include wxListBox.i
 %include wxSlider.i
 %include wxGauge.i
+%include wxScrollbar.i
+%include wxSpin.i
 
 %include wxAui.i
