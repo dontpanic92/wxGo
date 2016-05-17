@@ -47,5 +47,6 @@
 %include wxGauge.i
 %include wxScrollbar.i
 %include wxSpin.i
+%include wxTree.i
 
 %include wxAui.i

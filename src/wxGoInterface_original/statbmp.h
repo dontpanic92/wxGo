@@ -36,7 +36,7 @@ public:
         
         @see SetScaleMode(), GetScaleMode()
     */
-    enum ScaleMode
+        enum ScaleMode
     {
         /** 
             The bitmap is displayed in original size. Portions larger then the
@@ -62,7 +62,7 @@ public:
         */
         Scale_AspectFill
     };
-    
+
     /**
       Default constructor
     */

@@ -1,7 +1,7 @@
 class wxStaticBitmap : public wxControl
 {
 public:
-    enum ScaleMode
+        enum ScaleMode
     {
         Scale_None,
         Scale_Fill,
