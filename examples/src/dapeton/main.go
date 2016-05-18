@@ -16,7 +16,10 @@ func (f *MyFrame)evtColour(wx.Event) {
     colourdlg := wx.NewColourDialog(f)
     if colourdlg.ShowModal() == wx.ID_OK{
         colour := colourdlg.GetColourData().GetColour()
-        f.notebook.GetCurrentPage().SetForegroundColour(colour)
+        currentPage := f.notebook.GetCurrentPage()
+        if currentPage != wx.NullWindow {
+            currentPage.SetForegroundColour(colour)
+        }
     }
     colourdlg.Destroy()
 }
@@ -25,7 +28,10 @@ func (f *MyFrame)evtFont(wx.Event) {
     fontdlg := wx.NewFontDialog(f)
     if fontdlg.ShowModal() == wx.ID_OK{
         font := fontdlg.GetFontData().GetChosenFont()
-        f.notebook.GetCurrentPage().SetFont(font)
+        currentPage := f.notebook.GetCurrentPage()
+        if currentPage != wx.NullWindow {
+            currentPage.SetFont(font)
+        }
     }
     fontdlg.Destroy()
 }

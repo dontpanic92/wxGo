@@ -48,6 +48,7 @@
     @see wxBookCtrl, wxBookCtrlEvent, wxNotebook, wxTreeCtrl, wxImageList,
          @ref overview_bookctrl, @ref page_samples_notebook
 */
+%feature("notabstract") wxTreebook;
 class wxTreebook : public wxBookCtrlBase
 {
 public:

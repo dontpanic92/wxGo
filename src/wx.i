@@ -9,10 +9,10 @@
 %include wxString.i
 %include typemap.i
 
-%include typedef.i
 %include define.i
 
 
+%include defs.i
 %include wxObject.i
 %include wxApp.i
 %include wxEvent.i
@@ -22,6 +22,7 @@
 %include wxTopLevelWindow.i
 %include wxFrame.i
 %include wxSizer.i
+%include wxBookCtrl.i
 %include wxMenu.i
 %include wxStatusBar.i
 %include wxDialog.i
@@ -42,11 +43,13 @@
 %include wxToolBar.i
 %include wxBitmap.i
 %include wxStatic.i
-%include wxListBox.i
+%include wxList.i
 %include wxSlider.i
 %include wxGauge.i
-%include wxScrollbar.i
+%include wxScroll.i
 %include wxSpin.i
+%include wxClientData.i
 %include wxTree.i
+%include wxSplitter.i
 
 %include wxAui.i

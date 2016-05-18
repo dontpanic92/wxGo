@@ -1,4 +1,3 @@
-%include "typedef.i"
 
 %{
 	#include "wx/menu.h"

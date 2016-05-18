@@ -67,7 +67,7 @@ def preprocess(ori_file, new_file):
     print "Processing " + ori_file
     os.system('sed -nf remccoms3.sed ' + ori_file + ' > ' + new_file)
     code = file(new_file).read()
-    result = regex.findall(code)
+    
     if len(code) == 0:
         return
     code = regex.sub(replace_enum, code)

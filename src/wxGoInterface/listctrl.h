@@ -29,11 +29,6 @@
 #define wxLIST_STATE_FOCUSED        0x0002
 #define wxLIST_STATE_SELECTED       0x0004
 #define wxLIST_STATE_CUT            0x0008      
-#define wxLIST_STATE_DISABLED       0x0010      
-#define wxLIST_STATE_FILTERED       0x0020      
-#define wxLIST_STATE_INUSE          0x0040      
-#define wxLIST_STATE_PICKED         0x0080      
-#define wxLIST_STATE_SOURCE         0x0100      
 #define wxLIST_HITTEST_ABOVE            0x0001  
 #define wxLIST_HITTEST_BELOW            0x0002  
 #define wxLIST_HITTEST_NOWHERE          0x0004  
@@ -107,10 +102,16 @@ public:
     long FindItem(long start, const wxPoint& pt, int direction);
     bool GetColumn(int col, wxListItem& item) const;
     int GetColumnCount() const;
+#ifdef __WXMSW__
     int GetColumnIndexFromOrder(int pos) const;
+#endif
+#ifdef __WXMSW__
     int GetColumnOrder(int col) const;
+#endif
     int GetColumnWidth(int col) const;
+#ifdef __WXMSW__
     wxArrayInt GetColumnsOrder() const;
+#endif
     int GetCountPerPage() const;
     wxTextCtrl* GetEditControl() const;
     wxImageList* GetImageList(int which) const;
@@ -135,6 +136,7 @@ public:
     long GetTopItem() const;
     wxRect GetViewRect() const;
     void SetAlternateRowColour(const wxColour& colour);
+    wxColour GetAlternateRowColour() const;
     long HitTest(const wxPoint& point, int& flags, long* ptrSubItem = NULL) const;
     bool InReportView() const;
     long InsertColumn(long col, const wxListItem& info);
@@ -153,7 +155,9 @@ public:
     virtual bool SetBackgroundColour(const wxColour& col);
     bool SetColumn(int col, wxListItem& item);
     bool SetColumnWidth(int col, int width);
+#ifdef __WXMSW__
     bool SetColumnsOrder(const wxArrayInt& orders);
+#endif
     void SetImageList(wxImageList* imageList, int which);
     bool SetItem(wxListItem& info);
     long SetItem(long index, int column, const wxString& label, int imageId = -1);
@@ -172,6 +176,10 @@ public:
     void SetTextColour(const wxColour& col);
     void SetWindowStyleFlag(long style);
     bool SortItems(wxListCtrlCompare fnSortCallBack, wxIntPtr data);
+    bool HasCheckboxes() const;
+    bool EnableCheckboxes(bool enable = true);
+    bool IsItemChecked(long item) const;
+    void CheckItem(long item, bool check);
 protected:
     virtual wxListItemAttr* OnGetItemAttr(long item) const;
     virtual wxListItemAttr* OnGetItemColumnAttr(long item, long column) const;
@@ -197,26 +205,28 @@ public:
     const wxString& GetText() const;
     bool IsEditCancelled() const;
 };
-wxEventType wxEVT_LIST_BEGIN_DRAG;
-wxEventType wxEVT_LIST_BEGIN_RDRAG;
-wxEventType wxEVT_LIST_BEGIN_LABEL_EDIT;
-wxEventType wxEVT_LIST_END_LABEL_EDIT;
-wxEventType wxEVT_LIST_DELETE_ITEM;
-wxEventType wxEVT_LIST_DELETE_ALL_ITEMS;
-wxEventType wxEVT_LIST_ITEM_SELECTED;
-wxEventType wxEVT_LIST_ITEM_DESELECTED;
-wxEventType wxEVT_LIST_KEY_DOWN;
-wxEventType wxEVT_LIST_INSERT_ITEM;
-wxEventType wxEVT_LIST_COL_CLICK;
-wxEventType wxEVT_LIST_ITEM_RIGHT_CLICK;
-wxEventType wxEVT_LIST_ITEM_MIDDLE_CLICK;
-wxEventType wxEVT_LIST_ITEM_ACTIVATED;
-wxEventType wxEVT_LIST_CACHE_HINT;
-wxEventType wxEVT_LIST_COL_RIGHT_CLICK;
-wxEventType wxEVT_LIST_COL_BEGIN_DRAG;
-wxEventType wxEVT_LIST_COL_DRAGGING;
-wxEventType wxEVT_LIST_COL_END_DRAG;
-wxEventType wxEVT_LIST_ITEM_FOCUSED;
+%constant wxEventType wxEVT_LIST_BEGIN_DRAG;
+%constant wxEventType wxEVT_LIST_BEGIN_RDRAG;
+%constant wxEventType wxEVT_LIST_BEGIN_LABEL_EDIT;
+%constant wxEventType wxEVT_LIST_END_LABEL_EDIT;
+%constant wxEventType wxEVT_LIST_DELETE_ITEM;
+%constant wxEventType wxEVT_LIST_DELETE_ALL_ITEMS;
+%constant wxEventType wxEVT_LIST_ITEM_SELECTED;
+%constant wxEventType wxEVT_LIST_ITEM_DESELECTED;
+%constant wxEventType wxEVT_LIST_KEY_DOWN;
+%constant wxEventType wxEVT_LIST_INSERT_ITEM;
+%constant wxEventType wxEVT_LIST_COL_CLICK;
+%constant wxEventType wxEVT_LIST_ITEM_RIGHT_CLICK;
+%constant wxEventType wxEVT_LIST_ITEM_MIDDLE_CLICK;
+%constant wxEventType wxEVT_LIST_ITEM_ACTIVATED;
+%constant wxEventType wxEVT_LIST_CACHE_HINT;
+%constant wxEventType wxEVT_LIST_COL_RIGHT_CLICK;
+%constant wxEventType wxEVT_LIST_COL_BEGIN_DRAG;
+%constant wxEventType wxEVT_LIST_COL_DRAGGING;
+%constant wxEventType wxEVT_LIST_COL_END_DRAG;
+%constant wxEventType wxEVT_LIST_ITEM_FOCUSED;
+%constant wxEventType wxEVT_LIST_ITEM_CHECKED;
+%constant wxEventType wxEVT_LIST_ITEM_UNCHECKED;
 class wxListItemAttr
 {
 public:
@@ -237,6 +247,14 @@ public:
 class wxListView : public wxListCtrl
 {
 public:
+    wxListView();
+    wxListView(wxWindow* parent, wxWindowID winid = wxID_ANY,
+               const wxPoint& pos = wxDefaultPosition,
+               const wxSize& size = wxDefaultSize,
+               long style = wxLC_REPORT,
+               const wxValidator& validator = wxDefaultValidator,
+               const wxString& name = wxListCtrlNameStr);
+    virtual ~wxListView();
     void ClearColumnImage(int col);
     void Focus(long index);
     long GetFirstSelected() const;

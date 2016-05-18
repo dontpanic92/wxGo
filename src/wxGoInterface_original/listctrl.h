@@ -45,11 +45,6 @@
 #define wxLIST_STATE_FOCUSED        0x0002
 #define wxLIST_STATE_SELECTED       0x0004
 #define wxLIST_STATE_CUT            0x0008      // MSW only
-#define wxLIST_STATE_DISABLED       0x0010      // OS2 only
-#define wxLIST_STATE_FILTERED       0x0020      // OS2 only
-#define wxLIST_STATE_INUSE          0x0040      // OS2 only
-#define wxLIST_STATE_PICKED         0x0080      // OS2 only
-#define wxLIST_STATE_SOURCE         0x0100      // OS2 only
 
 /// Hit test flags, used in HitTest
 #define wxLIST_HITTEST_ABOVE            0x0001  // Above the client area.
@@ -261,8 +256,18 @@ enum
     @event{EVT_LIST_CACHE_HINT(id, func)}
            Prepare cache for a virtual list control.
            Processes a @c wxEVT_LIST_CACHE_HINT event type.
+    @event{EVT_LIST_ITEM_CHECKED(id, func)}
+           The item has been checked.
+           Processes a @c wxEVT_LIST_ITEM_CHECKED event type (new since wxWidgets 3.1.0).
+    @event{EVT_LIST_ITEM_UNCHECKED(id, func)}
+           The item has been unchecked.
+           Processes a @c wxEVT_LIST_ITEM_UNCHECKED event type (new since wxWidgets 3.1.0).
     @endEventTable
 
+    @note Under wxMSW this control uses wxSystemThemedControl for an explorer
+    style appearance by default since wxWidgets 3.1.0. If this is not desired,
+    you can call wxSystemThemedControl::EnableSystemTheme with @c false
+    argument to disable this.
 
     @library{wxcore}
     @category{ctrl}
@@ -457,7 +462,7 @@ public:
         @param cancel If @true, discard the changes made by user, as if @c
             Escape key was pressed. Otherwise, accept the changes as if @c
             Return was pressed.
-        @return @true if item editing wad finished or @false if no item as
+        @return @true if item editing was finished or @false if no item as
             being edited.
      */
     bool EndEditLabel(bool cancel);
@@ -530,8 +535,9 @@ public:
 
         @see GetColumnOrder()
     */
+#ifdef __WXMSW__
     int GetColumnIndexFromOrder(int pos) const;
-
+#endif
     /**
         Gets the column visual order position.
 
@@ -544,8 +550,9 @@ public:
 
         @see GetColumnsOrder(), GetColumnIndexFromOrder()
     */
+#ifdef __WXMSW__
     int GetColumnOrder(int col) const;
-
+#endif
     /**
         Gets the column width (report view only).
     */
@@ -561,8 +568,9 @@ public:
 
         @see GetColumnOrder(), GetColumnIndexFromOrder()
     */
+#ifdef __WXMSW__
     wxArrayInt GetColumnsOrder() const;
-
+#endif
     /**
         Gets the number of items that can fit vertically in the visible area of
         the list control (list or report view) or the total number of items in
@@ -575,7 +583,7 @@ public:
         Returns @NULL if no label is being edited.
 
         @note It is currently only implemented for wxMSW and the generic version,
-              not for the native Mac OS X version.
+              not for the native OS X version.
     */
     wxTextCtrl* GetEditControl() const;
 
@@ -789,6 +797,14 @@ public:
         @since 2.9.5
      */
     void SetAlternateRowColour(const wxColour& colour);
+
+    /**
+        Get the alternative row background colour.
+
+        @since 3.1.0
+        @see SetAlternateRowColour()
+     */
+    wxColour GetAlternateRowColour() const;
 
     /**
         Determines which item (if any) is at the specified point, giving details
@@ -1037,8 +1053,9 @@ public:
 
         @see GetColumnsOrder()
     */
+#ifdef __WXMSW__
     bool SetColumnsOrder(const wxArrayInt& orders);
-
+#endif
     /**
         Sets the image list associated with the control.
 
@@ -1149,6 +1166,10 @@ public:
 
         Consider using wxListView if possible to avoid dealing with this
         error-prone and confusing method.
+
+        Also notice that contrary to the usual rule that only user actions
+        generate events, this method does generate wxEVT_LIST_ITEM_SELECTED
+        event when it is used to select an item.
     */
     bool SetItemState(long item, long state, long stateMask);
 
@@ -1192,8 +1213,8 @@ public:
         second one and positive value if the first one is greater than the second one
         (the same convention as used by @c qsort(3)).
 
-        The parameter @e item1 is the client data associated with the first item (NOT the index).
-        The parameter @e item2 is the client data associated with the second item (NOT the index).
+        The parameter @e item1 is the client data associated with the first item (@b NOT the index).
+        The parameter @e item2 is the client data associated with the second item (@b NOT the index).
         The parameter @e data is the value passed to SortItems() itself.
 
         Notice that the control may only be sorted on client data associated with
@@ -1209,6 +1230,49 @@ public:
         @endWxPerlOnly
     */
     bool SortItems(wxListCtrlCompare fnSortCallBack, wxIntPtr data);
+
+    /**
+        Returns true if checkboxes are enabled for list items.
+
+        @see EnableCheckboxes()
+
+        @since 3.1.0
+    */
+    bool HasCheckboxes() const;
+
+    /**
+        Enable or disable checkboxes for list items.
+
+        @param enable If @true, enable checkboxes, otherwise disable checkboxes.
+        @return @true if checkboxes are supported, @false otherwise.
+
+        @since 3.1.0
+    */
+    bool EnableCheckboxes(bool enable = true);
+
+    /**
+        Return true if the checkbox for the given wxListItem is checked.
+
+        Always returns false if checkboxes support hadn't been enabled.
+
+        @param item Item (zero-based) index.
+
+        @since 3.1.0
+    */
+    bool IsItemChecked(long item) const;
+
+    /**
+        Check or uncheck a wxListItem in a control using checkboxes.
+
+        This method only works if checkboxes support had been successfully
+        enabled using EnableCheckboxes().
+
+        @param item Item (zero-based) index.
+        @param check If @true, check the item, otherwise uncheck.
+
+        @since 3.1.0
+    */
+    void CheckItem(long item, bool check);
 
 protected:
 
@@ -1332,6 +1396,10 @@ protected:
         A column has been resized by the user.
     @event{EVT_LIST_CACHE_HINT(id, func)}
         Prepare cache for a virtual list control
+    @event{EVT_LIST_ITEM_CHECKED(id, func)}
+        The item has been checked (new since wxWidgets 3.1.0).
+    @event{EVT_LIST_ITEM_UNCHECKED(id, func)}
+        The item has been unchecked (new since wxWidgets 3.1.0).
     @endEventTable
 
 
@@ -1425,26 +1493,28 @@ public:
 };
 
 
-wxEventType wxEVT_LIST_BEGIN_DRAG;
-wxEventType wxEVT_LIST_BEGIN_RDRAG;
-wxEventType wxEVT_LIST_BEGIN_LABEL_EDIT;
-wxEventType wxEVT_LIST_END_LABEL_EDIT;
-wxEventType wxEVT_LIST_DELETE_ITEM;
-wxEventType wxEVT_LIST_DELETE_ALL_ITEMS;
-wxEventType wxEVT_LIST_ITEM_SELECTED;
-wxEventType wxEVT_LIST_ITEM_DESELECTED;
-wxEventType wxEVT_LIST_KEY_DOWN;
-wxEventType wxEVT_LIST_INSERT_ITEM;
-wxEventType wxEVT_LIST_COL_CLICK;
-wxEventType wxEVT_LIST_ITEM_RIGHT_CLICK;
-wxEventType wxEVT_LIST_ITEM_MIDDLE_CLICK;
-wxEventType wxEVT_LIST_ITEM_ACTIVATED;
-wxEventType wxEVT_LIST_CACHE_HINT;
-wxEventType wxEVT_LIST_COL_RIGHT_CLICK;
-wxEventType wxEVT_LIST_COL_BEGIN_DRAG;
-wxEventType wxEVT_LIST_COL_DRAGGING;
-wxEventType wxEVT_LIST_COL_END_DRAG;
-wxEventType wxEVT_LIST_ITEM_FOCUSED;
+%constant wxEventType wxEVT_LIST_BEGIN_DRAG;
+%constant wxEventType wxEVT_LIST_BEGIN_RDRAG;
+%constant wxEventType wxEVT_LIST_BEGIN_LABEL_EDIT;
+%constant wxEventType wxEVT_LIST_END_LABEL_EDIT;
+%constant wxEventType wxEVT_LIST_DELETE_ITEM;
+%constant wxEventType wxEVT_LIST_DELETE_ALL_ITEMS;
+%constant wxEventType wxEVT_LIST_ITEM_SELECTED;
+%constant wxEventType wxEVT_LIST_ITEM_DESELECTED;
+%constant wxEventType wxEVT_LIST_KEY_DOWN;
+%constant wxEventType wxEVT_LIST_INSERT_ITEM;
+%constant wxEventType wxEVT_LIST_COL_CLICK;
+%constant wxEventType wxEVT_LIST_ITEM_RIGHT_CLICK;
+%constant wxEventType wxEVT_LIST_ITEM_MIDDLE_CLICK;
+%constant wxEventType wxEVT_LIST_ITEM_ACTIVATED;
+%constant wxEventType wxEVT_LIST_CACHE_HINT;
+%constant wxEventType wxEVT_LIST_COL_RIGHT_CLICK;
+%constant wxEventType wxEVT_LIST_COL_BEGIN_DRAG;
+%constant wxEventType wxEVT_LIST_COL_DRAGGING;
+%constant wxEventType wxEVT_LIST_COL_END_DRAG;
+%constant wxEventType wxEVT_LIST_ITEM_FOCUSED;
+%constant wxEventType wxEVT_LIST_ITEM_CHECKED;
+%constant wxEventType wxEVT_LIST_ITEM_UNCHECKED;
 
 
 /**
@@ -1544,6 +1614,45 @@ class wxListView : public wxListCtrl
 {
 public:
     /**
+       Default constructor.
+    */
+    wxListView();
+
+    /**
+        Constructor, creating and showing a listview control.
+
+        @param parent
+            Parent window. Must not be @NULL.
+        @param id
+            Window identifier. The value wxID_ANY indicates a default value.
+        @param pos
+            Window position.
+            If ::wxDefaultPosition is specified then a default position is chosen.
+        @param size
+            Window size.
+            If ::wxDefaultSize is specified then the window is sized appropriately.
+        @param style
+            Window style. See wxListCtrl.
+        @param validator
+            Window validator.
+        @param name
+            Window name.
+
+        @see Create(), wxValidator
+    */
+    wxListView(wxWindow* parent, wxWindowID winid = wxID_ANY,
+               const wxPoint& pos = wxDefaultPosition,
+               const wxSize& size = wxDefaultSize,
+               long style = wxLC_REPORT,
+               const wxValidator& validator = wxDefaultValidator,
+               const wxString& name = wxListCtrlNameStr);
+
+    /**
+        Destructor, destroying the listview control.
+    */
+    virtual ~wxListView();
+
+    /**
         Resets the column image -- after calling this function, no image will be shown.
 
         @param col
@@ -1593,12 +1702,15 @@ public:
     /**
         Selects or unselects the given item.
 
+        Notice that this method inherits the unusual behaviour of
+        wxListCtrl::SetItemState() which sends a wxEVT_LIST_ITEM_SELECTED event
+        when it is used to select an item, contrary to the usual rule that only
+        the user actions result in selection.
+
         @param n
             the item to select or unselect
         @param on
             if @true (default), selects the item, otherwise unselects it
-
-        @see wxListCtrl::SetItemState
     */
     void Select(long n, bool on = true);
 
