@@ -1,7 +1,5 @@
 %include "wxGoInterface/colour.h"
 
-WXGO_DECL_TYPECONV(Colour)
-
 %inline {
 	void ColourMakeDisabled(unsigned char* r, unsigned char* g, unsigned char* b, unsigned char brightness = 255){
 		wxColour::MakeDisabled(r, g, b, brightness);

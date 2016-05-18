@@ -1,3 +1,5 @@
+WXGO_DECL_TYPECONV(TreeCtrl)
+WXGO_DECL_TYPECONV(TreeEvent)
 class wxTreeCtrl : public wxControl
 {
 public:

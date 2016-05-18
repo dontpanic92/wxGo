@@ -1,3 +1,5 @@
+WXGO_DECL_TYPECONV(StatusBarPane)
+WXGO_DECL_TYPECONV(StatusBar)
 #define wxSTB_SIZEGRIP         0x0010
 #define wxSTB_SHOW_TIPS        0x0020
 #define wxSTB_ELLIPSIZE_START   0x0040

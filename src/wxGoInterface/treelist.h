@@ -1,11 +1,22 @@
-#define wxTL_SINGLE          0x0000
-#define wxTL_MULTIPLE        0x0001
-#define wxTL_CHECKBOX        0x0002
-#define wxTL_3STATE          0x0004
-#define wxTL_USER_3STATE     0x0008
-#define wxTL_NO_HEADER       0x0010
-#define wxTL_DEFAULT_STYLE   wxTL_SINGLE
-#define wxTL_STYLE_MASK      wxTL_SINGLE |                          wxTL_MULTIPLE |                          wxTL_CHECKBOX |                          wxTL_3STATE |                          wxTL_USER_3STATE
+WXGO_DECL_TYPECONV(TreeListItem)
+WXGO_DECL_TYPECONV(TreeListItemComparator)
+WXGO_DECL_TYPECONV(TreeListCtrl)
+WXGO_DECL_TYPECONV(TreeListEvent)
+enum
+{
+    wxTL_SINGLE         = 0x0000,       
+    wxTL_MULTIPLE       = 0x0001,       
+    wxTL_CHECKBOX       = 0x0002,       
+    wxTL_3STATE         = 0x0004,       
+    wxTL_USER_3STATE    = 0x0008,       
+    wxTL_NO_HEADER      = 0x0010,
+    wxTL_DEFAULT_STYLE  = wxTL_SINGLE,
+    wxTL_STYLE_MASK     = wxTL_SINGLE |
+                          wxTL_MULTIPLE |
+                          wxTL_CHECKBOX |
+                          wxTL_3STATE |
+                          wxTL_USER_3STATE
+};
 class wxTreeListItem
 {
 public:

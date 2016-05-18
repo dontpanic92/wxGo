@@ -1,3 +1,44 @@
+WXGO_DECL_TYPECONV(Event)
+WXGO_DECL_TYPECONV(CommandEvent)
+WXGO_DECL_TYPECONV(EvtHandler)
+WXGO_DECL_TYPECONV(EventBlocker)
+WXGO_DECL_TYPECONV(PropagationDisabler)
+WXGO_DECL_TYPECONV(PropagateOnce)
+WXGO_DECL_TYPECONV(KeyEvent)
+WXGO_DECL_TYPECONV(JoystickEvent)
+WXGO_DECL_TYPECONV(ScrollWinEvent)
+WXGO_DECL_TYPECONV(SysColourChangedEvent)
+WXGO_DECL_TYPECONV(WindowCreateEvent)
+WXGO_DECL_TYPECONV(PaintEvent)
+WXGO_DECL_TYPECONV(MaximizeEvent)
+WXGO_DECL_TYPECONV(UpdateUIEvent)
+WXGO_DECL_TYPECONV(ClipboardTextEvent)
+WXGO_DECL_TYPECONV(MouseEvent)
+WXGO_DECL_TYPECONV(DropFilesEvent)
+WXGO_DECL_TYPECONV(ActivateEvent)
+WXGO_DECL_TYPECONV(ContextMenuEvent)
+WXGO_DECL_TYPECONV(EraseEvent)
+WXGO_DECL_TYPECONV(FocusEvent)
+WXGO_DECL_TYPECONV(ChildFocusEvent)
+WXGO_DECL_TYPECONV(MouseCaptureLostEvent)
+WXGO_DECL_TYPECONV(DisplayChangedEvent)
+WXGO_DECL_TYPECONV(PaletteChangedEvent)
+WXGO_DECL_TYPECONV(QueryNewPaletteEvent)
+WXGO_DECL_TYPECONV(NotifyEvent)
+WXGO_DECL_TYPECONV(HelpEvent)
+WXGO_DECL_TYPECONV(ScrollEvent)
+WXGO_DECL_TYPECONV(IdleEvent)
+WXGO_DECL_TYPECONV(InitDialogEvent)
+WXGO_DECL_TYPECONV(WindowDestroyEvent)
+WXGO_DECL_TYPECONV(NavigationKeyEvent)
+WXGO_DECL_TYPECONV(MouseCaptureChangedEvent)
+WXGO_DECL_TYPECONV(CloseEvent)
+WXGO_DECL_TYPECONV(MenuEvent)
+WXGO_DECL_TYPECONV(ShowEvent)
+WXGO_DECL_TYPECONV(IconizeEvent)
+WXGO_DECL_TYPECONV(MoveEvent)
+WXGO_DECL_TYPECONV(SizeEvent)
+WXGO_DECL_TYPECONV(SetCursorEvent)
 %ignore wxEventPropagation;
 enum wxEventPropagation;
 #define wxEVENT_PROPAGATE_NONE  0
@@ -124,13 +165,19 @@ public:
     void DoAllowNextEvent();
     bool IsNextEventAllowed() const;
 };
-#define wxJOYSTICK1 0
-#define wxJOYSTICK2 wxJOYSTICK1 + 1
-#define wxJOY_BUTTON_ANY  -1
-#define wxJOY_BUTTON1     1
-#define wxJOY_BUTTON2     2
-#define wxJOY_BUTTON3     4
-#define wxJOY_BUTTON4     8
+enum
+{
+    wxJOYSTICK1,
+    wxJOYSTICK2
+};
+enum
+{
+    wxJOY_BUTTON_ANY = -1,
+    wxJOY_BUTTON1    = 1,
+    wxJOY_BUTTON2    = 2,
+    wxJOY_BUTTON3    = 4,
+    wxJOY_BUTTON4    = 8
+};
 class wxJoystickEvent : public wxEvent
 {
 public:

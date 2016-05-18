@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(StaticLine)
 class wxStaticLine : public wxControl
 {
 public:

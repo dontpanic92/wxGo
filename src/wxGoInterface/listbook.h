@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(Listbook)
 #define wxLB_DEFAULT          wxBK_DEFAULT
 #define wxLB_TOP              wxBK_TOP
 #define wxLB_BOTTOM           wxBK_BOTTOM

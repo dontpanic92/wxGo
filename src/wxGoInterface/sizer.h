@@ -1,3 +1,11 @@
+WXGO_DECL_TYPECONV(Sizer)
+WXGO_DECL_TYPECONV(BoxSizer)
+WXGO_DECL_TYPECONV(StdDialogButtonSizer)
+WXGO_DECL_TYPECONV(SizerItem)
+WXGO_DECL_TYPECONV(SizerFlags)
+WXGO_DECL_TYPECONV(GridSizer)
+WXGO_DECL_TYPECONV(FlexGridSizer)
+WXGO_DECL_TYPECONV(StaticBoxSizer)
 class wxSizer : public wxObject
 {
 public:

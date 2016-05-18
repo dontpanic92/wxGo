@@ -1,6 +1,9 @@
-#define wxC2S_NAME              1
-#define wxC2S_CSS_SYNTAX        2
-#define wxC2S_HTML_SYNTAX       4
+WXGO_DECL_TYPECONV(Colour)
+enum {
+    wxC2S_NAME             = 1,   
+    wxC2S_CSS_SYNTAX       = 2,   
+    wxC2S_HTML_SYNTAX      = 4    
+};
 %constant const unsigned char wxALPHA_TRANSPARENT = 0;
 %constant const unsigned char wxALPHA_OPAQUE = 0xff;
 class wxColour : public wxObject

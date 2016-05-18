@@ -1,3 +1,5 @@
+WXGO_DECL_TYPECONV(Button)
+WXGO_DECL_TYPECONV(BitmapButton)
 class wxButton : public wxAnyButton
 {
 public:

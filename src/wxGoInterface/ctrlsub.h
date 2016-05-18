@@ -1,3 +1,5 @@
+WXGO_DECL_TYPECONV(ItemContainerImmutable)
+WXGO_DECL_TYPECONV(ItemContainer)
 class wxItemContainerImmutable
 {
 public:

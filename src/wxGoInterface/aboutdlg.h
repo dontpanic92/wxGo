@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(AboutDialogInfo)
 class wxAboutDialogInfo
 {
 public:

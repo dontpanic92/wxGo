@@ -1,3 +1,8 @@
+WXGO_DECL_TYPECONV(AuiToolBarEvent)
+WXGO_DECL_TYPECONV(AuiToolBarItem)
+WXGO_DECL_TYPECONV(AuiToolBarArt)
+WXGO_DECL_TYPECONV(AuiDefaultToolBarArt)
+WXGO_DECL_TYPECONV(AuiToolBar)
 %ignore wxAuiToolBarStyle;
 enum wxAuiToolBarStyle;
 #define wxAUI_TB_TEXT           1 << 0

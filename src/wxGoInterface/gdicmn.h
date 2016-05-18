@@ -1,3 +1,8 @@
+WXGO_DECL_TYPECONV(RealPoint)
+WXGO_DECL_TYPECONV(Rect)
+WXGO_DECL_TYPECONV(Point)
+WXGO_DECL_TYPECONV(ColourDatabase)
+WXGO_DECL_TYPECONV(Size)
 %ignore wxBitmapType;
 enum wxBitmapType;
 #define wxBITMAP_TYPE_INVALID 0

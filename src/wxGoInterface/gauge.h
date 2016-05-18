@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(Gauge)
 #define wxGA_HORIZONTAL      wxHORIZONTAL
 #define wxGA_VERTICAL        wxVERTICAL
 #define wxGA_PROGRESS        0x0010

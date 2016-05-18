@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(Slider)
 #define wxSL_HORIZONTAL      wxHORIZONTAL 
 #define wxSL_VERTICAL        wxVERTICAL   
 #define wxSL_TICKS           0x0010

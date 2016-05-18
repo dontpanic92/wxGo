@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(ListBox)
 class wxListBox : public wxControl,
                   public wxItemContainer
 {

@@ -1,3 +1,6 @@
+WXGO_DECL_TYPECONV(AuiManager)
+WXGO_DECL_TYPECONV(AuiPaneInfo)
+WXGO_DECL_TYPECONV(AuiManagerEvent)
 %ignore wxAuiManagerDock;
 enum wxAuiManagerDock;
 #define wxAUI_DOCK_NONE  0

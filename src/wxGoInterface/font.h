@@ -1,3 +1,6 @@
+WXGO_DECL_TYPECONV(FontInfo)
+WXGO_DECL_TYPECONV(Font)
+WXGO_DECL_TYPECONV(FontList)
 %ignore wxFontFamily;
 enum wxFontFamily;
 #define wxFONTFAMILY_DEFAULT  wxDEFAULT

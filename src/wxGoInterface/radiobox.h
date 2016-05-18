@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(RadioBox)
 class wxRadioBox : public wxControl, public wxItemContainerImmutable
 {
 public:

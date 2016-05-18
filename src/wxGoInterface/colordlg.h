@@ -1,3 +1,5 @@
+WXGO_DECL_TYPECONV(ColourData)
+WXGO_DECL_TYPECONV(ColourDialog)
 class wxColourData : public wxObject
 {
 public:

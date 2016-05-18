@@ -1,3 +1,5 @@
+WXGO_DECL_TYPECONV(SplitterWindow)
+WXGO_DECL_TYPECONV(SplitterEvent)
 #define wxSP_NOBORDER         0x0000
 #define wxSP_THIN_SASH        0x0000    
 #define wxSP_NOSASH           0x0010
@@ -12,9 +14,12 @@
 enum wxSplitMode;
 #define wxSPLIT_HORIZONTAL  1
 #define wxSPLIT_VERTICAL wxSPLIT_HORIZONTAL  + 1
-#define wxSPLIT_DRAG_NONE 0
-#define wxSPLIT_DRAG_DRAGGING wxSPLIT_DRAG_NONE + 1
-#define wxSPLIT_DRAG_LEFT_DOWN wxSPLIT_DRAG_DRAGGING + 1
+enum
+{
+    wxSPLIT_DRAG_NONE,
+    wxSPLIT_DRAG_DRAGGING,
+    wxSPLIT_DRAG_LEFT_DOWN
+};
 class wxSplitterWindow : public wxWindow
 {
 public:

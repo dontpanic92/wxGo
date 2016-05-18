@@ -1,3 +1,10 @@
+WXGO_DECL_TYPECONV(AuiNotebook)
+WXGO_DECL_TYPECONV(AuiTabContainerButton)
+WXGO_DECL_TYPECONV(AuiTabContainer)
+WXGO_DECL_TYPECONV(AuiTabArt)
+WXGO_DECL_TYPECONV(AuiNotebookEvent)
+WXGO_DECL_TYPECONV(AuiDefaultTabArt)
+WXGO_DECL_TYPECONV(AuiSimpleTabArt)
 %ignore wxAuiNotebookOption;
 enum wxAuiNotebookOption;
 #define wxAUI_NB_TOP                  1 << 0

@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(Simplebook)
 %feature("notabstract") wxSimplebook;
 class wxSimplebook : public wxBookCtrlBase
 {

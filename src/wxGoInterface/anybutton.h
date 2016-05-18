@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(AnyButton)
 #define wxBU_LEFT            0x0040
 #define wxBU_TOP             0x0080
 #define wxBU_RIGHT           0x0100

@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(Choicebook)
 #define wxCHB_DEFAULT          wxBK_DEFAULT
 #define wxCHB_TOP              wxBK_TOP
 #define wxCHB_BOTTOM           wxBK_BOTTOM

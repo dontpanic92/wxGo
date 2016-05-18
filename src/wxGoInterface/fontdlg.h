@@ -1,3 +1,5 @@
+WXGO_DECL_TYPECONV(FontData)
+WXGO_DECL_TYPECONV(FontDialog)
 class wxFontData : public wxObject
 {
 public:

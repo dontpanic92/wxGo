@@ -1,10 +1,14 @@
-#define wxFD_OPEN               0x0001
-#define wxFD_SAVE               0x0002
-#define wxFD_OVERWRITE_PROMPT   0x0004
-#define wxFD_FILE_MUST_EXIST    0x0010
-#define wxFD_MULTIPLE           0x0020
-#define wxFD_CHANGE_DIR         0x0080
-#define wxFD_PREVIEW            0x0100
+WXGO_DECL_TYPECONV(FileDialog)
+enum
+{
+    wxFD_OPEN              = 0x0001,
+    wxFD_SAVE              = 0x0002,
+    wxFD_OVERWRITE_PROMPT  = 0x0004,
+    wxFD_FILE_MUST_EXIST   = 0x0010,
+    wxFD_MULTIPLE          = 0x0020,
+    wxFD_CHANGE_DIR        = 0x0080,
+    wxFD_PREVIEW           = 0x0100
+};
 #define wxFD_DEFAULT_STYLE      wxFD_OPEN
 const char wxFileSelectorDefaultWildcardStr[];
 class wxFileDialog : public wxDialog

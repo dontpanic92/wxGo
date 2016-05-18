@@ -1,3 +1,5 @@
+WXGO_DECL_TYPECONV(SpinEvent)
+WXGO_DECL_TYPECONV(SpinButton)
 class wxSpinEvent : public wxNotifyEvent
 {
 public:

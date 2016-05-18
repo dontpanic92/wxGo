@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(Choice)
 class wxChoice : public wxControl,
                  public wxItemContainer
 {

@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(ScrollBar)
 class wxScrollBar : public wxControl
 {
 public:

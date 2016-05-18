@@ -1,3 +1,7 @@
+WXGO_DECL_TYPECONV(TextAttr)
+WXGO_DECL_TYPECONV(TextEntry)
+WXGO_DECL_TYPECONV(TextCtrl)
+WXGO_DECL_TYPECONV(TextUrlEvent)
 #define wxTE_NO_VSCROLL     0x0002
 #define wxTE_READONLY       0x0010
 #define wxTE_MULTILINE      0x0020

@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(RadioButton)
 class wxRadioButton : public wxControl
 {
 public:

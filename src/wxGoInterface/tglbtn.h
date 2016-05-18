@@ -1,3 +1,5 @@
+WXGO_DECL_TYPECONV(ToggleButton)
+WXGO_DECL_TYPECONV(BitmapToggleButton)
 %constant wxEventType wxEVT_TOGGLEBUTTON;
 class wxToggleButton : public wxAnyButton
 {

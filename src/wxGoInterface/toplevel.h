@@ -1,11 +1,20 @@
-#define wxUSER_ATTENTION_INFO  1
-#define wxUSER_ATTENTION_ERROR  2
-#define wxFULLSCREEN_NOMENUBAR    0x0001
-#define wxFULLSCREEN_NOTOOLBAR    0x0002
-#define wxFULLSCREEN_NOSTATUSBAR  0x0004
-#define wxFULLSCREEN_NOBORDER     0x0008
-#define wxFULLSCREEN_NOCAPTION    0x0010
-#define wxFULLSCREEN_ALL     wxFULLSCREEN_NOMENUBAR | wxFULLSCREEN_NOTOOLBAR |                          wxFULLSCREEN_NOSTATUSBAR | wxFULLSCREEN_NOBORDER |                          wxFULLSCREEN_NOCAPTION
+WXGO_DECL_TYPECONV(TopLevelWindow)
+enum
+{
+    wxUSER_ATTENTION_INFO = 1,  
+    wxUSER_ATTENTION_ERROR = 2  
+};
+enum
+{
+    wxFULLSCREEN_NOMENUBAR   = 0x0001,  
+    wxFULLSCREEN_NOTOOLBAR   = 0x0002,  
+    wxFULLSCREEN_NOSTATUSBAR = 0x0004,  
+    wxFULLSCREEN_NOBORDER    = 0x0008,  
+    wxFULLSCREEN_NOCAPTION   = 0x0010,  
+    wxFULLSCREEN_ALL    = wxFULLSCREEN_NOMENUBAR | wxFULLSCREEN_NOTOOLBAR |
+                          wxFULLSCREEN_NOSTATUSBAR | wxFULLSCREEN_NOBORDER |
+                          wxFULLSCREEN_NOCAPTION
+};
 #define wxDEFAULT_FRAME_STYLE (wxSYSTEM_MENU |          \
                                wxRESIZE_BORDER |        \
                                wxMINIMIZE_BOX |         \

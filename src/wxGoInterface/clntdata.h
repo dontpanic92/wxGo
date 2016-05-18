@@ -1,3 +1,6 @@
+WXGO_DECL_TYPECONV(ClientDataContainer)
+WXGO_DECL_TYPECONV(ClientData)
+WXGO_DECL_TYPECONV(StringClientData)
 class wxClientDataContainer
 {
 public:

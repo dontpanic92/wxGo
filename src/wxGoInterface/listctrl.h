@@ -1,3 +1,8 @@
+WXGO_DECL_TYPECONV(ListCtrl)
+WXGO_DECL_TYPECONV(ListEvent)
+WXGO_DECL_TYPECONV(ListItemAttr)
+WXGO_DECL_TYPECONV(ListView)
+WXGO_DECL_TYPECONV(ListItem)
 #define wxLC_VRULES          0x0001
 #define wxLC_HRULES          0x0002
 #define wxLC_ICON            0x0004
@@ -40,30 +45,45 @@
 #define wxLIST_HITTEST_TORIGHT          0x0800  
 #define wxLIST_HITTEST_ONITEM (wxLIST_HITTEST_ONITEMICON | wxLIST_HITTEST_ONITEMLABEL | wxLIST_HITTEST_ONITEMSTATEICON)
 #define wxLIST_GETSUBITEMRECT_WHOLEITEM -1l
-#define wxLIST_NEXT_ABOVE 0
-#define wxLIST_NEXT_ALL wxLIST_NEXT_ABOVE + 1
-#define wxLIST_NEXT_BELOW wxLIST_NEXT_ALL + 1
-#define wxLIST_NEXT_LEFT wxLIST_NEXT_BELOW + 1
-#define wxLIST_NEXT_RIGHT wxLIST_NEXT_LEFT + 1
-#define wxLIST_ALIGN_DEFAULT 0
-#define wxLIST_ALIGN_LEFT wxLIST_ALIGN_DEFAULT + 1
-#define wxLIST_ALIGN_TOP wxLIST_ALIGN_LEFT + 1
-#define wxLIST_ALIGN_SNAP_TO_GRID wxLIST_ALIGN_TOP + 1
+enum
+{
+    wxLIST_NEXT_ABOVE,          
+    wxLIST_NEXT_ALL,            
+    wxLIST_NEXT_BELOW,          
+    wxLIST_NEXT_LEFT,           
+    wxLIST_NEXT_RIGHT           
+};
+enum
+{
+    wxLIST_ALIGN_DEFAULT,
+    wxLIST_ALIGN_LEFT,
+    wxLIST_ALIGN_TOP,
+    wxLIST_ALIGN_SNAP_TO_GRID
+};
 %ignore wxListColumnFormat;
 enum wxListColumnFormat;
 #define wxLIST_FORMAT_LEFT 0
 #define wxLIST_FORMAT_RIGHT wxLIST_FORMAT_LEFT + 1
 #define wxLIST_FORMAT_CENTRE wxLIST_FORMAT_RIGHT + 1
 #define wxLIST_FORMAT_CENTER  wxLIST_FORMAT_CENTRE
-#define wxLIST_AUTOSIZE  -1
-#define wxLIST_AUTOSIZE_USEHEADER  -2
-#define wxLIST_RECT_BOUNDS 0
-#define wxLIST_RECT_ICON wxLIST_RECT_BOUNDS + 1
-#define wxLIST_RECT_LABEL wxLIST_RECT_ICON + 1
-#define wxLIST_FIND_UP 0
-#define wxLIST_FIND_DOWN wxLIST_FIND_UP + 1
-#define wxLIST_FIND_LEFT wxLIST_FIND_DOWN + 1
-#define wxLIST_FIND_RIGHT wxLIST_FIND_LEFT + 1
+enum
+{
+    wxLIST_AUTOSIZE = -1,
+    wxLIST_AUTOSIZE_USEHEADER = -2      
+};
+enum
+{
+    wxLIST_RECT_BOUNDS,
+    wxLIST_RECT_ICON,
+    wxLIST_RECT_LABEL
+};
+enum
+{
+    wxLIST_FIND_UP,
+    wxLIST_FIND_DOWN,
+    wxLIST_FIND_LEFT,
+    wxLIST_FIND_RIGHT
+};
 class wxListCtrl : public wxControl
 {
 public:

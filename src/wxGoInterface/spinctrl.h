@@ -1,3 +1,6 @@
+WXGO_DECL_TYPECONV(SpinCtrl)
+WXGO_DECL_TYPECONV(SpinCtrlDouble)
+WXGO_DECL_TYPECONV(SpinDoubleEvent)
 class wxSpinCtrl : public wxControl
 {
 public:

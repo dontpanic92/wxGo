@@ -1,3 +1,6 @@
+WXGO_DECL_TYPECONV(MenuBar)
+WXGO_DECL_TYPECONV(Menu)
+WXGO_DECL_TYPECONV(MenuItem)
 class wxMenuBar : public wxWindow
 {
 public:

@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(Panel)
 class wxPanel : public wxWindow
 {
 public:

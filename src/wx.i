@@ -6,11 +6,9 @@
 	#include "wx/wx.h"
 %}
 
-%include wxString.i
+//%include wxString.i
 %include typemap.i
-
 %include define.i
-
 
 %include defs.i
 %include wxObject.i
@@ -26,14 +24,10 @@
 %include wxMenu.i
 %include wxStatusBar.i
 %include wxDialog.i
-%include wxMsgDlg.i
 %include gdicmn.i
 %include wxColour.i
-%include wxColourDlg.i
 %include wxFont.i
-%include wxFontDlg.i
-%include wxFileDlg.i
-%include wxAboutDlg.i
+%include wxDialogs.i
 %include wxTextCtrl.i
 %include wxPanel.i
 %include wxNoteBook.i
@@ -51,5 +45,6 @@
 %include wxClientData.i
 %include wxTree.i
 %include wxSplitter.i
+%include wxPickers.i
 
 %include wxAui.i

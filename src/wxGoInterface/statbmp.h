@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(StaticBitmap)
 class wxStaticBitmap : public wxControl
 {
 public:

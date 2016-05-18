@@ -1,3 +1,6 @@
+WXGO_DECL_TYPECONV(Dialog)
+WXGO_DECL_TYPECONV(DialogLayoutAdapter)
+WXGO_DECL_TYPECONV(WindowModalDialogEvent)
 %ignore wxDialogLayoutAdaptationMode;
 enum wxDialogLayoutAdaptationMode;
 #define wxDIALOG_ADAPTATION_MODE_DEFAULT  0

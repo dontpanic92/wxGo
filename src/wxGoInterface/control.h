@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(Control)
 %ignore wxEllipsizeFlags;
 enum wxEllipsizeFlags;
 #define wxELLIPSIZE_FLAGS_NONE  0

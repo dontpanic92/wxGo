@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(StaticText)
 #define wxST_NO_AUTORESIZE         0x0001
 #define wxST_ELLIPSIZE_START       0x0004
 #define wxST_ELLIPSIZE_MIDDLE      0x0008

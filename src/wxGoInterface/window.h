@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(Window)
 %ignore wxShowEffect;
 enum wxShowEffect;
 #define wxSHOW_EFFECT_NONE 0
@@ -12,7 +13,10 @@ enum wxShowEffect;
 #define wxSHOW_EFFECT_BLEND wxSHOW_EFFECT_SLIDE_TO_BOTTOM + 1
 #define wxSHOW_EFFECT_EXPAND wxSHOW_EFFECT_BLEND + 1
 #define wxSHOW_EFFECT_MAX wxSHOW_EFFECT_EXPAND + 1
-#define wxSEND_EVENT_POST  1
+enum
+{
+    wxSEND_EVENT_POST = 1
+};
 struct  wxVisualAttributes
 {
     wxFont font;

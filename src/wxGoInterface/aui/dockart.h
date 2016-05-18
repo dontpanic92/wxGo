@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(AuiDockArt)
 %ignore wxAuiPaneDockArtSetting;
 enum wxAuiPaneDockArtSetting;
 #define wxAUI_DOCKART_SASH_SIZE  0

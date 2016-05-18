@@ -1,3 +1,4 @@
+WXGO_DECL_TYPECONV(Treebook)
 %constant wxEventType wxEVT_TREEBOOK_PAGE_CHANGED;
 %constant wxEventType wxEVT_TREEBOOK_PAGE_CHANGING;
 %constant wxEventType wxEVT_TREEBOOK_NODE_COLLAPSED;

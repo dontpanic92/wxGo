@@ -11,13 +11,17 @@ enum {
 ```
 
 SWIG will not treat wxRA_HORIZONTAL as a constant then ignore it.
+Fortunately wxWidgets interface is simple -- we only use regular
+expressions to deal with these tricks. Perhaps someday we will 
+need a real parser.
 
 By dontpanic, 2015/5/16
 """
 
 import sys, os, re
 
-regex = re.compile("enum(.+?){(.+?)}*?;", re.S) 
+regex = re.compile("enum\s+(.+?){(.+?)}.*?;", re.S) 
+regex2 = re.compile("class\s+(\w+?)\s*(:.+?)?{.*?}.*?;", re.S) 
 
 def is_top_level(match_object):
     right = 0
@@ -63,6 +67,19 @@ def replace_enum(match_object):
         
     return code
 
+def gen_conv_decl(code):
+    exception_list = ["wxGoApp", "wxScrolled", "wxString"]
+    decl = ""
+    for match_object in regex2.finditer(code):
+        if not is_top_level:
+            continue
+        classname = match_object.group(1).strip()
+        if classname in exception_list:
+            continue
+        conv_name = classname[2:] if classname.startswith("wx") else classname
+        decl += "WXGO_DECL_TYPECONV(" + conv_name + ")\n"
+    return decl
+
 def preprocess(ori_file, new_file):
     print "Processing " + ori_file
     os.system('sed -nf remccoms3.sed ' + ori_file + ' > ' + new_file)
@@ -71,8 +88,9 @@ def preprocess(ori_file, new_file):
     if len(code) == 0:
         return
     code = regex.sub(replace_enum, code)
+    conv_decl = gen_conv_decl(code)
     code = os.linesep.join([s for s in code.splitlines() if s.rstrip()])
-    file(new_file, "w").write(code) 
+    file(new_file, "w").write(conv_decl + code) 
      
 def preprocess_all(ori_folder, new_folder):
     for f in os.listdir(ori_folder):
