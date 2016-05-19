@@ -693,7 +693,7 @@ public:
 /**
     An empty wxBitmap object.
 */
-wxBitmap wxNullBitmap;
+%constant wxBitmap wxNullBitmap;
 
 
 

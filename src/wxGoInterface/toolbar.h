@@ -28,7 +28,7 @@ enum
 class wxToolBarToolBase : public wxObject
 {
 public:
-    wxToolBarToolBase(wxToolBarBase *tbar = NULL,
+    wxToolBarToolBase(wxToolBar *tbar = NULL,
                       int toolid = wxID_SEPARATOR,
                       const wxString& label = wxEmptyString,
                       const wxBitmap& bmpNormal = wxNullBitmap,
@@ -37,13 +37,13 @@ public:
                       wxObject *clientData = NULL,
                       const wxString& shortHelpString = wxEmptyString,
                       const wxString& longHelpString = wxEmptyString);
-    wxToolBarToolBase(wxToolBarBase *tbar,
+    wxToolBarToolBase(wxToolBar *tbar,
                       wxControl *control,
                       const wxString& label);
     virtual ~wxToolBarToolBase();
     int GetId() const;
     wxControl *GetControl() const;
-    wxToolBarBase *GetToolBar() const;
+    wxToolBar *GetToolBar() const;
     bool IsStretchable() const;
     bool IsButton() const;
     bool IsControl() const;
@@ -73,7 +73,7 @@ public:
     virtual void SetLabel(const wxString& label);
     void SetClientData(wxObject *clientData);
     virtual void Detach();
-    virtual void Attach(wxToolBarBase *tbar);
+    virtual void Attach(wxToolBar *tbar);
     virtual void SetDropdownMenu(wxMenu *menu);
     wxMenu *GetDropdownMenu() const;
 };

@@ -1,4 +1,5 @@
 WXGO_DECL_TYPECONV(AuiNotebook)
+WXGO_DECL_TYPECONV(AuiNotebookPage)
 WXGO_DECL_TYPECONV(AuiTabContainerButton)
 WXGO_DECL_TYPECONV(AuiTabContainer)
 WXGO_DECL_TYPECONV(AuiTabArt)
@@ -75,6 +76,17 @@ public:
     virtual void SetUniformBitmapSize(const wxSize& size);
     virtual void Split(size_t page, int direction);
     bool ShowWindowMenu();
+};
+class wxAuiNotebookPage
+{
+public:
+    wxWindow* window;     
+    wxString caption;     
+    wxString tooltip;     
+    wxBitmap bitmap;      
+    wxRect rect;          
+    bool active;          
+    bool hover;           
 };
 class wxAuiTabContainerButton
 {

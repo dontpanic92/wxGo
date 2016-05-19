@@ -255,7 +255,7 @@ public:
     static wxFont *New(const wxNativeFontInfo& nativeInfo);
     static wxFont *New(const wxString& nativeInfoString);
 };
-wxFont wxNullFont;
+%constant wxFont wxNullFont;
 class wxFontList
 {
 public:

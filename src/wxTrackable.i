@@ -1,5 +1,6 @@
-//Only for SWIG parsing
 
+%nodefaultctor wxTrackable;
+%nodefaultdtor wxTrackable;
 class wxTrackable{
 public:
 };

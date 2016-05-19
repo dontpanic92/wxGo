@@ -21,6 +21,12 @@ func To##WXTYPE##(a interface{}) WXTYPE{
 }
 %enddef
 
+%define WXGO_GETTER_TO_VAR(WXTYPE, WXVARNAME)
+%insert(go_wrapper) {
+var WXVARNAME WXTYPE = Get##WXVARNAME()
+}
+%enddef
+
 %rename(Assign) operator=;
 %rename(Equals) operator==; 
 %rename(NotEquals) operator!=; 

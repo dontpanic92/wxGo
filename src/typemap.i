@@ -64,7 +64,7 @@ _goslice_ arrayStringToGostringSlice(const wxArrayString& arr) {
 %}
 
 %typemap(out) const wxArrayString& %{
-    $result = arrayStringToGostringSlice($1);
+    $result = arrayStringToGostringSlice(*$1);
 %}
 
 
@@ -72,7 +72,8 @@ _goslice_ arrayStringToGostringSlice(const wxArrayString& arr) {
 
 %apply int { enum SWIGTYPE }
 
-// make long in C++ as int in Go
+// Misc
 
-%apply int { long };
-%apply unsigned int { unsigned long };
+%typemap(gotype) long "int"
+%typemap(gotype) unsigned long "uint"
+%typemap(gotype) wxLonglong "int64"

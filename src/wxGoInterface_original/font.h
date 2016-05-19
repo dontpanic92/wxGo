@@ -268,7 +268,7 @@ public:
     static wxFont *New(const wxNativeFontInfo& nativeInfo);
     static wxFont *New(const wxString& nativeInfoString);
 };
-wxFont wxNullFont;
+%constant wxFont wxNullFont;
 /*
 wxFont* wxNORMAL_FONT;
 wxFont* wxSMALL_FONT;

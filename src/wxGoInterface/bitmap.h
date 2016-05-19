@@ -65,7 +65,7 @@ public:
     virtual void SetPalette(const wxPalette& palette);
     virtual void SetWidth(int width);
 };
-wxBitmap wxNullBitmap;
+%constant wxBitmap wxNullBitmap;
 class wxMask : public wxObject
 {
 public:

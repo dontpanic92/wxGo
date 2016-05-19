@@ -1,4 +1,4 @@
-%import "wxGdiobj.i"
+
 %include "wxGoInterface/font.h"
 
 %inline {

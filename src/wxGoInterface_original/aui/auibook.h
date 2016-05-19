@@ -402,6 +402,18 @@ public:
     bool ShowWindowMenu();
 };
 
+class wxAuiNotebookPage
+{
+public:
+    wxWindow* window;     // page's associated window
+    wxString caption;     // caption displayed on the tab
+    wxString tooltip;     // tooltip displayed when hovering over tab title
+    wxBitmap bitmap;      // tab's bitmap
+    wxRect rect;          // tab's hit rectangle
+    bool active;          // true if the page is currently active
+    bool hover;           // true if mouse hovering over tab
+};
+
 /**
     @class wxAuiTabContainerButton
 

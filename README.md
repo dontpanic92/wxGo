@@ -7,7 +7,7 @@ Usage
 ----
 
 ```
-go get github.com/dontpanic92/wxGo
+go get github.com/dontpanic92/wxGo/wx
 ```
 
 You can add `-x` option to print each command it executes. Then

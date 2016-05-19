@@ -15,6 +15,7 @@
 %include wxApp.i
 %include wxEvent.i
 %include wxWindow.i
+%include wxGDI.i
 %include wxCtrlSub.i
 %include wxControl.i
 %include wxTopLevelWindow.i
@@ -24,7 +25,6 @@
 %include wxMenu.i
 %include wxStatusBar.i
 %include wxDialog.i
-%include gdicmn.i
 %include wxColour.i
 %include wxFont.i
 %include wxDialogs.i
@@ -46,5 +46,8 @@
 %include wxTree.i
 %include wxSplitter.i
 %include wxPickers.i
+%include wxCalendar.i
+%include wxValidator.i
 
 %include wxAui.i
+%include wxSTC.i

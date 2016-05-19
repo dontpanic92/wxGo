@@ -67,7 +67,7 @@ public:
     wxWindow* GetNextSibling() const;
     wxWindow* GetParent() const;
     wxWindow* GetPrevSibling() const;
-    bool IsDescendant(wxWindowBase* win) const;
+    bool IsDescendant(wxWindow* win) const;
     virtual bool Reparent(wxWindow* newParent);
     virtual void AlwaysShowScrollbars(bool hflag = true, bool vflag = true);
     virtual int GetScrollPos(int orientation) const;
@@ -315,7 +315,9 @@ public:
     wxBorder GetBorder(long flags) const;
     wxBorder GetBorder() const;
     virtual void DoUpdateWindowUI(wxUpdateUIEvent& event);
-    virtual WXWidget GetHandle() const;
+ #ifdef __WXMSW__
+    virtual long GetHandle() const;
+#endif
     virtual bool HasMultiplePages() const;
     virtual void InheritAttributes();
     virtual void InitDialog();

@@ -20,7 +20,7 @@ By dontpanic, 2015/5/16
 
 import sys, os, re
 
-regex = re.compile("enum\s+(.+?){(.+?)}.*?;", re.S) 
+regex = re.compile("enum\s*(.+?){(.+?)}.*?;", re.S) 
 regex2 = re.compile("class\s+(\w+?)\s*(:.+?)?{.*?}.*?;", re.S) 
 
 def is_top_level(match_object):
@@ -32,6 +32,8 @@ def is_top_level(match_object):
                 return False
         elif match_object.string[i] == '}':
             right += 1
+    if right > 0:
+        return False
     return True
     
 def replace_enum(match_object):
