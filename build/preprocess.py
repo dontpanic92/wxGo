@@ -32,8 +32,7 @@ def is_top_level(match_object):
                 return False
         elif match_object.string[i] == '}':
             right += 1
-    if right > 0:
-        return False
+
     return True
     
 def replace_enum(match_object):
@@ -73,7 +72,7 @@ def gen_conv_decl(code):
     exception_list = ["wxGoApp", "wxScrolled", "wxString"]
     decl = ""
     for match_object in regex2.finditer(code):
-        if not is_top_level:
+        if not is_top_level(match_object):
             continue
         classname = match_object.group(1).strip()
         if classname in exception_list:
