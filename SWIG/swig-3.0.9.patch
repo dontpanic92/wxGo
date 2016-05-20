@@ -1,12 +1,19 @@
-Binary files swig_original/.git/index and swig/.git/index differ
-diff -uNr swig_original/.git/ORIG_HEAD swig/.git/ORIG_HEAD
---- swig_original/.git/ORIG_HEAD	2016-05-15 18:24:45.679568751 +0800
-+++ swig/.git/ORIG_HEAD	1970-01-01 08:00:00.000000000 +0800
-@@ -1 +0,0 @@
--809d54b13a1e032857838efbcbf6162b64c63984
 diff -uNr swig_original/Source/Modules/go.cxx swig/Source/Modules/go.cxx
---- swig_original/Source/Modules/go.cxx	2016-05-15 18:24:45.666235417 +0800
-+++ swig/Source/Modules/go.cxx	2016-05-15 18:11:11.339536341 +0800
+--- swig_original/Source/Modules/go.cxx	2016-05-15 18:29:30.089580070 +0800
++++ swig/Source/Modules/go.cxx	2016-05-21 00:51:17.769699548 +0800
+@@ -349,10 +349,10 @@
+     // This test may be removed in the future, when we can assume that
+     // everybody has upgraded to Go 1.1.  The code below is prepared
+     // for this test to simply be taken out.
+-    if (intgo_type_size == 0 && !display_help) {
++    /*if (intgo_type_size == 0 && !display_help) {
+       Printf(stderr, "SWIG -go: -intgosize option required but not specified\n");
+       SWIG_exit(EXIT_FAILURE);
+-    }
++    }*/
+ 
+     if (intgo_type_size == 32) {
+       Preprocessor_define("SWIGGO_INTGO_SIZE 32", 0);
 @@ -6525,8 +6525,10 @@
  	break;
        }
