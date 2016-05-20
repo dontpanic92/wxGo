@@ -241,9 +241,11 @@ public:
 */
 //@{
 WXGO_GETTER_TO_VAR(Cursor, NullCursor);
-WXGO_GETTER_TO_VAR(Cursor, STANDARD_CURSOR);
-WXGO_GETTER_TO_VAR(Cursor, HOURGLASS_CURSOR);
-WXGO_GETTER_TO_VAR(Cursor, CROSS_CURSOR);
+// These 3 cursors are wxStockGDI::GetCursor(wxStockGDI::CURSOR_XXX)
+// actually, so we can't save them as a global variable.
+//WXGO_GETTER_TO_VAR(Cursor, STANDARD_CURSOR);
+//WXGO_GETTER_TO_VAR(Cursor, HOURGLASS_CURSOR);
+//WXGO_GETTER_TO_VAR(Cursor, CROSS_CURSOR);
 const wxCursor wxNullCursor;
 wxCursor* const wxSTANDARD_CURSOR;
 wxCursor* const wxHOURGLASS_CURSOR;
