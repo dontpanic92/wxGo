@@ -19,7 +19,9 @@ public:
                             int image = -1,
                             int selImage = -1,
                             wxTreeItemData* data = NULL);
+#ifndef __WXMSW__
     void AssignButtonsImageList(wxImageList* imageList);
+#endif
     void AssignImageList(wxImageList* imageList);
     void AssignStateImageList(wxImageList* imageList);
     virtual void Collapse(const wxTreeItemId& item);
@@ -45,7 +47,9 @@ public:
     void ExpandAllChildren(const wxTreeItemId& item);
     virtual bool GetBoundingRect(const wxTreeItemId& item, wxRect& rect,
                                  bool textOnly = false) const;
+#ifndef __WXMSW__
     wxImageList* GetButtonsImageList() const;
+#endif
     virtual size_t GetChildrenCount(const wxTreeItemId& item,
                                     bool recursively = true) const;
     virtual unsigned int GetCount() const;
@@ -107,7 +111,9 @@ public:
                              wxTreeItemData* data = NULL);
     virtual void ScrollTo(const wxTreeItemId& item);
     virtual void SelectItem(const wxTreeItemId& item, bool select = true);
+#ifndef __WXMSW__
     void SetButtonsImageList(wxImageList* imageList);
+#endif
     virtual void SetImageList(wxImageList* imageList);
     virtual void SetIndent(unsigned int indent);
     virtual void SetItemBackgroundColour(const wxTreeItemId& item,

@@ -4,5 +4,5 @@ class wxNonOwnedWindow : public wxWindow
 {
 public:
     bool SetShape(const wxRegion& region);
-    bool SetShape(const wxGraphicsPath& path);
+    //bool SetShape(const wxGraphicsPath& path);
 };

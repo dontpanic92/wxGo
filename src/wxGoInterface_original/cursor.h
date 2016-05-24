@@ -115,10 +115,11 @@ public:
         In wxPerl use Wx::Cursor->newData(bits, width, height, hotSpotX = -1, hotSpotY = -1, maskBits = 0).
         @endWxPerlOnly
     */
+#ifdef __WXGTK__
     wxCursor(const char bits[], int width, int height,
              int hotSpotX = -1, int hotSpotY = -1,
              const char maskBits[] = NULL);
-
+#endif
     /**
         Constructs a cursor by passing a string resource name or filename.
 

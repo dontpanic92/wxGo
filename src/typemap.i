@@ -76,4 +76,5 @@ _goslice_ arrayStringToGostringSlice(const wxArrayString& arr) {
 
 %typemap(gotype) long "int"
 %typemap(gotype) unsigned long "uint"
-%typemap(gotype) wxLonglong "int64"
+%typemap(gotype) wxLongLong "int64"
+%typemap(gotype) wxULongLong "uint64"

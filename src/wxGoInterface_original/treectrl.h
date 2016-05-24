@@ -243,8 +243,9 @@ public:
 
         @see SetButtonsImageList().
     */
+#ifndef __WXMSW__
     void AssignButtonsImageList(wxImageList* imageList);
-
+#endif
     /**
         Sets the normal image list. The image list assigned with this method
         will be automatically deleted by wxTreeCtrl as appropriate (i.e. it
@@ -406,8 +407,9 @@ public:
 
         This function is only available in the generic version.
     */
+#ifndef __WXMSW__
     wxImageList* GetButtonsImageList() const;
-
+#endif
     /**
         Returns the number of items in the branch. If @a recursively is @true,
         returns the total number of descendants, otherwise only one level of
@@ -816,8 +818,9 @@ public:
 
         @see AssignButtonsImageList().
     */
+#ifndef __WXMSW__
     void SetButtonsImageList(wxImageList* imageList);
-
+#endif
     /**
         Sets the normal image list. The image list assigned with this method
         will @b not be deleted by @ref wxTreeCtrl "wxTreeCtrl"'s destructor, you

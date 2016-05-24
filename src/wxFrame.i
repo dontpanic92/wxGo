@@ -1,6 +1,6 @@
 
 %{
-	#include "wx/gtk/frame.h"
+	#include "wx/frame.h"
 %}
 
 %include "wxGoInterface/frame.h"
