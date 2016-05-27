@@ -1,5 +1,7 @@
 """
-Change all top-level enums in wxWidgets header into #define.
+This program does 2 things:
+
+1.Change all top-level enums in wxWidgets header into #define.
 This makes SWIG could handle the situation below:
 
 ```
@@ -14,6 +16,8 @@ SWIG will not treat wxRA_HORIZONTAL as a constant then ignore it.
 Fortunately wxWidgets interface is simple -- we only use regular
 expressions to deal with these tricks. Perhaps someday we will 
 need a real parser.
+
+2.Generate a Macro-call for every top-level class to support typecast.
 
 By dontpanic, 2015/5/16
 """
