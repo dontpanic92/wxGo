@@ -15,8 +15,14 @@
 %typemap(out,fragment="AllocateString") wxString
 %{ $result = Swig_AllocateString($1.utf8_str(), $1.length()); %}
 
+%typemap(goout,fragment="CopyString") wxString
+%{ $result = swigCopyString($1) %}
+
 %typemap(out,fragment="AllocateString") const wxString&
 %{ $result = Swig_AllocateString($1->utf8_str(), $1->length()); %}
+
+%typemap(goout,fragment="CopyString") const wxString &
+%{ $result = swigCopyString($1) %}
 
 
 //Typemaps for wxArrayString
