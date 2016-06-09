@@ -747,7 +747,7 @@ enum wxUpdateUI
 #define wxUINT64_MAX ULLONG_MAX
 typedef int wxCoord;
 %constant wxCoord wxDefaultCoord = -1;
-typedef signed char wxInt8;
+/*typedef signed char wxInt8;
 typedef unsigned char wxUint8;
 typedef wxUint8 wxByte;
 typedef signed short wxInt16;
@@ -792,3 +792,4 @@ template <typename T> wxDELETEA(T*& array);
 #define wxOVERRIDE
 #define wxSUPPRESS_GCC_PRIVATE_DTOR_WARNING(name)
 template <typename T> wxSwap(T& first, T& second);
+*/

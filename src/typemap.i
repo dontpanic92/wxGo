@@ -74,6 +74,21 @@ _goslice_ arrayStringToGostringSlice(const wxArrayString& arr) {
 %}
 
 
+// Typemaps for wxChar & wxUniChar
+
+%typemap(gotype) wxUniChar "rune"
+%typemap(imtype) wxUniChar "int32"
+
+%typemap(out) wxUniChar %{
+    $result = $1.GetValue();
+%}
+
+%typemap(goout) wxUniChar %{
+    $result = rune($1)
+%}
+
+%typedef wchar_t wxChar;
+
 // Typemaps for named enums
 
 %apply int { enum SWIGTYPE }
@@ -82,5 +97,30 @@ _goslice_ arrayStringToGostringSlice(const wxArrayString& arr) {
 
 %typemap(gotype) long "int"
 %typemap(gotype) unsigned long "uint"
+%typedef int wxInt32;
+%typedef unsigned int wxUint32;
+
 %typemap(gotype) wxLongLong "int64"
+%typemap(imtype) wxLongLong "int64"
+%typemap(out) wxLongLong %{
+    $result = $1.GetValue();
+%}
+
+%typemap(in) wxLongLong %{
+    $1 = $input;
+%}
+
 %typemap(gotype) wxULongLong "uint64"
+%typemap(imtype) wxULongLong "uint64"
+%typemap(out) wxULongLong %{
+    $result = $1.GetValue();
+%}
+
+%typemap(in) wxULongLong %{
+    $1 = $input;
+%}
+
+%typedef long wxIntPtr;
+%typedef unsigned long wxUIntPtr;
+%typedef long long time_t;
+%typedef unsigned char wxByte;
