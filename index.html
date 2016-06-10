@@ -28,47 +28,150 @@
         </ul>
       </header>
       <section>
-        <h3>
-<a id="welcome-to-wxgo" class="anchor" href="#welcome-to-wxgo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to wxGo</h3>
+        <h1>
+<a id="wxgo" class="anchor" href="#wxgo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>wxGo</h1>
 
-<p>wxGo is a Golang Wrapper for wxWidgets and now is under developing.</p>
-
-<h3>
-<a id="screen-shot" class="anchor" href="#screen-shot" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Screen Shot</h3>
-
-<p><img src="https://raw.githubusercontent.com/dontpanic92/wxGo/master/examples/screenshot.jpg" alt="screenshot"></p>
+<p>Golang wxWidgets Wrapper</p>
 
 <h2>
-<a id="note" class="anchor" href="#note" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Note</h2>
+<a id="compilation-" class="anchor" href="#compilation-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compilation </h2>
+
+<h4>
+<a id="1-requisites" class="anchor" href="#1-requisites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Requisites</h4>
 
 <ul>
-<li>Currently wxWidgets is statically linked into wxGo and for convenience (go build-able) a pre-compiled version of wxWidgets is used</li>
-<li>To use your customized version of wxWidgets, please modify <code>src/define.i</code> where the <code>CPPFLAGS</code> and <code>LDFALGS</code> are</li>
-<li>Only linux_amd64 supported and tested now</li>
+<li>64-bit Go</li>
+<li>Linux / Windows</li>
+<li>GCC / MinGW, version &gt; 5</li>
+<li>&gt; 5GB RAM</li>
 </ul>
+
+<p><strong>Remarks</strong></p>
+
+<p>32-bit go will <a href="https://github.com/dontpanic92/wxGo/issues/3">run out of memory</a> due to 5GB RAM comsumption when compiling and I have no idea on how to decline the memory usage. Any suggestion or discussion will help.</p>
+
+<p>The precompiled wxWidgets is compiled with gcc &gt; 5 ( 6.1.1 on Linux, 5.3.0 on Windows using tdm-gcc). So if you want to use the precompiled wxWidgets, your gcc version has also to be &gt; 5, because <a href="https://gcc.gnu.org/gcc-5/changes.html#libstdcxx">GCC changed its ABI since GCC 5 release series</a>.</p>
+
+<h4>
+<a id="2-build--install" class="anchor" href="#2-build--install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Build &amp; Install</h4>
+
+<pre><code>go get github.com/dontpanic92/wxGo/wx
+</code></pre>
+
+<p>You can add <code>-x</code> option to print each command it executes.</p>
+
+<h2>
+<a id="custom-compilation" class="anchor" href="#custom-compilation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Custom Compilation</h2>
+
+<p>This seciton will introduce how to customize wxGo.</p>
+
+<h4>
+<a id="1-compilation-phases" class="anchor" href="#1-compilation-phases" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Compilation phases</h4>
+
+<p>wxGo needs a 2-phase compilation. The first is the SWIG phase, that is using <a href="https://github.com/SWIG/SWIG">SWIG</a> to generate the wrapper code. And the second is the Go phase, which has been described above.</p>
+
+<h4>
+<a id="2-customize-swig-phase" class="anchor" href="#2-customize-swig-phase" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Customize SWIG phase</h4>
+
+<p>You can regenerate the wrapper code using SWIG. Compilation dependencies are:</p>
+
+<ul>
+<li>python 2</li>
+<li>sed</li>
+<li>make</li>
+<li>SWIG, of course</li>
+</ul>
+
+<p>First of all, SWIG has to be patched using <code>SWIG/swig-3.0.9.patch</code>. This patch fixed a bug in SWIG, and also turn on an option which cannot be used by default. Then you can modify the source as you want, and run <code>make</code> in the <code>build</code> folder.</p>
+
+<h4>
+<a id="3-customize-wxwidgets-build" class="anchor" href="#3-customize-wxwidgets-build" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Customize wxWidgets build</h4>
+
+<p>If you want to use other wxWidgets build rather than the precompiled one, what you have to do is quite simple.</p>
+
+<ul>
+<li>Compile wxWidgets</li>
+<li>Run <code>go get -d github.com/dontpanic92/wxGo/wx</code> to let the go-tool just download the source</li>
+<li>Open <code>wx/setup_OS_ARCH.go</code>, change the <code>CPPFLAGS</code> and <code>LDFLAGS</code>
+</li>
+<li>Run <code>go install github.com/dontpanic92/wxGo/wx</code>
+</li>
+</ul>
+
+<p>Done!</p>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 
-<pre><code>go get github.com/dontpanic92/wxGo
+<p>After importing <code>github.com/dontpanic92/wxGo/wx</code>, the following code will create an empty dialog with a "Hello World" as its caption.</p>
+
+<pre><code>    wx.NewApp()
+    f := wx.NewDialog(wx.NullWindow, -1, "Hello World")
+    f.ShowModal()
+    f.Destroy()
 </code></pre>
 
-<p>You can add <code>-x</code> option to print each command it executes. Then</p>
+<p>All the wx-Classes' objects can be created using <code>wx.NewCLASS</code>. Now let us add some controls on it :</p>
 
-<pre><code>import "github.com/dontpanic92/wxGo/wx"
+<pre><code>    wx.NewApp()
+    f := wx.NewDialog(wx.NullWindow, -1, "Hello World")
+
+    bSizer := wx.NewBoxSizer(wx.VERTICAL)
+
+    checkBox := wx.NewCheckBox(f, wx.ID_ANY, "Check Me!", wx.DefaultPosition, wx.DefaultSize, 0)
+    bSizer.Add(checkBox, 0, wx.ALL|wx.EXPAND, 5)
+
+    textCtrl := wx.NewTextCtrl( f, wx.ID_ANY, "", wx.DefaultPosition, wx.DefaultSize, 0)
+    bSizer.Add(textCtrl, 0, wx.ALL|wx.EXPAND, 5)
+
+    f.SetSizer(bSizer)
+    f.Layout()
+    f.ShowModal()
+    f.Destroy()
 </code></pre>
 
-<p>and have fun!</p>
+<p>And then we can bind an event on the checkbox :</p>
+
+<pre><code>func checkboxClicked(e wx.Event) {
+    wx.MessageBox("Checkbox clicked!")
+}
+
+//....
+    wx.Bind(f, wx.EVT_CHECKBOX, checkboxClicked, checkBox.GetId())
+//....
+</code></pre>
+
+<p>Bravo!</p>
+
+<p><strong>Remarks : about the memory menagement</strong></p>
+
+<p>All <code>wx.NewCLASS</code> functions will allocate memory on C++ side ( on heap ), thus it will not be tracked by Go's garbage collector. However, in most cases we don't need to worry about it, because wxWidgets will handle it. Some common cases are listed below:</p>
+
+<ul>
+<li><p>√ When a <code>wxWindow</code> (or its subclasses) being deleted , it will automatically delete all of its children.</p></li>
+<li><p>√ When we click the close botton of a <code>wxFrame</code>, by default the <code>Destroy</code> will be called and it will be deleted by itself (and also all children). </p></li>
+<li><p>× However when we close a <code>wxDialog</code>, the <code>Destroy</code> won't be called by default and we have to manually destroy it.</p></li>
+<li><p>× If an object isn't in the GUI hierachy, we have to free the memory by calling <code>DeleteCLASS</code>. </p></li>
+</ul>
+
+<p>In a word, <code>p := wx.NewCLASS</code> in Go acts the same as <code>p = new wxCLASS()</code> in C++. Where we need a <code>delete p</code>, then we need a <code>wx.DeleteCLASS</code>.</p>
+
+<p>More Info: </p>
+
+<ul>
+<li><p><a href="http://docs.wxwidgets.org/3.0/overview_windowdeletion.html">wxWidgets docs on window deletion</a></p></li>
+<li><p><a href="http://www.swig.org/Doc3.0/Go.html#Go_class_memory">SWIG docs on Go memory management</a></p></li>
+</ul>
 
 <h2>
 <a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
 
-<p>Examples are in <code>examples</code> folder. <code>Dapeton</code> is a simple notepad, and <code>controls</code> is a dialog that contains several widgets.</p>
+<p>Examples are in the <code>examples</code> folder. <code>Dapeton</code> is a simple notepad, and <code>controls</code> is a dialog that contains several widgets.</p>
 
 <h2>
-<a id="issues" class="anchor" href="#issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Issues</h2>
+<a id="screenshot" class="anchor" href="#screenshot" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScreenShot</h2>
 
-<p>The size of the final executalble program grows larger as more classes added into wxGo. Both examples are ~50MB large. You can use <code>strip</code> command to reduce the size, but it will remove the symbols.</p>
+<p><img src="./examples/screenshot.jpg" alt="screenshot"></p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/dontpanic92">dontpanic92</a></p>
