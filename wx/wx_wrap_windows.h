@@ -20,6 +20,18 @@ class SwigDirector_GoCallbackDispatcher : public wxGoCallbackDispatcher
  public:
   SwigDirector_GoCallbackDispatcher(int swig_p);
   virtual ~SwigDirector_GoCallbackDispatcher();
+  wxClassInfo *_swig_upcall_GetClassInfo() const {
+    return wxObject::GetClassInfo();
+  }
+  virtual wxClassInfo *GetClassInfo() const;
+  wxObjectRefData *_swig_upcall_CreateRefData() const {
+    return wxObject::CreateRefData();
+  }
+  virtual wxObjectRefData *CreateRefData() const;
+  wxObjectRefData *_swig_upcall_CloneRefData(wxObjectRefData const *data) const {
+    return wxObject::CloneRefData(data);
+  }
+  virtual wxObjectRefData *CloneRefData(wxObjectRefData const *data) const;
   void _swig_upcall_QueueEvent(wxEvent *event) {
     wxEvtHandler::QueueEvent(event);
   }

@@ -87,7 +87,41 @@ _goslice_ arrayStringToGostringSlice(const wxArrayString& arr) {
     $result = rune($1)
 %}
 
-%typedef wchar_t wxChar;
+%typemap(in) wxUniChar %{
+    $1 = wxUniChar($input);
+%}
+
+%typemap(gotype) wxChar "rune"
+%typemap(imtype) wxChar "int32"
+
+%typemap(in) wxChar %{
+    $1 = wxChar($input);
+%}
+
+%typemap(out) wxChar %{
+    $result = $1;
+%}
+
+%typemap(goout) wxChar %{
+    $result = rune($1)
+%}
+
+%typemap(gotype) const wxChar* "string"
+
+%typemap(in) const wxChar* %{
+    wxString $1_str($input.p, wxConvUTF8);
+    $1 = (wxChar*)$1_str.t_str();
+%}
+
+
+%typemap(out,fragment="AllocateString") const wxChar*
+%{ 
+    wxString $1_str($1);
+    $result = Swig_AllocateString($1_str.utf8_str(), $1_str.length()); 
+%}
+
+%typemap(goout,fragment="CopyString") const wxChar*
+%{ $result = swigCopyString($1) %}
 
 // Typemaps for named enums
 
