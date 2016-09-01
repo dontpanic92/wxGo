@@ -5,10 +5,10 @@
 %typemap(gotype) const wxString& "string"
 
 
-%typemap(in) wxString "$1 = wxString($input.p, wxConvUTF8);"
+%typemap(in) wxString "$1 = wxString($input.p, wxConvUTF8, $input.n);"
 
 %typemap(in) const wxString& %{
-    $*1_ltype $1_str($input.p, wxConvUTF8);
+    $*1_ltype $1_str($input.p, wxConvUTF8, $input.n);
     $1 = &$1_str;
 %}
 
@@ -34,7 +34,8 @@
 wxArrayString gostringSliceToArrayString(_goslice_ slice) {
     wxArrayString arrayString;
     for (int i = 0; i < slice.len; i++) {
-        wxString tmp_str(((_gostring_*)slice.array)[i].p, wxConvUTF8);
+        const _gostring_& gostr = ((_gostring_*)slice.array)[i];
+        wxString tmp_str(gostr.p, wxConvUTF8, gostr.n);
         arrayString.Add(tmp_str);
     }
     return arrayString;
