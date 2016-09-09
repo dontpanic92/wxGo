@@ -315,14 +315,16 @@ public:
     wxBorder GetBorder(long flags) const;
     wxBorder GetBorder() const;
     virtual void DoUpdateWindowUI(wxUpdateUIEvent& event);
- #ifdef __WXMSW__
+#ifdef __WXMSW__
     virtual long GetHandle() const;
 #endif
     virtual bool HasMultiplePages() const;
     virtual void InheritAttributes();
     virtual void InitDialog();
     virtual bool IsDoubleBuffered() const;
+#if defined(__WXMSW__) || defined(__WXGTK__) 
     void SetDoubleBuffered(bool on);
+#endif
     virtual bool IsRetained() const;
     bool IsThisEnabled() const;
     virtual bool IsTopLevel() const;
