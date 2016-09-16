@@ -6,25 +6,18 @@
 	public:
 		wxGoApp(){
 			wxApp::SetInstance(this);
+    		SetExitOnFrameDelete(true);
 			char progName[] = {"wxGo"};
 			char* argv[] = {progName, NULL};
 			int argc = 1;
     		wxEntryStart(argc, argv);
-    		SetExitOnFrameDelete(true);
-		}
-
-		int MainLoop(){
-			return wxApp::MainLoop();
+			CallOnInit();
 		}
 		
 		~wxGoApp(){
 			wxEntryCleanup();
 		}
 	};
-	
-	wxIMPLEMENT_APP_NO_MAIN(wxGoApp);
 %}
 
 %include "wxGoInterface/app.h"
-
-wxGoApp& wxGetApp();                                       

@@ -136,3 +136,8 @@ ScreenShot
 ----
 
 ![screenshot](./examples/screenshot.jpg)
+
+License
+----
+
+wxGo is licensed under the [wxWindows Library Licence](http://wxwidgets.org/about/licence/).
