@@ -43,5 +43,5 @@ install:
        make install;
     fi
   - export PATH=${HOME}/binutils/bin:$PATH
-  - go -t -v -x ./...
+  - go get -t -v -x ./...
   
