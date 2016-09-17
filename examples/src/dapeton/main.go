@@ -1,6 +1,6 @@
 package main
 
-import "wx"
+import "github.com/dontpanic92/wxGo/wx"
 
 //Frame Struct def
 type MyFrame struct {
