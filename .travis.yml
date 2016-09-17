@@ -18,13 +18,8 @@ addons:
     packages:
       - gcc-5
       - g++-5
-
-env: COMPILER=g++-5
       
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
-
-    
-script:
-  - ${CC} --version ; ${CXX} --version ; ${GCOV} --version
-  - go get -t -v -x ./...
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; sudo unlink /usr/bin/gcc && sudo ln -s /usr/bin/gcc-5 /usr/bin/gcc; fi
+  - gcc --version
