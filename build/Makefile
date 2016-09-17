@@ -21,11 +21,11 @@ windows-internal:
 windows: preprocess windows-internal
 
 osx-internal:
-	swig -Wall -c++ -D__WXOSX_COCOA__ -D__WXOSX__ -D__WXMAC__ -go -cgo -v -o wx_wrap_osx.cxx ../src/wx.i
+	swig -Wall -c++ -D__WXOSX_COCOA__ -D__WXOSX__ -D__WXMAC__ -go -cgo -v -o wx_wrap_darwin.cxx ../src/wx.i
 	python2 postprocess.py wx.go
-	mv wx.go ../wx/wx_osx.go
-	mv wx_wrap_osx.cxx ../wx/wx_wrap_osx.cxx
-	mv wx_wrap_osx.h ../wx/wx_wrap_osx.h 
+	mv wx.go ../wx/wx_darwin.go
+	mv wx_wrap_darwin.cxx ../wx/wx_wrap_darwin.cxx
+	mv wx_wrap_darwin.h ../wx/wx_wrap_darwin.h 
 
 osx: preprocess osx-internal
 
