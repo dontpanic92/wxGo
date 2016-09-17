@@ -20,6 +20,7 @@ addons:
       - g++-5
       - libxxf86vm-dev
       - libnotify-dev
+      - binutils
       
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
@@ -27,3 +28,5 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo unlink /usr/bin/g++ && sudo ln -s /usr/bin/g++-5 /usr/bin/g++; fi
   - gcc --version
   - g++ --version
+  - ld --version
+  - free -h
