@@ -33,6 +33,8 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then free -m; fi
   - gcc --version
   - g++ --version
+
+install:
   - if [ ! -d "$HOME/binutils/bin" ]; then
        wget http://ftp.gnu.org/gnu/binutils/binutils-2.27.tar.bz2 -O - | tar -jxf -;
        cd binutils-2.27;
@@ -41,4 +43,5 @@ before_install:
        make install;
     fi
   - export PATH=${HOME}/binutils/bin:$PATH
+  - go -t -v -x ./...
   
