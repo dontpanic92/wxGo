@@ -18,6 +18,8 @@ addons:
     packages:
       - gcc-5
       - g++-5
+      - libxxf86vm-dev
+      - libnotify-dev
       
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
