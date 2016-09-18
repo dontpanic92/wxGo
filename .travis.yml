@@ -17,9 +17,9 @@ addons:
     packages:
       - libxxf86vm-dev
       - libnotify-dev
-      - libgtk2.0-0
-      - libatk1.0-0
-      - libpangocairo-1.0-0
+      - libgtk2.0-dev
+      - libpango1.0-dev
+      - libatk1.0-dev
       
       
 before_install:
@@ -29,5 +29,5 @@ install:
   - gcc --version
   - g++ --version
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ld --version; fi
-  - travis_wait go get -t -v -x ./...
+  - travis_wait 30 go get -t -v -x ./...
   
