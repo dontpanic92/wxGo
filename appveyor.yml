@@ -1,0 +1,20 @@
+clone_folder: c:\project\src\github.com\dontpanic92\wxGo
+clone_depth: 5
+
+environment:
+  matrix:
+    - GOROOT: c:\go17
+    - GOROOT: c:\go16
+
+before_build:
+  - set GOPATH=c:\project\
+  - set PATH=%GOROOT%\bin;%PATH%
+  - dir
+  - go env
+  - go version
+
+build_script:
+  - echo %APPVEYOR_BUILD_FOLDER%
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - go get -v -t -x .\\...
+
