@@ -2,14 +2,11 @@ version: 1.0.{build}
 platform: x64
 clone_folder: c:\project\src\github.com\dontpanic92\wxGo
 clone_depth: 5
-init:
-- cmd: dir c:\
 environment:
   matrix:
   - GOROOT: c:\go16
 build_script:
 - cmd: >-
-    dir c:\msys64\
 
     set GOPATH=c:\project\
 
