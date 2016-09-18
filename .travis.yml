@@ -26,12 +26,12 @@ addons:
       - libatk1.0-dev
       
       
-before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then free -m; fi
-  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 90
-  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90
-
 install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then free -m; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 90; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90; fi
+
+script:
   - gcc --version
   - g++ --version
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ld --version; fi
