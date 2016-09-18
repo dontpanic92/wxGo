@@ -9,7 +9,7 @@ Golang wxWidgets Wrapper
 Compilation 
 ----
 
-Cuurently wxGo can compile and run on Windows, Linux and Mac OS X on amd64 architecture.
+Currently wxGo can compile and run on Windows, Linux and Mac OS X on amd64 architecture.
 
 ####1. Requisites
 
