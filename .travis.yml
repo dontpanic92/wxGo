@@ -28,8 +28,8 @@ addons:
       
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then free -m; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 90; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 90; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90; fi
 
 script:
   - gcc --version
