@@ -12,41 +12,22 @@ os:
   - linux
   - osx
 
-#cache:
-#  directories:
-#    - $HOME/binutils
-
 addons:
   apt:
-#    sources:
-#      - ubuntu-toolchain-r-test
     packages:
-#      - gcc-5
-#      - g++-5
       - libxxf86vm-dev
       - libnotify-dev
-#      - binutils
+      - libgtk2.0-0
+      - libatk1.0-0
+      - libpangocairo-1.0-0
+      
       
 before_install:
-#  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo unlink /usr/bin/gcc && sudo ln -s /usr/bin/gcc-5 /usr/bin/gcc; fi
-#  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo unlink /usr/bin/g++ && sudo ln -s /usr/bin/g++-5 /usr/bin/g++; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then free -m; fi
 
 install:
-#  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-#    if [ ! -d "$HOME/binutils/bin" ]; then
-#       wget http://ftp.gnu.org/gnu/binutils/binutils-2.27.tar.bz2 -O - | tar -jxf -;
-#       cd binutils-2.27;
-#       ./configure --prefix=${HOME}/binutils;
-#       make -j 2;
-#       make install;
-#       rm binutils-2.27.tar.bz2
-#       rm -r binutils-2.27
-#    fi
-#    export PATH=${HOME}/binutils/bin:$PATH
-#    fi
   - gcc --version
   - g++ --version
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ld --version; fi
-  - go get -t -v -x ./...
+  - travis_wait go get -t -v -x ./...
   
