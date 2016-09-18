@@ -3,21 +3,25 @@ wxGo
 
 Golang wxWidgets Wrapper
 
+[![Travis CI Build Status](https://travis-ci.org/dontpanic92/wxGo.svg)](https://travis-ci.org/dontpanic92/wxGo)
+[![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/ywus0amnmy72uaa4?svg=true)](https://ci.appveyor.com/project/dontpanic92/wxgo)
+
 Compilation 
 ----
+
+Cuurently wxGo can compile and run on Windows, Linux and Mac OS X on amd64 architecture.
 
 ####1. Requisites
 
 - 64-bit Go
-- Linux / Windows
-- GCC / MinGW, version > 5
-- \> 5GB RAM (or swap)
+- GCC / MinGW ver > 5 for Linux / Windows
+- \> 5GB Memory space
 
 __Remarks__
 
-32-bit go will [run out of memory](https://github.com/dontpanic92/wxGo/issues/3) due to 5GB memory comsumption when compiling and I have no idea on how to decline the memory usage. Any suggestion or discussion will help.
+32-bit go will [run out of memory](https://github.com/dontpanic92/wxGo/issues/3) due to ~5GB memory comsumption when compiling and I have no idea on how to decline the memory usage. Any suggestion or discussion will help.
 
-The precompiled wxWidgets is compiled with gcc > 5 ( 6.1.1 on Linux, 5.3.0 on Windows using tdm-gcc). So if you want to use the precompiled wxWidgets, your gcc version has also to be > 5, because [GCC changed its ABI since GCC 5 release series](https://gcc.gnu.org/gcc-5/changes.html#libstdcxx).
+The precompiled wxWidgets is compiled with gcc > 5 ( 6.2.1 on Linux, 5.3.0 on Windows using tdm-gcc). So if you want to use the precompiled wxWidgets, your gcc version has also to be > 5, because [GCC changed its ABI since GCC 5 release series](https://gcc.gnu.org/gcc-5/changes.html#libstdcxx).
 
 
 ####2. Build & Install
