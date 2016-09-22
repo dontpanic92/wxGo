@@ -232,6 +232,7 @@ public:
 };
 %ignore wxFlexSizerGrowMode;
 enum wxFlexSizerGrowMode;
+typedef int wxFlexSizerGrowMode;
 #define wxFLEX_GROWMODE_NONE 0
 #define wxFLEX_GROWMODE_SPECIFIED wxFLEX_GROWMODE_NONE + 1
 #define wxFLEX_GROWMODE_ALL wxFLEX_GROWMODE_SPECIFIED + 1

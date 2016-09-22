@@ -5,6 +5,9 @@ enum {
 };
 %constant const unsigned char wxALPHA_TRANSPARENT = 0;
 %constant const unsigned char wxALPHA_OPAQUE = 0xff;
+
+typedef wxColour wxColor;
+
 class wxColour : public wxObject
 {
 public:
@@ -45,15 +48,15 @@ public:
 };
 %constant const wxColour wxNullColour;
 %constant const wxColour wxTransparentColour;
-/*
-wxColour* wxBLACK;
-wxColour* wxBLUE;
-wxColour* wxCYAN;
-wxColour* wxGREEN;
-wxColour* wxYELLOW;
-wxColour* wxLIGHT_GREY;
-wxColour* wxRED;
-wxColour* wxWHITE;
-*/
+
+%constant wxColour* wxBLACK;
+%constant wxColour* wxBLUE;
+%constant wxColour* wxCYAN;
+%constant wxColour* wxGREEN;
+%constant wxColour* wxYELLOW;
+%constant wxColour* wxLIGHT_GREY;
+%constant wxColour* wxRED;
+%constant wxColour* wxWHITE;
+
 bool wxFromString(const wxString& string, wxColour* colour);
 wxString wxToString(const wxColour& colour);

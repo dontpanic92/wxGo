@@ -3,6 +3,7 @@ WXGO_DECL_TYPECONV(AuiPaneInfo)
 WXGO_DECL_TYPECONV(AuiManagerEvent)
 %ignore wxAuiManagerDock;
 enum wxAuiManagerDock;
+typedef int wxAuiManagerDock;
 #define wxAUI_DOCK_NONE  0
 #define wxAUI_DOCK_TOP  1
 #define wxAUI_DOCK_RIGHT  2
@@ -12,6 +13,7 @@ enum wxAuiManagerDock;
 #define wxAUI_DOCK_CENTRE  wxAUI_DOCK_CENTER
 %ignore wxAuiManagerOption;
 enum wxAuiManagerOption;
+typedef int wxAuiManagerOption;
 #define wxAUI_MGR_ALLOW_FLOATING            1 << 0
 #define wxAUI_MGR_ALLOW_ACTIVE_PANE         1 << 1
 #define wxAUI_MGR_TRANSPARENT_DRAG          1 << 2

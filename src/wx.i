@@ -16,7 +16,7 @@
 %include wxEvent.i
 %include wxWindow.i
 %include wxGDI.i
-%include wxCtrlSub.i
+%include wxDC.i
 %include wxControl.i
 %include wxTopLevelWindow.i
 %include wxFrame.i
@@ -31,7 +31,6 @@
 %include wxTextCtrl.i
 %include wxPanel.i
 %include wxNoteBook.i
-%include wxAnyButton.i
 %include wxButton.i
 %include wxTaskBar.i
 %include wxToolBar.i
@@ -39,7 +38,6 @@
 %include wxStatic.i
 %include wxList.i
 %include wxSlider.i
-%include wxGauge.i
 %include wxScroll.i
 %include wxSpin.i
 %include wxClientData.i
@@ -48,6 +46,12 @@
 %include wxPickers.i
 %include wxCalendar.i
 %include wxValidator.i
+%include wxArt.i
+%include wxMisc.i
 
 %include wxAui.i
 %include wxSTC.i
+%include wxRibbon.i
+%include wxRichText.i
+%include wxHTML.i
+%include wxPropGrid.i

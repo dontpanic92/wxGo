@@ -1,0 +1,21 @@
+%{
+    #include "wx/richtext/richtextbuffer.h"
+    #include "wx/richtext/richtextctrl.h"
+    #include "wx/richtext/richtextformatdlg.h"
+    #include "wx/richtext/richtexthtml.h"
+    #include "wx/richtext/richtextprint.h"
+    #include "wx/richtext/richtextstyledlg.h"
+    #include "wx/richtext/richtextstyles.h"
+    #include "wx/richtext/richtextsymboldlg.h"
+    #include "wx/richtext/richtextxml.h"
+%}
+
+%include "wxGoInterface/richtext/richtextbuffer.h"
+%include "wxGoInterface/richtext/richtextctrl.h"
+%include "wxGoInterface/richtext/richtextformatdlg.h"
+%include "wxGoInterface/richtext/richtexthtml.h"
+%include "wxGoInterface/richtext/richtextprint.h"
+%include "wxGoInterface/richtext/richtextstyledlg.h"
+%include "wxGoInterface/richtext/richtextstyles.h"
+%include "wxGoInterface/richtext/richtextsymboldlg.h"
+%include "wxGoInterface/richtext/richtextxml.h"

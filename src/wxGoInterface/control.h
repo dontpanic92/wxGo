@@ -1,12 +1,14 @@
 WXGO_DECL_TYPECONV(Control)
 %ignore wxEllipsizeFlags;
 enum wxEllipsizeFlags;
+typedef int wxEllipsizeFlags;
 #define wxELLIPSIZE_FLAGS_NONE  0
 #define wxELLIPSIZE_FLAGS_PROCESS_MNEMONICS  1
 #define wxELLIPSIZE_FLAGS_EXPAND_TABS  2
 #define wxELLIPSIZE_FLAGS_DEFAULT  wxELLIPSIZE_FLAGS_PROCESS_MNEMONICS|                                wxELLIPSIZE_FLAGS_EXPAND_TABS
 %ignore wxEllipsizeMode;
 enum wxEllipsizeMode;
+typedef int wxEllipsizeMode;
 #define wxELLIPSIZE_NONE 0
 #define wxELLIPSIZE_START wxELLIPSIZE_NONE + 1
 #define wxELLIPSIZE_MIDDLE wxELLIPSIZE_START + 1

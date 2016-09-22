@@ -62,6 +62,7 @@ enum
 };
 %ignore wxListColumnFormat;
 enum wxListColumnFormat;
+typedef int wxListColumnFormat;
 #define wxLIST_FORMAT_LEFT 0
 #define wxLIST_FORMAT_RIGHT wxLIST_FORMAT_LEFT + 1
 #define wxLIST_FORMAT_CENTRE wxLIST_FORMAT_RIGHT + 1

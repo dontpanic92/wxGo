@@ -41,10 +41,12 @@ WXGO_DECL_TYPECONV(SizeEvent)
 WXGO_DECL_TYPECONV(SetCursorEvent)
 %ignore wxEventPropagation;
 enum wxEventPropagation;
+typedef int wxEventPropagation;
 #define wxEVENT_PROPAGATE_NONE  0
 #define wxEVENT_PROPAGATE_MAX  INT_MAX
 %ignore wxEventCategory;
 enum wxEventCategory;
+typedef int wxEventCategory;
 #define wxEVT_CATEGORY_UI  1
 #define wxEVT_CATEGORY_USER_INPUT  2
 #define wxEVT_CATEGORY_SOCKET  4
@@ -142,6 +144,7 @@ public:
 };
 %ignore wxKeyCategoryFlags;
 enum wxKeyCategoryFlags;
+typedef int wxKeyCategoryFlags;
 #define WXK_CATEGORY_ARROW 0
 #define WXK_CATEGORY_PAGING WXK_CATEGORY_ARROW + 1
 #define WXK_CATEGORY_JUMP WXK_CATEGORY_PAGING + 1
@@ -229,6 +232,7 @@ public:
 };
 %ignore wxUpdateUIMode;
 enum wxUpdateUIMode;
+typedef int wxUpdateUIMode;
 #define wxUPDATE_UI_PROCESS_ALL 0
 #define wxUPDATE_UI_PROCESS_SPECIFIED wxUPDATE_UI_PROCESS_ALL + 1
 class wxUpdateUIEvent : public wxCommandEvent
@@ -261,6 +265,7 @@ public:
 };
 %ignore wxMouseWheelAxis;
 enum wxMouseWheelAxis;
+typedef int wxMouseWheelAxis;
 #define wxMOUSE_WHEEL_VERTICAL 0
 #define wxMOUSE_WHEEL_HORIZONTAL wxMOUSE_WHEEL_VERTICAL + 1
 class wxMouseEvent : public wxEvent,
@@ -414,6 +419,7 @@ public:
 };
 %ignore wxIdleMode;
 enum wxIdleMode;
+typedef int wxIdleMode;
 #define wxIDLE_PROCESS_ALL 0
 #define wxIDLE_PROCESS_SPECIFIED wxIDLE_PROCESS_ALL + 1
 class wxIdleEvent : public wxEvent

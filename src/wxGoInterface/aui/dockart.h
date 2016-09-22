@@ -1,6 +1,7 @@
 WXGO_DECL_TYPECONV(AuiDockArt)
 %ignore wxAuiPaneDockArtSetting;
 enum wxAuiPaneDockArtSetting;
+typedef int wxAuiPaneDockArtSetting;
 #define wxAUI_DOCKART_SASH_SIZE  0
 #define wxAUI_DOCKART_CAPTION_SIZE  1
 #define wxAUI_DOCKART_GRIPPER_SIZE  2
@@ -20,11 +21,13 @@ enum wxAuiPaneDockArtSetting;
 #define wxAUI_DOCKART_GRADIENT_TYPE  16
 %ignore wxAuiPaneDockArtGradients;
 enum wxAuiPaneDockArtGradients;
+typedef int wxAuiPaneDockArtGradients;
 #define wxAUI_GRADIENT_NONE  0
 #define wxAUI_GRADIENT_VERTICAL  1
 #define wxAUI_GRADIENT_HORIZONTAL  2
 %ignore wxAuiPaneButtonState;
 enum wxAuiPaneButtonState;
+typedef int wxAuiPaneButtonState;
 #define wxAUI_BUTTON_STATE_NORMAL  0
 #define wxAUI_BUTTON_STATE_HOVER  1 << 1
 #define wxAUI_BUTTON_STATE_PRESSED  1 << 2
@@ -33,6 +36,7 @@ enum wxAuiPaneButtonState;
 #define wxAUI_BUTTON_STATE_CHECKED   1 << 5
 %ignore wxAuiButtonId;
 enum wxAuiButtonId;
+typedef int wxAuiButtonId;
 #define wxAUI_BUTTON_CLOSE  101
 #define wxAUI_BUTTON_MAXIMIZE_RESTORE  102
 #define wxAUI_BUTTON_MINIMIZE  103

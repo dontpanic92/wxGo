@@ -71,8 +71,9 @@ public:
 
         @note Currently this function is wxMSW-only.
     */
+#ifdef __WXMSW__
     static void SetMaxWidth(int width);
-
+#endif
     /**
         Set the delay between subsequent tooltips to appear.
 

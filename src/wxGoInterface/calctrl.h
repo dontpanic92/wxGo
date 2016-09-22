@@ -27,6 +27,7 @@ public:
 %constant wxEventType wxEVT_CALENDAR_WEEK_CLICKED;
 %ignore wxCalendarDateBorder;
 enum wxCalendarDateBorder;
+typedef int wxCalendarDateBorder;
 #define wxCAL_BORDER_NONE 0
 #define wxCAL_BORDER_SQUARE wxCAL_BORDER_NONE + 1
 #define wxCAL_BORDER_ROUND wxCAL_BORDER_SQUARE + 1
@@ -62,6 +63,7 @@ public:
 };
 %ignore wxCalendarHitTestResult;
 enum wxCalendarHitTestResult;
+typedef int wxCalendarHitTestResult;
 #define wxCAL_HITTEST_NOWHERE 0
 #define wxCAL_HITTEST_HEADER wxCAL_HITTEST_NOWHERE + 1
 #define wxCAL_HITTEST_DAY wxCAL_HITTEST_HEADER + 1

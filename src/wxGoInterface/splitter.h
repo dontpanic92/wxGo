@@ -12,6 +12,7 @@ WXGO_DECL_TYPECONV(SplitterEvent)
 #define wxSP_3D               (wxSP_3DBORDER | wxSP_3DSASH)
 %ignore wxSplitMode;
 enum wxSplitMode;
+typedef int wxSplitMode;
 #define wxSPLIT_HORIZONTAL  1
 #define wxSPLIT_VERTICAL wxSPLIT_HORIZONTAL  + 1
 enum

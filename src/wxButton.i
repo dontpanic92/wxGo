@@ -1,4 +1,5 @@
 %{
+	#include "wx/anybutton.h"
 	#include "wx/button.h"
 	#include "wx/tglbtn.h"
 	#include "wx/radiobut.h"
@@ -7,6 +8,7 @@
 	#include "wx/hyperlink.h"
 %}
 
+%include "wxGoInterface/anybutton.h"
 %include "wxGoInterface/button.h"
 %include "wxGoInterface/tglbtn.h"
 %include "wxGoInterface/checkbox.h"

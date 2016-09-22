@@ -1,6 +1,7 @@
 WXGO_DECL_TYPECONV(FileName)
 %ignore wxPathFormat;
 enum wxPathFormat;
+typedef int wxPathFormat;
 #define wxPATH_NATIVE  0
 #define wxPATH_UNIX wxPATH_NATIVE  + 1
 #define wxPATH_BEOS  wxPATH_UNIX
@@ -12,11 +13,13 @@ enum wxPathFormat;
 #define wxPATH_MAX wxPATH_VMS + 1
 %ignore wxSizeConvention;
 enum wxSizeConvention;
+typedef int wxSizeConvention;
 #define wxSIZE_CONV_TRADITIONAL 0
 #define wxSIZE_CONV_IEC wxSIZE_CONV_TRADITIONAL + 1
 #define wxSIZE_CONV_SI wxSIZE_CONV_IEC + 1
 %ignore wxPathNormalize;
 enum wxPathNormalize;
+typedef int wxPathNormalize;
 #define wxPATH_NORM_ENV_VARS  0x0001
 #define wxPATH_NORM_DOTS      0x0002
 #define wxPATH_NORM_TILDE     0x0004

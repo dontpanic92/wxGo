@@ -607,6 +607,8 @@ protected:
 
     @see wxScrolled, ::wxScrolledCanvas
 */
+
+//%template(wxScrolledWindow) wxScrolled<wxPanel>;
 typedef wxScrolled<wxPanel> wxScrolledWindow;
 
 /**
@@ -620,4 +622,5 @@ typedef wxScrolled<wxPanel> wxScrolledWindow;
 
     @see wxScrolled, ::wxScrolledWindow
 */
+//%template(wxScrolledCanvas) wxScrolled<wxWindow>;
 typedef wxScrolled<wxWindow> wxScrolledCanvas;
