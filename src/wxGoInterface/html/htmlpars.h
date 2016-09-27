@@ -1,8 +1,6 @@
 WXGO_DECL_TYPECONV(HtmlTagHandler)
 WXGO_DECL_TYPECONV(HtmlParser)
-%ignore wxHtmlURLType;
-enum wxHtmlURLType;
-typedef int wxHtmlURLType;
+%typedef int wxHtmlURLType;
 #define wxHTML_URL_PAGE 0
 #define wxHTML_URL_IMAGE wxHTML_URL_PAGE + 1
 #define wxHTML_URL_OTHER wxHTML_URL_IMAGE + 1

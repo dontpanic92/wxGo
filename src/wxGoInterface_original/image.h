@@ -333,7 +333,7 @@ public:
 
         @since 2.9.2
      */
-     static wxVersionInfo GetLibraryVersionInfo();
+     //static wxVersionInfo GetLibraryVersionInfo();
 
 protected:
     /**

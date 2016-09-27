@@ -29,9 +29,7 @@ public:
     wxCoord GetToCharacterPos () const;
     bool IsEmpty() const;
 };
-%ignore wxHtmlSelectionState;
-enum wxHtmlSelectionState;
-typedef int wxHtmlSelectionState;
+%typedef int wxHtmlSelectionState;
 #define wxHTML_SEL_OUT 0
 #define wxHTML_SEL_IN wxHTML_SEL_OUT + 1
 #define wxHTML_SEL_CHANGING wxHTML_SEL_IN + 1

@@ -12,9 +12,7 @@ private:
     wxPGProperty*   property;
 };
 #define wxPG_IT_CHILDREN(A)         (A<<16)
-%ignore wxPG_ITERATOR_FLAGS;
-enum wxPG_ITERATOR_FLAGS;
-typedef int wxPG_ITERATOR_FLAGS;
+%typedef int wxPG_ITERATOR_FLAGS;
 #define wxPG_ITERATE_PROPERTIES              (wxPG_PROP_PROPERTY|wxPG_PROP_MISC_PARENT|wxPG_PROP_AGGREGATE| \                                       wxPG_PROP_COLLAPSED|((wxPG_PROP_MISC_PARENT|wxPG_PROP_CATEGORY)<<16))
 #define wxPG_ITERATE_HIDDEN                  (wxPG_PROP_HIDDEN|wxPG_IT_CHILDREN(wxPG_PROP_COLLAPSED))
 #define wxPG_ITERATE_FIXED_CHILDREN          (wxPG_IT_CHILDREN(wxPG_PROP_AGGREGATE)|wxPG_ITERATE_PROPERTIES)

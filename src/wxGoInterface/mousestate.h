@@ -1,7 +1,5 @@
 WXGO_DECL_TYPECONV(MouseState)
-%ignore wxMouseButton;
-enum wxMouseButton;
-typedef int wxMouseButton;
+%typedef int wxMouseButton;
 #define wxMOUSE_BTN_ANY      -1
 #define wxMOUSE_BTN_NONE     0
 #define wxMOUSE_BTN_LEFT     1

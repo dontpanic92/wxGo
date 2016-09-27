@@ -211,7 +211,7 @@ public:
         Wx::AcceleratorEntry::new.
         @endWxPerlOnly
     */
-    wxAcceleratorTable(int n, const wxAcceleratorEntry entries[]);
+    //wxAcceleratorTable(int n, const wxAcceleratorEntry entries[]);
 
     /**
         Loads the accelerator table from a Windows resource (Windows only).
@@ -221,8 +221,9 @@ public:
         @param resource
             Name of a Windows accelerator.
     */
+#ifdef __WXMSW__
     wxAcceleratorTable(const wxString& resource);
-
+#endif
     /**
         Destroys the wxAcceleratorTable object.
         See @ref overview_refcount_destruct for more info.

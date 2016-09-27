@@ -6,9 +6,7 @@ WXGO_DECL_TYPECONV(HtmlCellEvent)
 #define wxHW_SCROLLBAR_AUTO     0x0004
 #define wxHW_NO_SELECTION       0x0008
 #define wxHW_DEFAULT_STYLE      wxHW_SCROLLBAR_AUTO
-%ignore wxHtmlOpeningStatus;
-enum wxHtmlOpeningStatus;
-typedef int wxHtmlOpeningStatus;
+%typedef int wxHtmlOpeningStatus;
 #define wxHTML_OPEN 0
 #define wxHTML_BLOCK wxHTML_OPEN + 1
 #define wxHTML_REDIRECT wxHTML_BLOCK + 1

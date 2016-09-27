@@ -31,9 +31,7 @@ WXGO_DECL_TYPECONV(PGChoices)
 #define wxPG_ATTR_MULTICHOICE_USERSTRINGMODE    wxS("UserStringMode")
 #define wxPG_COLOUR_ALLOW_CUSTOM            wxS("AllowCustom")
 #define wxPG_COLOUR_HAS_ALPHA               wxS("HasAlpha")
-%ignore wxPGPropertyFlags;
-enum wxPGPropertyFlags;
-typedef int wxPGPropertyFlags;
+%typedef int wxPGPropertyFlags;
 #define wxPG_PROP_MODIFIED                   0x0001
 #define wxPG_PROP_DISABLED                   0x0002
 #define wxPG_PROP_HIDDEN                     0x0004

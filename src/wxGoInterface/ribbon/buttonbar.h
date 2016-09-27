@@ -1,8 +1,6 @@
 WXGO_DECL_TYPECONV(RibbonButtonBar)
 WXGO_DECL_TYPECONV(RibbonButtonBarEvent)
-%ignore wxRibbonButtonBarButtonState;
-enum wxRibbonButtonBarButtonState;
-typedef int wxRibbonButtonBarButtonState;
+%typedef int wxRibbonButtonBarButtonState;
 #define wxRIBBON_BUTTONBAR_BUTTON_SMALL      0 << 0
 #define wxRIBBON_BUTTONBAR_BUTTON_MEDIUM     1 << 0
 #define wxRIBBON_BUTTONBAR_BUTTON_LARGE      2 << 0

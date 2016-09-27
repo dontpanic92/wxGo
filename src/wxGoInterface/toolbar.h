@@ -1,8 +1,6 @@
 WXGO_DECL_TYPECONV(ToolBarToolBase)
 WXGO_DECL_TYPECONV(ToolBar)
-%ignore wxToolBarToolStyle;
-enum wxToolBarToolStyle;
-typedef int wxToolBarToolStyle;
+%typedef int wxToolBarToolStyle;
 #define wxTOOL_STYLE_BUTTON     1
 #define wxTOOL_STYLE_SEPARATOR  2
 #define wxTOOL_STYLE_CONTROL wxTOOL_STYLE_SEPARATOR  + 1

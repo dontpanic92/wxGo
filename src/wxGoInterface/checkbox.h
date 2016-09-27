@@ -2,9 +2,7 @@ WXGO_DECL_TYPECONV(CheckBox)
 #define wxCHK_2STATE           0x4000
 #define wxCHK_3STATE           0x1000
 #define wxCHK_ALLOW_3RD_STATE_FOR_USER 0x2000
-%ignore wxCheckBoxState;
-enum wxCheckBoxState;
-typedef int wxCheckBoxState;
+%typedef int wxCheckBoxState;
 #define wxCHK_UNCHECKED 0
 #define wxCHK_CHECKED wxCHK_UNCHECKED + 1
 #define wxCHK_UNDETERMINED wxCHK_CHECKED + 1

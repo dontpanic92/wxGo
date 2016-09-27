@@ -1,24 +1,18 @@
 WXGO_DECL_TYPECONV(ImageHandler)
 WXGO_DECL_TYPECONV(Image)
 WXGO_DECL_TYPECONV(ImageHistogram)
-%ignore wxImageResolution;
-enum wxImageResolution;
-typedef int wxImageResolution;
+%typedef int wxImageResolution;
 #define wxIMAGE_RESOLUTION_NONE  0
 #define wxIMAGE_RESOLUTION_INCHES  1
 #define wxIMAGE_RESOLUTION_CM  2
-%ignore wxImageResizeQuality;
-enum wxImageResizeQuality;
-typedef int wxImageResizeQuality;
+%typedef int wxImageResizeQuality;
 #define wxIMAGE_QUALITY_NEAREST 0
 #define wxIMAGE_QUALITY_BILINEAR wxIMAGE_QUALITY_NEAREST + 1
 #define wxIMAGE_QUALITY_BICUBIC wxIMAGE_QUALITY_BILINEAR + 1
 #define wxIMAGE_QUALITY_BOX_AVERAGE wxIMAGE_QUALITY_BICUBIC + 1
 #define wxIMAGE_QUALITY_NORMAL wxIMAGE_QUALITY_BOX_AVERAGE + 1
 #define wxIMAGE_QUALITY_HIGH wxIMAGE_QUALITY_NORMAL + 1
-%ignore wxImagePNGType;
-enum wxImagePNGType;
-typedef int wxImagePNGType;
+%typedef int wxImagePNGType;
 #define wxPNG_TYPE_COLOUR  0
 #define wxPNG_TYPE_GREY  2
 #define wxPNG_TYPE_GREY_RED  3
@@ -82,7 +76,6 @@ public:
     void SetAltExtensions(const wxArrayString& extensions);
     void SetMimeType(const wxString& mimetype);
     void SetName(const wxString& name);
-     static wxVersionInfo GetLibraryVersionInfo();
 protected:
     virtual int DoGetImageCount( wxInputStream& stream );
     virtual bool DoCanRead( wxInputStream& stream ) = 0;

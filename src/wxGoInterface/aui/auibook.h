@@ -6,9 +6,7 @@ WXGO_DECL_TYPECONV(AuiTabArt)
 WXGO_DECL_TYPECONV(AuiNotebookEvent)
 WXGO_DECL_TYPECONV(AuiDefaultTabArt)
 WXGO_DECL_TYPECONV(AuiSimpleTabArt)
-%ignore wxAuiNotebookOption;
-enum wxAuiNotebookOption;
-typedef int wxAuiNotebookOption;
+%typedef int wxAuiNotebookOption;
 #define wxAUI_NB_TOP                  1 << 0
 #define wxAUI_NB_LEFT                 1 << 1
 #define wxAUI_NB_RIGHT                1 << 2

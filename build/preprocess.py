@@ -49,8 +49,8 @@ def replace_enum(match_object):
     code = ""
     
     if enum_name != "":
-        code += "%ignore " +  enum_name + ";\nenum " + enum_name + ";\n"
-        code += "typedef int " + enum_name + ";\n"
+        #code += "%ignore " +  enum_name + ";\nenum " + enum_name + ";\n"
+        code += "%typedef int " + enum_name + ";\n"
     
     enum_items = match_object.group(2).split(',')
     last_item = ""

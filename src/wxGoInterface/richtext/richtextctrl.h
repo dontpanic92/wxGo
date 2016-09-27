@@ -25,9 +25,7 @@ WXGO_DECL_TYPECONV(RichTextEvent)
 #define wxID_RICHTEXT_PROPERTIES1   (wxID_HIGHEST + 1)
 #define wxID_RICHTEXT_PROPERTIES2   (wxID_HIGHEST + 2)
 #define wxID_RICHTEXT_PROPERTIES3   (wxID_HIGHEST + 3)
-%ignore wxRichTextCtrlSelectionState;
-enum wxRichTextCtrlSelectionState;
-typedef int wxRichTextCtrlSelectionState;
+%typedef int wxRichTextCtrlSelectionState;
 #define wxRichTextCtrlSelectionState_Normal 0
 #define wxRichTextCtrlSelectionState_CommonAncestor wxRichTextCtrlSelectionState_Normal + 1
 class wxRichTextContextMenuPropertiesInfo

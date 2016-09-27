@@ -1,7 +1,5 @@
 WXGO_DECL_TYPECONV(Window)
-%ignore wxShowEffect;
-enum wxShowEffect;
-typedef int wxShowEffect;
+%typedef int wxShowEffect;
 #define wxSHOW_EFFECT_NONE 0
 #define wxSHOW_EFFECT_ROLL_TO_LEFT wxSHOW_EFFECT_NONE + 1
 #define wxSHOW_EFFECT_ROLL_TO_RIGHT wxSHOW_EFFECT_ROLL_TO_LEFT + 1
@@ -24,9 +22,7 @@ struct  wxVisualAttributes
     wxColour colFg;
     wxColour colBg;
 };
-%ignore wxWindowVariant;
-enum wxWindowVariant;
-typedef int wxWindowVariant;
+%typedef int wxWindowVariant;
 #define wxWINDOW_VARIANT_NORMAL 0
 #define wxWINDOW_VARIANT_SMALL wxWINDOW_VARIANT_NORMAL + 1
 #define wxWINDOW_VARIANT_MINI wxWINDOW_VARIANT_SMALL + 1

@@ -4,9 +4,7 @@ WXGO_DECL_TYPECONV(DCBrushChanger)
 WXGO_DECL_TYPECONV(DCPenChanger)
 WXGO_DECL_TYPECONV(DCTextColourChanger)
 WXGO_DECL_TYPECONV(DCFontChanger)
-%ignore wxRasterOperationMode;
-enum wxRasterOperationMode;
-typedef int wxRasterOperationMode;
+%typedef int wxRasterOperationMode;
 #define wxCLEAR 0
 #define wxXOR wxCLEAR + 1
 #define wxINVERT wxXOR + 1
@@ -23,14 +21,10 @@ typedef int wxRasterOperationMode;
 #define wxNAND wxOR_INVERT + 1
 #define wxOR wxNAND + 1
 #define wxSET wxOR + 1
-%ignore wxFloodFillStyle;
-enum wxFloodFillStyle;
-typedef int wxFloodFillStyle;
+%typedef int wxFloodFillStyle;
 #define wxFLOOD_SURFACE  1
 #define wxFLOOD_BORDER wxFLOOD_SURFACE  + 1
-%ignore wxMappingMode;
-enum wxMappingMode;
-typedef int wxMappingMode;
+%typedef int wxMappingMode;
 #define wxMM_TEXT  1
 #define wxMM_METRIC wxMM_TEXT  + 1
 #define wxMM_LOMETRIC wxMM_METRIC + 1

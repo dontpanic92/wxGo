@@ -1,9 +1,7 @@
 WXGO_DECL_TYPECONV(PGValidationInfo)
 WXGO_DECL_TYPECONV(PropertyGrid)
 WXGO_DECL_TYPECONV(PropertyGridEvent)
-%ignore wxPG_WINDOW_STYLES;
-enum wxPG_WINDOW_STYLES;
-typedef int wxPG_WINDOW_STYLES;
+%typedef int wxPG_WINDOW_STYLES;
 #define wxPG_AUTO_SORT                       0x00000010
 #define wxPG_HIDE_CATEGORIES                 0x00000020
 #define wxPG_ALPHABETIC_MODE                 (wxPG_HIDE_CATEGORIES|wxPG_AUTO_SORT)
@@ -17,9 +15,7 @@ typedef int wxPG_WINDOW_STYLES;
 #define wxPG_TOOLBAR                         0x00001000
 #define wxPG_DESCRIPTION                     0x00002000
 #define wxPG_NO_INTERNAL_BORDER              0x00004000
-%ignore wxPG_EX_WINDOW_STYLES;
-enum wxPG_EX_WINDOW_STYLES;
-typedef int wxPG_EX_WINDOW_STYLES;
+%typedef int wxPG_EX_WINDOW_STYLES;
 #define wxPG_EX_INIT_NOCAT                   0x00001000
 #define wxPG_EX_NO_FLAT_TOOLBAR              0x00002000
 #define wxPG_EX_MODE_BUTTONS                 0x00008000
@@ -34,9 +30,7 @@ typedef int wxPG_EX_WINDOW_STYLES;
 #define wxPG_EX_TOOLBAR_SEPARATOR                0x08000000
 #define wxPG_DEFAULT_STYLE          (0)
 #define wxPGMAN_DEFAULT_STYLE       (0)
-%ignore wxPG_VALIDATION_FAILURE_BEHAVIOR_FLAGS;
-enum wxPG_VALIDATION_FAILURE_BEHAVIOR_FLAGS;
-typedef int wxPG_VALIDATION_FAILURE_BEHAVIOR_FLAGS;
+%typedef int wxPG_VALIDATION_FAILURE_BEHAVIOR_FLAGS;
 #define wxPG_VFB_STAY_IN_PROPERTY            0x01
 #define wxPG_VFB_BEEP                        0x02
 #define wxPG_VFB_MARK_CELL                   0x04
@@ -54,9 +48,7 @@ public:
     void SetFailureBehavior(wxPGVFBFlags failureBehavior);
     void SetFailureMessage(const wxString& message);
 };
-%ignore wxPG_KEYBOARD_ACTIONS;
-enum wxPG_KEYBOARD_ACTIONS;
-typedef int wxPG_KEYBOARD_ACTIONS;
+%typedef int wxPG_KEYBOARD_ACTIONS;
 #define wxPG_ACTION_INVALID  0
 #define wxPG_ACTION_NEXT_PROPERTY wxPG_ACTION_INVALID  + 1
 #define wxPG_ACTION_PREV_PROPERTY wxPG_ACTION_NEXT_PROPERTY + 1

@@ -1,8 +1,6 @@
 WXGO_DECL_TYPECONV(RibbonBarEvent)
 WXGO_DECL_TYPECONV(RibbonBar)
-%ignore wxRibbonDisplayMode;
-enum wxRibbonDisplayMode;
-typedef int wxRibbonDisplayMode;
+%typedef int wxRibbonDisplayMode;
 #define wxRIBBON_BAR_PINNED 0
 #define wxRIBBON_BAR_MINIMIZED wxRIBBON_BAR_PINNED + 1
 #define wxRIBBON_BAR_EXPANDED wxRIBBON_BAR_MINIMIZED + 1

@@ -1,7 +1,5 @@
 WXGO_DECL_TYPECONV(RibbonArtProvider)
-%ignore wxRibbonArtSetting;
-enum wxRibbonArtSetting;
-typedef int wxRibbonArtSetting;
+%typedef int wxRibbonArtSetting;
 #define wxRIBBON_ART_TAB_SEPARATION_SIZE 0
 #define wxRIBBON_ART_PAGE_BORDER_LEFT_SIZE wxRIBBON_ART_TAB_SEPARATION_SIZE + 1
 #define wxRIBBON_ART_PAGE_BORDER_TOP_SIZE wxRIBBON_ART_PAGE_BORDER_LEFT_SIZE + 1
@@ -105,9 +103,7 @@ typedef int wxRibbonArtSetting;
 #define wxRIBBON_ART_BUTTON_BAR_LABEL_HIGHLIGHT_GRADIENT_COLOUR wxRIBBON_ART_BUTTON_BAR_LABEL_HIGHLIGHT_COLOUR + 1
 #define wxRIBBON_ART_BUTTON_BAR_LABEL_HIGHLIGHT_TOP_COLOUR wxRIBBON_ART_BUTTON_BAR_LABEL_HIGHLIGHT_GRADIENT_COLOUR + 1
 #define wxRIBBON_ART_BUTTON_BAR_LABEL_HIGHLIGHT_GRADIENT_TOP_COLOUR wxRIBBON_ART_BUTTON_BAR_LABEL_HIGHLIGHT_TOP_COLOUR + 1
-%ignore wxRibbonScrollButtonStyle;
-enum wxRibbonScrollButtonStyle;
-typedef int wxRibbonScrollButtonStyle;
+%typedef int wxRibbonScrollButtonStyle;
 #define wxRIBBON_SCROLL_BTN_LEFT  0
 #define wxRIBBON_SCROLL_BTN_RIGHT  1
 #define wxRIBBON_SCROLL_BTN_UP  2
@@ -121,9 +117,7 @@ typedef int wxRibbonScrollButtonStyle;
 #define wxRIBBON_SCROLL_BTN_FOR_TABS  16
 #define wxRIBBON_SCROLL_BTN_FOR_PAGE  32
 #define wxRIBBON_SCROLL_BTN_FOR_MASK  48
-%ignore wxRibbonButtonKind;
-enum wxRibbonButtonKind;
-typedef int wxRibbonButtonKind;
+%typedef int wxRibbonButtonKind;
 #define wxRIBBON_BUTTON_NORMAL     1 << 0
 #define wxRIBBON_BUTTON_DROPDOWN   1 << 1
 #define wxRIBBON_BUTTON_HYBRID     wxRIBBON_BUTTON_NORMAL | wxRIBBON_BUTTON_DROPDOWN

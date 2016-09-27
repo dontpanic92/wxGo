@@ -1,8 +1,6 @@
 WXGO_DECL_TYPECONV(AcceleratorEntry)
 WXGO_DECL_TYPECONV(AcceleratorTable)
-%ignore wxAcceleratorEntryFlags;
-enum wxAcceleratorEntryFlags;
-typedef int wxAcceleratorEntryFlags;
+%typedef int wxAcceleratorEntryFlags;
 #define wxACCEL_NORMAL 0
 #define wxACCEL_ALT wxACCEL_NORMAL + 1
 #define wxACCEL_CTRL wxACCEL_ALT + 1
@@ -32,8 +30,9 @@ class wxAcceleratorTable : public wxObject
 {
 public:
     wxAcceleratorTable();
-    wxAcceleratorTable(int n, const wxAcceleratorEntry entries[]);
+#ifdef __WXMSW__
     wxAcceleratorTable(const wxString& resource);
+#endif
     virtual ~wxAcceleratorTable();
     bool IsOk() const;
 };

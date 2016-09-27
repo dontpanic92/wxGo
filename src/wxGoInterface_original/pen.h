@@ -191,8 +191,9 @@ public:
 
         @see SetWidth(), SetStipple()
     */
+#if defined(__WXMSW__) && defined(__WXOSX__)
     wxPen(const wxBitmap& stipple, int width);
-
+#endif
     /**
         Copy constructor, uses @ref overview_refcount.
 
@@ -399,90 +400,89 @@ public:
     wxPen::IsOk() always returns @false for this object.
 */
 %constant wxPen wxNullPen;
-
 /**
     Red pen.
     Except for the color it has all standard attributes
     (1-pixel width, @c wxPENSTYLE_SOLID and @c wxCAP_ROUND styles, etc...).
 */
-%constant wxPen* wxRED_PEN;
+wxPen* const wxRED_PEN;
 
 /**
     Blue pen.
     Except for the color it has all standard attributes
     (1-pixel width, @c wxPENSTYLE_SOLID and @c wxCAP_ROUND styles, etc...).
 */
-%constant wxPen* wxBLUE_PEN;
+wxPen* const wxBLUE_PEN;
 
 /**
     Cyan pen.
     Except for the color it has all standard attributes
     (1-pixel width, @c wxPENSTYLE_SOLID and @c wxCAP_ROUND styles, etc...).
 */
-%constant wxPen* wxCYAN_PEN;
+wxPen* const wxCYAN_PEN;
 
 /**
     Green pen.
     Except for the color it has all standard attributes
     (1-pixel width, @c wxPENSTYLE_SOLID and @c wxCAP_ROUND styles, etc...).
 */
-%constant wxPen* wxGREEN_PEN;
+wxPen* const wxGREEN_PEN;
 
 /**
     Yellow pen.
     Except for the color it has all standard attributes
     (1-pixel width, @c wxPENSTYLE_SOLID and @c wxCAP_ROUND styles, etc...).
 */
-%constant wxPen* wxYELLOW_PEN;
+wxPen* const wxYELLOW_PEN;
 
 /**
     Black pen.
     Except for the color it has all standard attributes
     (1-pixel width, @c wxPENSTYLE_SOLID and @c wxCAP_ROUND styles, etc...).
 */
-%constant wxPen* wxBLACK_PEN;
+wxPen* const wxBLACK_PEN;
 
 /**
     White pen.
     Except for the color it has all standard attributes
     (1-pixel width, @c wxPENSTYLE_SOLID and @c wxCAP_ROUND styles, etc...).
 */
-%constant wxPen* wxWHITE_PEN;
+wxPen* const wxWHITE_PEN;
 
 /**
     Transparent pen.
     Except for the color it has all standard attributes
     (1-pixel width, @c wxPENSTYLE_SOLID and @c wxCAP_ROUND styles, etc...).
 */
-%constant wxPen* wxTRANSPARENT_PEN;
+wxPen* const wxTRANSPARENT_PEN;
 
 /**
     Black dashed pen.
     Except for the color and for the @c wxPENSTYLE_SHORT_DASH it has all standard attributes
     (1-pixel width, @c wxCAP_ROUND style, etc...).
 */
-%constant wxPen* wxBLACK_DASHED_PEN;
+wxPen* const wxBLACK_DASHED_PEN;
 
 /**
     Grey pen.
     Except for the color it has all standard attributes
     (1-pixel width, @c wxPENSTYLE_SOLID and @c wxCAP_ROUND styles, etc...).
 */
-%constant wxPen* wxGREY_PEN;
+wxPen* const wxGREY_PEN;
 
 /**
     Medium-grey pen.
     Except for the color it has all standard attributes
     (1-pixel width, @c wxPENSTYLE_SOLID and @c wxCAP_ROUND styles, etc...).
 */
-%constant wxPen* wxMEDIUM_GREY_PEN;
+wxPen* const wxMEDIUM_GREY_PEN;
 
 /**
     Light-grey pen.
     Except for the color it has all standard attributes
     (1-pixel width, @c wxPENSTYLE_SOLID and @c wxCAP_ROUND styles, etc...).
 */
-%constant wxPen* wxLIGHT_GREY_PEN;
+wxPen* const wxLIGHT_GREY_PEN;
 
 
 

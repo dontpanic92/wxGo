@@ -18,9 +18,7 @@ public:
     const wxTreeItemId& GetId() const;
     void SetId(const wxTreeItemId& id);
 };
-%ignore wxTreeItemIcon;
-enum wxTreeItemIcon;
-typedef int wxTreeItemIcon;
+%typedef int wxTreeItemIcon;
 #define wxTreeItemIcon_Normal 0
 #define wxTreeItemIcon_Selected wxTreeItemIcon_Normal + 1
 #define wxTreeItemIcon_Expanded wxTreeItemIcon_Selected + 1

@@ -1,8 +1,6 @@
 WXGO_DECL_TYPECONV(Pen)
 WXGO_DECL_TYPECONV(PenList)
-%ignore wxPenStyle;
-enum wxPenStyle;
-typedef int wxPenStyle;
+%typedef int wxPenStyle;
 #define wxPENSTYLE_INVALID  -1
 #define wxPENSTYLE_SOLID wxPENSTYLE_INVALID  + 1
 #define wxPENSTYLE_DOT wxPENSTYLE_SOLID + 1
@@ -22,16 +20,12 @@ typedef int wxPenStyle;
 #define wxPENSTYLE_VERTICAL_HATCH wxPENSTYLE_HORIZONTAL_HATCH + 1
 #define wxPENSTYLE_FIRST_HATCH wxPENSTYLE_VERTICAL_HATCH + 1
 #define wxPENSTYLE_LAST_HATCH wxPENSTYLE_FIRST_HATCH + 1
-%ignore wxPenJoin;
-enum wxPenJoin;
-typedef int wxPenJoin;
+%typedef int wxPenJoin;
 #define wxJOIN_INVALID  -1
 #define wxJOIN_BEVEL  120
 #define wxJOIN_MITER wxJOIN_BEVEL  + 1
 #define wxJOIN_ROUND wxJOIN_MITER + 1
-%ignore wxPenCap;
-enum wxPenCap;
-typedef int wxPenCap;
+%typedef int wxPenCap;
 #define wxCAP_INVALID  -1
 #define wxCAP_ROUND  130
 #define wxCAP_PROJECTING wxCAP_ROUND  + 1
@@ -41,7 +35,9 @@ class wxPen : public wxGDIObject
 public:
     wxPen();
     wxPen(const wxColour& colour, int width = 1, wxPenStyle style = wxPENSTYLE_SOLID);
+#if defined(__WXMSW__) && defined(__WXOSX__)
     wxPen(const wxBitmap& stipple, int width);
+#endif
     wxPen(const wxPen& pen);
     virtual ~wxPen();
     virtual wxPenCap GetCap() const;
@@ -67,18 +63,18 @@ public:
     bool operator==(const wxPen& pen) const;
 };
 %constant wxPen wxNullPen;
-%constant wxPen* wxRED_PEN;
-%constant wxPen* wxBLUE_PEN;
-%constant wxPen* wxCYAN_PEN;
-%constant wxPen* wxGREEN_PEN;
-%constant wxPen* wxYELLOW_PEN;
-%constant wxPen* wxBLACK_PEN;
-%constant wxPen* wxWHITE_PEN;
-%constant wxPen* wxTRANSPARENT_PEN;
-%constant wxPen* wxBLACK_DASHED_PEN;
-%constant wxPen* wxGREY_PEN;
-%constant wxPen* wxMEDIUM_GREY_PEN;
-%constant wxPen* wxLIGHT_GREY_PEN;
+wxPen* const wxRED_PEN;
+wxPen* const wxBLUE_PEN;
+wxPen* const wxCYAN_PEN;
+wxPen* const wxGREEN_PEN;
+wxPen* const wxYELLOW_PEN;
+wxPen* const wxBLACK_PEN;
+wxPen* const wxWHITE_PEN;
+wxPen* const wxTRANSPARENT_PEN;
+wxPen* const wxBLACK_DASHED_PEN;
+wxPen* const wxGREY_PEN;
+wxPen* const wxMEDIUM_GREY_PEN;
+wxPen* const wxLIGHT_GREY_PEN;
 class wxPenList
 {
 public:

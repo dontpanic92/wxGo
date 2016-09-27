@@ -1,9 +1,7 @@
 WXGO_DECL_TYPECONV(Dialog)
 WXGO_DECL_TYPECONV(DialogLayoutAdapter)
 WXGO_DECL_TYPECONV(WindowModalDialogEvent)
-%ignore wxDialogLayoutAdaptationMode;
-enum wxDialogLayoutAdaptationMode;
-typedef int wxDialogLayoutAdaptationMode;
+%typedef int wxDialogLayoutAdaptationMode;
 #define wxDIALOG_ADAPTATION_MODE_DEFAULT  0
 #define wxDIALOG_ADAPTATION_MODE_ENABLED  1
 #define wxDIALOG_ADAPTATION_MODE_DISABLED  2

@@ -1,8 +1,6 @@
 WXGO_DECL_TYPECONV(RibbonGallery)
 WXGO_DECL_TYPECONV(RibbonGalleryEvent)
-%ignore wxRibbonGalleryButtonState;
-enum wxRibbonGalleryButtonState;
-typedef int wxRibbonGalleryButtonState;
+%typedef int wxRibbonGalleryButtonState;
 #define wxRIBBON_GALLERY_BUTTON_NORMAL 0
 #define wxRIBBON_GALLERY_BUTTON_HOVERED wxRIBBON_GALLERY_BUTTON_NORMAL + 1
 #define wxRIBBON_GALLERY_BUTTON_ACTIVE wxRIBBON_GALLERY_BUTTON_HOVERED + 1

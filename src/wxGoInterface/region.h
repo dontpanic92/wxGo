@@ -1,8 +1,6 @@
 WXGO_DECL_TYPECONV(RegionIterator)
 WXGO_DECL_TYPECONV(Region)
-%ignore wxRegionContain;
-enum wxRegionContain;
-typedef int wxRegionContain;
+%typedef int wxRegionContain;
 #define wxOutRegion  0
 #define wxPartRegion  1
 #define wxInRegion  2

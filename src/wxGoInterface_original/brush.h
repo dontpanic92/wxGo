@@ -266,84 +266,85 @@ public:
     An empty brush.
     wxBrush::IsOk() always returns @false for this object.
 */
-wxBrush wxNullBrush;
+
+%constant wxBrush wxNullBrush;
 
 /**
     Blue brush.
     Except for the color it has all standard attributes
     (@c wxBRUSHSTYLE_SOLID, no stipple bitmap, etc...).
 */
-wxBrush* wxBLUE_BRUSH;
+wxBrush* const wxBLUE_BRUSH;
 
 /**
     Green brush.
     Except for the color it has all standard attributes
     (@c wxBRUSHSTYLE_SOLID, no stipple bitmap, etc...).
 */
-wxBrush* wxGREEN_BRUSH;
+wxBrush* const wxGREEN_BRUSH;
 
 /**
     Yellow brush.
     Except for the color it has all standard attributes
     (@c wxBRUSHSTYLE_SOLID, no stipple bitmap, etc...).
 */
-wxBrush* wxYELLOW_BRUSH;
+wxBrush* const wxYELLOW_BRUSH;
 
 /**
     White brush.
     Except for the color it has all standard attributes
     (@c wxBRUSHSTYLE_SOLID, no stipple bitmap, etc...).
 */
-wxBrush* wxWHITE_BRUSH;
+wxBrush* const wxWHITE_BRUSH;
 
 /**
     Black brush.
     Except for the color it has all standard attributes
     (@c wxBRUSHSTYLE_SOLID, no stipple bitmap, etc...).
 */
-wxBrush* wxBLACK_BRUSH;
+wxBrush* const wxBLACK_BRUSH;
 
 /**
     Grey brush.
     Except for the color it has all standard attributes
     (@c wxBRUSHSTYLE_SOLID, no stipple bitmap, etc...).
 */
-wxBrush* wxGREY_BRUSH;
+wxBrush* const wxGREY_BRUSH;
 
 /**
     Medium grey brush.
     Except for the color it has all standard attributes
     (@c wxBRUSHSTYLE_SOLID, no stipple bitmap, etc...).
 */
-wxBrush* wxMEDIUM_GREY_BRUSH;
+wxBrush* const wxMEDIUM_GREY_BRUSH;
 
 /**
     Light grey brush.
     Except for the color it has all standard attributes
     (@c wxBRUSHSTYLE_SOLID, no stipple bitmap, etc...).
 */
-wxBrush* wxLIGHT_GREY_BRUSH;
+wxBrush* const wxLIGHT_GREY_BRUSH;
 
 /**
     Transparent brush.
     Except for the color it has all standard attributes
     (@c wxBRUSHSTYLE_SOLID, no stipple bitmap, etc...).
 */
-wxBrush* wxTRANSPARENT_BRUSH;
+wxBrush* const wxTRANSPARENT_BRUSH;
 
 /**
     Cyan brush.
     Except for the color it has all standard attributes
     (@c wxBRUSHSTYLE_SOLID, no stipple bitmap, etc...).
 */
-wxBrush* wxCYAN_BRUSH;
+wxBrush* const wxCYAN_BRUSH;
 
 /**
     Red brush.
     Except for the color it has all standard attributes
     (@c wxBRUSHSTYLE_SOLID, no stipple bitmap, etc...).
 */
-wxBrush* wxRED_BRUSH;
+wxBrush* const wxRED_BRUSH;
 
 
 
@@ -379,4 +380,4 @@ public:
 /**
     The global wxBrushList instance.
 */
-wxBrushList* wxTheBrushList;
+%constant wxBrushList* wxTheBrushList;

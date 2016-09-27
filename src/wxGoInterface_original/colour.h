@@ -46,17 +46,18 @@ public:
     //static void ChangeLightness(unsigned char* r, unsigned char* g, unsigned char* b, int ialpha);
     wxColour ChangeLightness(int ialpha) const;
 };
+
 %constant const wxColour wxNullColour;
 %constant const wxColour wxTransparentColour;
 
-%constant wxColour* wxBLACK;
-%constant wxColour* wxBLUE;
-%constant wxColour* wxCYAN;
-%constant wxColour* wxGREEN;
-%constant wxColour* wxYELLOW;
-%constant wxColour* wxLIGHT_GREY;
-%constant wxColour* wxRED;
-%constant wxColour* wxWHITE;
+wxColour* const wxBLACK;
+wxColour* const wxBLUE;
+wxColour* const wxCYAN;
+wxColour* const wxGREEN;
+wxColour* const wxYELLOW;
+wxColour* const wxLIGHT_GREY;
+wxColour* const wxRED;
+wxColour* const wxWHITE;
 
 bool wxFromString(const wxString& string, wxColour* colour);
 wxString wxToString(const wxColour& colour);

@@ -99,8 +99,9 @@ public:
 
         @onlyfor{wxmsw,wxosx}
     */
+#if defined(__WXMSW__) || defined(__WXOSX__)
     wxIcon(const char bits[], int width, int height);
-
+#endif
     /**
         Creates a bitmap from XPM data.
         To use this constructor, you must first include an XPM file.
@@ -192,8 +193,9 @@ public:
 
         @since 2.9.5
     */
+#ifdef __WXMSW__
     bool CreateFromHICON(WXHICON icon);
-
+#endif
     /**
         Returns disabled (dimmed) version of the icon.
 
@@ -205,8 +207,9 @@ public:
 
         @since 2.9.0
     */
+#ifdef __WXMSW__
     wxIcon ConvertToDisabled(unsigned char brightness = 255) const;
-
+#endif
     /**
         Copies @a bmp bitmap to this icon.
         Under MS Windows the bitmap must have mask colour set.
@@ -263,8 +266,8 @@ public:
 
         @return @true if the operation succeeded, @false otherwise.
     */
-    bool LoadFile(const wxString& name, wxBitmapType type = wxICON_DEFAULT_TYPE,
-                  int desiredWidth = -1, int desiredHeight = -1);
+    bool LoadFile(const wxString& name, wxBitmapType type,
+                  int desiredWidth, int desiredHeight);
 
     /**
         Sets the depth member (does not affect the icon data).

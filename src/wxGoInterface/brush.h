@@ -1,8 +1,6 @@
 WXGO_DECL_TYPECONV(Brush)
 WXGO_DECL_TYPECONV(BrushList)
-%ignore wxBrushStyle;
-enum wxBrushStyle;
-typedef int wxBrushStyle;
+%typedef int wxBrushStyle;
 #define wxBRUSHSTYLE_INVALID  -1
 #define wxBRUSHSTYLE_SOLID  wxSOLID
 #define wxBRUSHSTYLE_TRANSPARENT  wxTRANSPARENT
@@ -39,22 +37,22 @@ public:
     bool operator !=(const wxBrush& brush) const;
     bool operator ==(const wxBrush& brush) const;
 };
-wxBrush wxNullBrush;
-wxBrush* wxBLUE_BRUSH;
-wxBrush* wxGREEN_BRUSH;
-wxBrush* wxYELLOW_BRUSH;
-wxBrush* wxWHITE_BRUSH;
-wxBrush* wxBLACK_BRUSH;
-wxBrush* wxGREY_BRUSH;
-wxBrush* wxMEDIUM_GREY_BRUSH;
-wxBrush* wxLIGHT_GREY_BRUSH;
-wxBrush* wxTRANSPARENT_BRUSH;
-wxBrush* wxCYAN_BRUSH;
-wxBrush* wxRED_BRUSH;
+%constant wxBrush wxNullBrush;
+wxBrush* const wxBLUE_BRUSH;
+wxBrush* const wxGREEN_BRUSH;
+wxBrush* const wxYELLOW_BRUSH;
+wxBrush* const wxWHITE_BRUSH;
+wxBrush* const wxBLACK_BRUSH;
+wxBrush* const wxGREY_BRUSH;
+wxBrush* const wxMEDIUM_GREY_BRUSH;
+wxBrush* const wxLIGHT_GREY_BRUSH;
+wxBrush* const wxTRANSPARENT_BRUSH;
+wxBrush* const wxCYAN_BRUSH;
+wxBrush* const wxRED_BRUSH;
 class wxBrushList
 {
 public:
     wxBrush* FindOrCreateBrush(const wxColour& colour,
                                wxBrushStyle style = wxBRUSHSTYLE_SOLID);
 };
-wxBrushList* wxTheBrushList;
+%constant wxBrushList* wxTheBrushList;

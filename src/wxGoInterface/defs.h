@@ -1,18 +1,12 @@
-%ignore wxGeometryCentre;
-enum wxGeometryCentre;
-typedef int wxGeometryCentre;
+%typedef int wxGeometryCentre;
 #define wxCENTRE                   0x0001
 #define wxCENTER                   wxCENTRE
-%ignore wxOrientation;
-enum wxOrientation;
-typedef int wxOrientation;
+%typedef int wxOrientation;
 #define wxHORIZONTAL               0x0004
 #define wxVERTICAL                 0x0008
 #define wxBOTH                     wxVERTICAL | wxHORIZONTAL
 #define wxORIENTATION_MASK         wxBOTH
-%ignore wxDirection;
-enum wxDirection;
-typedef int wxDirection;
+%typedef int wxDirection;
 #define wxLEFT                     0x0010
 #define wxRIGHT                    0x0020
 #define wxUP                       0x0040
@@ -25,9 +19,7 @@ typedef int wxDirection;
 #define wxEAST                     wxRIGHT
 #define wxALL                      (wxUP | wxDOWN | wxRIGHT | wxLEFT)
 #define wxDIRECTION_MASK            wxALL
-%ignore wxAlignment;
-enum wxAlignment;
-typedef int wxAlignment;
+%typedef int wxAlignment;
 #define wxALIGN_INVALID            -1
 #define wxALIGN_NOT                0x0000
 #define wxALIGN_CENTER_HORIZONTAL  0x0100
@@ -41,15 +33,11 @@ typedef int wxAlignment;
 #define wxALIGN_CENTER             (wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL)
 #define wxALIGN_CENTRE             wxALIGN_CENTER
 #define wxALIGN_MASK               0x0f00
-%ignore wxSizerFlagBits;
-enum wxSizerFlagBits;
-typedef int wxSizerFlagBits;
+%typedef int wxSizerFlagBits;
 #define wxFIXED_MINSIZE                 0x8000
 #define wxRESERVE_SPACE_EVEN_IF_HIDDEN  0x0002
 #define wxSIZER_FLAG_BITS_MASK          0x8002
-%ignore wxStretch;
-enum wxStretch;
-typedef int wxStretch;
+%typedef int wxStretch;
 #define wxSTRETCH_NOT              0x0000
 #define wxSHRINK                   0x1000
 #define wxGROW                     0x2000
@@ -57,9 +45,7 @@ typedef int wxStretch;
 #define wxSHAPED                   0x4000
 #define wxTILE                     wxSHAPED | wxFIXED_MINSIZE
 #define wxSTRETCH_MASK             0x7000
-%ignore wxBorder;
-enum wxBorder;
-typedef int wxBorder;
+%typedef int wxBorder;
 #define wxBORDER_DEFAULT  0
 #define wxBORDER_NONE    0x00200000
 #define wxBORDER_STATIC  0x01000000
@@ -191,17 +177,13 @@ typedef int wxBorder;
 #define wxICON_MASK \
     (wxICON_EXCLAMATION|wxICON_HAND|wxICON_QUESTION|wxICON_INFORMATION|wxICON_NONE)
 #define wxNOT_FOUND       (-1)
-%ignore wxBackgroundStyle;
-enum wxBackgroundStyle;
-typedef int wxBackgroundStyle;
+%typedef int wxBackgroundStyle;
 #define wxBG_STYLE_ERASE 0
 #define wxBG_STYLE_SYSTEM wxBG_STYLE_ERASE + 1
 #define wxBG_STYLE_PAINT wxBG_STYLE_SYSTEM + 1
 #define wxBG_STYLE_COLOUR wxBG_STYLE_PAINT + 1
 #define wxBG_STYLE_TRANSPARENT wxBG_STYLE_COLOUR + 1
-%ignore wxStandardID;
-enum wxStandardID;
-typedef int wxStandardID;
+%typedef int wxStandardID;
 #define wxID_AUTO_LOWEST 0
 #define wxID_AUTO_HIGHEST wxID_AUTO_LOWEST + 1
 #define wxID_NONE  -3
@@ -338,18 +320,14 @@ typedef int wxStandardID;
 #define wxID_FILEDLGG  5900
 #define wxID_FILECTRL  5950
 #define wxID_HIGHEST  5999
-%ignore wxItemKind;
-enum wxItemKind;
-typedef int wxItemKind;
+%typedef int wxItemKind;
 #define wxITEM_SEPARATOR  -1
 #define wxITEM_NORMAL wxITEM_SEPARATOR  + 1
 #define wxITEM_CHECK wxITEM_NORMAL + 1
 #define wxITEM_RADIO wxITEM_CHECK + 1
 #define wxITEM_DROPDOWN wxITEM_RADIO + 1
 #define wxITEM_MAX wxITEM_DROPDOWN + 1
-%ignore wxHitTest;
-enum wxHitTest;
-typedef int wxHitTest;
+%typedef int wxHitTest;
 #define wxHT_NOWHERE 0
 #define wxHT_SCROLLBAR_FIRST  wxHT_NOWHERE
 #define wxHT_SCROLLBAR_ARROW_LINE_1 wxHT_SCROLLBAR_FIRST  + 1
@@ -366,9 +344,7 @@ typedef int wxHitTest;
 #define wxHT_WINDOW_HORZ_SCROLLBAR wxHT_WINDOW_VERT_SCROLLBAR + 1
 #define wxHT_WINDOW_CORNER wxHT_WINDOW_HORZ_SCROLLBAR + 1
 #define wxHT_MAX wxHT_WINDOW_CORNER + 1
-%ignore wxDataFormatId;
-enum wxDataFormatId;
-typedef int wxDataFormatId;
+%typedef int wxDataFormatId;
 #define wxDF_INVALID  0
 #define wxDF_TEXT  1
 #define wxDF_BITMAP  2
@@ -389,9 +365,7 @@ typedef int wxDataFormatId;
 #define wxDF_PRIVATE  20
 #define wxDF_HTML  30
 #define wxDF_MAX wxDF_HTML  + 1
-%ignore wxKeyCode;
-enum wxKeyCode;
-typedef int wxKeyCode;
+%typedef int wxKeyCode;
 #define WXK_NONE     0
 #define WXK_CONTROL_A  1
 #define WXK_CONTROL_B WXK_CONTROL_A  + 1
@@ -560,9 +534,7 @@ typedef int wxKeyCode;
 #define WXK_LAUNCH_MAIL WXK_MEDIA_PLAY_PAUSE + 1
 #define WXK_LAUNCH_APP1 WXK_LAUNCH_MAIL + 1
 #define WXK_LAUNCH_APP2 WXK_LAUNCH_APP1 + 1
-%ignore wxKeyModifier;
-enum wxKeyModifier;
-typedef int wxKeyModifier;
+%typedef int wxKeyModifier;
 #define wxMOD_NONE       0x0000
 #define wxMOD_ALT        0x0001
 #define wxMOD_CONTROL    0x0002
@@ -573,9 +545,7 @@ typedef int wxKeyModifier;
 #define wxMOD_RAW_CONTROL wxMOD_WIN        + 1
 #define wxMOD_CMD        wxMOD_CONTROL
 #define wxMOD_ALL        0xffff
-%ignore wxPaperSize;
-enum wxPaperSize;
-typedef int wxPaperSize;
+%typedef int wxPaperSize;
 #define wxPAPER_10X11 0
 #define wxPAPER_10X14 wxPAPER_10X11 + 1
 #define wxPAPER_11X17 wxPAPER_10X14 + 1
@@ -693,14 +663,10 @@ typedef int wxPaperSize;
 #define wxPAPER_STATEMENT wxPAPER_QUARTO + 1
 #define wxPAPER_TABLOID wxPAPER_STATEMENT + 1
 #define wxPAPER_TABLOID_EXTRA wxPAPER_TABLOID + 1
-%ignore wxPrintOrientation;
-enum wxPrintOrientation;
-typedef int wxPrintOrientation;
+%typedef int wxPrintOrientation;
 #define wxPORTRAIT 0
 #define wxLANDSCAPE wxPORTRAIT + 1
-%ignore wxDuplexMode;
-enum wxDuplexMode;
-typedef int wxDuplexMode;
+%typedef int wxDuplexMode;
 #define wxDUPLEX_SIMPLEX 0
 #define wxDUPLEX_HORIZONTAL wxDUPLEX_SIMPLEX + 1
 #define wxDUPLEX_VERTICAL wxDUPLEX_HORIZONTAL + 1
@@ -709,17 +675,13 @@ typedef int wxDuplexMode;
 #define wxPRINT_QUALITY_LOW     -3
 #define wxPRINT_QUALITY_DRAFT   -4
 typedef int wxPrintQuality;
-%ignore wxPrintMode;
-enum wxPrintMode;
-typedef int wxPrintMode;
+%typedef int wxPrintMode;
 #define wxPRINT_MODE_NONE  0
 #define wxPRINT_MODE_PREVIEW  1
 #define wxPRINT_MODE_FILE  2
 #define wxPRINT_MODE_PRINTER  3
 #define wxPRINT_MODE_STREAM  4
-%ignore wxUpdateUI;
-enum wxUpdateUI;
-typedef int wxUpdateUI;
+%typedef int wxUpdateUI;
 #define wxUPDATE_UI_NONE 0
 #define wxUPDATE_UI_RECURSE wxUPDATE_UI_NONE + 1
 #define wxUPDATE_UI_FROMIDLE wxUPDATE_UI_RECURSE + 1

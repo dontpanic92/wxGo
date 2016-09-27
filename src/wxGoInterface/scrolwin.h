@@ -1,6 +1,4 @@
-%ignore wxScrollbarVisibility;
-enum wxScrollbarVisibility;
-typedef int wxScrollbarVisibility;
+%typedef int wxScrollbarVisibility;
 #define wxSHOW_SB_NEVER  -1
 #define wxSHOW_SB_DEFAULT wxSHOW_SB_NEVER  + 1
 #define wxSHOW_SB_ALWAYS wxSHOW_SB_DEFAULT + 1

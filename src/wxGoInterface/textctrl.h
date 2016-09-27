@@ -22,18 +22,14 @@ WXGO_DECL_TYPECONV(TextUrlEvent)
 #define wxTE_RICH2          0x8000
 #define wxTEXT_TYPE_ANY     0
 typedef long wxTextCoord;
-%ignore wxTextAttrAlignment;
-enum wxTextAttrAlignment;
-typedef int wxTextAttrAlignment;
+%typedef int wxTextAttrAlignment;
 #define wxTEXT_ALIGNMENT_DEFAULT 0
 #define wxTEXT_ALIGNMENT_LEFT wxTEXT_ALIGNMENT_DEFAULT + 1
 #define wxTEXT_ALIGNMENT_CENTRE wxTEXT_ALIGNMENT_LEFT + 1
 #define wxTEXT_ALIGNMENT_CENTER  wxTEXT_ALIGNMENT_CENTRE
 #define wxTEXT_ALIGNMENT_RIGHT wxTEXT_ALIGNMENT_CENTER  + 1
 #define wxTEXT_ALIGNMENT_JUSTIFIED wxTEXT_ALIGNMENT_RIGHT + 1
-%ignore wxTextAttrFlags;
-enum wxTextAttrFlags;
-typedef int wxTextAttrFlags;
+%typedef int wxTextAttrFlags;
 #define wxTEXT_ATTR_TEXT_COLOUR           0x00000001
 #define wxTEXT_ATTR_BACKGROUND_COLOUR     0x00000002
 #define wxTEXT_ATTR_FONT_FACE             0x00000004
@@ -69,9 +65,7 @@ typedef int wxTextAttrFlags;
 #define wxTEXT_ATTR_CHARACTER  \        (wxTEXT_ATTR_FONT|wxTEXT_ATTR_EFFECTS| \            wxTEXT_ATTR_BACKGROUND_COLOUR|wxTEXT_ATTR_TEXT_COLOUR|wxTEXT_ATTR_CHARACTER_STYLE_NAME|wxTEXT_ATTR_URL)
 #define wxTEXT_ATTR_PARAGRAPH  \        (wxTEXT_ATTR_ALIGNMENT|wxTEXT_ATTR_LEFT_INDENT|wxTEXT_ATTR_RIGHT_INDENT|wxTEXT_ATTR_TABS|\            wxTEXT_ATTR_PARA_SPACING_BEFORE|wxTEXT_ATTR_PARA_SPACING_AFTER|wxTEXT_ATTR_LINE_SPACING|\            wxTEXT_ATTR_BULLET|wxTEXT_ATTR_PARAGRAPH_STYLE_NAME|wxTEXT_ATTR_LIST_STYLE_NAME|wxTEXT_ATTR_OUTLINE_LEVEL)
 #define wxTEXT_ATTR_ALL  (wxTEXT_ATTR_CHARACTER|wxTEXT_ATTR_PARAGRAPH)
-%ignore wxTextAttrBulletStyle;
-enum wxTextAttrBulletStyle;
-typedef int wxTextAttrBulletStyle;
+%typedef int wxTextAttrBulletStyle;
 #define wxTEXT_ATTR_BULLET_STYLE_NONE             0x00000000
 #define wxTEXT_ATTR_BULLET_STYLE_ARABIC           0x00000001
 #define wxTEXT_ATTR_BULLET_STYLE_LETTERS_UPPER    0x00000002
@@ -89,9 +83,7 @@ typedef int wxTextAttrBulletStyle;
 #define wxTEXT_ATTR_BULLET_STYLE_ALIGN_RIGHT      0x00001000
 #define wxTEXT_ATTR_BULLET_STYLE_ALIGN_CENTRE     0x00002000
 #define wxTEXT_ATTR_BULLET_STYLE_CONTINUATION     0x00004000
-%ignore wxTextAttrEffects;
-enum wxTextAttrEffects;
-typedef int wxTextAttrEffects;
+%typedef int wxTextAttrEffects;
 #define wxTEXT_ATTR_EFFECT_NONE                   0x00000000
 #define wxTEXT_ATTR_EFFECT_CAPITALS               0x00000001
 #define wxTEXT_ATTR_EFFECT_SMALL_CAPITALS         0x00000002
@@ -103,15 +95,11 @@ typedef int wxTextAttrEffects;
 #define wxTEXT_ATTR_EFFECT_ENGRAVE                0x00000080
 #define wxTEXT_ATTR_EFFECT_SUPERSCRIPT            0x00000100
 #define wxTEXT_ATTR_EFFECT_SUBSCRIPT              0x00000200
-%ignore wxTextAttrLineSpacing;
-enum wxTextAttrLineSpacing;
-typedef int wxTextAttrLineSpacing;
+%typedef int wxTextAttrLineSpacing;
 #define wxTEXT_ATTR_LINE_SPACING_NORMAL          10
 #define wxTEXT_ATTR_LINE_SPACING_HALF            15
 #define wxTEXT_ATTR_LINE_SPACING_TWICE           20
-%ignore wxTextCtrlHitTestResult;
-enum wxTextCtrlHitTestResult;
-typedef int wxTextCtrlHitTestResult;
+%typedef int wxTextCtrlHitTestResult;
 #define wxTE_HT_UNKNOWN  -2
 #define wxTE_HT_BEFORE wxTE_HT_UNKNOWN  + 1
 #define wxTE_HT_ON_TEXT wxTE_HT_BEFORE + 1

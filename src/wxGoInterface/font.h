@@ -1,9 +1,7 @@
 WXGO_DECL_TYPECONV(FontInfo)
 WXGO_DECL_TYPECONV(Font)
 WXGO_DECL_TYPECONV(FontList)
-%ignore wxFontFamily;
-enum wxFontFamily;
-typedef int wxFontFamily;
+%typedef int wxFontFamily;
 #define wxFONTFAMILY_DEFAULT  wxDEFAULT
 #define wxFONTFAMILY_DECORATIVE  wxDECORATIVE
 #define wxFONTFAMILY_ROMAN  wxROMAN
@@ -13,23 +11,17 @@ typedef int wxFontFamily;
 #define wxFONTFAMILY_TELETYPE  wxTELETYPE
 #define wxFONTFAMILY_MAX wxFONTFAMILY_TELETYPE  + 1
 #define wxFONTFAMILY_UNKNOWN  wxFONTFAMILY_MAX
-%ignore wxFontStyle;
-enum wxFontStyle;
-typedef int wxFontStyle;
+%typedef int wxFontStyle;
 #define wxFONTSTYLE_NORMAL  wxNORMAL
 #define wxFONTSTYLE_ITALIC  wxITALIC
 #define wxFONTSTYLE_SLANT  wxSLANT
 #define wxFONTSTYLE_MAX wxFONTSTYLE_SLANT  + 1
-%ignore wxFontWeight;
-enum wxFontWeight;
-typedef int wxFontWeight;
+%typedef int wxFontWeight;
 #define wxFONTWEIGHT_NORMAL  wxNORMAL
 #define wxFONTWEIGHT_LIGHT  wxLIGHT
 #define wxFONTWEIGHT_BOLD  wxBOLD
 #define wxFONTWEIGHT_MAX wxFONTWEIGHT_BOLD  + 1
-%ignore wxFontSymbolicSize;
-enum wxFontSymbolicSize;
-typedef int wxFontSymbolicSize;
+%typedef int wxFontSymbolicSize;
 #define wxFONTSIZE_XX_SMALL  -3
 #define wxFONTSIZE_X_SMALL wxFONTSIZE_XX_SMALL  + 1
 #define wxFONTSIZE_SMALL wxFONTSIZE_X_SMALL + 1
@@ -37,9 +29,7 @@ typedef int wxFontSymbolicSize;
 #define wxFONTSIZE_LARGE wxFONTSIZE_MEDIUM + 1
 #define wxFONTSIZE_X_LARGE wxFONTSIZE_LARGE + 1
 #define wxFONTSIZE_XX_LARGE wxFONTSIZE_X_LARGE + 1
-%ignore wxFontFlag;
-enum wxFontFlag;
-typedef int wxFontFlag;
+%typedef int wxFontFlag;
 #define wxFONTFLAG_DEFAULT           0
 #define wxFONTFLAG_ITALIC            1 << 0
 #define wxFONTFLAG_SLANT             1 << 1
@@ -50,9 +40,7 @@ typedef int wxFontFlag;
 #define wxFONTFLAG_UNDERLINED        1 << 6
 #define wxFONTFLAG_STRIKETHROUGH     1 << 7
 #define wxFONTFLAG_MASK  wxFONTFLAG_ITALIC             |                      wxFONTFLAG_SLANT              |                      wxFONTFLAG_LIGHT              |                      wxFONTFLAG_BOLD               |                      wxFONTFLAG_ANTIALIASED        |                      wxFONTFLAG_NOT_ANTIALIASED    |                      wxFONTFLAG_UNDERLINED         |                      wxFONTFLAG_STRIKETHROUGH
-%ignore wxFontEncoding;
-enum wxFontEncoding;
-typedef int wxFontEncoding;
+%typedef int wxFontEncoding;
 #define wxFONTENCODING_SYSTEM  -1
 #define wxFONTENCODING_DEFAULT wxFONTENCODING_SYSTEM  + 1
 #define wxFONTENCODING_ISO8859_1 wxFONTENCODING_DEFAULT + 1

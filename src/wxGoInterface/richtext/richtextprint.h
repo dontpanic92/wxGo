@@ -1,15 +1,11 @@
 WXGO_DECL_TYPECONV(RichTextHeaderFooterData)
 WXGO_DECL_TYPECONV(RichTextPrintout)
 WXGO_DECL_TYPECONV(RichTextPrinting)
-%ignore wxRichTextOddEvenPage;
-enum wxRichTextOddEvenPage;
-typedef int wxRichTextOddEvenPage;
+%typedef int wxRichTextOddEvenPage;
 #define wxRICHTEXT_PAGE_ODD 0
 #define wxRICHTEXT_PAGE_EVEN wxRICHTEXT_PAGE_ODD + 1
 #define wxRICHTEXT_PAGE_ALL wxRICHTEXT_PAGE_EVEN + 1
-%ignore wxRichTextPageLocation;
-enum wxRichTextPageLocation;
-typedef int wxRichTextPageLocation;
+%typedef int wxRichTextPageLocation;
 #define wxRICHTEXT_PAGE_LEFT 0
 #define wxRICHTEXT_PAGE_CENTRE wxRICHTEXT_PAGE_LEFT + 1
 #define wxRICHTEXT_PAGE_RIGHT wxRICHTEXT_PAGE_CENTRE + 1

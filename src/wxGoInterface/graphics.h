@@ -57,22 +57,16 @@ public:
     virtual void Transform(const wxGraphicsMatrix& matrix);
     virtual void UnGetNativePath(void* p) const;
 };
-%ignore wxAntialiasMode;
-enum wxAntialiasMode;
-typedef int wxAntialiasMode;
+%typedef int wxAntialiasMode;
 #define wxANTIALIAS_NONE 0
 #define wxANTIALIAS_DEFAULT wxANTIALIAS_NONE + 1
-%ignore wxInterpolationQuality;
-enum wxInterpolationQuality;
-typedef int wxInterpolationQuality;
+%typedef int wxInterpolationQuality;
 #define wxINTERPOLATION_DEFAULT 0
 #define wxINTERPOLATION_NONE wxINTERPOLATION_DEFAULT + 1
 #define wxINTERPOLATION_FAST wxINTERPOLATION_NONE + 1
 #define wxINTERPOLATION_GOOD wxINTERPOLATION_FAST + 1
 #define wxINTERPOLATION_BEST wxINTERPOLATION_GOOD + 1
-%ignore wxCompositionMode;
-enum wxCompositionMode;
-typedef int wxCompositionMode;
+%typedef int wxCompositionMode;
 #define wxCOMPOSITION_INVALID  -1
 #define wxCOMPOSITION_CLEAR wxCOMPOSITION_INVALID  + 1
 #define wxCOMPOSITION_SOURCE wxCOMPOSITION_CLEAR + 1

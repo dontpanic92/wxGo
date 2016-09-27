@@ -39,9 +39,7 @@ WXGO_DECL_TYPECONV(RichTextRenderer)
 WXGO_DECL_TYPECONV(RichTextStdRenderer)
 extern const wxChar wxRichTextLineBreakChar;
 typedef int wxDataObjectBase::Direction;
-%ignore wxRichTextFileType;
-enum wxRichTextFileType;
-typedef int wxRichTextFileType;
+%typedef int wxRichTextFileType;
 #define wxRICHTEXT_TYPE_ANY  0
 #define wxRICHTEXT_TYPE_TEXT wxRICHTEXT_TYPE_ANY  + 1
 #define wxRICHTEXT_TYPE_XML wxRICHTEXT_TYPE_TEXT + 1
@@ -57,9 +55,7 @@ typedef int wxRichTextFileType;
 #define wxRICHTEXT_DRAW_SELECTED        0x02
 #define wxRICHTEXT_DRAW_PRINT           0x04
 #define wxRICHTEXT_DRAW_GUIDELINES      0x08
-%ignore wxRichTextHitTestFlags;
-enum wxRichTextHitTestFlags;
-typedef int wxRichTextHitTestFlags;
+%typedef int wxRichTextHitTestFlags;
 #define wxRICHTEXT_HITTEST_NONE  0x01
 #define wxRICHTEXT_HITTEST_BEFORE  0x02
 #define wxRICHTEXT_HITTEST_AFTER  0x04
@@ -93,9 +89,7 @@ typedef int wxRichTextHitTestFlags;
 #define wxTEXT_ATTR_KEEP_FIRST_PARA_STYLE   0x10000000
 #define wxSCRIPT_MUL_FACTOR             1.5
 typedef unsigned short wxTextAttrDimensionFlags;
-%ignore wxTextBoxAttrFlags;
-enum wxTextBoxAttrFlags;
-typedef int wxTextBoxAttrFlags;
+%typedef int wxTextBoxAttrFlags;
 #define wxTEXT_BOX_ATTR_FLOAT                    0x00000001
 #define wxTEXT_BOX_ATTR_CLEAR                    0x00000002
 #define wxTEXT_BOX_ATTR_COLLAPSE_BORDERS         0x00000004
@@ -103,23 +97,17 @@ typedef int wxTextBoxAttrFlags;
 #define wxTEXT_BOX_ATTR_BOX_STYLE_NAME           0x00000010
 #define wxTEXT_BOX_ATTR_WHITESPACE               0x00000020
 #define wxTEXT_BOX_ATTR_CORNER_RADIUS            0x00000040
-%ignore wxTextAttrValueFlags;
-enum wxTextAttrValueFlags;
-typedef int wxTextAttrValueFlags;
+%typedef int wxTextAttrValueFlags;
 #define wxTEXT_ATTR_VALUE_VALID                0x1000
 #define wxTEXT_ATTR_VALUE_VALID_MASK           0x1000
-%ignore wxTextAttrUnits;
-enum wxTextAttrUnits;
-typedef int wxTextAttrUnits;
+%typedef int wxTextAttrUnits;
 #define wxTEXT_ATTR_UNITS_TENTHS_MM              0x0001
 #define wxTEXT_ATTR_UNITS_PIXELS                 0x0002
 #define wxTEXT_ATTR_UNITS_PERCENTAGE             0x0004
 #define wxTEXT_ATTR_UNITS_POINTS                 0x0008
 #define wxTEXT_ATTR_UNITS_HUNDREDTHS_POINT       0x0100
 #define wxTEXT_ATTR_UNITS_MASK                   0x010F
-%ignore wxTextBoxAttrPosition;
-enum wxTextBoxAttrPosition;
-typedef int wxTextBoxAttrPosition;
+%typedef int wxTextBoxAttrPosition;
 #define wxTEXT_BOX_ATTR_POSITION_STATIC          0x0000
 #define wxTEXT_BOX_ATTR_POSITION_RELATIVE        0x0010
 #define wxTEXT_BOX_ATTR_POSITION_ABSOLUTE        0x0020
@@ -214,9 +202,7 @@ public:
     double  m_scale;
     wxSize  m_parentSize;
 };
-%ignore wxTextAttrBorderStyle;
-enum wxTextAttrBorderStyle;
-typedef int wxTextAttrBorderStyle;
+%typedef int wxTextAttrBorderStyle;
 #define wxTEXT_BOX_ATTR_BORDER_NONE              0
 #define wxTEXT_BOX_ATTR_BORDER_SOLID             1
 #define wxTEXT_BOX_ATTR_BORDER_DOTTED            2
@@ -226,45 +212,31 @@ typedef int wxTextAttrBorderStyle;
 #define wxTEXT_BOX_ATTR_BORDER_RIDGE             6
 #define wxTEXT_BOX_ATTR_BORDER_INSET             7
 #define wxTEXT_BOX_ATTR_BORDER_OUTSET            8
-%ignore wxTextAttrBorderFlags;
-enum wxTextAttrBorderFlags;
-typedef int wxTextAttrBorderFlags;
+%typedef int wxTextAttrBorderFlags;
 #define wxTEXT_BOX_ATTR_BORDER_STYLE             0x0001
 #define wxTEXT_BOX_ATTR_BORDER_COLOUR            0x0002
-%ignore wxTextAttrBorderWidth;
-enum wxTextAttrBorderWidth;
-typedef int wxTextAttrBorderWidth;
+%typedef int wxTextAttrBorderWidth;
 #define wxTEXT_BOX_ATTR_BORDER_THIN              -1
 #define wxTEXT_BOX_ATTR_BORDER_MEDIUM            -2
 #define wxTEXT_BOX_ATTR_BORDER_THICK             -3
-%ignore wxTextBoxAttrFloatStyle;
-enum wxTextBoxAttrFloatStyle;
-typedef int wxTextBoxAttrFloatStyle;
+%typedef int wxTextBoxAttrFloatStyle;
 #define wxTEXT_BOX_ATTR_FLOAT_NONE               0
 #define wxTEXT_BOX_ATTR_FLOAT_LEFT               1
 #define wxTEXT_BOX_ATTR_FLOAT_RIGHT              2
-%ignore wxTextBoxAttrClearStyle;
-enum wxTextBoxAttrClearStyle;
-typedef int wxTextBoxAttrClearStyle;
+%typedef int wxTextBoxAttrClearStyle;
 #define wxTEXT_BOX_ATTR_CLEAR_NONE               0
 #define wxTEXT_BOX_ATTR_CLEAR_LEFT               1
 #define wxTEXT_BOX_ATTR_CLEAR_RIGHT              2
 #define wxTEXT_BOX_ATTR_CLEAR_BOTH               3
-%ignore wxTextBoxAttrCollapseMode;
-enum wxTextBoxAttrCollapseMode;
-typedef int wxTextBoxAttrCollapseMode;
+%typedef int wxTextBoxAttrCollapseMode;
 #define wxTEXT_BOX_ATTR_COLLAPSE_NONE            0
 #define wxTEXT_BOX_ATTR_COLLAPSE_FULL            1
-%ignore wxTextBoxAttrVerticalAlignment;
-enum wxTextBoxAttrVerticalAlignment;
-typedef int wxTextBoxAttrVerticalAlignment;
+%typedef int wxTextBoxAttrVerticalAlignment;
 #define wxTEXT_BOX_ATTR_VERTICAL_ALIGNMENT_NONE  0
 #define wxTEXT_BOX_ATTR_VERTICAL_ALIGNMENT_TOP   1
 #define wxTEXT_BOX_ATTR_VERTICAL_ALIGNMENT_CENTRE  2
 #define wxTEXT_BOX_ATTR_VERTICAL_ALIGNMENT_BOTTOM   3
-%ignore wxTextBoxAttrWhitespaceMode;
-enum wxTextBoxAttrWhitespaceMode;
-typedef int wxTextBoxAttrWhitespaceMode;
+%typedef int wxTextBoxAttrWhitespaceMode;
 #define wxTEXT_BOX_ATTR_WHITESPACE_NONE                  0
 #define wxTEXT_BOX_ATTR_WHITESPACE_NORMAL                1
 #define wxTEXT_BOX_ATTR_WHITESPACE_NO_WRAP               2
@@ -1532,9 +1504,7 @@ public:
     int RowEnd() const { return m_rowEnd; }
     int m_colStart, m_colEnd, m_rowStart, m_rowEnd;
 };
-%ignore wxRichTextCommandId;
-enum wxRichTextCommandId;
-typedef int wxRichTextCommandId;
+%typedef int wxRichTextCommandId;
 #define wxRICHTEXT_INSERT 0
 #define wxRICHTEXT_DELETE wxRICHTEXT_INSERT + 1
 #define wxRICHTEXT_CHANGE_ATTRIBUTES wxRICHTEXT_DELETE + 1
