@@ -27,9 +27,6 @@
 
 //Typemaps for wxArrayString
 
-%typemap(gotype) wxArrayString "[]string"
-%typemap(gotype) const wxArrayString& "[]string"
-
 %{
 wxArrayString gostringSliceToArrayString(_goslice_ slice) {
     wxArrayString arrayString;
@@ -56,24 +53,102 @@ _goslice_ arrayStringToGostringSlice(const wxArrayString& arr) {
 }
 %}
 
-%typemap(in) wxArrayString %{
-    $1 = gostringSliceToArrayString($input);
+%insert(go_header) %{
+type swig_goslice struct { arr uintptr; n int; c int }
+func swigCopyStringSlice(strSlice *[]string) []string {
+    newSlice := make([]string, len(*strSlice))
+    for i := range newSlice {
+        newSlice[i] = swigCopyString((*strSlice)[i])
+    }
+    p := *(*swig_goslice)(unsafe.Pointer(strSlice))
+    Swig_free(p.arr)
+    return newSlice
+}
 %}
 
-%typemap(in) const wxArrayString& %{
-    $*1_ltype $1_arr;
-    $1_arr = gostringSliceToArrayString($input);
-    $1 = &$1_arr;
+%typemap(gotype) wxArrayString "[]string"
+
+%typemap(in) wxArrayString %{
+    $1 = gostringSliceToArrayString($input);
 %}
 
 %typemap(out) wxArrayString %{
     $result = arrayStringToGostringSlice($1);
 %}
 
-%typemap(out) const wxArrayString& %{
+%typemap(goout) wxArrayString %{
+    $result = swigCopyStringSlice(&$1)
+%}
+
+
+%typemap(gotype) const wxArrayString& "[]string"
+%typemap(imtype) const wxArrayString& "[]string"
+
+%typemap(goin) const wxArrayString & %{
+    $result = $1
+%}
+
+%typemap(goargout) const wxArrayString & %{
+%}
+
+%typemap(argout) const wxArrayString & %{
+%}
+
+%typemap(in) const wxArrayString & %{
+    $*1_ltype $1_arr;
+    $1_arr = gostringSliceToArrayString($input);
+    $1 = &$1_arr;
+%}
+
+%typemap(out) const wxArrayString & %{
     $result = arrayStringToGostringSlice(*$1);
 %}
 
+
+%typemap(goout) const wxArrayString & %{
+    $result = swigCopyStringSlice(&$1)
+%}
+
+%{
+struct SliceWithPointer {
+    _goslice_ slice;
+    _goslice_* ptr;
+};
+%}
+
+%insert(go_header) %{
+type sliceWithPointer struct {
+    slice []string
+    ptr uintptr
+}
+%}
+
+%typemap(gotype) wxArrayString & "*[]string"
+%typemap(imtype) wxArrayString & "*sliceWithPointer"
+
+%typemap(goin) wxArrayString & %{
+    var $1_var sliceWithPointer
+    $result = &$1_var
+    $result.slice = *$1
+%}
+
+%typemap(goargout) wxArrayString & %{
+    *$1 = swigCopyStringSlice((*[]string)(unsafe.Pointer($1_var.ptr)))
+    Swig_free(uintptr(unsafe.Pointer($1_var.ptr)))
+%}
+
+%typemap(in) wxArrayString & %{
+    SliceWithPointer* $1_ptr = (SliceWithPointer*)$input;
+
+    $*1_ltype $1_arr;
+    $1_arr = gostringSliceToArrayString($1_ptr->slice);
+    $1 = &$1_arr; 
+%}
+
+%typemap(argout) wxArrayString & %{
+    $1_ptr->ptr = new _goslice_;
+    *$1_ptr->ptr = arrayStringToGostringSlice(*$1);
+%}
 
 // Typemaps for wxChar & wxUniChar
 
