@@ -1,5 +1,6 @@
 
 %go_import("reflect")
+%go_import("runtime")
 
 %insert(go_header) {
 type SwigcptrInterface interface{

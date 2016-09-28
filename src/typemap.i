@@ -132,6 +132,7 @@ _goslice_ arrayStringToGostringSlice(const wxArrayString& arr) {
 
 %typemap(gotype) long "int"
 %typemap(gotype) unsigned long "uint"
+%typedef double wxDouble;
 %typedef int wxInt32;
 %typedef unsigned int wxUint32;
 

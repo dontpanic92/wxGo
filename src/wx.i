@@ -52,6 +52,8 @@
 %include wxAui.i
 %include wxSTC.i
 %include wxRibbon.i
-%include wxRichText.i
 %include wxHTML.i
+/*
+%include wxRichText.i
 %include wxPropGrid.i
+*/

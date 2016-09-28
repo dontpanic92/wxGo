@@ -607,7 +607,7 @@ protected:
 
     @see wxScrolled, ::wxScrolledCanvas
 */
-
+//FIXME: SWIG crash?!?!
 //%template(wxScrolledWindow) wxScrolled<wxPanel>;
 typedef wxScrolled<wxPanel> wxScrolledWindow;
 
