@@ -15,11 +15,11 @@
 %include "wxGoInterface/dcclient.h"
 #ifndef __WXMSW__
 %include "wxGoInterface/dcgraph.h"
+%include "wxGoInterface/dcps.h"
 #endif
 %include "wxGoInterface/dcmemory.h"
 %include "wxGoInterface/dcbuffer.h"
 %include "wxGoInterface/dcmirror.h"
 %include "wxGoInterface/dcprint.h"
-%include "wxGoInterface/dcps.h"
 %include "wxGoInterface/dcscreen.h"
 %include "wxGoInterface/dcsvg.h"

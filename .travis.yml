@@ -35,5 +35,5 @@ script:
   - gcc --version
   - g++ --version
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ld --version; fi
-  - travis_wait 30 go get -t -v -x ./...
+  - travis_wait 50 go get -t -v -x ./...
   

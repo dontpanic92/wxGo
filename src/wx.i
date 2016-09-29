@@ -50,8 +50,8 @@
 %include wxMisc.i
 
 %include wxAui.i
-%include wxSTC.i
 /*
+%include wxSTC.i
 %include wxRibbon.i
 %include wxHTML.i
 %include wxRichText.i
