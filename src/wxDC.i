@@ -13,7 +13,9 @@
 
 %include "wxGoInterface/dc.h"
 %include "wxGoInterface/dcclient.h"
+#ifndef __WXMSW__
 %include "wxGoInterface/dcgraph.h"
+#endif
 %include "wxGoInterface/dcmemory.h"
 %include "wxGoInterface/dcbuffer.h"
 %include "wxGoInterface/dcmirror.h"

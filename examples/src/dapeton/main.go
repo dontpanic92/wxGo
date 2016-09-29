@@ -59,8 +59,8 @@ func (f *MyFrame)evtAbout(wx.Event) {
 }
 
 //Frame Init def
-func NewMyFrame() MyFrame {
-    f := MyFrame{}
+func NewMyFrame() *MyFrame {
+    f := &MyFrame{}
     f.Frame = wx.NewFrame(wx.NullWindow, -1, "Dapeton")
         
     f.statusbar = f.CreateStatusBar()
@@ -106,7 +106,7 @@ func NewMyFrame() MyFrame {
     mainSizer.Add(f.notebook, 1, wx.EXPAND, 5)
 
     textCtrl := wx.NewTextCtrl(f.notebook, wx.ID_ANY, "", wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE)
-    textCtrl.SetMinSize(wx.NewSize(600, 400))
+    textCtrl.SetMinSize(wx.NewSizeT(600, 400))
 
     f.notebook.AddPage(textCtrl, "Untitled", true)
     textCtrl.SetFocus()
