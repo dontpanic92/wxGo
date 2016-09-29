@@ -17,7 +17,6 @@ public:
     bool CreateFromHICON(WXHICON icon);
 #endif
 #ifdef __WXMSW__
-    wxIcon ConvertToDisabled(unsigned char brightness = 255) const;
 #endif
     void CopyFromBitmap(const wxBitmap& bmp);
     int GetDepth() const;

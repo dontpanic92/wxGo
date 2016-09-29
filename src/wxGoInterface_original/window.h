@@ -316,7 +316,7 @@ public:
     wxBorder GetBorder() const;
     virtual void DoUpdateWindowUI(wxUpdateUIEvent& event);
 #ifdef __WXMSW__
-    virtual long GetHandle() const;
+    virtual WXWidget GetHandle() const;
 #endif
     virtual bool HasMultiplePages() const;
     virtual void InheritAttributes();

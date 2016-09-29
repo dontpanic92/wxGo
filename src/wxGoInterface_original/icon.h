@@ -208,7 +208,7 @@ public:
         @since 2.9.0
     */
 #ifdef __WXMSW__
-    wxIcon ConvertToDisabled(unsigned char brightness = 255) const;
+    //wxIcon ConvertToDisabled(unsigned char brightness = 255) const;
 #endif
     /**
         Copies @a bmp bitmap to this icon.
