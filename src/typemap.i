@@ -41,7 +41,7 @@ wxArrayString gostringSliceToArrayString(_goslice_ slice) {
 _goslice_ arrayStringToGostringSlice(const wxArrayString& arr) {
     _goslice_ slice;
     size_t count = arr.GetCount();
-    _gostring_ *go_arr = new _gostring_[count];
+    _gostring_ *go_arr = (_gostring_*)malloc(sizeof(_gostring_[count]));
     slice.array = go_arr;
     slice.len = slice.cap = count;
     
@@ -66,79 +66,73 @@ func swigCopyStringSlice(strSlice *[]string) []string {
 }
 %}
 
-%typemap(gotype) wxArrayString "[]string"
 
-%typemap(in) wxArrayString %{
-    $1 = gostringSliceToArrayString($input);
+%typemap(gotype) wxArrayString, const wxArrayString& "[]string"
+%typemap(imtype) wxArrayString, const wxArrayString& "uint64"
+//SWIG gobackend doesn't support typemap(ctype)
+
+%typemap(goargout) wxArrayString, const wxArrayString & %{
 %}
 
-%typemap(out) wxArrayString %{
-    $result = arrayStringToGostringSlice($1);
+%typemap(argout) wxArrayString, const wxArrayString & %{
 %}
 
-%typemap(goout) wxArrayString %{
-    $result = swigCopyStringSlice(&$1)
-%}
-
-
-%typemap(gotype) const wxArrayString& "[]string"
-%typemap(imtype) const wxArrayString& "[]string"
-
-%typemap(goin) const wxArrayString & %{
-    $result = $1
-%}
-
-%typemap(goargout) const wxArrayString & %{
-%}
-
-%typemap(argout) const wxArrayString & %{
-%}
-
-%typemap(in) const wxArrayString & %{
+%typemap(in) wxArrayString, const wxArrayString & %{
     $*1_ltype $1_arr;
-    $1_arr = gostringSliceToArrayString($input);
+    $1_arr = gostringSliceToArrayString(*(_goslice_*)$input);
     $1 = &$1_arr;
 %}
 
-%typemap(out) const wxArrayString & %{
-    $result = arrayStringToGostringSlice(*$1);
+//Any method to get the type of $result instead of hard-coded?
+%typemap(out) wxArrayString %{
+    $result = (long long)malloc(sizeof(_goslice_));
+    *(_goslice_*)$result = arrayStringToGostringSlice($1);
 %}
 
+%typemap(out) const wxArrayString & %{
+    $result = (long long)malloc(sizeof(_goslice_));
+    *(_goslice_*)$result = arrayStringToGostringSlice(*$1);
+%}
 
-%typemap(goout) const wxArrayString & %{
-    $result = swigCopyStringSlice(&$1)
+%typemap(goin) wxArrayString, const wxArrayString & %{
+    $result = uint64((uintptr)(unsafe.Pointer(&$1)))
+%}
+
+%typemap(goout) wxArrayString, const wxArrayString & %{
+    $result = swigCopyStringSlice((*[]string)(unsafe.Pointer(uintptr($1))))
+    Swig_free(uintptr($1))
 %}
 
 %{
-struct SliceWithPointer {
+struct StringSliceWithPointer {
     _goslice_ slice;
     _goslice_* ptr;
 };
 %}
 
 %insert(go_header) %{
-type sliceWithPointer struct {
+type stringSliceWithPointer struct {
     slice []string
     ptr uintptr
 }
 %}
 
 %typemap(gotype) wxArrayString & "*[]string"
-%typemap(imtype) wxArrayString & "*sliceWithPointer"
+%typemap(imtype) wxArrayString & "*stringSliceWithPointer"
 
 %typemap(goin) wxArrayString & %{
-    var $1_var sliceWithPointer
+    var $1_var stringSliceWithPointer
     $result = &$1_var
     $result.slice = *$1
 %}
 
 %typemap(goargout) wxArrayString & %{
     *$1 = swigCopyStringSlice((*[]string)(unsafe.Pointer($1_var.ptr)))
-    Swig_free(uintptr(unsafe.Pointer($1_var.ptr)))
+    Swig_free($1_var.ptr)
 %}
 
 %typemap(in) wxArrayString & %{
-    SliceWithPointer* $1_ptr = (SliceWithPointer*)$input;
+    StringSliceWithPointer* $1_ptr = (StringSliceWithPointer*)$input;
 
     $*1_ltype $1_arr;
     $1_arr = gostringSliceToArrayString($1_ptr->slice);
@@ -146,9 +140,134 @@ type sliceWithPointer struct {
 %}
 
 %typemap(argout) wxArrayString & %{
-    $1_ptr->ptr = new _goslice_;
+    $1_ptr->ptr = (_goslice_*)malloc(sizeof(_goslice_));
     *$1_ptr->ptr = arrayStringToGostringSlice(*$1);
 %}
+
+
+// Typemaps for wxArrayInt
+
+%{
+wxArrayInt intgoSliceToArrayInt(_goslice_ slice) {
+    wxArrayInt arrayInt;
+    for (int i = 0; i < slice.len; i++) {
+        intgo a = ((intgo*)slice.array)[i];
+        arrayInt.Add(a);
+    }
+    return arrayInt;
+}
+
+_goslice_ arrayIntToIntgoSlice(const wxArrayInt& arr) {
+    _goslice_ slice;
+    size_t count = arr.GetCount();
+    intgo *go_arr = (intgo*)malloc(sizeof(intgo[count]));
+    slice.array = go_arr;
+    slice.len = slice.cap = count;
+    
+    for (int i = 0; i < count; i++) {
+        go_arr[i] = arr[i];
+    }
+    
+    return slice;
+}
+%}
+
+%insert(go_header) %{
+func swigCopyIntSlice(intSlice *[]int) []int {
+    newSlice := make([]int, len(*intSlice))
+    for i := range newSlice {
+        newSlice[i] = (*intSlice)[i]
+    }
+    p := *(*swig_goslice)(unsafe.Pointer(intSlice))
+    Swig_free(p.arr)
+    return newSlice
+}
+%}
+
+%typemap(gotype) wxArrayInt "[]int"
+
+%typemap(in) wxArrayInt %{
+    $1 = intgoSliceToArrayInt($input);
+%}
+
+%typemap(out) wxArrayInt %{
+    $result = arrayIntToIntgoSlice($1);
+%}
+
+%typemap(goout) wxArrayInt %{
+    $result = swigCopyIntSlice(&$1)
+%}
+
+
+%typemap(gotype) const wxArrayInt& "[]int"
+%typemap(imtype) const wxArrayInt& "[]int"
+
+%typemap(goin) const wxArrayInt & %{
+    $result = $1
+%}
+
+%typemap(goargout) const wxArrayInt & %{
+%}
+
+%typemap(argout) const wxArrayInt & %{
+%}
+
+%typemap(in) const wxArrayInt & %{
+    $*1_ltype $1_arr;
+    $1_arr = intgoSliceToArrayInt($input);
+    $1 = &$1_arr;
+%}
+
+%typemap(out) const wxArrayInt & %{
+    $result = arrayIntToIntgoSlice(*$1);
+%}
+
+
+%typemap(goout) const wxArrayInt & %{
+    $result = swigCopyIntSlice(&$1)
+%}
+
+%{
+struct IntSliceWithPointer {
+    _goslice_ slice;
+    _goslice_* ptr;
+};
+%}
+
+%insert(go_header) %{
+type intSliceWithPointer struct {
+    slice []int
+    ptr uintptr
+}
+%}
+
+%typemap(gotype) wxArrayInt & "*[]int"
+%typemap(imtype) wxArrayInt & "*intSliceWithPointer"
+
+%typemap(goin) wxArrayInt & %{
+    var $1_var intSliceWithPointer
+    $result = &$1_var
+    $result.slice = *$1
+%}
+
+%typemap(goargout) wxArrayInt & %{
+    *$1 = swigCopyIntSlice((*[]int)(unsafe.Pointer($1_var.ptr)))
+    Swig_free($1_var.ptr)
+%}
+
+%typemap(in) wxArrayInt & %{
+    IntSliceWithPointer* $1_ptr = (IntSliceWithPointer*)$input;
+
+    $*1_ltype $1_arr;
+    $1_arr = intgoSliceToArrayInt($1_ptr->slice);
+    $1 = &$1_arr; 
+%}
+
+%typemap(argout) wxArrayInt & %{
+    $1_ptr->ptr = (_goslice_*)malloc(sizeof(_goslice_));
+    *$1_ptr->ptr = arrayIntToIntgoSlice(*$1);
+%}
+
 
 // Typemaps for wxChar & wxUniChar
 

@@ -43,7 +43,7 @@ public:
     int GetLayoutAdaptationLevel() const;
     wxDialogLayoutAdaptationMode GetLayoutAdaptationMode() const;
     static wxDialogLayoutAdapter* GetLayoutAdapter();
-    wxArrayInt& GetMainButtonIds();
+    const wxArrayInt& GetMainButtonIds();
     int GetReturnCode() const;
     virtual void Iconize(bool iconize = true);
     virtual bool IsIconized() const;
