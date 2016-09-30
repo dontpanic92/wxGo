@@ -434,7 +434,7 @@ public:
     bool IsAllowed() const;
     void Veto();
 };
-/*class wxThreadEvent : public wxEvent
+class wxThreadEvent : public wxEvent
 {
 public:
     wxThreadEvent(wxEventType eventType = wxEVT_THREAD, int id = wxID_ANY);
@@ -450,7 +450,7 @@ public:
     void SetExtraLong(long extraLong);
     void SetInt(int intCommand);
     void SetString(const wxString& string);
-};*/
+};
 class wxHelpEvent : public wxCommandEvent
 {
 public:

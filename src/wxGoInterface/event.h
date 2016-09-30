@@ -25,6 +25,7 @@ WXGO_DECL_TYPECONV(DisplayChangedEvent)
 WXGO_DECL_TYPECONV(PaletteChangedEvent)
 WXGO_DECL_TYPECONV(QueryNewPaletteEvent)
 WXGO_DECL_TYPECONV(NotifyEvent)
+WXGO_DECL_TYPECONV(ThreadEvent)
 WXGO_DECL_TYPECONV(HelpEvent)
 WXGO_DECL_TYPECONV(ScrollEvent)
 WXGO_DECL_TYPECONV(IdleEvent)
@@ -378,6 +379,23 @@ public:
     void Allow();
     bool IsAllowed() const;
     void Veto();
+};
+class wxThreadEvent : public wxEvent
+{
+public:
+    wxThreadEvent(wxEventType eventType = wxEVT_THREAD, int id = wxID_ANY);
+    virtual wxEvent *Clone() const;
+    virtual wxEventCategory GetEventCategory() const;
+    template<typename T>
+    void SetPayload(const T& payload);
+    template<typename T>
+    T GetPayload() const;
+    long GetExtraLong() const;
+    int GetInt() const;
+    wxString GetString() const;
+    void SetExtraLong(long extraLong);
+    void SetInt(int intCommand);
+    void SetString(const wxString& string);
 };
 class wxHelpEvent : public wxCommandEvent
 {
