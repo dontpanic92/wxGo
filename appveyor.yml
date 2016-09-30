@@ -5,6 +5,12 @@ clone_depth: 5
 environment:
   matrix:
   - GOROOT: c:\go16
+  - GOROOT: c:\go17
+
+matrix:
+  allow_failures:
+    - GOROOT: c:\go16
+
 build_script:
 - cmd: >-
 

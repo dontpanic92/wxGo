@@ -4,13 +4,18 @@ dist: trusty
 language: go
 
 go:
-  - 1.6
   - 1.7
   - tip
+  allow_failures:
+  - 1.6
 
 os:
   - linux
   - osx
+
+matrix:
+  allow_failures:
+  - go: 1.6
 
 addons:
   apt:
