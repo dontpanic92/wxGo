@@ -9,6 +9,7 @@
 	#include "wx/pen.h"
 	#include "wx/brush.h"
 	#include "wx/image.h"
+	#include "wx/imaglist.h"
 	#include "wx/icon.h"
 %}
 
@@ -25,4 +26,5 @@
 %include "wxGoInterface/pen.h"
 %include "wxGoInterface/brush.h"
 %include "wxGoInterface/image.h"
+%include "wxGoInterface/imaglist.h"
 %include "wxGoInterface/icon.h"

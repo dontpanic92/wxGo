@@ -54,15 +54,9 @@ def add_tracked_type(code):
             ctor_args = ", ".join([x.strip().split(" ")[0] for x in ctor_param_list])
         
 
-        code += "\ntype %sT struct {\n" % type_name
-        code += "    Swigcptr%s\n}\n\n" % type_name
-        code += "func _wxgo_%sTFinalizer(obj *%sT) {\n" % (type_name, type_name)
-        code += "    Delete%s(obj)\n" % type_name
-        code += "}\n\n"
         code += "func New%sT(%s) %s {\n" % (type_name, ctor_param, type_name)
-        code += "    ret := &%sT{}\n" % type_name
-        code += "    ret.Swigcptr%s = Swigcptr%s(New%s(%s).Swigcptr())\n" % (type_name, type_name, type_name, ctor_args)
-        code += "    runtime.SetFinalizer(ret, _wxgo_%sTFinalizer)\n" % type_name
+        code += "    ret := New%s(%s)\n" % (type_name, ctor_args)
+        code += "    ret.SwigTrackObject()\n"
         code += "    return ret\n"
         code += "}\n"
 

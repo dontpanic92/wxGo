@@ -19,12 +19,10 @@
 %include wxDC.i
 %include wxControl.i
 %include wxTopLevelWindow.i
-%include wxFrame.i
 %include wxSizer.i
 %include wxBookCtrl.i
 %include wxMenu.i
 %include wxStatusBar.i
-%include wxDialog.i
 %include wxColour.i
 %include wxFont.i
 %include wxDialogs.i
@@ -50,10 +48,8 @@
 %include wxMisc.i
 
 %include wxAui.i
-/*
 %include wxSTC.i
 %include wxRibbon.i
 %include wxHTML.i
-%include wxRichText.i
+//%include wxRichText.i
 %include wxPropGrid.i
-*/

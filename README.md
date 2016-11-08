@@ -49,10 +49,10 @@ You can regenerate the wrapper code using SWIG. Compilation dependencies are:
 - python 2
 - sed
 - make
-- SWIG, of course
+- A customized SWIG
 
 
-First of all, SWIG has to be patched using `SWIG/swig-3.0.9.patch`. This patch fixed a bug in SWIG, and also turn on an option which cannot be used by default. Then you can modify the source as you want, and run `make` in the `build` folder.
+We use a customized SWIG to generate the wrapper code. Please clone https://github.com/dontpanic92/SWIG and simply `./configure && make && sudo make install`. Then you can modify the source as you want, and run `make` in the `build` folder.
 
 ####3. Customize wxWidgets build
 

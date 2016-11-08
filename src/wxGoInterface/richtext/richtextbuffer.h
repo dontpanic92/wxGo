@@ -1521,7 +1521,6 @@ public:
     void operator=(const wxRichTextObjectAddress& address) { Copy(address); }
     wxRichTextObject* GetObject(wxRichTextParagraphLayoutBox* topLevelContainer) const;
     bool Create(wxRichTextParagraphLayoutBox* topLevelContainer, wxRichTextObject* obj);
-    wxArrayInt& GetAddress() { return m_address; }
     const wxArrayInt& GetAddress() const { return m_address; }
     void SetAddress(const wxArrayInt& address) { m_address = address; }
 protected:

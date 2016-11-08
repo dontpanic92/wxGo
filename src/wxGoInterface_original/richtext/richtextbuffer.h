@@ -6100,7 +6100,7 @@ public:
     /**
         Returns the array of integers representing the object address.
     */
-    wxArrayInt& GetAddress() { return m_address; }
+    //wxArrayInt& GetAddress() { return m_address; }
 
     /**
         Returns the array of integers representing the object address.

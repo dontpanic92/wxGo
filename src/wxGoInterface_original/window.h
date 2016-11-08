@@ -97,8 +97,8 @@ public:
     virtual void Fit();
     virtual void FitInside();
     wxSize GetBestSize() const;
-    //int GetBestHeight(int width) const;
-    //int GetBestWidth(int height) const;
+    int GetBestHeight(int width) const;
+    int GetBestWidth(int height) const;
     //void GetClientSize(int* width, int* height) const;
     wxSize GetClientSize() const;
     virtual wxSize GetEffectiveMinSize() const;
@@ -126,32 +126,32 @@ public:
     void PostSizeEventToParent();
     virtual void SendSizeEvent(int flags = 0);
     void SendSizeEventToParent(int flags = 0);
-    //void SetClientSize(int width, int height);
+    void SetClientSize(int width, int height);
     void SetClientSize(const wxSize& size);
-    //void SetClientSize(const wxRect& rect);
+    void SetClientSize(const wxRect& rect);
     void SetContainingSizer(wxSizer* sizer);
     void SetInitialSize(const wxSize& size = wxDefaultSize);
     virtual void SetMaxClientSize(const wxSize& size);
     virtual void SetMaxSize(const wxSize& size);
     virtual void SetMinClientSize(const wxSize& size);
     virtual void SetMinSize(const wxSize& size);
-    //void SetSize(int x, int y, int width, int height,
-                 //int sizeFlags = wxSIZE_AUTO);
-    //void SetSize(const wxRect& rect);
+    void SetSize(int x, int y, int width, int height,
+                 int sizeFlags = wxSIZE_AUTO);
+    void SetSize(const wxRect& rect);
     void SetSize(const wxSize& size);
-    //void SetSize(int width, int height);
+    void SetSize(int width, int height);
     virtual void SetSizeHints( const wxSize& minSize,
                                const wxSize& maxSize=wxDefaultSize,
                                const wxSize& incSize=wxDefaultSize);
-   // virtual void SetSizeHints( int minW, int minH,
-   //                            int maxW = -1, int maxH = -1,
-   //                            int incW = -1, int incH = -1 );
-    //void SetVirtualSize(int width, int height);
+    virtual void SetSizeHints( int minW, int minH,
+                               int maxW = -1, int maxH = -1,
+                               int incW = -1, int incH = -1 );
+    void SetVirtualSize(int width, int height);
     void SetVirtualSize(const wxSize& size);
     void Center(int dir = wxBOTH);
     void CenterOnParent(int dir = wxBOTH);
-    //void Centre(int direction = wxBOTH);
-    //void CentreOnParent(int direction = wxBOTH);
+    void Centre(int direction = wxBOTH);
+    void CentreOnParent(int direction = wxBOTH);
     //void GetPosition(int* x, int* y) const;
     wxPoint GetPosition() const;
     wxRect GetRect() const;
@@ -160,7 +160,7 @@ public:
     wxRect GetScreenRect() const;
     virtual wxPoint GetClientAreaOrigin() const;
     wxRect GetClientRect() const;
-    //void Move(int x, int y, int flags = wxSIZE_USE_EXISTING);
+    void Move(int x, int y, int flags = wxSIZE_USE_EXISTING);
     void Move(const wxPoint& pt, int flags = wxSIZE_USE_EXISTING);
     void SetPosition(const wxPoint& pt);
     //void ClientToScreen(int* x, int* y) const;
@@ -241,9 +241,9 @@ public:
     virtual bool HideWithEffect(wxShowEffect effect,
                                 unsigned int timeout = 0);
     bool IsEnabled() const;
-    //bool IsExposed(int x, int y) const;
+    bool IsExposed(int x, int y) const;
     bool IsExposed(wxPoint& pt) const;
-    //bool IsExposed(int x, int y, int w, int h) const;
+    bool IsExposed(int x, int y, int w, int h) const;
     bool IsExposed(wxRect& rect) const;
     virtual bool IsShown() const;
     virtual bool IsShownOnScreen() const;
@@ -266,7 +266,7 @@ public:
     //int GetPopupMenuSelectionFromUser(wxMenu& menu, int x, int y);
     bool PopupMenu(wxMenu* menu,
                    const wxPoint& pos = wxDefaultPosition);
-    //bool PopupMenu(wxMenu* menu, int x, int y);
+    bool PopupMenu(wxMenu* menu, int x, int y);
     virtual wxValidator* GetValidator();
     virtual void SetValidator(const wxValidator& validator);
     virtual bool TransferDataFromWindow();

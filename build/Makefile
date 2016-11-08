@@ -5,7 +5,7 @@ linux-internal:
 	if [ -d "linux_build" ]; then rm -r linux_build; fi
 	mkdir linux_build
 	cd linux_build && \
-	swig -Wall -c++ -D__WXGTK__ -go -cgo -v -o wx_wrap_linux.cxx ../../src/wx.i && \
+	swig -Wall -c++ -D__WXGTK__ -go -cgo -trackobject 2 -v -o wx_wrap_linux.cxx ../../src/wx.i && \
 	python2 ../postprocess.py wx.go && \
 	mv wx.go ../../wx/wx_linux.go && \
 	mv wx_wrap_linux.cxx ../../wx/wx_wrap_linux.cxx && \
@@ -19,7 +19,7 @@ windows-internal:
 	if [ -d "windows_build" ]; then rm -r windows_build; fi
 	mkdir windows_build
 	cd windows_build && \
-	swig -Wall -c++ -D__WXMSW__ -go -cgo -v -o wx_wrap_windows.cxx ../../src/wx.i && \
+	swig -Wall -c++ -D__WXMSW__ -go -cgo -trackobject 2 -v -o wx_wrap_windows.cxx ../../src/wx.i && \
 	python2 ../postprocess.py wx.go && \
 	mv wx.go ../../wx/wx_windows.go && \
 	mv wx_wrap_windows.cxx ../../wx/wx_wrap_windows.cxx && \
@@ -32,7 +32,7 @@ osx-internal:
 	if [ -d "osx_build" ]; then rm -r osx_build; fi
 	mkdir osx_build
 	cd osx_build && \
-	swig -Wall -c++ -D__WXOSX_COCOA__ -D__WXOSX__ -D__WXMAC__ -go -cgo -v -o wx_wrap_darwin.cxx ../../src/wx.i && \
+	swig -Wall -c++ -D__WXOSX_COCOA__ -D__WXOSX__ -D__WXMAC__ -go -cgo -v -trackobject 2 -o wx_wrap_darwin.cxx ../../src/wx.i && \
 	python2 ../postprocess.py wx.go && \
 	mv wx.go ../../wx/wx_darwin.go && \
 	mv wx_wrap_darwin.cxx ../../wx/wx_wrap_darwin.cxx && \

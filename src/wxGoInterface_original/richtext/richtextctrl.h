@@ -144,12 +144,16 @@ public:
     /**
         Returns the array of labels.
     */
-    wxArrayString& GetLabels();
+    //wxArrayString& GetLabels();
 
     /**
         Returns the array of labels.
     */
     const wxArrayString& GetLabels() const;
+
+    %extend {
+        void SetLabels(const wxArrayString& labels) { m_labels = labels; }
+    }
 
     /**
         Returns the number of items.

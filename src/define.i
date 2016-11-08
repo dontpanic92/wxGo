@@ -17,7 +17,7 @@ func func_pointers_are_equal(f1 interface{}, f2 interface{}) bool{
 %define WXGO_DECL_TYPECONV(WXTYPE)
 %insert(go_wrapper) {
 func To##WXTYPE##(a interface{}) WXTYPE{
-	return Swigcptr##WXTYPE##(unsafe.Pointer(a.(SwigcptrInterface).Swigcptr()))
+	return Swigcptr##WXTYPE##(a.(SwigcptrInterface).Swigcptr())
 }
 }
 %enddef

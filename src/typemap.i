@@ -77,7 +77,11 @@ func swigCopyStringSlice(strSlice *[]string) []string {
 %typemap(argout) wxArrayString, const wxArrayString & %{
 %}
 
-%typemap(in) wxArrayString, const wxArrayString & %{
+%typemap(in) wxArrayString %{
+    $1 = gostringSliceToArrayString(*(_goslice_*)$input);
+%}
+
+%typemap(in) const wxArrayString & %{
     $*1_ltype $1_arr;
     $1_arr = gostringSliceToArrayString(*(_goslice_*)$input);
     $1 = &$1_arr;

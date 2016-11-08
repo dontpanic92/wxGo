@@ -4,7 +4,7 @@
 	#include "wx/choicebk.h"
 	
 %}
-%import "wxWithImages.i"
+%include "wxWithImages.i"
 %include "wxGoInterface/bookctrl.h"
 %include "wxGoInterface/simplebook.h"
 %include "wxGoInterface/choicebk.h"

@@ -40,7 +40,7 @@ void Connect(wxEvtHandler* self,
 			 wxEventType eventType,
 			 wxGoCallbackDispatcher* evtHandler, 
 			 wxObject* obj){
-			
+	
 	self->Connect(id,
 				  lastId, 
 				  eventType,
@@ -70,14 +70,14 @@ void Disconnect(wxEvtHandler* self,
 
 type EventCallbackFunc func(Event)
         
-var evtCallbackMap map[Object] EventCallbackFunc  
+var evtCallbackMap map[uintptr] EventCallbackFunc  
 var dispatcherInit bool = false
 var goCallbackDispatcher GoCallbackDispatcher
         
 type goCallbackDispatcherClass struct { }
 func (p *goCallbackDispatcherClass) Callback(evt Event) {
 	obj := evt.GetEventUserData()
-	value, ok := evtCallbackMap[obj]
+	value, ok := evtCallbackMap[obj.Swigcptr()]
 	if ok {
 		value(evt)
 	}
@@ -87,7 +87,7 @@ func MakeDispatcher(){
 	//MultiThread unsafe
 	if !dispatcherInit {
 		goCallbackDispatcher = NewDirectorGoCallbackDispatcher(&goCallbackDispatcherClass{})
-		evtCallbackMap = make(map[Object] EventCallbackFunc)
+		evtCallbackMap = make(map[uintptr] EventCallbackFunc)
 		dispatcherInit = true
 	}
 }
@@ -101,7 +101,7 @@ func Bind(evtHandler EvtHandler, event int, callback EventCallbackFunc, winid in
 		MakeDispatcher()
 	}
 	obj := NewObject()
-	evtCallbackMap[obj] = callback
+	evtCallbackMap[obj.Swigcptr()] = callback
 	Connect(evtHandler, winid, -1, event, goCallbackDispatcher, obj)
 }
 
@@ -111,7 +111,9 @@ func Unbind(evtHandler EvtHandler, event int, callback EventCallbackFunc, winid 
 	}
 	for k := range evtCallbackMap {
 		if func_pointers_are_equal(evtCallbackMap[k], callback) {
-			Disconnect(evtHandler, winid, -1, event, goCallbackDispatcher, k)
+			obj := SwigcptrObject(k)
+			Disconnect(evtHandler, winid, -1, event, goCallbackDispatcher, obj)
+			DeleteObject(obj)
 			delete(evtCallbackMap, k)
 		}
 	}

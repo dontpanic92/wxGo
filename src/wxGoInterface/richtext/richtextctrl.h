@@ -41,8 +41,10 @@ public:
     wxRichTextObject* GetObject(int n) const;
     wxRichTextObjectPtrArray& GetObjects();
     const wxRichTextObjectPtrArray& GetObjects() const;
-    wxArrayString& GetLabels();
     const wxArrayString& GetLabels() const;
+    %extend {
+        void SetLabels(const wxArrayString& labels) { m_labels = labels; }
+    }
     int GetCount() const;
     wxRichTextObjectPtrArray    m_objects;
     wxArrayString               m_labels;
