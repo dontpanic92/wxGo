@@ -44,6 +44,19 @@ public:
                  const wxSize& size = wxDefaultSize,
                  long style = wxHW_DEFAULT_STYLE,
                  const wxString& name = "htmlWindow");
+    virtual void SetHTMLWindowTitle(const wxString& title);
+    virtual void OnHTMLLinkClicked(const wxHtmlLinkInfo& link);
+    virtual wxHtmlOpeningStatus OnHTMLOpeningURL(wxHtmlURLType type,
+                                                 const wxString& url,
+                                                 wxString *redirect) const;
+    virtual wxPoint HTMLCoordsToWindow(wxHtmlCell *cell,
+                                       const wxPoint& pos) const;
+    virtual wxWindow* GetHTMLWindow();
+    virtual wxColour GetHTMLBackgroundColour() const;
+    virtual void SetHTMLBackgroundColour(const wxColour& clr);
+    virtual void SetHTMLBackgroundImage(const wxBitmap& bmpBg);
+    virtual void SetHTMLStatusText(const wxString& text);
+    virtual wxCursor GetHTMLCursor(HTMLCursor type) const;
     static void AddFilter(wxHtmlFilter* filter);
     bool AppendToPage(const wxString& source);
     wxHtmlContainerCell* GetInternalRepresentation() const;

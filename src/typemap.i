@@ -69,7 +69,6 @@ func swigCopyStringSlice(strSlice *[]string) []string {
 
 %typemap(gotype) wxArrayString, const wxArrayString& "[]string"
 %typemap(imtype) wxArrayString, const wxArrayString& "uint64"
-//SWIG gobackend doesn't support typemap(ctype)
 
 %typemap(goargout) wxArrayString, const wxArrayString & %{
 %}
@@ -271,6 +270,33 @@ type intSliceWithPointer struct {
     $1_ptr->ptr = (_goslice_*)malloc(sizeof(_goslice_));
     *$1_ptr->ptr = arrayIntToIntgoSlice(*$1);
 %}
+
+// Typemaps for wxAcceleratorEntry[]
+
+%typemap(gotype) (int n, const wxAcceleratorEntry entries[]) "[]AcceleratorEntry"
+%typemap(imtype) (int n, const wxAcceleratorEntry entries[]) "uint64"
+
+%typemap(goin) (int n, const wxAcceleratorEntry entries[]) %{
+    $result_tmp := make([]uintptr, len($1))
+    for i := 0; i < len($1); i++ {
+        $result_tmp[i] = $1[i].Swigcptr()
+    }
+    $result = uint64(uintptr(unsafe.Pointer(&$result_tmp)))
+%} 
+
+%typemap(in) (int n, const wxAcceleratorEntry entries[]) %{
+    _goslice_* $input_slice = (_goslice_*)($input);
+    $1 = $input_slice->len;
+    wxAcceleratorEntry** $2_arr = (wxAcceleratorEntry**)$input_slice->array;
+    $2 = new wxAcceleratorEntry[$1];
+    for (int i = 0; i < $1; i++) {
+        $2[i] = *($2_arr[i]);
+    }
+%}
+
+%typemap(argout) (int n, const wxAcceleratorEntry entries[]) {
+    delete []$2;
+}
 
 
 // Typemaps for wxChar & wxUniChar

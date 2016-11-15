@@ -30,6 +30,7 @@ class wxAcceleratorTable : public wxObject
 {
 public:
     wxAcceleratorTable();
+    wxAcceleratorTable(int n, const wxAcceleratorEntry entries[]);
 #ifdef __WXMSW__
     wxAcceleratorTable(const wxString& resource);
 #endif

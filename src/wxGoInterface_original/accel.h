@@ -211,7 +211,7 @@ public:
         Wx::AcceleratorEntry::new.
         @endWxPerlOnly
     */
-    //wxAcceleratorTable(int n, const wxAcceleratorEntry entries[]);
+    wxAcceleratorTable(int n, const wxAcceleratorEntry entries[]);
 
     /**
         Loads the accelerator table from a Windows resource (Windows only).

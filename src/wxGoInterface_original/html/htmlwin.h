@@ -170,6 +170,21 @@ public:
                  long style = wxHW_DEFAULT_STYLE,
                  const wxString& name = "htmlWindow");
 
+    // wxHtmlWindowInterface methods:
+    virtual void SetHTMLWindowTitle(const wxString& title);
+    virtual void OnHTMLLinkClicked(const wxHtmlLinkInfo& link);
+    virtual wxHtmlOpeningStatus OnHTMLOpeningURL(wxHtmlURLType type,
+                                                 const wxString& url,
+                                                 wxString *redirect) const;
+    virtual wxPoint HTMLCoordsToWindow(wxHtmlCell *cell,
+                                       const wxPoint& pos) const;
+    virtual wxWindow* GetHTMLWindow();
+    virtual wxColour GetHTMLBackgroundColour() const;
+    virtual void SetHTMLBackgroundColour(const wxColour& clr);
+    virtual void SetHTMLBackgroundImage(const wxBitmap& bmpBg);
+    virtual void SetHTMLStatusText(const wxString& text);
+    virtual wxCursor GetHTMLCursor(HTMLCursor type) const;
+
     /**
         Adds an @ref overview_html_filters "input filter" to the static list of
         available filters. These filters are present by default:

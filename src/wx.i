@@ -53,3 +53,5 @@
 %include wxHTML.i
 //%include wxRichText.i
 %include wxPropGrid.i
+%include wxXml.i
+%include wxXrc.i
