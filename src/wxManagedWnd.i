@@ -1,0 +1,28 @@
+
+%{
+    #include "wx/windowid.h" 
+    #include "wx/window.h" 
+    #include "wx/nonownedwnd.h" 
+    #include "wx/toplevel.h"
+	#include "wx/frame.h"
+    #include "wx/dialog.h"
+    #include "wx/mdi.h"
+    #include "wx/minifram.h"
+    #include "wx/popupwin.h"
+    #include "wx/propdlg.h"
+    #include "wx/splash.h"
+    #include "wx/tipwin.h"
+%}
+
+%include "wxGoInterface/windowid.h"
+%include "wxGoInterface/window.h"
+%include "wxGoInterface/nonownedwnd.h"
+%include "wxGoInterface/toplevel.h"
+%include "wxGoInterface/frame.h"
+%include "wxGoInterface/dialog.h"
+%include "wxGoInterface/mdi.h"
+%include "wxGoInterface/minifram.h"
+%include "wxGoInterface/popupwin.h"
+%include "wxGoInterface/propdlg.h"
+%include "wxGoInterface/splash.h"
+%include "wxGoInterface/tipwin.h"

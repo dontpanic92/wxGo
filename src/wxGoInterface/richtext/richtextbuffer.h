@@ -151,13 +151,9 @@ public:
     bool Apply(const wxTextAttrDimensions& dims, const wxTextAttrDimensions* compareWith = NULL);
     void CollectCommonAttributes(const wxTextAttrDimensions& attr, wxTextAttrDimensions& clashingAttr, wxTextAttrDimensions& absentAttr);
     bool RemoveStyle(const wxTextAttrDimensions& attr);
-    const wxTextAttrDimension& GetLeft() const { return m_left; }
     wxTextAttrDimension& GetLeft() { return m_left; }
-    const wxTextAttrDimension& GetRight() const { return m_right; }
     wxTextAttrDimension& GetRight() { return m_right; }
-    const wxTextAttrDimension& GetTop() const { return m_top; }
     wxTextAttrDimension& GetTop() { return m_top; }
-    const wxTextAttrDimension& GetBottom() const { return m_bottom; }
     wxTextAttrDimension& GetBottom() { return m_bottom; }
     bool IsValid() const { return m_left.IsValid() && m_top.IsValid() && m_right.IsValid() && m_bottom.IsValid(); }
     wxTextAttrDimension         m_left;
@@ -176,12 +172,10 @@ public:
     void CollectCommonAttributes(const wxTextAttrSize& attr, wxTextAttrSize& clashingAttr, wxTextAttrSize& absentAttr);
     bool RemoveStyle(const wxTextAttrSize& attr);
     wxTextAttrDimension& GetWidth() { return m_width; }
-    const wxTextAttrDimension& GetWidth() const { return m_width; }
     void SetWidth(int value, wxTextAttrDimensionFlags flags) { m_width.SetValue(value, flags); }
     void SetWidth(int value, wxTextAttrUnits units) { m_width.SetValue(value, units); }
     void SetWidth(const wxTextAttrDimension& dim) { m_width.SetValue(dim); }
     wxTextAttrDimension& GetHeight() { return m_height; }
-    const wxTextAttrDimension& GetHeight() const { return m_height; }
     void SetHeight(int value, wxTextAttrDimensionFlags flags) { m_height.SetValue(value, flags); }
     void SetHeight(int value, wxTextAttrUnits units) { m_height.SetValue(value, units); }
     void SetHeight(const wxTextAttrDimension& dim) { m_height.SetValue(dim); }
@@ -264,7 +258,6 @@ public:
     unsigned long GetColourLong() const { return m_borderColour; }
     wxColour GetColour() const { return wxColour(m_borderColour); }
     wxTextAttrDimension& GetWidth() { return m_borderWidth; }
-    const wxTextAttrDimension& GetWidth() const { return m_borderWidth; }
     void SetWidth(const wxTextAttrDimension& width) { m_borderWidth = width; }
     void SetWidth(int value, wxTextAttrUnits units = wxTEXT_ATTR_UNITS_TENTHS_MM) { SetWidth(wxTextAttrDimension(value, units)); }
     bool HasStyle() const { return (m_flags & wxTEXT_BOX_ATTR_BORDER_STYLE) != 0; }
@@ -302,13 +295,8 @@ public:
     bool RemoveStyle(const wxTextAttrBorders& attr);
     void CollectCommonAttributes(const wxTextAttrBorders& attr, wxTextAttrBorders& clashingAttr, wxTextAttrBorders& absentAttr);
     bool IsValid() const { return m_left.IsValid() || m_right.IsValid() || m_top.IsValid() || m_bottom.IsValid(); }
-    const wxTextAttrBorder& GetLeft() const { return m_left; }
-    wxTextAttrBorder& GetLeft() { return m_left; }
-    const wxTextAttrBorder& GetRight() const { return m_right; }
     wxTextAttrBorder& GetRight() { return m_right; }
-    const wxTextAttrBorder& GetTop() const { return m_top; }
     wxTextAttrBorder& GetTop() { return m_top; }
-    const wxTextAttrBorder& GetBottom() const { return m_bottom; }
     wxTextAttrBorder& GetBottom() { return m_bottom; }
     wxTextAttrBorder m_left, m_right, m_top, m_bottom;
 };
@@ -328,19 +316,14 @@ public:
     wxColour GetColour() const { return wxColour(m_shadowColour); }
     bool HasColour() const { return (m_flags & wxTEXT_BOX_ATTR_BORDER_COLOUR) != 0; }
     wxTextAttrDimension& GetOffsetX() { return m_offsetX; }
-    const wxTextAttrDimension& GetOffsetX() const { return m_offsetX; }
     void SetOffsetX(const wxTextAttrDimension& offset) { m_offsetX = offset; }
     wxTextAttrDimension& GetOffsetY() { return m_offsetY; }
-    const wxTextAttrDimension& GetOffsetY() const { return m_offsetY; }
     void SetOffsetY(const wxTextAttrDimension& offset) { m_offsetY = offset; }
     wxTextAttrDimension& GetSpread() { return m_spread; }
-    const wxTextAttrDimension& GetSpread() const { return m_spread; }
     void SetSpread(const wxTextAttrDimension& spread) { m_spread = spread; }
     wxTextAttrDimension& GetBlurDistance() { return m_blurDistance; }
-    const wxTextAttrDimension& GetBlurDistance() const { return m_blurDistance; }
     void SetBlurDistance(const wxTextAttrDimension& blur) { m_blurDistance = blur; }
     wxTextAttrDimension& GetOpacity() { return m_opacity; }
-    const wxTextAttrDimension& GetOpacity() const { return m_opacity; }
     bool IsValid() const { return (m_flags & wxTEXT_ATTR_VALUE_VALID) != 0; }
     void SetValid(bool b) { m_flags &= ~wxTEXT_ATTR_VALUE_VALID_MASK; m_flags |= (b ? wxTEXT_ATTR_VALUE_VALID : 0); }
     int GetFlags() const { return m_flags; }
@@ -389,80 +372,48 @@ public:
     void SetWhitespaceMode(wxTextBoxAttrWhitespaceMode whitespace) { m_whitespaceMode = whitespace; m_flags |= wxTEXT_BOX_ATTR_WHITESPACE; }
     bool HasWhitespaceMode() const { return HasFlag(wxTEXT_BOX_ATTR_WHITESPACE); }
     bool HasCornerRadius() const { return HasFlag(wxTEXT_BOX_ATTR_CORNER_RADIUS); }
-    const wxTextAttrDimension& GetCornerRadius() const { return m_cornerRadius; }
     wxTextAttrDimension& GetCornerRadius() { return m_cornerRadius; }
     void SetCornerRadius(const wxTextAttrDimension& dim) { m_cornerRadius = dim; m_flags |= wxTEXT_BOX_ATTR_CORNER_RADIUS; }
     wxTextBoxAttrVerticalAlignment GetVerticalAlignment() const { return m_verticalAlignment; }
     void SetVerticalAlignment(wxTextBoxAttrVerticalAlignment verticalAlignment) { m_verticalAlignment = verticalAlignment; m_flags |= wxTEXT_BOX_ATTR_VERTICAL_ALIGNMENT; }
     bool HasVerticalAlignment() const { return HasFlag(wxTEXT_BOX_ATTR_VERTICAL_ALIGNMENT); }
     wxTextAttrDimensions& GetMargins() { return m_margins; }
-    const wxTextAttrDimensions& GetMargins() const { return m_margins; }
     wxTextAttrDimension& GetLeftMargin() { return m_margins.m_left; }
-    const wxTextAttrDimension& GetLeftMargin() const { return m_margins.m_left; }
     wxTextAttrDimension& GetRightMargin() { return m_margins.m_right; }
-    const wxTextAttrDimension& GetRightMargin() const { return m_margins.m_right; }
     wxTextAttrDimension& GetTopMargin() { return m_margins.m_top; }
-    const wxTextAttrDimension& GetTopMargin() const { return m_margins.m_top; }
     wxTextAttrDimension& GetBottomMargin() { return m_margins.m_bottom; }
-    const wxTextAttrDimension& GetBottomMargin() const { return m_margins.m_bottom; }
     wxTextAttrDimensions& GetPosition() { return m_position; }
-    const wxTextAttrDimensions& GetPosition() const { return m_position; }
     wxTextAttrDimension& GetLeft() { return m_position.m_left; }
-    const wxTextAttrDimension& GetLeft() const { return m_position.m_left; }
     wxTextAttrDimension& GetRight() { return m_position.m_right; }
-    const wxTextAttrDimension& GetRight() const { return m_position.m_right; }
     wxTextAttrDimension& GetTop() { return m_position.m_top; }
-    const wxTextAttrDimension& GetTop() const { return m_position.m_top; }
     wxTextAttrDimension& GetBottom() { return m_position.m_bottom; }
-    const wxTextAttrDimension& GetBottom() const { return m_position.m_bottom; }
     wxTextAttrDimensions& GetPadding() { return m_padding; }
-    const wxTextAttrDimensions& GetPadding() const { return m_padding; }
     wxTextAttrDimension& GetLeftPadding() { return m_padding.m_left; }
-    const wxTextAttrDimension& GetLeftPadding() const { return m_padding.m_left; }
     wxTextAttrDimension& GetRightPadding() { return m_padding.m_right; }
-    const wxTextAttrDimension& GetRightPadding() const { return m_padding.m_right; }
     wxTextAttrDimension& GetTopPadding() { return m_padding.m_top; }
-    const wxTextAttrDimension& GetTopPadding() const { return m_padding.m_top; }
     wxTextAttrDimension& GetBottomPadding() { return m_padding.m_bottom; }
-    const wxTextAttrDimension& GetBottomPadding() const { return m_padding.m_bottom; }
     wxTextAttrBorders& GetBorder() { return m_border; }
-    const wxTextAttrBorders& GetBorder() const { return m_border; }
     wxTextAttrBorder& GetLeftBorder() { return m_border.m_left; }
-    const wxTextAttrBorder& GetLeftBorder() const { return m_border.m_left; }
     wxTextAttrBorder& GetTopBorder() { return m_border.m_top; }
-    const wxTextAttrBorder& GetTopBorder() const { return m_border.m_top; }
     wxTextAttrBorder& GetRightBorder() { return m_border.m_right; }
-    const wxTextAttrBorder& GetRightBorder() const { return m_border.m_right; }
     wxTextAttrBorder& GetBottomBorder() { return m_border.m_bottom; }
-    const wxTextAttrBorder& GetBottomBorder() const { return m_border.m_bottom; }
     wxTextAttrBorders& GetOutline() { return m_outline; }
-    const wxTextAttrBorders& GetOutline() const { return m_outline; }
     wxTextAttrBorder& GetLeftOutline() { return m_outline.m_left; }
-    const wxTextAttrBorder& GetLeftOutline() const { return m_outline.m_left; }
     wxTextAttrBorder& GetTopOutline() { return m_outline.m_top; }
-    const wxTextAttrBorder& GetTopOutline() const { return m_outline.m_top; }
     wxTextAttrBorder& GetRightOutline() { return m_outline.m_right; }
-    const wxTextAttrBorder& GetRightOutline() const { return m_outline.m_right; }
     wxTextAttrBorder& GetBottomOutline() { return m_outline.m_bottom; }
-    const wxTextAttrBorder& GetBottomOutline() const { return m_outline.m_bottom; }
     wxTextAttrSize& GetSize() { return m_size; }
-    const wxTextAttrSize& GetSize() const { return m_size; }
     wxTextAttrSize& GetMinSize() { return m_minSize; }
-    const wxTextAttrSize& GetMinSize() const { return m_minSize; }
     wxTextAttrSize& GetMaxSize() { return m_maxSize; }
-    const wxTextAttrSize& GetMaxSize() const { return m_maxSize; }
     void SetSize(const wxTextAttrSize& sz) { m_size = sz; }
     void SetMinSize(const wxTextAttrSize& sz) { m_minSize = sz; }
     void SetMaxSize(const wxTextAttrSize& sz) { m_maxSize = sz; }
     wxTextAttrDimension& GetWidth() { return m_size.m_width; }
-    const wxTextAttrDimension& GetWidth() const { return m_size.m_width; }
     wxTextAttrDimension& GetHeight() { return m_size.m_height; }
-    const wxTextAttrDimension& GetHeight() const { return m_size.m_height; }
     const wxString& GetBoxStyleName() const { return m_boxStyleName; }
     void SetBoxStyleName(const wxString& name) { m_boxStyleName = name; AddFlag(wxTEXT_BOX_ATTR_BOX_STYLE_NAME); }
     bool HasBoxStyleName() const { return HasFlag(wxTEXT_BOX_ATTR_BOX_STYLE_NAME); }
     wxTextAttrShadow& GetShadow() { return m_shadow; }
-    const wxTextAttrShadow& GetShadow() const { return m_shadow; }
 public:
     int                             m_flags;
     wxTextAttrDimensions            m_margins;
@@ -497,7 +448,6 @@ public:
     void CollectCommonAttributes(const wxRichTextAttr& attr, wxRichTextAttr& clashingAttr, wxRichTextAttr& absentAttr);
     bool RemoveStyle(const wxRichTextAttr& attr);
     wxTextBoxAttr& GetTextBoxAttr() { return m_textBoxAttr; }
-    const wxTextBoxAttr& GetTextBoxAttr() const { return m_textBoxAttr; }
     void SetTextBoxAttr(const wxTextBoxAttr& attr) { m_textBoxAttr = attr; }
     bool IsDefault() const { return (GetFlags() == 0) && m_textBoxAttr.IsDefault(); }
     wxTextBoxAttr    m_textBoxAttr;
@@ -512,10 +462,8 @@ public:
     void operator=(const wxRichTextProperties& props) { Copy(props); }
     bool operator==(const wxRichTextProperties& props) const;
     void Copy(const wxRichTextProperties& props) { m_properties = props.m_properties; }
-    const wxVariant& operator[](size_t idx) const { return m_properties[idx]; }
     wxVariant& operator[](size_t idx) { return m_properties[idx]; }
     void Clear() { m_properties.Clear(); }
-    const wxRichTextVariantArray& GetProperties() const { return m_properties; }
     wxRichTextVariantArray& GetProperties() { return m_properties; }
     void SetProperties(const wxRichTextVariantArray& props) { m_properties = props; }
     wxArrayString GetPropertyNames() const;
@@ -609,7 +557,6 @@ public:
     bool operator==(const wxRichTextSelection& sel) const;
     wxRichTextRange operator[](size_t i) const { return GetRange(i); }
     wxRichTextRangeArray& GetRanges() { return m_ranges; }
-    const wxRichTextRangeArray& GetRanges() const { return m_ranges; }
     void SetRanges(const wxRichTextRangeArray& ranges) { m_ranges = ranges; }
     size_t GetCount() const { return m_ranges.GetCount(); }
     wxRichTextRange GetRange(size_t i) const { return m_ranges[i]; }
@@ -714,10 +661,8 @@ public:
     virtual wxPoint GetAbsolutePosition() const;
     virtual wxRect GetRect() const;
     void SetRange(const wxRichTextRange& range);
-    const wxRichTextRange& GetRange() const;
     wxRichTextRange& GetRange();
     void SetOwnRange(const wxRichTextRange& range);
-    const wxRichTextRange& GetOwnRange() const;
     wxRichTextRange& GetOwnRange();
     wxRichTextRange GetOwnRangeIfTopLevel() const;
     virtual bool IsComposite() const;
@@ -738,10 +683,8 @@ public:
                     const wxRect& availableParentSpace, const wxRect& availableContainerSpace, int style);
     virtual bool AdjustAttributes(wxRichTextAttr& attr, wxRichTextDrawingContext& context);
     void SetAttributes(const wxRichTextAttr& attr);
-    const wxRichTextAttr& GetAttributes() const;
     wxRichTextAttr& GetAttributes();
     wxRichTextProperties& GetProperties();
-    const wxRichTextProperties& GetProperties() const;
     void SetProperties(const wxRichTextProperties& props);
     void SetDescent(int descent);
     int GetDescent() const;
@@ -806,7 +749,6 @@ public:
     virtual void Dump(wxTextOutputStream& stream);
     virtual void Invalidate(const wxRichTextRange& invalidRange = wxRICHTEXT_ALL);
     wxRichTextObjectList& GetChildren();
-    const wxRichTextObjectList& GetChildren() const;
     size_t GetChildCount() const ;
     wxRichTextObject* GetChild(size_t n) const ;
     virtual bool IsComposite() const;
@@ -1061,7 +1003,6 @@ public:
     void SetRange(const wxRichTextRange& range) { m_range = range; }
     void SetRange(long from, long to) { m_range = wxRichTextRange(from, to); }
     wxRichTextParagraph* GetParent() { return m_parent; }
-    const wxRichTextRange& GetRange() const { return m_range; }
     wxRichTextRange& GetRange() { return m_range; }
     wxRichTextRange GetAbsoluteRange() const;
     virtual wxSize GetSize() const { return m_size; }
@@ -1074,7 +1015,6 @@ public:
     int GetDescent() const { return m_descent; }
 #if wxRICHTEXT_USE_OPTIMIZED_LINE_DRAWING
     wxArrayInt& GetObjectSizes() { return m_objectSizes; }
-    const wxArrayInt& GetObjectSizes() const { return m_objectSizes; }
 #endif
     void Init(wxRichTextParagraph* parent);
     void Copy(const wxRichTextLine& obj);
@@ -1267,7 +1207,6 @@ public:
     bool PushStyleSheet(wxRichTextStyleSheet* styleSheet);
     wxRichTextStyleSheet* PopStyleSheet();
     wxRichTextFontTable& GetFontTable() { return m_fontTable; }
-    const wxRichTextFontTable& GetFontTable() const { return m_fontTable; }
     void SetFontTable(const wxRichTextFontTable& table) { m_fontTable = table; }
     void SetFontScale(double fontScale);
     double GetFontScale() const { return m_fontScale; }
@@ -1454,7 +1393,6 @@ public:
     virtual bool EditProperties(wxWindow* parent, wxRichTextBuffer* buffer);
     virtual wxString GetPropertiesMenuLabel() const { return _("&Table"); }
     virtual bool AcceptsFocus() const { return false; }
-    const wxRichTextObjectPtrArrayArray& GetCells() const { return m_cells; }
     wxRichTextObjectPtrArrayArray& GetCells() { return m_cells; }
     int GetRowCount() const { return m_rowCount; }
     int GetColumnCount() const { return m_colCount; }
@@ -1494,13 +1432,9 @@ public:
     bool ComputeBlockForSelection(wxRichTextTable* table, wxRichTextCtrl* ctrl, bool requireCellSelection = true);
     bool IsWholeTable(wxRichTextTable* table) const;
     static wxRichTextCell* GetFocusedCell(wxRichTextCtrl* ctrl);
-    int& ColStart() { return m_colStart; }
     int ColStart() const { return m_colStart; }
-    int& ColEnd() { return m_colEnd; }
     int ColEnd() const { return m_colEnd; }
-    int& RowStart() { return m_rowStart; }
     int RowStart() const { return m_rowStart; }
-    int& RowEnd() { return m_rowEnd; }
     int RowEnd() const { return m_rowEnd; }
     int m_colStart, m_colEnd, m_rowStart, m_rowEnd;
 };
@@ -1571,7 +1505,6 @@ public:
     void SetRange(const wxRichTextRange& range) { m_range = range; }
     const wxRichTextRange& GetRange() const { return m_range; }
     wxRichTextObjectAddress& GetContainerAddress() { return m_containerAddress; }
-    const wxRichTextObjectAddress& GetContainerAddress() const { return m_containerAddress; }
     void SetContainerAddress(const wxRichTextObjectAddress& address) { m_containerAddress = address; }
     void SetContainerAddress(wxRichTextParagraphLayoutBox* container, wxRichTextObject* obj) { m_containerAddress.Create(container, obj); }
     wxRichTextParagraphLayoutBox* GetContainer() const;

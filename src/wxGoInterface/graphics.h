@@ -299,14 +299,12 @@ class wxGraphicsMatrix : public wxGraphicsObject
 {
 public:
     virtual void Concat(const wxGraphicsMatrix* t);
-    void Concat(const wxGraphicsMatrix& t);
     virtual void Get(wxDouble* a = NULL, wxDouble* b = NULL,
                      wxDouble* c = NULL, wxDouble* d = NULL,
                      wxDouble* tx = NULL, wxDouble* ty = NULL) const;
     virtual void* GetNativeMatrix() const;
     virtual void Invert();
     virtual bool IsEqual(const wxGraphicsMatrix* t) const;
-    bool IsEqual(const wxGraphicsMatrix& t) const;
     virtual bool IsIdentity() const;
     virtual void Rotate(wxDouble angle);
     virtual void Scale(wxDouble xScale, wxDouble yScale);

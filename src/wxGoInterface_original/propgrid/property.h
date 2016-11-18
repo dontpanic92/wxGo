@@ -1240,7 +1240,7 @@ public:
                  wxPGCell object if the property itself didn't hold
                  cell data.
     */
-    const wxPGCell& GetCell( unsigned int column ) const;
+    //const wxPGCell& GetCell( unsigned int column ) const;
 
     /**
         Returns wxPGCell of given column, creating one if necessary.
@@ -1963,7 +1963,7 @@ public:
     /**
         Returns item at given index.
     */
-    const wxPGChoiceEntry& Item( unsigned int i ) const;
+    //const wxPGChoiceEntry& Item( unsigned int i ) const;
 
     /**
         Returns item at given index.
@@ -1998,7 +1998,7 @@ public:
     void operator= (const wxPGChoices& a);
 
     wxPGChoiceEntry& operator[](unsigned int i);
-    const wxPGChoiceEntry& operator[](unsigned int i) const;
+    //const wxPGChoiceEntry& operator[](unsigned int i) const;
 };
 
 // -----------------------------------------------------------------------

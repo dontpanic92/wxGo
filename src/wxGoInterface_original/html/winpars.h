@@ -47,13 +47,14 @@ public:
     @library{wxhtml}
     @category{html}
 */
+%nodefaultctor wxHtmlWinTagHandler;
 class wxHtmlWinTagHandler : public wxHtmlTagHandler
 {
 public:
     /**
         Constructor.
     */
-    wxHtmlWinTagHandler();
+    // wxHtmlWinTagHandler();
 
     /**
         Assigns @a parser to this handler. Each @b instance of handler
@@ -86,6 +87,7 @@ protected:
 
     @see @ref overview_html_handlers
 */
+%nodefaultctor wxHtmlWinParser;
 class wxHtmlWinParser : public wxHtmlParser
 {
 public:

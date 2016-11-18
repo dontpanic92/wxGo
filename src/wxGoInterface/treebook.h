@@ -3,7 +3,6 @@ WXGO_DECL_TYPECONV(Treebook)
 %constant wxEventType wxEVT_TREEBOOK_PAGE_CHANGING;
 %constant wxEventType wxEVT_TREEBOOK_NODE_COLLAPSED;
 %constant wxEventType wxEVT_TREEBOOK_NODE_EXPANDED;
-%feature("notabstract") wxTreebook;
 class wxTreebook : public wxBookCtrlBase
 {
 public:

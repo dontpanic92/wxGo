@@ -40,6 +40,7 @@
 
     @see wxApp, wxEventLoopActivator
 */
+%nodefaultctor wxEventLoopBase;
 class wxEventLoopBase
 {
 public:
@@ -84,7 +85,7 @@ public:
 
         @return The argument passed to Exit() which terminated this event loop.
      */
-    virtual int Run() = 0;
+    virtual int Run();
 
     /**
         Return true if this event loop is currently running.

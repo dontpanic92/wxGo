@@ -5,6 +5,7 @@
 	#include "wx/filepicker.h"
 	#include "wx/clrpicker.h"
 	#include "wx/fontpicker.h"
+	#include "wx/timectrl.h"
 %}
 
 %include "wxGoInterface/pickerbase.h"
@@ -12,3 +13,4 @@
 %include "wxGoInterface/filepicker.h"
 %include "wxGoInterface/clrpicker.h"
 %include "wxGoInterface/fontpicker.h"
+%include "wxGoInterface/timectrl.h"

@@ -49,10 +49,6 @@ public:
         m_flags = IsProperty;
     }
     wxPGProperty* GetPtr( wxPropertyGridInterface* iface ) const;
-    wxPGProperty* GetPtr( const wxPropertyGridInterface* iface ) const
-    {
-        return GetPtr((wxPropertyGridInterface*)iface);
-    }
     wxPGProperty* GetPtr0() const { return m_ptr.property; }
     bool HasName() const { return (m_flags != IsProperty); }
     const wxString& GetName() const { return *m_ptr.stringName; }
@@ -82,10 +78,7 @@ public:
     wxPGProperty* GetFirstChild( wxPGPropArg id );
     wxPropertyGridIterator GetIterator( int flags = wxPG_ITERATE_DEFAULT,
                                         wxPGProperty* firstProp = NULL );
-    wxPropertyGridConstIterator GetIterator( int flags = wxPG_ITERATE_DEFAULT,
-                                             wxPGProperty* firstProp = NULL ) const;
     wxPropertyGridIterator GetIterator( int flags, int startPos );
-    wxPropertyGridConstIterator GetIterator( int flags, int startPos ) const;
     wxPGProperty* GetFirst( int flags = wxPG_ITERATE_ALL );
     wxPGProperty* GetProperty( const wxString& name ) const;
     void GetPropertiesWithFlag( wxArrayPGProperty* targetArr,
@@ -200,7 +193,6 @@ public:
     void SetPropertyValue( wxPGPropArg id, const wxArrayString& value );
     void SetPropertyValue( wxPGPropArg id, const wxDateTime& value );
     void SetPropertyValue( wxPGPropArg id, wxObject* value );
-    void SetPropertyValue( wxPGPropArg id, wxObject& value );
     void SetPropertyValue( wxPGPropArg id, wxLongLong_t value );
     void SetPropertyValue( wxPGPropArg id, wxULongLong_t value );
     void SetPropertyValue( wxPGPropArg id, const wxArrayInt& value );

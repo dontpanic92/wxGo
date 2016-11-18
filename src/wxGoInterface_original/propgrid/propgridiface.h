@@ -63,10 +63,10 @@ public:
         m_flags = IsProperty;
     }
     wxPGProperty* GetPtr( wxPropertyGridInterface* iface ) const;
-    wxPGProperty* GetPtr( const wxPropertyGridInterface* iface ) const
+    /*wxPGProperty* GetPtr( const wxPropertyGridInterface* iface ) const
     {
         return GetPtr((wxPropertyGridInterface*)iface);
-    }
+    }*/
     wxPGProperty* GetPtr0() const { return m_ptr.property; }
     bool HasName() const { return (m_flags != IsProperty); }
     const wxString& GetName() const { return *m_ptr.stringName; }
@@ -299,8 +299,8 @@ public:
     */
     wxPropertyGridIterator GetIterator( int flags = wxPG_ITERATE_DEFAULT,
                                         wxPGProperty* firstProp = NULL );
-    wxPropertyGridConstIterator GetIterator( int flags = wxPG_ITERATE_DEFAULT,
-                                             wxPGProperty* firstProp = NULL ) const;
+    //wxPropertyGridConstIterator GetIterator( int flags = wxPG_ITERATE_DEFAULT,
+    //                                         wxPGProperty* firstProp = NULL ) const;
     //@}
 
     //@{
@@ -317,7 +317,7 @@ public:
 
     */
     wxPropertyGridIterator GetIterator( int flags, int startPos );
-    wxPropertyGridConstIterator GetIterator( int flags, int startPos ) const;
+    //wxPropertyGridConstIterator GetIterator( int flags, int startPos ) const;
     //@}
 
     /**
@@ -994,7 +994,7 @@ public:
     void SetPropertyValue( wxPGPropArg id, wxObject* value );
 
     /** Sets value (wxObject&) of a property. */
-    void SetPropertyValue( wxPGPropArg id, wxObject& value );
+    //void SetPropertyValue( wxPGPropArg id, wxObject& value );
 
     /** Sets value (native 64-bit int) of a property. */
     void SetPropertyValue( wxPGPropArg id, wxLongLong_t value );

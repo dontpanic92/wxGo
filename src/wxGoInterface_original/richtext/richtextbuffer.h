@@ -413,28 +413,28 @@ public:
     /**
         Gets the left dimension.
     */
-    const wxTextAttrDimension& GetLeft() const { return m_left; }
+    //const wxTextAttrDimension& GetLeft() const { return m_left; }
     wxTextAttrDimension& GetLeft() { return m_left; }
 
     /**
         Gets the right dimension.
 
     */
-    const wxTextAttrDimension& GetRight() const { return m_right; }
+    //const wxTextAttrDimension& GetRight() const { return m_right; }
     wxTextAttrDimension& GetRight() { return m_right; }
 
     /**
         Gets the top dimension.
 
     */
-    const wxTextAttrDimension& GetTop() const { return m_top; }
+    //const wxTextAttrDimension& GetTop() const { return m_top; }
     wxTextAttrDimension& GetTop() { return m_top; }
 
     /**
         Gets the bottom dimension.
 
     */
-    const wxTextAttrDimension& GetBottom() const { return m_bottom; }
+    //const wxTextAttrDimension& GetBottom() const { return m_bottom; }
     wxTextAttrDimension& GetBottom() { return m_bottom; }
 
     /**
@@ -505,7 +505,7 @@ public:
         Returns the width.
     */
     wxTextAttrDimension& GetWidth() { return m_width; }
-    const wxTextAttrDimension& GetWidth() const { return m_width; }
+    //const wxTextAttrDimension& GetWidth() const { return m_width; }
 
     /**
         Sets the width.
@@ -526,7 +526,7 @@ public:
         Gets the height.
     */
     wxTextAttrDimension& GetHeight() { return m_height; }
-    const wxTextAttrDimension& GetHeight() const { return m_height; }
+    //const wxTextAttrDimension& GetHeight() const { return m_height; }
 
     /**
         Sets the height.
@@ -780,7 +780,7 @@ public:
         Gets the border width.
     */
     wxTextAttrDimension& GetWidth() { return m_borderWidth; }
-    const wxTextAttrDimension& GetWidth() const { return m_borderWidth; }
+    //const wxTextAttrDimension& GetWidth() const { return m_borderWidth; }
 
     /**
         Sets the border width.
@@ -936,25 +936,25 @@ public:
     /**
         Returns the left border.
     */
-    const wxTextAttrBorder& GetLeft() const { return m_left; }
-    wxTextAttrBorder& GetLeft() { return m_left; }
+    //const wxTextAttrBorder& GetLeft() const { return m_left; }
+    //wxTextAttrBorder& GetLeft() { return m_left; }
 
     /**
         Returns the right border.
     */
-    const wxTextAttrBorder& GetRight() const { return m_right; }
+    //const wxTextAttrBorder& GetRight() const { return m_right; }
     wxTextAttrBorder& GetRight() { return m_right; }
 
     /**
         Returns the top border.
     */
-    const wxTextAttrBorder& GetTop() const { return m_top; }
+    //const wxTextAttrBorder& GetTop() const { return m_top; }
     wxTextAttrBorder& GetTop() { return m_top; }
 
     /**
         Returns the bottom border.
     */
-    const wxTextAttrBorder& GetBottom() const { return m_bottom; }
+    //const wxTextAttrBorder& GetBottom() const { return m_bottom; }
     wxTextAttrBorder& GetBottom() { return m_bottom; }
 
     wxTextAttrBorder m_left, m_right, m_top, m_bottom;
@@ -1043,7 +1043,7 @@ public:
         Gets the shadow horizontal offset.
     */
     wxTextAttrDimension& GetOffsetX() { return m_offsetX; }
-    const wxTextAttrDimension& GetOffsetX() const { return m_offsetX; }
+    //const wxTextAttrDimension& GetOffsetX() const { return m_offsetX; }
 
     /**
         Sets the shadow horizontal offset.
@@ -1054,7 +1054,7 @@ public:
         Gets the shadow vertical offset.
     */
     wxTextAttrDimension& GetOffsetY() { return m_offsetY; }
-    const wxTextAttrDimension& GetOffsetY() const { return m_offsetY; }
+    //const wxTextAttrDimension& GetOffsetY() const { return m_offsetY; }
 
     /**
         Sets the shadow vertical offset.
@@ -1065,7 +1065,7 @@ public:
         Gets the shadow spread size.
     */
     wxTextAttrDimension& GetSpread() { return m_spread; }
-    const wxTextAttrDimension& GetSpread() const { return m_spread; }
+    //const wxTextAttrDimension& GetSpread() const { return m_spread; }
 
     /**
         Sets the shadow spread size.
@@ -1076,7 +1076,7 @@ public:
         Gets the shadow blur distance.
     */
     wxTextAttrDimension& GetBlurDistance() { return m_blurDistance; }
-    const wxTextAttrDimension& GetBlurDistance() const { return m_blurDistance; }
+    //const wxTextAttrDimension& GetBlurDistance() const { return m_blurDistance; }
 
     /**
         Sets the shadow blur distance.
@@ -1087,7 +1087,7 @@ public:
         Gets the shadow opacity.
     */
     wxTextAttrDimension& GetOpacity() { return m_opacity; }
-    const wxTextAttrDimension& GetOpacity() const { return m_opacity; }
+    //const wxTextAttrDimension& GetOpacity() const { return m_opacity; }
 
     /**
         Returns @true if the dimension is valid.
@@ -1312,7 +1312,7 @@ public:
     /**
         Returns the corner radius value.
     */
-    const wxTextAttrDimension& GetCornerRadius() const { return m_cornerRadius; }
+    //const wxTextAttrDimension& GetCornerRadius() const { return m_cornerRadius; }
     wxTextAttrDimension& GetCornerRadius() { return m_cornerRadius; }
 
     /**
@@ -1339,171 +1339,171 @@ public:
         Returns the margin values.
     */
     wxTextAttrDimensions& GetMargins() { return m_margins; }
-    const wxTextAttrDimensions& GetMargins() const { return m_margins; }
+    //const wxTextAttrDimensions& GetMargins() const { return m_margins; }
 
     /**
         Returns the left margin.
     */
     wxTextAttrDimension& GetLeftMargin() { return m_margins.m_left; }
-    const wxTextAttrDimension& GetLeftMargin() const { return m_margins.m_left; }
+    //const wxTextAttrDimension& GetLeftMargin() const { return m_margins.m_left; }
 
     /**
         Returns the right margin.
     */
     wxTextAttrDimension& GetRightMargin() { return m_margins.m_right; }
-    const wxTextAttrDimension& GetRightMargin() const { return m_margins.m_right; }
+    //const wxTextAttrDimension& GetRightMargin() const { return m_margins.m_right; }
 
     /**
         Returns the top margin.
     */
     wxTextAttrDimension& GetTopMargin() { return m_margins.m_top; }
-    const wxTextAttrDimension& GetTopMargin() const { return m_margins.m_top; }
+    //const wxTextAttrDimension& GetTopMargin() const { return m_margins.m_top; }
 
     /**
         Returns the bottom margin.
     */
     wxTextAttrDimension& GetBottomMargin() { return m_margins.m_bottom; }
-    const wxTextAttrDimension& GetBottomMargin() const { return m_margins.m_bottom; }
+    //const wxTextAttrDimension& GetBottomMargin() const { return m_margins.m_bottom; }
 
     /**
         Returns the position.
     */
     wxTextAttrDimensions& GetPosition() { return m_position; }
-    const wxTextAttrDimensions& GetPosition() const { return m_position; }
+    //const wxTextAttrDimensions& GetPosition() const { return m_position; }
 
     /**
         Returns the left position.
     */
     wxTextAttrDimension& GetLeft() { return m_position.m_left; }
-    const wxTextAttrDimension& GetLeft() const { return m_position.m_left; }
+    //const wxTextAttrDimension& GetLeft() const { return m_position.m_left; }
 
     /**
         Returns the right position.
     */
     wxTextAttrDimension& GetRight() { return m_position.m_right; }
-    const wxTextAttrDimension& GetRight() const { return m_position.m_right; }
+    //const wxTextAttrDimension& GetRight() const { return m_position.m_right; }
 
     /**
         Returns the top position.
     */
     wxTextAttrDimension& GetTop() { return m_position.m_top; }
-    const wxTextAttrDimension& GetTop() const { return m_position.m_top; }
+    //const wxTextAttrDimension& GetTop() const { return m_position.m_top; }
 
     /**
         Returns the bottom position.
     */
     wxTextAttrDimension& GetBottom() { return m_position.m_bottom; }
-    const wxTextAttrDimension& GetBottom() const { return m_position.m_bottom; }
+    //const wxTextAttrDimension& GetBottom() const { return m_position.m_bottom; }
 
     /**
         Returns the padding values.
     */
     wxTextAttrDimensions& GetPadding() { return m_padding; }
-    const wxTextAttrDimensions& GetPadding() const { return m_padding; }
+    //const wxTextAttrDimensions& GetPadding() const { return m_padding; }
 
     /**
         Returns the left padding value.
     */
     wxTextAttrDimension& GetLeftPadding() { return m_padding.m_left; }
-    const wxTextAttrDimension& GetLeftPadding() const { return m_padding.m_left; }
+    //const wxTextAttrDimension& GetLeftPadding() const { return m_padding.m_left; }
 
     /**
         Returns the right padding value.
     */
     wxTextAttrDimension& GetRightPadding() { return m_padding.m_right; }
-    const wxTextAttrDimension& GetRightPadding() const { return m_padding.m_right; }
+    //const wxTextAttrDimension& GetRightPadding() const { return m_padding.m_right; }
 
     /**
         Returns the top padding value.
     */
     wxTextAttrDimension& GetTopPadding() { return m_padding.m_top; }
-    const wxTextAttrDimension& GetTopPadding() const { return m_padding.m_top; }
+    //const wxTextAttrDimension& GetTopPadding() const { return m_padding.m_top; }
 
     /**
         Returns the bottom padding value.
     */
     wxTextAttrDimension& GetBottomPadding() { return m_padding.m_bottom; }
-    const wxTextAttrDimension& GetBottomPadding() const { return m_padding.m_bottom; }
+    //const wxTextAttrDimension& GetBottomPadding() const { return m_padding.m_bottom; }
 
     /**
         Returns the borders.
     */
     wxTextAttrBorders& GetBorder() { return m_border; }
-    const wxTextAttrBorders& GetBorder() const { return m_border; }
+    //const wxTextAttrBorders& GetBorder() const { return m_border; }
 
     /**
         Returns the left border.
     */
     wxTextAttrBorder& GetLeftBorder() { return m_border.m_left; }
-    const wxTextAttrBorder& GetLeftBorder() const { return m_border.m_left; }
+    //const wxTextAttrBorder& GetLeftBorder() const { return m_border.m_left; }
 
     /**
         Returns the top border.
     */
     wxTextAttrBorder& GetTopBorder() { return m_border.m_top; }
-    const wxTextAttrBorder& GetTopBorder() const { return m_border.m_top; }
+    //const wxTextAttrBorder& GetTopBorder() const { return m_border.m_top; }
 
     /**
         Returns the right border.
     */
     wxTextAttrBorder& GetRightBorder() { return m_border.m_right; }
-    const wxTextAttrBorder& GetRightBorder() const { return m_border.m_right; }
+    //const wxTextAttrBorder& GetRightBorder() const { return m_border.m_right; }
 
     /**
         Returns the bottom border.
     */
     wxTextAttrBorder& GetBottomBorder() { return m_border.m_bottom; }
-    const wxTextAttrBorder& GetBottomBorder() const { return m_border.m_bottom; }
+    //const wxTextAttrBorder& GetBottomBorder() const { return m_border.m_bottom; }
 
     /**
         Returns the outline.
     */
     wxTextAttrBorders& GetOutline() { return m_outline; }
-    const wxTextAttrBorders& GetOutline() const { return m_outline; }
+    //const wxTextAttrBorders& GetOutline() const { return m_outline; }
 
     /**
         Returns the left outline.
     */
     wxTextAttrBorder& GetLeftOutline() { return m_outline.m_left; }
-    const wxTextAttrBorder& GetLeftOutline() const { return m_outline.m_left; }
+    //const wxTextAttrBorder& GetLeftOutline() const { return m_outline.m_left; }
 
     /**
         Returns the top outline.
     */
     wxTextAttrBorder& GetTopOutline() { return m_outline.m_top; }
-    const wxTextAttrBorder& GetTopOutline() const { return m_outline.m_top; }
+    //const wxTextAttrBorder& GetTopOutline() const { return m_outline.m_top; }
 
     /**
         Returns the right outline.
     */
     wxTextAttrBorder& GetRightOutline() { return m_outline.m_right; }
-    const wxTextAttrBorder& GetRightOutline() const { return m_outline.m_right; }
+    //const wxTextAttrBorder& GetRightOutline() const { return m_outline.m_right; }
 
     /**
         Returns the bottom outline.
     */
     wxTextAttrBorder& GetBottomOutline() { return m_outline.m_bottom; }
-    const wxTextAttrBorder& GetBottomOutline() const { return m_outline.m_bottom; }
+    //const wxTextAttrBorder& GetBottomOutline() const { return m_outline.m_bottom; }
 
     /**
         Returns the object size.
     */
     wxTextAttrSize& GetSize() { return m_size; }
-    const wxTextAttrSize& GetSize() const { return m_size; }
+    //const wxTextAttrSize& GetSize() const { return m_size; }
 
     /**
         Returns the object minimum size.
     */
 
     wxTextAttrSize& GetMinSize() { return m_minSize; }
-    const wxTextAttrSize& GetMinSize() const { return m_minSize; }
+    //const wxTextAttrSize& GetMinSize() const { return m_minSize; }
 
     /**
         Returns the object maximum size.
     */
 
     wxTextAttrSize& GetMaxSize() { return m_maxSize; }
-    const wxTextAttrSize& GetMaxSize() const { return m_maxSize; }
+    //const wxTextAttrSize& GetMaxSize() const { return m_maxSize; }
 
     /**
         Sets the object size.
@@ -1524,13 +1524,13 @@ public:
         Returns the object width.
     */
     wxTextAttrDimension& GetWidth() { return m_size.m_width; }
-    const wxTextAttrDimension& GetWidth() const { return m_size.m_width; }
+    //const wxTextAttrDimension& GetWidth() const { return m_size.m_width; }
 
     /**
         Returns the object height.
     */
     wxTextAttrDimension& GetHeight() { return m_size.m_height; }
-    const wxTextAttrDimension& GetHeight() const { return m_size.m_height; }
+    //const wxTextAttrDimension& GetHeight() const { return m_size.m_height; }
 
     /**
         Returns the box style name.
@@ -1551,7 +1551,7 @@ public:
         Returns the box shadow attributes.
     */
     wxTextAttrShadow& GetShadow() { return m_shadow; }
-    const wxTextAttrShadow& GetShadow() const { return m_shadow; }
+    //const wxTextAttrShadow& GetShadow() const { return m_shadow; }
 
 public:
 
@@ -1657,7 +1657,7 @@ public:
         Returns the text box attributes.
     */
     wxTextBoxAttr& GetTextBoxAttr() { return m_textBoxAttr; }
-    const wxTextBoxAttr& GetTextBoxAttr() const { return m_textBoxAttr; }
+    //const wxTextBoxAttr& GetTextBoxAttr() const { return m_textBoxAttr; }
 
     /**
         Set the text box attributes.
@@ -1718,7 +1718,7 @@ public:
     /**
         Returns the variant at the given index.
     */
-    const wxVariant& operator[](size_t idx) const { return m_properties[idx]; }
+    //const wxVariant& operator[](size_t idx) const { return m_properties[idx]; }
 
     /**
         Returns the variant at the given index.
@@ -1733,7 +1733,7 @@ public:
     /**
         Returns the array of variants implementing the properties.
     */
-    const wxRichTextVariantArray& GetProperties() const { return m_properties; }
+    //const wxRichTextVariantArray& GetProperties() const { return m_properties; }
 
     /**
         Returns the array of variants implementing the properties.
@@ -2141,7 +2141,7 @@ public:
     /**
         Returns the selection ranges.
     */
-    const wxRichTextRangeArray& GetRanges() const { return m_ranges; }
+    //const wxRichTextRangeArray& GetRanges() const { return m_ranges; }
 
     /**
         Sets the selection ranges.
@@ -2633,7 +2633,7 @@ public:
     /**
         Returns the object's range.
     */
-    const wxRichTextRange& GetRange() const;
+    //const wxRichTextRange& GetRange() const;
 
     /**
         Returns the object's range.
@@ -2648,7 +2648,7 @@ public:
     /**
         Returns the object's own range (valid if top-level).
     */
-    const wxRichTextRange& GetOwnRange() const;
+    //const wxRichTextRange& GetOwnRange() const;
 
     /**
         Returns the object's own range (valid if top-level).
@@ -2755,7 +2755,7 @@ public:
     /**
         Returns the object's attributes.
     */
-    const wxRichTextAttr& GetAttributes() const;
+    //const wxRichTextAttr& GetAttributes() const;
 
     /**
         Returns the object's attributes.
@@ -2770,7 +2770,7 @@ public:
     /**
         Returns the object's properties.
     */
-    const wxRichTextProperties& GetProperties() const;
+    //const wxRichTextProperties& GetProperties() const;
 
     /**
         Sets the object's properties.
@@ -2985,7 +2985,7 @@ public:
     /**
         Returns the children.
     */
-    const wxRichTextObjectList& GetChildren() const;
+    //const wxRichTextObjectList& GetChildren() const;
 
     /**
         Returns the number of children.
@@ -4216,7 +4216,7 @@ public:
     /**
         Returns the range.
     */
-    const wxRichTextRange& GetRange() const { return m_range; }
+    //const wxRichTextRange& GetRange() const { return m_range; }
     /**
         Returns the range.
     */
@@ -4269,7 +4269,7 @@ public:
 
 #if wxRICHTEXT_USE_OPTIMIZED_LINE_DRAWING
     wxArrayInt& GetObjectSizes() { return m_objectSizes; }
-    const wxArrayInt& GetObjectSizes() const { return m_objectSizes; }
+    //const wxArrayInt& GetObjectSizes() const { return m_objectSizes; }
 #endif
 
 // Operations
@@ -4982,7 +4982,7 @@ public:
     /**
         Returns the table storing fonts, for quick access and font reuse.
     */
-    const wxRichTextFontTable& GetFontTable() const { return m_fontTable; }
+    //const wxRichTextFontTable& GetFontTable() const { return m_fontTable; }
 
     /**
         Sets table storing fonts, for quick access and font reuse.
@@ -5880,7 +5880,7 @@ public:
     /**
         Returns the cells array.
     */
-    const wxRichTextObjectPtrArrayArray& GetCells() const { return m_cells; }
+    //const wxRichTextObjectPtrArrayArray& GetCells() const { return m_cells; }
 
     /**
         Returns the cells array.
@@ -6019,16 +6019,16 @@ public:
     /// Returns the cell focused in the table, if any
     static wxRichTextCell* GetFocusedCell(wxRichTextCtrl* ctrl);
 
-    int& ColStart() { return m_colStart; }
+    //int& ColStart() { return m_colStart; }
     int ColStart() const { return m_colStart; }
 
-    int& ColEnd() { return m_colEnd; }
+    //int& ColEnd() { return m_colEnd; }
     int ColEnd() const { return m_colEnd; }
 
-    int& RowStart() { return m_rowStart; }
+    //int& RowStart() { return m_rowStart; }
     int RowStart() const { return m_rowStart; }
 
-    int& RowEnd() { return m_rowEnd; }
+    //int& RowEnd() { return m_rowEnd; }
     int RowEnd() const { return m_rowEnd; }
 
     int m_colStart, m_colEnd, m_rowStart, m_rowEnd;
@@ -6303,7 +6303,7 @@ public:
     /**
         Returns the address (nested position) of the container within the buffer being manipulated.
     */
-    const wxRichTextObjectAddress& GetContainerAddress() const { return m_containerAddress; }
+    //const wxRichTextObjectAddress& GetContainerAddress() const { return m_containerAddress; }
 
     /**
         Sets the address (nested position) of the container within the buffer being manipulated.

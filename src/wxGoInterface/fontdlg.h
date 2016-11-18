@@ -1,23 +1,4 @@
-WXGO_DECL_TYPECONV(FontData)
 WXGO_DECL_TYPECONV(FontDialog)
-class wxFontData : public wxObject
-{
-public:
-    wxFontData();
-    void EnableEffects(bool enable);
-    bool GetAllowSymbols() const;
-    wxFont GetChosenFont() const;
-    const wxColour& GetColour() const;
-    bool GetEnableEffects() const;
-    wxFont GetInitialFont() const;
-    bool GetShowHelp() const;
-    void SetAllowSymbols(bool allowSymbols);
-    void SetChosenFont(const wxFont& font);
-    void SetColour(const wxColour& colour);
-    void SetInitialFont(const wxFont& font);
-    void SetRange(int min, int max);
-    void SetShowHelp(bool showHelp);
-};
 class wxFontDialog : public wxDialog
 {
 public:
@@ -26,7 +7,7 @@ public:
     wxFontDialog(wxWindow* parent, const wxFontData& data);
     bool Create(wxWindow* parent);
     bool Create(wxWindow* parent, const wxFontData& data);
-    wxFontData& GetFontData();
+    const wxFontData& GetFontData() const;
     int ShowModal();
 };
 wxFont wxGetFontFromUser(wxWindow* parent,

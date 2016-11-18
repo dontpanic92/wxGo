@@ -45,7 +45,6 @@ public:
     void SetName(const wxString& name);
     void SetStyle(const wxRichTextAttr& style);
     wxRichTextProperties& GetProperties();
-    const wxRichTextProperties& GetProperties() const;
     void SetProperties(const wxRichTextProperties& props);
 };
 class wxRichTextParagraphStyleDefinition : public wxRichTextStyleDefinition
@@ -177,6 +176,5 @@ public:
     void SetDescription(const wxString& descr);
     void SetName(const wxString& name);
     wxRichTextProperties& GetProperties();
-    const wxRichTextProperties& GetProperties() const;
     void SetProperties(const wxRichTextProperties& props);
 };

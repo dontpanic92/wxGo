@@ -22,7 +22,6 @@ WXGO_DECL_TYPECONV(AuiSimpleTabArt)
 #define wxAUI_NB_CLOSE_ON_ALL_TABS    1 << 12
 #define wxAUI_NB_MIDDLE_CLICK_CLOSE   1 << 13
 #define wxAUI_NB_DEFAULT_STYLE  wxAUI_NB_TOP |                             wxAUI_NB_TAB_SPLIT |                             wxAUI_NB_TAB_MOVE |                             wxAUI_NB_SCROLL_BUTTONS |                             wxAUI_NB_CLOSE_ON_ACTIVE_TAB |                             wxAUI_NB_MIDDLE_CLICK_CLOSE
-%feature("notabstract") wxAuiNotebook;
 class wxAuiNotebook : public wxBookCtrlBase
 {
 public:
@@ -120,7 +119,6 @@ public:
     int GetIdxFromWindow(wxWindow* page) const;
     size_t GetPageCount() const;
     wxAuiNotebookPage& GetPage(size_t idx);
-    const wxAuiNotebookPage& GetPage(size_t idx) const;
     wxAuiNotebookPageArray& GetPages();
     void SetNormalFont(const wxFont& normalFont);
     void SetSelectedFont(const wxFont& selectedFont);

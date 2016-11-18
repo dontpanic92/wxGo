@@ -6,14 +6,15 @@ class wxHtmlTagsModule : public wxModule
 public:
     virtual void FillHandlersTable(wxHtmlWinParser* parser);
 };
+%nodefaultctor wxHtmlWinTagHandler;
 class wxHtmlWinTagHandler : public wxHtmlTagHandler
 {
 public:
-    wxHtmlWinTagHandler();
     virtual void SetParser(wxHtmlWinParser* parser);
 protected:
     wxHtmlWinParser* m_WParser;
 };
+%nodefaultctor wxHtmlWinParser;
 class wxHtmlWinParser : public wxHtmlParser
 {
 public:

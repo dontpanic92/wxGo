@@ -356,9 +356,15 @@ type intSliceWithPointer struct {
 
 %typemap(gotype) long "int"
 %typemap(gotype) unsigned long "uint"
+%typemap(gotype) wxDash "int8"
+
 %typedef double wxDouble;
 %typedef int wxInt32;
 %typedef unsigned int wxUint32;
+
+%typemap(gotype) wxFileOffset "int64"
+%typemap(gotype) wxLongLong_t "int64"
+%typemap(gotype) wxULongLong_t "uint64"
 
 %typemap(gotype) wxLongLong "int64"
 %typemap(imtype) wxLongLong "int64"

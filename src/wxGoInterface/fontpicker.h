@@ -6,7 +6,6 @@ WXGO_DECL_TYPECONV(FontPickerEvent)
 #define wxFNTP_USE_TEXTCTRL           (wxPB_USE_TEXTCTRL)
 #define wxFNTP_DEFAULT_STYLE          (wxFNTP_FONTDESC_AS_LABEL|wxFNTP_USEFONT_FOR_LABEL)
 %constant wxEventType wxEVT_FONTPICKER_CHANGED;
-%feature("notabstract") wxFontPickerCtrl;
 class wxFontPickerCtrl : public wxPickerBase
 {
 public:

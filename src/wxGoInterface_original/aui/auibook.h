@@ -117,7 +117,6 @@ enum wxAuiNotebookOption
                              wxAUI_NB_MIDDLE_CLICK_CLOSE
 };
 
-%feature("notabstract") wxAuiNotebook;
 class wxAuiNotebook : public wxBookCtrlBase
 {
 public:
@@ -489,7 +488,7 @@ public:
     int GetIdxFromWindow(wxWindow* page) const;
     size_t GetPageCount() const;
     wxAuiNotebookPage& GetPage(size_t idx);
-    const wxAuiNotebookPage& GetPage(size_t idx) const;
+    //const wxAuiNotebookPage& GetPage(size_t idx) const;
     wxAuiNotebookPageArray& GetPages();
     void SetNormalFont(const wxFont& normalFont);
     void SetSelectedFont(const wxFont& selectedFont);

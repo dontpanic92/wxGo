@@ -1,6 +1,5 @@
 WXGO_DECL_TYPECONV(MenuBar)
 WXGO_DECL_TYPECONV(Menu)
-WXGO_DECL_TYPECONV(MenuItem)
 class wxMenuBar : public wxWindow
 {
 public:
@@ -32,6 +31,15 @@ public:
     void SetHelpString(int id, const wxString& helpString);
     void SetLabel(int id, const wxString& label);
     virtual void SetMenuLabel(size_t pos, const wxString& label);
+#ifdef __WXOSX__
+    static void MacSetCommonMenuBar(wxMenuBar* menubar);
+#endif
+#ifdef __WXOSX__
+    static wxMenuBar* MacGetCommonMenuBar();
+#endif
+#ifdef __WXOSX__
+    wxMenu *OSXGetAppleMenu() const;
+#endif
     wxFrame *GetFrame() const;
     bool IsAttached() const;
     virtual void Attach(wxFrame *frame);
@@ -72,13 +80,15 @@ public:
     wxString GetLabel(int id) const;
     wxString GetLabelText(int id) const;
     size_t GetMenuItemCount() const;
-    const wxMenuItemList& GetMenuItems() const;
+    wxMenuItemList& GetMenuItems();
     wxString GetTitle() const;
     wxMenuItem* Insert(size_t pos, wxMenuItem* menuItem);
     wxMenuItem* Insert(size_t pos, int id,
                        const wxString& item = wxEmptyString,
                        const wxString& helpString = wxEmptyString,
                        wxItemKind kind = wxITEM_NORMAL);
+    wxMenuItem* Insert(size_t pos, int id, const wxString& text,
+                       wxMenu* submenu, const wxString& help = wxEmptyString);
     wxMenuItem* InsertCheckItem(size_t pos, int id, const wxString& item,
                                 const wxString& helpString = wxEmptyString);
     wxMenuItem* InsertRadioItem(size_t pos, int id, const wxString& item,
@@ -90,6 +100,8 @@ public:
     wxMenuItem* Prepend(int id, const wxString& item = wxEmptyString,
                         const wxString& helpString = wxEmptyString,
                         wxItemKind kind = wxITEM_NORMAL);
+    wxMenuItem* Prepend(int id, const wxString& text, wxMenu* submenu,
+                        const wxString& help = wxEmptyString);
     wxMenuItem* PrependCheckItem(int id, const wxString& item,
                                  const wxString& helpString = wxEmptyString);
     wxMenuItem* PrependRadioItem(int id, const wxString& item,
@@ -110,35 +122,4 @@ public:
     virtual void Attach(wxMenuBar *menubar);
     virtual void Detach();
     bool IsAttached() const;
-};
-class wxMenuItem : public wxObject
-{
-public:
-    wxMenuItem(wxMenu* parentMenu = NULL, int id = wxID_SEPARATOR,
-               const wxString& text = wxEmptyString,
-               const wxString& helpString = wxEmptyString,
-               wxItemKind kind = wxITEM_NORMAL,
-               wxMenu* subMenu = NULL);
-    virtual ~wxMenuItem();
-    virtual void Check(bool check = true);
-    virtual void Enable(bool enable = true);
-    static wxString GetLabelText(const wxString& text);
-    const wxString& GetHelp() const;
-    int GetId() const;
-    virtual wxString GetItemLabel() const;
-    virtual wxString GetItemLabelText() const;
-    wxItemKind GetKind() const;
-    wxMenu* GetMenu() const;
-    wxMenu* GetSubMenu() const;
-    bool IsCheck() const;
-    bool IsCheckable() const;
-    virtual bool IsChecked() const;
-    virtual bool IsEnabled() const;
-    bool IsRadio() const;
-    bool IsSeparator() const;
-    bool IsSubMenu() const;
-    void SetHelp(const wxString& helpString);
-    virtual void SetItemLabel(const wxString& label);
-    void SetMenu(wxMenu* menu);
-    void SetSubMenu(wxMenu* menu);
 };

@@ -609,9 +609,9 @@ protected:
 */
 
 //SWIG doesn't generate proper code when we are using templates. So manually expand it.
-//%rename(wxScrolledWindow) wxScrolled<wxPanel>;
-//%template(wxScrolledWindow) wxScrolled<wxPanel>;
-
+//%rename(ScrolledWindow) wxScrolled<wxPanel>;
+//%template(ScrolledWindow) wxScrolled<wxPanel>;
+//%typedef wxScrolled<wxPanel> ScrolledWindow;
 class wxScrolledWindow: public wxPanel
 {
 public:
@@ -681,9 +681,9 @@ protected:
 
     @see wxScrolled, ::wxScrolledWindow
 */
-//%rename(wxScrolledCanvas) wxScrolled<wxWindow>;
-//%template(wxScrolledCanvas) wxScrolled<wxWindow>;
-
+//%rename(ScrolledCanvas) wxScrolled<wxWindow>;
+//%template(ScrolledCanvas) wxScrolled<wxWindow>;
+//%typedef wxScrolled<wxWindow> ScrolledCanvas;
 class wxScrolledCanvas: public wxWindow
 {
 public:

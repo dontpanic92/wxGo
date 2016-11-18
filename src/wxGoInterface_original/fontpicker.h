@@ -55,7 +55,6 @@
 
     @see wxFontDialog, wxFontPickerEvent
 */
-%feature("notabstract") wxFontPickerCtrl;
 class wxFontPickerCtrl : public wxPickerBase
 {
 public:

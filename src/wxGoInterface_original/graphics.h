@@ -1338,7 +1338,7 @@ public:
     /**
         Concatenates the matrix passed with the current matrix.
     */
-    void Concat(const wxGraphicsMatrix& t);
+    //void Concat(const wxGraphicsMatrix& t);
 
     /**
         Returns the component values of the matrix via the argument pointers.
@@ -1366,7 +1366,7 @@ public:
     /**
         Returns @true if the elements of the transformation matrix are equal.
     */
-    bool IsEqual(const wxGraphicsMatrix& t) const;
+    //bool IsEqual(const wxGraphicsMatrix& t) const;
 
     /**
         Return @true if this is the identity matrix.

@@ -40,10 +40,9 @@ public:
     wxString GetLabel(int n) const;
     wxRichTextObject* GetObject(int n) const;
     wxRichTextObjectPtrArray& GetObjects();
-    const wxRichTextObjectPtrArray& GetObjects() const;
     const wxArrayString& GetLabels() const;
     %extend {
-        void SetLabels(const wxArrayString& labels) { m_labels = labels; }
+        void SetLabels(const wxArrayString& labels) { self->m_labels = labels; }
     }
     int GetCount() const;
     wxRichTextObjectPtrArray    m_objects;
@@ -69,9 +68,7 @@ public:
     virtual bool IsEditable() const ;
     bool IsSingleLine() const;
     bool IsMultiLine() const;
-    virtual void GetSelection(long* from, long* to) const;
     const wxRichTextSelection& GetSelection() const;
-    wxRichTextSelection& GetSelection();
     virtual wxString GetStringSelection() const;
     wxString GetFilename() const;
     void SetFilename(const wxString& filename);
@@ -109,7 +106,6 @@ public:
     wxRichTextObject* GetSelectionAnchorObject() const;
     void SetSelectionAnchorObject(wxRichTextObject* anchor);
     wxRichTextContextMenuPropertiesInfo& GetContextMenuPropertiesInfo();
-    const wxRichTextContextMenuPropertiesInfo& GetContextMenuPropertiesInfo() const;
     wxRichTextParagraphLayoutBox* GetFocusObject() const;
     void StoreFocusObject(wxRichTextParagraphLayoutBox* obj);
     bool SetFocusObject(wxRichTextParagraphLayoutBox* obj, bool setCaretPosition = true);
@@ -270,7 +266,6 @@ public:
     virtual bool WordLeft(int noPages = 1, int flags = 0);
     virtual bool WordRight(int noPages = 1, int flags = 0);
     wxRichTextBuffer& GetBuffer();
-    const wxRichTextBuffer& GetBuffer() const;
     virtual bool BeginBatchUndo(const wxString& cmdName);
     virtual bool EndBatchUndo();
     virtual bool BatchingUndo() const;

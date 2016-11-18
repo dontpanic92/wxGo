@@ -171,7 +171,7 @@ public:
         Returns true if a attribute named attrName could be found.
         The value of that attribute is saved in value (which must not be @NULL).
     */
-    bool GetAttribute(const wxString& attrName, wxString* value) const;
+    //bool GetAttribute(const wxString& attrName, wxString* value) const;
 
     /**
         Returns the value of the attribute named @a attrName if it does exist.

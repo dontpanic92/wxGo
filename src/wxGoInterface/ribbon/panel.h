@@ -29,7 +29,6 @@ public:
                 long style = wxRIBBON_PANEL_DEFAULT_STYLE);
     virtual ~wxRibbonPanel();
     wxBitmap& GetMinimisedIcon();
-    const wxBitmap& GetMinimisedIcon() const;
     virtual bool HasExtButton() const;
     bool IsMinimised() const;
     bool IsMinimised(wxSize at_size) const;

@@ -33,7 +33,6 @@ public:
     virtual void AddAttribute(wxXmlAttribute* attr);
     virtual void AddChild(wxXmlNode* child);
     virtual bool DeleteAttribute(const wxString& name);
-    bool GetAttribute(const wxString& attrName, wxString* value) const;
     wxString GetAttribute(const wxString& attrName,
                           const wxString& defaultVal = wxEmptyString) const;
     wxXmlAttribute* GetAttributes() const;

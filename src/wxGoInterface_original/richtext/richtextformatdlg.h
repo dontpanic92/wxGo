@@ -176,7 +176,7 @@ public:
     /**
         Gets the attributes being edited.
     */
-    const wxTextAttr& GetAttributes() const;
+    //const wxTextAttr& GetAttributes() const;
     wxTextAttr& GetAttributes();
     //@}
 

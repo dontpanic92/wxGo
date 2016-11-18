@@ -4,7 +4,6 @@ WXGO_DECL_TYPECONV(ColourPickerEvent)
 #define wxCLRP_DEFAULT_STYLE      0
 #define wxCLRP_SHOW_LABEL         0x0008
 %constant wxEventType wxEVT_COLOURPICKER_CHANGED;
-%feature("notabstract") wxColourPickerCtrl;
 class wxColourPickerCtrl : public wxPickerBase
 {
 public:

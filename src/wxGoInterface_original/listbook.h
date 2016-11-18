@@ -60,7 +60,6 @@
 
     @see wxBookCtrl, wxNotebook, @ref page_samples_notebook
 */
-%feature("notabstract") wxListbook;
 class wxListbook : public wxBookCtrlBase
 {
 public:

@@ -139,7 +139,7 @@ public:
     /**
         Returns the array of objects.
     */
-    const wxRichTextObjectPtrArray& GetObjects() const;
+    //const wxRichTextObjectPtrArray& GetObjects() const;
 
     /**
         Returns the array of labels.
@@ -152,7 +152,7 @@ public:
     const wxArrayString& GetLabels() const;
 
     %extend {
-        void SetLabels(const wxArrayString& labels) { m_labels = labels; }
+        void SetLabels(const wxArrayString& labels) { self->m_labels = labels; }
     }
 
     /**
@@ -300,9 +300,9 @@ public:
         of text, plus one.
         If the return values @a from and @a to are the same, there is no selection.
     */
-    virtual void GetSelection(long* from, long* to) const;
+    //virtual void GetSelection(long* from, long* to) const;
     const wxRichTextSelection& GetSelection() const;
-    wxRichTextSelection& GetSelection();
+   // wxRichTextSelection& GetSelection();
     //@}
 
     /**
@@ -484,7 +484,7 @@ public:
         objects are nested, several might be editable.
     */
     wxRichTextContextMenuPropertiesInfo& GetContextMenuPropertiesInfo();
-    const wxRichTextContextMenuPropertiesInfo& GetContextMenuPropertiesInfo() const;
+    //const wxRichTextContextMenuPropertiesInfo& GetContextMenuPropertiesInfo() const;
     //@}
 
     /**
@@ -1466,7 +1466,7 @@ public:
         Returns the buffer associated with the control.
     */
     wxRichTextBuffer& GetBuffer();
-    const wxRichTextBuffer& GetBuffer() const;
+    //const wxRichTextBuffer& GetBuffer() const;
     //@}
 
     /**

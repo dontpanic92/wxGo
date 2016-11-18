@@ -49,7 +49,6 @@
 
     @see wxColourDialog, wxColourPickerEvent
 */
-%feature("notabstract") wxColourPickerCtrl;
 class wxColourPickerCtrl : public wxPickerBase
 {
 public:

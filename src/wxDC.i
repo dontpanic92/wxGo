@@ -9,6 +9,7 @@
     #include "wx/dcps.h"
     #include "wx/dcscreen.h"
     #include "wx/dcsvg.h"
+    #include "wx/metafile.h"
 %}
 
 %include "wxGoInterface/dc.h"
@@ -16,6 +17,9 @@
 #ifndef __WXMSW__
 %include "wxGoInterface/dcgraph.h"
 %include "wxGoInterface/dcps.h"
+#endif
+#ifdef __WXMSW__
+%include "wxGoInterface/metafile.h"
 #endif
 %include "wxGoInterface/dcmemory.h"
 %include "wxGoInterface/dcbuffer.h"

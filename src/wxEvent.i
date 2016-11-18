@@ -1,4 +1,10 @@
-%include wxTrackable.i
+
+%nodefaultctor wxTrackable;
+%nodefaultdtor wxTrackable;
+class wxTrackable{
+public:
+};
+
 
 %{
     #include "wx/evtloop.h"

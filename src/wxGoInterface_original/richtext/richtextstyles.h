@@ -188,7 +188,7 @@ public:
     /**
         Returns the definition's properties.
     */
-    const wxRichTextProperties& GetProperties() const;
+    //const wxRichTextProperties& GetProperties() const;
 
     /**
         Sets the definition's properties.
@@ -717,7 +717,7 @@ public:
     /**
         Returns the sheet's properties.
     */
-    const wxRichTextProperties& GetProperties() const;
+    //const wxRichTextProperties& GetProperties() const;
 
     /**
         Sets the sheet's properties.

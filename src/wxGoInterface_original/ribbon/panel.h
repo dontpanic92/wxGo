@@ -160,7 +160,7 @@ public:
         minimised.
     */
     wxBitmap& GetMinimisedIcon();
-    const wxBitmap& GetMinimisedIcon() const;
+    //const wxBitmap& GetMinimisedIcon() const;
 
     /**
         Test if the panel has an extension button.

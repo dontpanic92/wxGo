@@ -37,7 +37,6 @@ public:
                 const wxString& title = wxGetTranslation("Formatting"), wxWindowID id = wxID_ANY,
                 const wxPoint& pos = wxDefaultPosition, const wxSize& sz = wxDefaultSize,
                 long style = wxDEFAULT_DIALOG_STYLE);
-    const wxTextAttr& GetAttributes() const;
     wxTextAttr& GetAttributes();
     static wxRichTextFormattingDialog* GetDialog(wxWindow* win);
     static wxTextAttr* GetDialogAttributes(wxWindow* win);

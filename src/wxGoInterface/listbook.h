@@ -7,7 +7,6 @@ WXGO_DECL_TYPECONV(Listbook)
 #define wxLB_ALIGN_MASK       wxBK_ALIGN_MASK
 %constant wxEventType wxEVT_LISTBOOK_PAGE_CHANGED;
 %constant wxEventType wxEVT_LISTBOOK_PAGE_CHANGING;
-%feature("notabstract") wxListbook;
 class wxListbook : public wxBookCtrlBase
 {
 public:

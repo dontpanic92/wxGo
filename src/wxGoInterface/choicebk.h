@@ -7,7 +7,6 @@ WXGO_DECL_TYPECONV(Choicebook)
 #define wxCHB_ALIGN_MASK       wxBK_ALIGN_MASK
 %constant wxEventType wxEVT_CHOICEBOOK_PAGE_CHANGED;
 %constant wxEventType wxEVT_CHOICEBOOK_PAGE_CHANGING;
-%feature("notabstract") wxChoicebook;
 class wxChoicebook : public wxBookCtrlBase
 {
 public:

@@ -1,0 +1,107 @@
+WXGO_DECL_TYPECONV(Variant)
+WXGO_DECL_TYPECONV(VariantData)
+class wxVariant : public wxObject
+{
+public:
+    wxVariant();
+    wxVariant(wxVariantData* data, const wxString& name = wxEmptyString);
+    wxVariant(const wxVariant& variant);
+    wxVariant(const wxString& value, const wxString& name = wxEmptyString);
+    wxVariant(wxChar value, const wxString& name = wxEmptyString);
+    wxVariant(long value, const wxString& name = wxEmptyString);
+    wxVariant(bool value, const wxString& name = wxEmptyString);
+    wxVariant(double value, const wxString& name = wxEmptyString);
+    wxVariant(wxLongLong value, const wxString& name = wxEmptyString);
+    wxVariant(wxULongLong value, const wxString& name = wxEmptyString);
+    wxVariant(const wxVariantList& value, const wxString& name = wxEmptyString);
+    wxVariant(void* value, const wxString& name = wxEmptyString);
+    wxVariant(wxObject* value, const wxString& name = wxEmptyString);
+    wxVariant(const wxDateTime& val, const wxString& name = wxEmptyString);
+    wxVariant(const wxArrayString& val, const wxString& name = wxEmptyString);
+    virtual ~wxVariant();
+    wxVariant operator [](size_t idx) const;
+    void Append(const wxVariant& value);
+    void Clear();
+    void ClearList();
+    bool Delete(size_t item);
+    size_t GetCount() const;
+    wxVariantList& GetList() const;
+    void Insert(const wxVariant& value);
+    void NullList();
+    wxArrayString GetArrayString() const;
+    bool GetBool() const;
+    wxUniChar GetChar() const;
+    wxVariantData* GetData() const;
+    wxDateTime GetDateTime() const;
+    double GetDouble() const;
+    long GetLong() const;
+    wxLongLong GetLongLong() const;
+    const wxString& GetName() const;
+    wxString GetString() const;
+    wxString GetType() const;
+    wxULongLong GetULongLong() const;
+    void* GetVoidPtr() const;
+    wxObject* GetWxObjectPtr() const;
+    bool IsNull() const;
+    bool IsType(const wxString& type) const;
+    bool IsValueKindOf(const wxClassInfo* type) const;
+    void MakeNull();
+    wxString MakeString() const;
+    bool Member(const wxVariant& value) const;
+    void SetData(wxVariantData* data);
+    bool Unshare();
+    bool operator !=(const wxVariant& value) const;
+    bool operator !=(const wxString& value) const;
+    bool operator !=(wxChar value) const;
+    bool operator !=(long value) const;
+    bool operator !=(bool value) const;
+    bool operator !=(double value) const;
+    bool operator !=(wxLongLong value) const;
+    bool operator !=(wxULongLong value) const;
+    bool operator !=(void* value) const;
+    bool operator !=(wxObject* value) const;
+    bool operator !=(const wxVariantList& value) const;
+    bool operator !=(const wxArrayString& value) const;
+    bool operator !=(const wxDateTime& value) const;
+    void operator =(const wxVariant& value);
+    void operator =(wxVariantData* value);
+    void operator =(const wxString& value);
+    void operator =(wxChar value);
+    void operator =(long value);
+    void operator =(bool value);
+    void operator =(double value);
+    void operator =(wxLongLong value);
+    void operator =(wxULongLong value);
+    void operator =(void* value);
+    void operator =(wxObject* value);
+    void operator =(const wxVariantList& value);
+    void operator =(const wxDateTime& value);
+    void operator =(const wxArrayString& value);
+    bool operator ==(const wxVariant& value) const;
+    bool operator ==(const wxString& value) const;
+    bool operator ==(wxChar value) const;
+    bool operator ==(long value) const;
+    bool operator ==(bool value) const;
+    bool operator ==(double value) const;
+    bool operator ==(wxLongLong value) const;
+    bool operator ==(wxULongLong value) const;
+    bool operator ==(void* value) const;
+    bool operator ==(wxObject* value) const;
+    bool operator ==(const wxVariantList& value) const;
+    bool operator ==(const wxArrayString& value) const;
+    bool operator ==(const wxDateTime& value) const;
+};
+class wxVariantData : public wxObjectRefData
+{
+public:
+    wxVariantData();
+    virtual wxVariantData* Clone() const;
+    void DecRef();
+    virtual bool Eq(wxVariantData& data) const = 0;
+    virtual wxString GetType() const = 0;
+    virtual wxClassInfo* GetValueClassInfo();
+    void IncRef();
+    virtual bool Read(wxString& string);
+    virtual bool Write(wxString& string) const;
+};
+#define wxGetVariantCast(var, classname)

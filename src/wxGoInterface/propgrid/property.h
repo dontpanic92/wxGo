@@ -105,7 +105,6 @@ public:
     wxVariant GetAttributesAsList() const;
     const wxPGEditor* GetColumnEditor( int column ) const;
     const wxString& GetBaseName() const;
-    const wxPGCell& GetCell( unsigned int column ) const;
     wxPGCell& GetCell( unsigned int column );
     wxPGCell& GetOrCreateCell( unsigned int column );
     unsigned int GetChildCount() const;
@@ -240,7 +239,6 @@ public:
     wxPGChoiceEntry& Insert( const wxString& label, int index, int value = wxPG_INVALID_VALUE );
     wxPGChoiceEntry& Insert( const wxPGChoiceEntry& entry, int index );
     bool IsOk() const;
-    const wxPGChoiceEntry& Item( unsigned int i ) const;
     wxPGChoiceEntry& Item( unsigned int i );
     void RemoveAt(size_t nIndex, size_t count = 1);
     void Set( const wxChar** labels, const long* values = NULL );
@@ -249,5 +247,4 @@ public:
     wxArrayString GetLabels() const;
     void operator= (const wxPGChoices& a);
     wxPGChoiceEntry& operator[](unsigned int i);
-    const wxPGChoiceEntry& operator[](unsigned int i) const;
 };

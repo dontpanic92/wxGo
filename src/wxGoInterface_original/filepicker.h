@@ -75,7 +75,6 @@
 
     @see wxFileDialog, wxFileDirPickerEvent
 */
-%feature("notabstract") wxFilePickerCtrl;
 class wxFilePickerCtrl : public wxPickerBase
 {
 public:
@@ -219,7 +218,6 @@ public:
 
     @see wxDirDialog, wxFileDirPickerEvent
 */
-%feature("notabstract") wxDirPickerCtrl;
 class wxDirPickerCtrl : public wxPickerBase
 {
 public:

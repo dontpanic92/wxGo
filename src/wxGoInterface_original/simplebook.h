@@ -37,7 +37,6 @@
 
     @since 2.9.5
 */
-%feature("notabstract") wxSimplebook;
 class wxSimplebook : public wxBookCtrlBase
 {
 public:

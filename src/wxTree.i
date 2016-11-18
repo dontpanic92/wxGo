@@ -1,4 +1,4 @@
-
+%typedef void *wxTreeItemIdValue;
 %{
     #include "wx/treebase.h"
     #include "wx/treebook.h"

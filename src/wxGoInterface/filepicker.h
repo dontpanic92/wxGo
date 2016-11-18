@@ -16,7 +16,6 @@ WXGO_DECL_TYPECONV(FileDirPickerEvent)
 #define wxDIRP_DEFAULT_STYLE          (wxDIRP_DIR_MUST_EXIST)
 %constant wxEventType wxEVT_FILEPICKER_CHANGED;
 %constant wxEventType wxEVT_DIRPICKER_CHANGED;
-%feature("notabstract") wxFilePickerCtrl;
 class wxFilePickerCtrl : public wxPickerBase
 {
 public:
@@ -45,7 +44,6 @@ public:
     void SetInitialDirectory(const wxString& dir);
     void SetPath(const wxString& filename);
 };
-%feature("notabstract") wxDirPickerCtrl;
 class wxDirPickerCtrl : public wxPickerBase
 {
 public:
