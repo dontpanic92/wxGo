@@ -1,7 +1,4 @@
 WXGO_DECL_TYPECONV(GBPosition)
-WXGO_DECL_TYPECONV(GridBagSizer)
-WXGO_DECL_TYPECONV(GBSizerItem)
-WXGO_DECL_TYPECONV(GBSpan)
 class wxGBPosition
 {
 public:
@@ -14,6 +11,7 @@ public:
     bool operator!=(const wxGBPosition& p) const;
     bool operator==(const wxGBPosition& p) const;
 };
+WXGO_DECL_TYPECONV(GridBagSizer)
 class wxGridBagSizer : public wxFlexGridSizer
 {
 public:
@@ -55,6 +53,7 @@ public:
     bool SetItemSpan(wxSizer* sizer, const wxGBSpan& span);
     bool SetItemSpan(size_t index, const wxGBSpan& span);
 };
+WXGO_DECL_TYPECONV(GBSizerItem)
 class wxGBSizerItem : public wxSizerItem
 {
 public:
@@ -79,6 +78,7 @@ public:
     wxGridBagSizer* GetGBSizer() const;
     void SetGBSizer(wxGridBagSizer* sizer);
 };
+WXGO_DECL_TYPECONV(GBSpan)
 class wxGBSpan
 {
 public:

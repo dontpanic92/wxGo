@@ -164,10 +164,10 @@ public:
 
     @header{wx/metafile.h}
 */
-bool wxMakeMetafilePlaceable(const wxString& filename,
+/*bool wxMakeMetafilePlaceable(const wxString& filename,
                               int minX, int minY,
                               int maxX, int maxY,
                               float scale = 1.0);
-
+*/
 //@}
 

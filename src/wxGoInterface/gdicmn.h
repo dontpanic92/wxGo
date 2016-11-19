@@ -1,8 +1,3 @@
-WXGO_DECL_TYPECONV(RealPoint)
-WXGO_DECL_TYPECONV(Rect)
-WXGO_DECL_TYPECONV(Point)
-WXGO_DECL_TYPECONV(ColourDatabase)
-WXGO_DECL_TYPECONV(Size)
 %typedef int wxBitmapType;
 #define wxBITMAP_TYPE_INVALID 0
 #define wxBITMAP_TYPE_BMP wxBITMAP_TYPE_INVALID + 1
@@ -74,6 +69,7 @@ WXGO_DECL_TYPECONV(Size)
 #define wxCURSOR_DEFAULT wxCURSOR_BLANK + 1
 #define wxCURSOR_ARROWWAIT wxCURSOR_DEFAULT + 1
 #define wxCURSOR_MAX wxCURSOR_ARROWWAIT + 1
+WXGO_DECL_TYPECONV(RealPoint)
 class wxRealPoint
 {
 public:
@@ -83,6 +79,7 @@ public:
     double x;
     double y;
 };
+WXGO_DECL_TYPECONV(Rect)
 class wxRect
 {
 public:
@@ -137,6 +134,7 @@ public:
     void SetBottomLeft(const wxPoint &p);
     wxRect& Union(const wxRect& rect);
 };
+WXGO_DECL_TYPECONV(Point)
 class wxPoint
 {
 public:
@@ -149,6 +147,7 @@ public:
     int  y;
 };
 %constant wxPoint wxDefaultPosition;
+WXGO_DECL_TYPECONV(ColourDatabase)
 class wxColourDatabase
 {
 public:
@@ -158,6 +157,7 @@ public:
     wxString FindName(const wxColour& colour) const;
 };
 %constant wxColourDatabase* wxTheColourDatabase;
+WXGO_DECL_TYPECONV(Size)
 class wxSize
 {
 public:

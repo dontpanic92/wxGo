@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(SystemSettings)
 %typedef int wxSystemFont;
 #define wxSYS_OEM_FIXED_FONT  10
 #define wxSYS_ANSI_FIXED_FONT wxSYS_OEM_FIXED_FONT  + 1
@@ -97,6 +96,7 @@ WXGO_DECL_TYPECONV(SystemSettings)
 #define wxSYS_SCREEN_PDA wxSYS_SCREEN_TINY + 1
 #define wxSYS_SCREEN_SMALL wxSYS_SCREEN_PDA + 1
 #define wxSYS_SCREEN_DESKTOP wxSYS_SCREEN_SMALL + 1
+WXGO_DECL_TYPECONV(SystemSettings)
 class wxSystemSettings : public wxObject
 {
 public:

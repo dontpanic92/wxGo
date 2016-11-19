@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(FileDialog)
 enum
 {
     wxFD_OPEN              = 0x0001,
@@ -11,6 +10,7 @@ enum
 };
 #define wxFD_DEFAULT_STYLE      wxFD_OPEN
 const char wxFileSelectorDefaultWildcardStr[];
+WXGO_DECL_TYPECONV(FileDialog)
 class wxFileDialog : public wxDialog
 {
 public:

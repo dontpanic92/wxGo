@@ -1,7 +1,3 @@
-WXGO_DECL_TYPECONV(TreeListItem)
-WXGO_DECL_TYPECONV(TreeListItemComparator)
-WXGO_DECL_TYPECONV(TreeListCtrl)
-WXGO_DECL_TYPECONV(TreeListEvent)
 enum
 {
     wxTL_SINGLE         = 0x0000,       
@@ -17,12 +13,14 @@ enum
                           wxTL_3STATE |
                           wxTL_USER_3STATE
 };
+WXGO_DECL_TYPECONV(TreeListItem)
 class wxTreeListItem
 {
 public:
     wxTreeListItem();
     bool IsOk() const;
 };
+WXGO_DECL_TYPECONV(TreeListItemComparator)
 class wxTreeListItemComparator
 {
 public:
@@ -37,6 +35,7 @@ public:
 typedef wxVector<wxTreeListItem> wxTreeListItems;
 extern const wxTreeListItem wxTLI_FIRST;
 extern const wxTreeListItem wxTLI_LAST;
+WXGO_DECL_TYPECONV(TreeListCtrl)
 class wxTreeListCtrl : public wxWindow
 {
 public:
@@ -121,6 +120,7 @@ public:
     wxWindow* GetView() const;
     wxDataViewCtrl* GetDataView() const;
 };
+WXGO_DECL_TYPECONV(TreeListEvent)
 class wxTreeListEvent : public wxNotifyEvent
 {
 public:

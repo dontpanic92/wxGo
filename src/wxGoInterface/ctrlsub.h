@@ -1,6 +1,4 @@
 WXGO_DECL_TYPECONV(ItemContainerImmutable)
-WXGO_DECL_TYPECONV(ItemContainer)
-WXGO_DECL_TYPECONV(ControlWithItems)
 class wxItemContainerImmutable
 {
 public:
@@ -17,6 +15,7 @@ public:
     virtual wxString GetStringSelection() const;
     void Select(int n);
 };
+WXGO_DECL_TYPECONV(ItemContainer)
 class wxItemContainer : public wxItemContainerImmutable
 {
 public:
@@ -41,6 +40,7 @@ public:
     int Insert(const wxArrayString& items, unsigned int pos);
     void Set(const wxArrayString& items);
 };
+WXGO_DECL_TYPECONV(ControlWithItems)
 class wxControlWithItems : public wxControl, public wxItemContainer
 {
 };

@@ -1,5 +1,3 @@
-WXGO_DECL_TYPECONV(RibbonButtonBar)
-WXGO_DECL_TYPECONV(RibbonButtonBarEvent)
 %typedef int wxRibbonButtonBarButtonState;
 #define wxRIBBON_BUTTONBAR_BUTTON_SMALL      0 << 0
 #define wxRIBBON_BUTTONBAR_BUTTON_MEDIUM     1 << 0
@@ -13,6 +11,7 @@ WXGO_DECL_TYPECONV(RibbonButtonBarEvent)
 #define wxRIBBON_BUTTONBAR_BUTTON_DISABLED           1 << 7
 #define wxRIBBON_BUTTONBAR_BUTTON_TOGGLED            1 << 8
 #define wxRIBBON_BUTTONBAR_BUTTON_STATE_MASK         0x1F8
+WXGO_DECL_TYPECONV(RibbonButtonBar)
 class wxRibbonButtonBar : public wxRibbonControl
 {
 public:
@@ -111,6 +110,7 @@ public:
     void SetShowToolTipsForDisabled(bool show);
     bool GetShowToolTipsForDisabled() const;
 };
+WXGO_DECL_TYPECONV(RibbonButtonBarEvent)
 class wxRibbonButtonBarEvent : public wxCommandEvent
 {
 public:

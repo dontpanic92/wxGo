@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(BusyInfo)
-WXGO_DECL_TYPECONV(BusyInfoFlags)
 class wxBusyInfo
 {
 public:
@@ -7,6 +6,7 @@ public:
     wxBusyInfo(const wxString& msg, wxWindow* parent = NULL);
     virtual ~wxBusyInfo();
 };
+WXGO_DECL_TYPECONV(BusyInfoFlags)
 class wxBusyInfoFlags
 {
 public:

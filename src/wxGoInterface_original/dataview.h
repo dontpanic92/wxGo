@@ -2296,6 +2296,8 @@ public:
     @library{wxadv}
     @category{dvc}
 */
+#ifndef __WXOSX__
+// We dont have it on mac
 class wxDataViewChoiceByIndexRenderer : public wxDataViewChoiceRenderer
 {
 public:
@@ -2306,7 +2308,7 @@ public:
                               wxDataViewCellMode mode = wxDATAVIEW_CELL_EDITABLE,
                               int alignment = wxDVR_DEFAULT_ALIGNMENT );
 };
-
+#endif
 
 /**
     @class wxDataViewDateRenderer

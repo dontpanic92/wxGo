@@ -1,5 +1,3 @@
-WXGO_DECL_TYPECONV(ScrolledWindow)
-WXGO_DECL_TYPECONV(ScrolledCanvas)
 %typedef int wxScrollbarVisibility;
 #define wxSHOW_SB_NEVER  -1
 #define wxSHOW_SB_DEFAULT wxSHOW_SB_NEVER  + 1
@@ -60,6 +58,7 @@ public:
 protected:
     virtual wxSize GetSizeAvailableForScrollTarget(const wxSize& size);
 };
+WXGO_DECL_TYPECONV(ScrolledWindow)
 class wxScrolledWindow: public wxPanel
 {
 public:
@@ -115,6 +114,7 @@ public:
 protected:
     virtual wxSize GetSizeAvailableForScrollTarget(const wxSize& size);
 };
+WXGO_DECL_TYPECONV(ScrolledCanvas)
 class wxScrolledCanvas: public wxWindow
 {
 public:

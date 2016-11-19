@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(Listbook)
 #define wxLB_DEFAULT          wxBK_DEFAULT
 #define wxLB_TOP              wxBK_TOP
 #define wxLB_BOTTOM           wxBK_BOTTOM
@@ -7,6 +6,7 @@ WXGO_DECL_TYPECONV(Listbook)
 #define wxLB_ALIGN_MASK       wxBK_ALIGN_MASK
 %constant wxEventType wxEVT_LISTBOOK_PAGE_CHANGED;
 %constant wxEventType wxEVT_LISTBOOK_PAGE_CHANGING;
+WXGO_DECL_TYPECONV(Listbook)
 class wxListbook : public wxBookCtrlBase
 {
 public:

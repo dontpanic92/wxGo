@@ -1,5 +1,3 @@
-WXGO_DECL_TYPECONV(StyledTextCtrl)
-WXGO_DECL_TYPECONV(StyledTextEvent)
 #define wxSTC_INVALID_POSITION -1
 #define wxSTC_START 2000
 #define wxSTC_OPTIONAL_START 3000
@@ -2152,6 +2150,7 @@ WXGO_DECL_TYPECONV(StyledTextEvent)
 #define wxSTC_CMD_SCROLLTOEND 2629
 #define wxSTC_CMD_VCHOMEDISPLAY 2652
 #define wxSTC_CMD_VCHOMEDISPLAYEXTEND 2653
+WXGO_DECL_TYPECONV(StyledTextCtrl)
 class wxStyledTextCtrl : public wxControl, public wxTextEntry
 {
 public:
@@ -2893,6 +2892,7 @@ public:
                                             wxTextCoord *col,
                                             wxTextCoord *row) const;
 };
+WXGO_DECL_TYPECONV(StyledTextEvent)
 class wxStyledTextEvent : public wxCommandEvent {
 public:
     wxStyledTextEvent(wxEventType commandType=0, int id=0);

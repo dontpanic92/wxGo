@@ -1,6 +1,3 @@
-WXGO_DECL_TYPECONV(RichTextContextMenuPropertiesInfo)
-WXGO_DECL_TYPECONV(RichTextCtrl)
-WXGO_DECL_TYPECONV(RichTextEvent)
 #define wxRE_READONLY          0x0010
 #define wxRE_MULTILINE         0x0020
 #define wxRE_CENTRE_CARET      0x8000
@@ -28,6 +25,7 @@ WXGO_DECL_TYPECONV(RichTextEvent)
 %typedef int wxRichTextCtrlSelectionState;
 #define wxRichTextCtrlSelectionState_Normal 0
 #define wxRichTextCtrlSelectionState_CommonAncestor wxRichTextCtrlSelectionState_Normal + 1
+WXGO_DECL_TYPECONV(RichTextContextMenuPropertiesInfo)
 class wxRichTextContextMenuPropertiesInfo
 {
 public:
@@ -48,6 +46,7 @@ public:
     wxRichTextObjectPtrArray    m_objects;
     wxArrayString               m_labels;
 };
+WXGO_DECL_TYPECONV(RichTextCtrl)
 class wxRichTextCtrl : public wxControl,
                        public wxTextCtrlIface,
                        public wxScrollHelper
@@ -449,6 +448,7 @@ protected:
     wxLongLong              m_delayedImageProcessingTime;
     wxTimer                 m_delayedImageProcessingTimer;
 };
+WXGO_DECL_TYPECONV(RichTextEvent)
 class wxRichTextEvent : public wxNotifyEvent
 {
 public:

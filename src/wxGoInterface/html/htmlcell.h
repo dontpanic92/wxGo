@@ -1,15 +1,4 @@
 WXGO_DECL_TYPECONV(HtmlSelection)
-WXGO_DECL_TYPECONV(HtmlRenderingState)
-WXGO_DECL_TYPECONV(HtmlRenderingStyle)
-WXGO_DECL_TYPECONV(HtmlRenderingInfo)
-WXGO_DECL_TYPECONV(HtmlCell)
-WXGO_DECL_TYPECONV(HtmlContainerCell)
-WXGO_DECL_TYPECONV(HtmlLinkInfo)
-WXGO_DECL_TYPECONV(HtmlColourCell)
-WXGO_DECL_TYPECONV(HtmlWidgetCell)
-WXGO_DECL_TYPECONV(HtmlWordCell)
-WXGO_DECL_TYPECONV(HtmlWordWithTabsCell)
-WXGO_DECL_TYPECONV(HtmlFontCell)
 class wxHtmlSelection
 {
 public:
@@ -33,6 +22,7 @@ public:
 #define wxHTML_SEL_OUT 0
 #define wxHTML_SEL_IN wxHTML_SEL_OUT + 1
 #define wxHTML_SEL_CHANGING wxHTML_SEL_IN + 1
+WXGO_DECL_TYPECONV(HtmlRenderingState)
 class wxHtmlRenderingState
 {
 public:
@@ -46,12 +36,14 @@ public:
     void SetBgMode(int m);
     int GetBgMode() const;
 };
+WXGO_DECL_TYPECONV(HtmlRenderingStyle)
 class wxHtmlRenderingStyle
 {
 public:
     virtual wxColour GetSelectedTextColour(const wxColour& clr) = 0;
     virtual wxColour GetSelectedTextBgColour(const wxColour& clr) = 0;
 };
+WXGO_DECL_TYPECONV(HtmlRenderingInfo)
 class wxHtmlRenderingInfo
 {
 public:
@@ -74,6 +66,7 @@ enum wxHtmlScriptMode
     wxHTML_SCRIPT_SUB,
     wxHTML_SCRIPT_SUP
 };
+WXGO_DECL_TYPECONV(HtmlCell)
 class wxHtmlCell : public wxObject
 {
 public:
@@ -107,6 +100,7 @@ public:
     void SetParent(wxHtmlContainerCell* p);
     virtual void SetPos(int x, int y);
 };
+WXGO_DECL_TYPECONV(HtmlContainerCell)
 class wxHtmlContainerCell : public wxHtmlCell
 {
 public:
@@ -128,6 +122,7 @@ public:
     void SetWidthFloat(const wxHtmlTag& tag,
                        double pixel_scale = 1.0);
 };
+WXGO_DECL_TYPECONV(HtmlLinkInfo)
 class wxHtmlLinkInfo : public wxObject
 {
 public:
@@ -139,21 +134,25 @@ public:
     const wxHtmlCell* GetHtmlCell() const;
     wxString GetTarget() const;
 };
+WXGO_DECL_TYPECONV(HtmlColourCell)
 class wxHtmlColourCell : public wxHtmlCell
 {
 public:
     wxHtmlColourCell(const wxColour& clr, int flags = wxHTML_CLR_FOREGROUND);
 };
+WXGO_DECL_TYPECONV(HtmlWidgetCell)
 class wxHtmlWidgetCell : public wxHtmlCell
 {
 public:
     wxHtmlWidgetCell(wxWindow* wnd, int w = 0);
 };
+WXGO_DECL_TYPECONV(HtmlWordCell)
 class wxHtmlWordCell : public wxHtmlCell
 {
 public:
     wxHtmlWordCell(const wxString& word, const wxDC& dc);
 };
+WXGO_DECL_TYPECONV(HtmlWordWithTabsCell)
 class wxHtmlWordWithTabsCell : public wxHtmlWordCell
 {
 public:
@@ -162,6 +161,7 @@ public:
                            size_t linepos,
                            const wxDC& dc);
 };
+WXGO_DECL_TYPECONV(HtmlFontCell)
 class wxHtmlFontCell : public wxHtmlCell
 {
 public:

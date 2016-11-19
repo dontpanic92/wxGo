@@ -1,6 +1,3 @@
-WXGO_DECL_TYPECONV(CalendarEvent)
-WXGO_DECL_TYPECONV(CalendarDateAttr)
-WXGO_DECL_TYPECONV(CalendarCtrl)
 enum
 {
     wxCAL_SUNDAY_FIRST               = 0x0000,
@@ -12,6 +9,7 @@ enum
     wxCAL_SHOW_SURROUNDING_WEEKS     = 0x0020,
     wxCAL_SHOW_WEEK_NUMBERS          = 0x0040
 };
+WXGO_DECL_TYPECONV(CalendarEvent)
 class wxCalendarEvent : public wxDateEvent
 {
 public:
@@ -29,6 +27,7 @@ public:
 #define wxCAL_BORDER_NONE 0
 #define wxCAL_BORDER_SQUARE wxCAL_BORDER_NONE + 1
 #define wxCAL_BORDER_ROUND wxCAL_BORDER_SQUARE + 1
+WXGO_DECL_TYPECONV(CalendarDateAttr)
 class wxCalendarDateAttr
 {
 public:
@@ -67,6 +66,7 @@ public:
 #define wxCAL_HITTEST_DECMONTH wxCAL_HITTEST_INCMONTH + 1
 #define wxCAL_HITTEST_SURROUNDING_WEEK wxCAL_HITTEST_DECMONTH + 1
 #define wxCAL_HITTEST_WEEK wxCAL_HITTEST_SURROUNDING_WEEK + 1
+WXGO_DECL_TYPECONV(CalendarCtrl)
 class wxCalendarCtrl : public wxControl
 {
 public:

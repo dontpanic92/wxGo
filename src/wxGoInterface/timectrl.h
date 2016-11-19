@@ -1,8 +1,8 @@
-WXGO_DECL_TYPECONV(TimePickerCtrl)
 enum
 {
     wxTP_DEFAULT = 0
 };
+WXGO_DECL_TYPECONV(TimePickerCtrl)
 class wxTimePickerCtrl : public wxControl
 {
 public:

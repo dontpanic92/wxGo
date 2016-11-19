@@ -1,6 +1,3 @@
-WXGO_DECL_TYPECONV(FilePickerCtrl)
-WXGO_DECL_TYPECONV(DirPickerCtrl)
-WXGO_DECL_TYPECONV(FileDirPickerEvent)
 #define wxFLP_OPEN                    0x0400
 #define wxFLP_SAVE                    0x0800
 #define wxFLP_OVERWRITE_PROMPT        0x1000
@@ -16,6 +13,7 @@ WXGO_DECL_TYPECONV(FileDirPickerEvent)
 #define wxDIRP_DEFAULT_STYLE          (wxDIRP_DIR_MUST_EXIST)
 %constant wxEventType wxEVT_FILEPICKER_CHANGED;
 %constant wxEventType wxEVT_DIRPICKER_CHANGED;
+WXGO_DECL_TYPECONV(FilePickerCtrl)
 class wxFilePickerCtrl : public wxPickerBase
 {
 public:
@@ -44,6 +42,7 @@ public:
     void SetInitialDirectory(const wxString& dir);
     void SetPath(const wxString& filename);
 };
+WXGO_DECL_TYPECONV(DirPickerCtrl)
 class wxDirPickerCtrl : public wxPickerBase
 {
 public:
@@ -70,6 +69,7 @@ public:
     void SetInitialDirectory(const wxString& dir);
     void SetPath(const wxString& dirname);
 };
+WXGO_DECL_TYPECONV(FileDirPickerEvent)
 class wxFileDirPickerEvent : public wxCommandEvent
 {
 public:

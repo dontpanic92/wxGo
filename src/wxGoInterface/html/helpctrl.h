@@ -1,10 +1,9 @@
-WXGO_DECL_TYPECONV(HtmlHelpController)
-WXGO_DECL_TYPECONV(HtmlModalHelp)
 #define wxID_HTML_HELPFRAME   (wxID_HIGHEST + 1)
 #define wxHF_EMBEDDED                0x00008000
 #define wxHF_DIALOG                  0x00010000
 #define wxHF_FRAME                   0x00020000
 #define wxHF_MODAL                   0x00040000
+WXGO_DECL_TYPECONV(HtmlHelpController)
 class wxHtmlHelpController : public wxHelpControllerBase
 {
 public:
@@ -36,6 +35,7 @@ protected:
     virtual wxHtmlHelpDialog* CreateHelpDialog(wxHtmlHelpData* data);
     virtual wxHtmlHelpFrame* CreateHelpFrame(wxHtmlHelpData* data);
 };
+WXGO_DECL_TYPECONV(HtmlModalHelp)
 class wxHtmlModalHelp
 {
 public:

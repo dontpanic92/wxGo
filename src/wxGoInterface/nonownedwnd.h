@@ -1,5 +1,5 @@
-WXGO_DECL_TYPECONV(NonOwnedWindow)
 #define wxFRAME_SHAPED          0x0010  
+WXGO_DECL_TYPECONV(NonOwnedWindow)
 class wxNonOwnedWindow : public wxWindow
 {
 public:

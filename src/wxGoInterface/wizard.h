@@ -1,7 +1,3 @@
-WXGO_DECL_TYPECONV(WizardPage)
-WXGO_DECL_TYPECONV(WizardEvent)
-WXGO_DECL_TYPECONV(WizardPageSimple)
-WXGO_DECL_TYPECONV(Wizard)
 #define wxWIZARD_EX_HELPBUTTON   0x00000010
 #define wxWIZARD_VALIGN_TOP       0x01
 #define wxWIZARD_VALIGN_CENTRE    0x02
@@ -10,6 +6,7 @@ WXGO_DECL_TYPECONV(Wizard)
 #define wxWIZARD_HALIGN_CENTRE    0x10
 #define wxWIZARD_HALIGN_RIGHT     0x20
 #define wxWIZARD_TILE             0x40
+WXGO_DECL_TYPECONV(WizardPage)
 class wxWizardPage : public wxPanel
 {
 public:
@@ -22,6 +19,7 @@ public:
     virtual wxWizardPage* GetNext() const = 0;
     virtual wxWizardPage* GetPrev() const = 0;
 };
+WXGO_DECL_TYPECONV(WizardEvent)
 class wxWizardEvent : public wxNotifyEvent
 {
 public:
@@ -37,6 +35,7 @@ public:
 %constant wxEventType wxEVT_WIZARD_FINISHED;
 %constant wxEventType wxEVT_WIZARD_PAGE_SHOWN;
 %constant wxEventType wxEVT_WIZARD_BEFORE_PAGE_CHANGED;
+WXGO_DECL_TYPECONV(WizardPageSimple)
 class wxWizardPageSimple : public wxWizardPage
 {
 public:
@@ -53,6 +52,7 @@ public:
     void SetNext(wxWizardPage* next);
     void SetPrev(wxWizardPage* prev);
 };
+WXGO_DECL_TYPECONV(Wizard)
 class wxWizard : public wxDialog
 {
 public:

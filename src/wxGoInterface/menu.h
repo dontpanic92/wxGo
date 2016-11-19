@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(MenuBar)
-WXGO_DECL_TYPECONV(Menu)
 class wxMenuBar : public wxWindow
 {
 public:
@@ -45,6 +44,7 @@ public:
     virtual void Attach(wxFrame *frame);
     virtual void Detach();
 };
+WXGO_DECL_TYPECONV(Menu)
 class wxMenu : public wxEvtHandler
 {
 public:

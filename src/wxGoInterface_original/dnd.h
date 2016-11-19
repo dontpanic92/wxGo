@@ -222,7 +222,7 @@ public:
             The icon or cursor used for feedback when operation can't be done.
     */
 #if defined(__WXMSW__) || defined(__WXOSX__) 
-    wxDropSource(wxDataObject& data, wxWindow* win = NULL,
+    wxDropSource(wxDataObject& data, wxWindow* win,
                  const wxCursor& iconCopy = wxNullCursor,
                  const wxCursor& iconMove = wxNullCursor,
                  const wxCursor& iconNone = wxNullCursor);

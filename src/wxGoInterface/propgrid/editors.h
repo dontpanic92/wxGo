@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(PGEditor)
-WXGO_DECL_TYPECONV(PGMultiButton)
 class wxPGEditor : public wxObject
 {
 public:
@@ -34,6 +33,7 @@ public:
     virtual void OnFocus( wxPGProperty* property, wxWindow* wnd ) const;
     virtual bool CanContainCustomImage() const;
 };
+WXGO_DECL_TYPECONV(PGMultiButton)
 class wxPGMultiButton : public wxWindow
 {
 public:

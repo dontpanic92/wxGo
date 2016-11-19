@@ -1,5 +1,5 @@
-WXGO_DECL_TYPECONV(Icon)
 #define wxICON_SCREEN_DEPTH       (-1)
+WXGO_DECL_TYPECONV(Icon)
 class wxIcon : public wxGDIObject
 {
 public:

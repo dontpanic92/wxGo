@@ -1,5 +1,3 @@
-WXGO_DECL_TYPECONV(ConfigBase)
-WXGO_DECL_TYPECONV(ConfigPathChanger)
 enum
 {
     wxCONFIG_USE_LOCAL_FILE = 1,
@@ -8,6 +6,7 @@ enum
     wxCONFIG_USE_NO_ESCAPE_CHARACTERS = 8,
     wxCONFIG_USE_SUBDIR = 16
 };
+WXGO_DECL_TYPECONV(ConfigBase)
 class wxConfigBase : public wxObject
 {
 public:
@@ -82,6 +81,7 @@ public:
     static wxConfigBase* Get(bool CreateOnDemand = true);
     static wxConfigBase* Set(wxConfigBase* pConfig);
 };
+WXGO_DECL_TYPECONV(ConfigPathChanger)
 class wxConfigPathChanger
 {
 public:

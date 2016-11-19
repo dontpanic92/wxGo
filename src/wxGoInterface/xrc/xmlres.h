@@ -1,9 +1,8 @@
-WXGO_DECL_TYPECONV(XmlResource)
-WXGO_DECL_TYPECONV(XmlResourceHandler)
 %typedef int wxXmlResourceFlags;
 #define wxXRC_USE_LOCALE      1
 #define wxXRC_NO_SUBCLASSING  2
 #define wxXRC_NO_RELOADING    4
+WXGO_DECL_TYPECONV(XmlResource)
 class wxXmlResource : public wxObject
 {
 public:
@@ -65,6 +64,7 @@ protected:
     virtual void DoReportError(const wxString& xrcFile, const wxXmlNode *position,
                                const wxString& message);
 };
+WXGO_DECL_TYPECONV(XmlResourceHandler)
 class wxXmlResourceHandler : public wxObject
 {
 public:

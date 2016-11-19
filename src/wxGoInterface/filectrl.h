@@ -1,5 +1,3 @@
-WXGO_DECL_TYPECONV(FileCtrl)
-WXGO_DECL_TYPECONV(FileCtrlEvent)
 enum
 {
     wxFC_OPEN              = 0x0001,
@@ -8,6 +6,7 @@ enum
     wxFC_NOSHOWHIDDEN      = 0x0008
 };
 #define wxFC_DEFAULT_STYLE wxFC_OPEN
+WXGO_DECL_TYPECONV(FileCtrl)
 class wxFileCtrl : public wxControl
 {
 public:
@@ -45,6 +44,7 @@ public:
 %constant wxEventType wxEVT_FILECTRL_FILEACTIVATED;
 %constant wxEventType wxEVT_FILECTRL_FOLDERCHANGED;
 %constant wxEventType wxEVT_FILECTRL_FILTERCHANGED;
+WXGO_DECL_TYPECONV(FileCtrlEvent)
 class wxFileCtrlEvent : public wxCommandEvent
 {
 public:

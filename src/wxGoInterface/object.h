@@ -1,7 +1,5 @@
-WXGO_DECL_TYPECONV(RefCounter)
-WXGO_DECL_TYPECONV(Object)
-WXGO_DECL_TYPECONV(ClassInfo)
 typedef wxRefCounter wxObjectRefData;
+WXGO_DECL_TYPECONV(RefCounter)
 class wxRefCounter
 {
 protected:
@@ -12,6 +10,7 @@ public:
     int GetRefCount() const;
     void IncRef();
 };
+WXGO_DECL_TYPECONV(Object)
 class wxObject
 {
 public:
@@ -32,6 +31,7 @@ protected:
     virtual wxObjectRefData *CloneRefData(const wxObjectRefData *data) const;
     wxObjectRefData* m_refData;
 };
+WXGO_DECL_TYPECONV(ClassInfo)
 class wxClassInfo
 {
 public:

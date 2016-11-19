@@ -1,6 +1,3 @@
-WXGO_DECL_TYPECONV(PGValidationInfo)
-WXGO_DECL_TYPECONV(PropertyGrid)
-WXGO_DECL_TYPECONV(PropertyGridEvent)
 %typedef int wxPG_WINDOW_STYLES;
 #define wxPG_AUTO_SORT                       0x00000010
 #define wxPG_HIDE_CATEGORIES                 0x00000020
@@ -39,6 +36,7 @@ WXGO_DECL_TYPECONV(PropertyGridEvent)
 #define wxPG_VFB_SHOW_MESSAGE_ON_STATUSBAR   0x20
 #define wxPG_VFB_DEFAULT                     wxPG_VFB_MARK_CELL |                                      wxPG_VFB_SHOW_MESSAGEBOX
 typedef wxByte wxPGVFBFlags;
+WXGO_DECL_TYPECONV(PGValidationInfo)
 class wxPGValidationInfo
 {
 public:
@@ -61,6 +59,7 @@ public:
 typedef int (*wxPGSortCallback)(wxPropertyGrid* propGrid,
                                 wxPGProperty* p1,
                                 wxPGProperty* p2);
+WXGO_DECL_TYPECONV(PropertyGrid)
 class wxPropertyGrid : public wxControl,
                        public wxScrollHelper,
                        public wxPropertyGridInterface
@@ -167,6 +166,7 @@ public:
     void ShowPropertyError( wxPGPropArg id, const wxString& msg );
     bool WasValueChangedInEvent() const;
 };
+WXGO_DECL_TYPECONV(PropertyGridEvent)
 class wxPropertyGridEvent : public wxCommandEvent
 {
 public:

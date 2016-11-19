@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(HtmlListBox)
-WXGO_DECL_TYPECONV(SimpleHtmlListBox)
 class wxHtmlListBox : public wxVListBox
 {
 public:
@@ -24,6 +23,7 @@ protected:
     virtual wxString OnGetItemMarkup(size_t n) const;
     virtual wxString OnGetItem(size_t n) const = 0;
 };
+WXGO_DECL_TYPECONV(SimpleHtmlListBox)
 class wxSimpleHtmlListBox : public wxHtmlListBox,
                             public wxItemContainer
 {

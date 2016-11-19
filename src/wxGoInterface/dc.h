@@ -1,9 +1,3 @@
-WXGO_DECL_TYPECONV(DC)
-WXGO_DECL_TYPECONV(DCClipper)
-WXGO_DECL_TYPECONV(DCBrushChanger)
-WXGO_DECL_TYPECONV(DCPenChanger)
-WXGO_DECL_TYPECONV(DCTextColourChanger)
-WXGO_DECL_TYPECONV(DCFontChanger)
 %typedef int wxRasterOperationMode;
 #define wxCLEAR 0
 #define wxXOR wxCLEAR + 1
@@ -41,6 +35,7 @@ struct wxFontMetrics
         averageWidth;       
 };
 %nodefaultctor wxDC;
+WXGO_DECL_TYPECONV(DC)
 class wxDC : public wxObject
 {
 public:
@@ -223,6 +218,7 @@ public:
     void GetLogicalOrigin(wxCoord *x, wxCoord *y) const;
     wxPoint GetLogicalOrigin() const;
 };
+WXGO_DECL_TYPECONV(DCClipper)
 class wxDCClipper
 {
 public:
@@ -231,18 +227,21 @@ public:
     wxDCClipper(wxDC& dc, wxCoord x, wxCoord y, wxCoord w, wxCoord h);
     ~wxDCClipper();
 };
+WXGO_DECL_TYPECONV(DCBrushChanger)
 class wxDCBrushChanger
 {
 public:
     wxDCBrushChanger(wxDC& dc, const wxBrush& brush);
     ~wxDCBrushChanger();
 };
+WXGO_DECL_TYPECONV(DCPenChanger)
 class wxDCPenChanger
 {
 public:
     wxDCPenChanger(wxDC& dc, const wxPen& pen);
     ~wxDCPenChanger();
 };
+WXGO_DECL_TYPECONV(DCTextColourChanger)
 class wxDCTextColourChanger
 {
 public:
@@ -251,6 +250,7 @@ public:
     void Set(const wxColour& col);
     ~wxDCTextColourChanger();
 };
+WXGO_DECL_TYPECONV(DCFontChanger)
 class wxDCFontChanger
 {
 public:

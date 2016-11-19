@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(PropertyGridPage)
-WXGO_DECL_TYPECONV(PropertyGridManager)
 class wxPropertyGridPage : public wxEvtHandler,
                                                 public wxPropertyGridInterface
 {
@@ -19,6 +18,7 @@ public:
     virtual void RefreshProperty( wxPGProperty* p );
     void SetSplitterPosition( int splitterPos, int col = 0 );
 };
+WXGO_DECL_TYPECONV(PropertyGridManager)
 class wxPropertyGridManager : public wxPanel, public wxPropertyGridInterface
 {
 public:

@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(WindowDisabler)
-WXGO_DECL_TYPECONV(BusyCursor)
 class wxWindowDisabler
 {
 public:
@@ -7,6 +6,7 @@ public:
     wxWindowDisabler(wxWindow* winToSkip);
     ~wxWindowDisabler();
 };
+WXGO_DECL_TYPECONV(BusyCursor)
 class wxBusyCursor
 {
 public:

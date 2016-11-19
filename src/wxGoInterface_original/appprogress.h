@@ -70,5 +70,5 @@ public:
     /**
         Makes the progress bar run in indeterminate mode.
     */
-    bool Pulse();
+    void Pulse();
 };

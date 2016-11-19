@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(Command)
-WXGO_DECL_TYPECONV(CommandProcessor)
 class wxCommand : public wxObject
 {
 public:
@@ -10,6 +9,7 @@ public:
     virtual wxString GetName() const;
     virtual bool Undo() = 0;
 };
+WXGO_DECL_TYPECONV(CommandProcessor)
 class wxCommandProcessor : public wxObject
 {
 public:

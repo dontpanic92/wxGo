@@ -1,5 +1,3 @@
-WXGO_DECL_TYPECONV(Pen)
-WXGO_DECL_TYPECONV(PenList)
 %typedef int wxPenStyle;
 #define wxPENSTYLE_INVALID  -1
 #define wxPENSTYLE_SOLID wxPENSTYLE_INVALID  + 1
@@ -30,6 +28,7 @@ WXGO_DECL_TYPECONV(PenList)
 #define wxCAP_ROUND  130
 #define wxCAP_PROJECTING wxCAP_ROUND  + 1
 #define wxCAP_BUTT wxCAP_PROJECTING + 1
+WXGO_DECL_TYPECONV(Pen)
 class wxPen : public wxGDIObject
 {
 public:
@@ -75,6 +74,7 @@ wxPen* const wxBLACK_DASHED_PEN;
 wxPen* const wxGREY_PEN;
 wxPen* const wxMEDIUM_GREY_PEN;
 wxPen* const wxLIGHT_GREY_PEN;
+WXGO_DECL_TYPECONV(PenList)
 class wxPenList
 {
 public:

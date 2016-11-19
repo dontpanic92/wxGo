@@ -1,6 +1,3 @@
-WXGO_DECL_TYPECONV(FontInfo)
-WXGO_DECL_TYPECONV(Font)
-WXGO_DECL_TYPECONV(FontList)
 %typedef int wxFontFamily;
 #define wxFONTFAMILY_DEFAULT  wxDEFAULT
 #define wxFONTFAMILY_DECORATIVE  wxDECORATIVE
@@ -144,6 +141,7 @@ WXGO_DECL_TYPECONV(FontList)
 #define wxFONTENCODING_EUC_KR  wxFONTENCODING_CP949
 #define wxFONTENCODING_JOHAB  wxFONTENCODING_CP1361
 #define wxFONTENCODING_VIETNAMESE  wxFONTENCODING_CP1258
+WXGO_DECL_TYPECONV(FontInfo)
 class wxFontInfo
 {
 public:
@@ -162,6 +160,7 @@ public:
     wxFontInfo& Encoding(wxFontEncoding encoding);
     wxFontInfo& AllFlags(int flags);
 };
+WXGO_DECL_TYPECONV(Font)
 class wxFont : public wxGDIObject
 {
 public:
@@ -250,6 +249,7 @@ public:
     static wxFont *New(const wxString& nativeInfoString);
 };
 %constant wxFont wxNullFont;
+WXGO_DECL_TYPECONV(FontList)
 class wxFontList
 {
 public:

@@ -1,10 +1,4 @@
 WXGO_DECL_TYPECONV(VarScrollHelperBase)
-WXGO_DECL_TYPECONV(VarVScrollHelper)
-WXGO_DECL_TYPECONV(VarHScrollHelper)
-WXGO_DECL_TYPECONV(VarHVScrollHelper)
-WXGO_DECL_TYPECONV(VScrolledWindow)
-WXGO_DECL_TYPECONV(HScrolledWindow)
-WXGO_DECL_TYPECONV(HVScrolledWindow)
 class wxVarScrollHelperBase
 {
 public:
@@ -29,6 +23,7 @@ protected:
     virtual wxCoord EstimateTotalSize() const;
     virtual wxCoord OnGetUnitSize(size_t unit) const = 0;
 };
+WXGO_DECL_TYPECONV(VarVScrollHelper)
 class wxVarVScrollHelper : public wxVarScrollHelperBase
 {
 public:
@@ -48,6 +43,7 @@ protected:
     virtual wxCoord EstimateTotalHeight() const;
     virtual wxCoord OnGetRowHeight(size_t row) const = 0;
 };
+WXGO_DECL_TYPECONV(VarHScrollHelper)
 class wxVarHScrollHelper : public wxVarScrollHelperBase
 {
 public:
@@ -68,6 +64,7 @@ protected:
                                        size_t columnMax) const;
     virtual wxCoord OnGetColumnWidth(size_t column) const = 0;
 };
+WXGO_DECL_TYPECONV(VarHVScrollHelper)
 class wxVarHVScrollHelper : public wxVarVScrollHelper,
                              public wxVarHScrollHelper
 {
@@ -92,6 +89,7 @@ public:
     wxPosition VirtualHitTest(wxCoord x, wxCoord y) const;
     wxPosition VirtualHitTest(const wxPoint& pos) const;
 };
+WXGO_DECL_TYPECONV(VScrolledWindow)
 class wxVScrolledWindow : public wxPanel, public wxVarVScrollHelper
 {
 public:
@@ -105,6 +103,7 @@ public:
                 const wxSize& size = wxDefaultSize, long style = 0,
                 const wxString& name = wxPanelNameStr);
 };
+WXGO_DECL_TYPECONV(HScrolledWindow)
 class wxHScrolledWindow : public wxPanel, public wxVarHScrollHelper
 {
 public:
@@ -118,6 +117,7 @@ public:
                 const wxSize& size = wxDefaultSize, long style = 0,
                 const wxString& name = wxPanelNameStr);
 };
+WXGO_DECL_TYPECONV(HVScrolledWindow)
 class wxHVScrolledWindow : public wxPanel, public wxVarHVScrollHelper
 {
 public:

@@ -1,6 +1,5 @@
-WXGO_DECL_TYPECONV(ToggleButton)
-WXGO_DECL_TYPECONV(BitmapToggleButton)
 %constant wxEventType wxEVT_TOGGLEBUTTON;
+WXGO_DECL_TYPECONV(ToggleButton)
 class wxToggleButton : public wxAnyButton
 {
 public:
@@ -23,6 +22,7 @@ public:
     virtual bool GetValue() const;
     virtual void SetValue(bool state);
 };
+WXGO_DECL_TYPECONV(BitmapToggleButton)
 class wxBitmapToggleButton : public wxToggleButton
 {
 public:

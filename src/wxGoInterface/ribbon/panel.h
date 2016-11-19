@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(RibbonPanelEvent)
-WXGO_DECL_TYPECONV(RibbonPanel)
 class wxRibbonPanelEvent : public wxCommandEvent
 {
 public:
@@ -9,6 +8,7 @@ public:
     wxRibbonPanel* GetPanel();
     void SetPanel(wxRibbonPanel* page);
 };
+WXGO_DECL_TYPECONV(RibbonPanel)
 class wxRibbonPanel : public wxRibbonControl
 {
 public:

@@ -1,9 +1,8 @@
-WXGO_DECL_TYPECONV(RibbonBarEvent)
-WXGO_DECL_TYPECONV(RibbonBar)
 %typedef int wxRibbonDisplayMode;
 #define wxRIBBON_BAR_PINNED 0
 #define wxRIBBON_BAR_MINIMIZED wxRIBBON_BAR_PINNED + 1
 #define wxRIBBON_BAR_EXPANDED wxRIBBON_BAR_MINIMIZED + 1
+WXGO_DECL_TYPECONV(RibbonBarEvent)
 class wxRibbonBarEvent : public wxNotifyEvent
 {
 public:
@@ -13,6 +12,7 @@ public:
     wxRibbonPage* GetPage();
     void SetPage(wxRibbonPage* page);
 };
+WXGO_DECL_TYPECONV(RibbonBar)
 class wxRibbonBar : public wxRibbonControl
 {
 public:

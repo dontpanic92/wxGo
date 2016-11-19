@@ -3,6 +3,7 @@
 %rename("%(strip:[wx])s") "";
 
 %{
+	//#incldue "wx/setup.h"
 	#include "wx/wx.h"
 %}
 

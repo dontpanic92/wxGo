@@ -1,7 +1,4 @@
 WXGO_DECL_TYPECONV(SVGFileDC)
-WXGO_DECL_TYPECONV(SVGBitmapHandler)
-WXGO_DECL_TYPECONV(SVGBitmapEmbedHandler)
-WXGO_DECL_TYPECONV(SVGBitmapFileHandler)
 class wxSVGFileDC : public wxDC
 {
 public:
@@ -26,6 +23,7 @@ public:
     void SetPalette(const wxPalette& palette);
     bool StartDoc(const wxString& message);
 };
+WXGO_DECL_TYPECONV(SVGBitmapHandler)
 class wxSVGBitmapHandler
 {
 public:
@@ -33,6 +31,7 @@ public:
                                wxCoord x, wxCoord y,
                                wxOutputStream& stream) const = 0;
 };
+WXGO_DECL_TYPECONV(SVGBitmapEmbedHandler)
 class wxSVGBitmapEmbedHandler : public wxSVGBitmapHandler
 {
 public:
@@ -40,6 +39,7 @@ public:
                                wxCoord x, wxCoord y,
                                wxOutputStream& stream) const;
 };
+WXGO_DECL_TYPECONV(SVGBitmapFileHandler)
 class wxSVGBitmapFileHandler : public wxSVGBitmapHandler
 {
 public:

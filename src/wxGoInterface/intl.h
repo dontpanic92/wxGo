@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(Locale)
 %typedef int wxLayoutDirection;
 #define wxLayout_Default 0
 #define wxLayout_LeftToRight wxLayout_Default + 1
@@ -29,6 +28,7 @@ struct wxLanguageInfo
 #define wxLOCALE_LONG_DATE_FMT wxLOCALE_SHORT_DATE_FMT + 1
 #define wxLOCALE_DATE_TIME_FMT wxLOCALE_LONG_DATE_FMT + 1
 #define wxLOCALE_TIME_FMT wxLOCALE_DATE_TIME_FMT + 1
+WXGO_DECL_TYPECONV(Locale)
 class wxLocale
 {
 public:

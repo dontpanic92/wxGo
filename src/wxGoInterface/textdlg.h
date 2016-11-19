@@ -1,8 +1,7 @@
-WXGO_DECL_TYPECONV(TextEntryDialog)
-WXGO_DECL_TYPECONV(PasswordEntryDialog)
 #define wxTextEntryDialogStyle (wxOK | wxCANCEL | wxCENTRE)
 const char wxGetTextFromUserPromptStr[] = "Input Text";
 const char wxGetPasswordFromUserPromptStr[] = "Enter Password";
+WXGO_DECL_TYPECONV(TextEntryDialog)
 class wxTextEntryDialog : public wxDialog
 {
 public:
@@ -26,6 +25,7 @@ public:
     void ForceUpper();
     int ShowModal();
 };
+WXGO_DECL_TYPECONV(PasswordEntryDialog)
 class wxPasswordEntryDialog : public wxTextEntryDialog
 {
 public:

@@ -1,9 +1,7 @@
-WXGO_DECL_TYPECONV(BufferedDC)
-WXGO_DECL_TYPECONV(BufferedPaintDC)
-WXGO_DECL_TYPECONV(AutoBufferedPaintDC)
 #define wxBUFFER_VIRTUAL_AREA       0x01
 #define wxBUFFER_CLIENT_AREA        0x02
 #define wxBUFFER_USES_SHARED_BUFFER 0x04
+WXGO_DECL_TYPECONV(BufferedDC)
 class wxBufferedDC : public wxMemoryDC
 {
 public:
@@ -21,6 +19,7 @@ public:
     void SetStyle(int style);
     int GetStyle() const;
 };
+WXGO_DECL_TYPECONV(BufferedPaintDC)
 class wxBufferedPaintDC : public wxBufferedDC
 {
 public:
@@ -30,6 +29,7 @@ public:
                       int style = wxBUFFER_CLIENT_AREA);
     virtual ~wxBufferedPaintDC();
 };
+WXGO_DECL_TYPECONV(AutoBufferedPaintDC)
 class wxAutoBufferedPaintDC : public wxBufferedPaintDC
 {
 public:

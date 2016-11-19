@@ -1,5 +1,5 @@
-WXGO_DECL_TYPECONV(IdManager)
 typedef int wxWindowID;
+WXGO_DECL_TYPECONV(IdManager)
 class wxIdManager
 {
 public:

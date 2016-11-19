@@ -1,11 +1,4 @@
 WXGO_DECL_TYPECONV(RichTextStyleListCtrl)
-WXGO_DECL_TYPECONV(RichTextStyleDefinition)
-WXGO_DECL_TYPECONV(RichTextParagraphStyleDefinition)
-WXGO_DECL_TYPECONV(RichTextStyleListBox)
-WXGO_DECL_TYPECONV(RichTextStyleComboCtrl)
-WXGO_DECL_TYPECONV(RichTextCharacterStyleDefinition)
-WXGO_DECL_TYPECONV(RichTextListStyleDefinition)
-WXGO_DECL_TYPECONV(RichTextStyleSheet)
 class wxRichTextStyleListCtrl : public wxControl
 {
 public:
@@ -30,6 +23,7 @@ public:
     void UpdateStyles();
 };
 %nodefaultctor wxRichTextStyleDefinition;
+WXGO_DECL_TYPECONV(RichTextStyleDefinition)
 class wxRichTextStyleDefinition : public wxObject
 {
 public:
@@ -47,6 +41,7 @@ public:
     wxRichTextProperties& GetProperties();
     void SetProperties(const wxRichTextProperties& props);
 };
+WXGO_DECL_TYPECONV(RichTextParagraphStyleDefinition)
 class wxRichTextParagraphStyleDefinition : public wxRichTextStyleDefinition
 {
 public:
@@ -55,6 +50,7 @@ public:
     const wxString& GetNextStyle() const;
     void SetNextStyle(const wxString& name);
 };
+WXGO_DECL_TYPECONV(RichTextStyleListBox)
 class wxRichTextStyleListBox : public wxHtmlListBox
 {
 public:
@@ -95,6 +91,7 @@ public:
 protected:
     virtual wxString OnGetItem(size_t n) const;
 };
+WXGO_DECL_TYPECONV(RichTextStyleComboCtrl)
 class wxRichTextStyleComboCtrl : public wxComboCtrl
 {
 public:
@@ -116,12 +113,14 @@ public:
     void SetStyleSheet(wxRichTextStyleSheet* styleSheet);
     void UpdateStyles();
 };
+WXGO_DECL_TYPECONV(RichTextCharacterStyleDefinition)
 class wxRichTextCharacterStyleDefinition : public wxRichTextStyleDefinition
 {
 public:
     wxRichTextCharacterStyleDefinition(const wxString& name = wxEmptyString);
     virtual ~wxRichTextCharacterStyleDefinition();
 };
+WXGO_DECL_TYPECONV(RichTextListStyleDefinition)
 class wxRichTextListStyleDefinition : public wxRichTextParagraphStyleDefinition
 {
 public:
@@ -140,6 +139,7 @@ public:
     bool IsNumbered(int level) const;
     void SetLevelAttributes(int level, const wxRichTextAttr& attr);
 };
+WXGO_DECL_TYPECONV(RichTextStyleSheet)
 class wxRichTextStyleSheet : public wxObject
 {
 public:

@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(Window)
 %typedef int wxShowEffect;
 #define wxSHOW_EFFECT_NONE 0
 #define wxSHOW_EFFECT_ROLL_TO_LEFT wxSHOW_EFFECT_NONE + 1
@@ -28,6 +27,7 @@ struct  wxVisualAttributes
 #define wxWINDOW_VARIANT_MINI wxWINDOW_VARIANT_SMALL + 1
 #define wxWINDOW_VARIANT_LARGE wxWINDOW_VARIANT_MINI + 1
 #define wxWINDOW_VARIANT_MAX wxWINDOW_VARIANT_LARGE + 1
+WXGO_DECL_TYPECONV(Window)
 class wxWindow : public wxEvtHandler
 {
 public:

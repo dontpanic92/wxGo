@@ -1,6 +1,4 @@
 WXGO_DECL_TYPECONV(RearrangeList)
-WXGO_DECL_TYPECONV(RearrangeCtrl)
-WXGO_DECL_TYPECONV(RearrangeDialog)
 class wxRearrangeList : public wxCheckListBox
 {
 public:
@@ -29,6 +27,7 @@ public:
     bool MoveCurrentUp();
     bool MoveCurrentDown();
 };
+WXGO_DECL_TYPECONV(RearrangeCtrl)
 class wxRearrangeCtrl : public wxPanel
 {
 public:
@@ -53,6 +52,7 @@ public:
                 const wxString& name = wxRearrangeListNameStr);
     wxRearrangeList *GetList() const;
 };
+WXGO_DECL_TYPECONV(RearrangeDialog)
 class wxRearrangeDialog : public wxDialog
 {
 public:

@@ -1,6 +1,3 @@
-WXGO_DECL_TYPECONV(PropertyGridIteratorBase)
-WXGO_DECL_TYPECONV(PropertyGridIterator)
-WXGO_DECL_TYPECONV(PGVIterator)
 struct wxPropertyGridHitTestResult
 {
 public:
@@ -26,6 +23,7 @@ private:
 #define wxPG_ITERATE_ALL                     (wxPG_ITERATE_VISIBLE|wxPG_ITERATE_HIDDEN)
 #define wxPG_ITERATE_NORMAL                  (wxPG_ITERATE_PROPERTIES|wxPG_ITERATE_HIDDEN)
 #define wxPG_ITERATE_DEFAULT                 wxPG_ITERATE_NORMAL
+WXGO_DECL_TYPECONV(PropertyGridIteratorBase)
 class wxPropertyGridIteratorBase
 {
 public:
@@ -49,6 +47,7 @@ public:
         { m_baseParent = baseParent; }
 protected:
 };
+WXGO_DECL_TYPECONV(PropertyGridIterator)
 class wxPropertyGridIterator : public wxPropertyGridIteratorBase
 {
 public:
@@ -59,6 +58,7 @@ public:
     void Prev();
 protected:
 };
+WXGO_DECL_TYPECONV(PGVIterator)
 class wxPGVIterator
 {
 public:

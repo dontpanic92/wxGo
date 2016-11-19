@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(MetafileDC)
-WXGO_DECL_TYPECONV(Metafile)
 class wxMetafileDC : public wxDC
 {
 public:
@@ -7,6 +6,7 @@ public:
     ~wxMetafileDC();
     wxMetafile* Close();
 };
+WXGO_DECL_TYPECONV(Metafile)
 class wxMetafile : public wxObject
 {
 public:
@@ -16,7 +16,3 @@ public:
     bool Play(wxDC* dc);
     bool SetClipboard(int width = 0, int height = 0);
 };
-bool wxMakeMetafilePlaceable(const wxString& filename,
-                              int minX, int minY,
-                              int maxX, int maxY,
-                              float scale = 1.0);

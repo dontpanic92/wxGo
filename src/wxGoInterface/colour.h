@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(Colour)
 enum {
     wxC2S_NAME             = 1,   
     wxC2S_CSS_SYNTAX       = 2,   
@@ -7,6 +6,7 @@ enum {
 %constant const unsigned char wxALPHA_TRANSPARENT = 0;
 %constant const unsigned char wxALPHA_OPAQUE = 0xff;
 typedef wxColour wxColor;
+WXGO_DECL_TYPECONV(Colour)
 class wxColour : public wxObject
 {
 public:

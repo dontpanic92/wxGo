@@ -1,7 +1,3 @@
-WXGO_DECL_TYPECONV(DropTarget)
-WXGO_DECL_TYPECONV(DropSource)
-WXGO_DECL_TYPECONV(TextDropTarget)
-WXGO_DECL_TYPECONV(FileDropTarget)
 enum
 {
     wxDrag_CopyOnly    = 0, 
@@ -17,6 +13,7 @@ enum wxDragResult
     wxDragLink,     
     wxDragCancel    
 };
+WXGO_DECL_TYPECONV(DropTarget)
 class wxDropTarget
 {
 public:
@@ -33,6 +30,7 @@ public:
     void SetDefaultAction(wxDragResult action);
     wxDragResult GetDefaultAction();
 };
+WXGO_DECL_TYPECONV(DropSource)
 class wxDropSource
 {
 public:
@@ -43,7 +41,7 @@ public:
                  const wxCursor& iconNone = wxNullCursor);
 #endif
 #if defined(__WXMSW__) || defined(__WXOSX__) 
-    wxDropSource(wxDataObject& data, wxWindow* win = NULL,
+    wxDropSource(wxDataObject& data, wxWindow* win,
                  const wxCursor& iconCopy = wxNullCursor,
                  const wxCursor& iconMove = wxNullCursor,
                  const wxCursor& iconNone = wxNullCursor);
@@ -71,6 +69,7 @@ public:
 #endif
     void SetData(wxDataObject& data);
 };
+WXGO_DECL_TYPECONV(TextDropTarget)
 class wxTextDropTarget : public wxDropTarget
 {
 public:
@@ -78,6 +77,7 @@ public:
     virtual bool OnDrop(wxCoord x, wxCoord y);
     virtual bool OnDropText(wxCoord x, wxCoord y, const wxString& data) = 0;
 };
+WXGO_DECL_TYPECONV(FileDropTarget)
 class wxFileDropTarget : public wxDropTarget
 {
 public:

@@ -1,8 +1,4 @@
 WXGO_DECL_TYPECONV(HelpProvider)
-WXGO_DECL_TYPECONV(ContextHelp)
-WXGO_DECL_TYPECONV(ContextHelpButton)
-WXGO_DECL_TYPECONV(SimpleHelpProvider)
-WXGO_DECL_TYPECONV(HelpControllerHelpProvider)
 class wxHelpProvider
 {
 public:
@@ -17,6 +13,7 @@ public:
     virtual bool ShowHelpAtPoint(wxWindowBase* window, const wxPoint& point,
                                  wxHelpEvent::Origin origin);
 };
+WXGO_DECL_TYPECONV(ContextHelp)
 class wxContextHelp : public wxObject
 {
 public:
@@ -25,6 +22,7 @@ public:
     bool BeginContextHelp(wxWindow* window);
     bool EndContextHelp();
 };
+WXGO_DECL_TYPECONV(ContextHelpButton)
 class wxContextHelpButton : public wxBitmapButton
 {
 public:
@@ -34,10 +32,12 @@ public:
                         const wxSize& size = wxDefaultSize,
                         long style = wxBU_AUTODRAW);
 };
+WXGO_DECL_TYPECONV(SimpleHelpProvider)
 class wxSimpleHelpProvider : public wxHelpProvider
 {
 public:
 };
+WXGO_DECL_TYPECONV(HelpControllerHelpProvider)
 class wxHelpControllerHelpProvider : public wxSimpleHelpProvider
 {
 public:

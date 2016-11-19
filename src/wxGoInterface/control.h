@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(Control)
 %typedef int wxEllipsizeFlags;
 #define wxELLIPSIZE_FLAGS_NONE  0
 #define wxELLIPSIZE_FLAGS_PROCESS_MNEMONICS  1
@@ -9,6 +8,7 @@ WXGO_DECL_TYPECONV(Control)
 #define wxELLIPSIZE_START wxELLIPSIZE_NONE + 1
 #define wxELLIPSIZE_MIDDLE wxELLIPSIZE_START + 1
 #define wxELLIPSIZE_END wxELLIPSIZE_MIDDLE + 1
+WXGO_DECL_TYPECONV(Control)
 class wxControl : public wxWindow
 {
 public:

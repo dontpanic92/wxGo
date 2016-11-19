@@ -1,38 +1,4 @@
 WXGO_DECL_TYPECONV(GridCellRenderer)
-WXGO_DECL_TYPECONV(GridCellStringRenderer)
-WXGO_DECL_TYPECONV(GridCellAutoWrapStringRenderer)
-WXGO_DECL_TYPECONV(GridCellBoolRenderer)
-WXGO_DECL_TYPECONV(GridCellDateTimeRenderer)
-WXGO_DECL_TYPECONV(GridCellEnumRenderer)
-WXGO_DECL_TYPECONV(GridCellFloatRenderer)
-WXGO_DECL_TYPECONV(GridCellNumberRenderer)
-WXGO_DECL_TYPECONV(GridCellEditor)
-WXGO_DECL_TYPECONV(GridCellTextEditor)
-WXGO_DECL_TYPECONV(GridCellAutoWrapStringEditor)
-WXGO_DECL_TYPECONV(GridCellBoolEditor)
-WXGO_DECL_TYPECONV(GridCellChoiceEditor)
-WXGO_DECL_TYPECONV(GridCellEnumEditor)
-WXGO_DECL_TYPECONV(GridCellFloatEditor)
-WXGO_DECL_TYPECONV(GridCellNumberEditor)
-WXGO_DECL_TYPECONV(GridCellAttr)
-WXGO_DECL_TYPECONV(GridCornerHeaderRenderer)
-WXGO_DECL_TYPECONV(GridHeaderLabelsRenderer)
-WXGO_DECL_TYPECONV(GridRowHeaderRenderer)
-WXGO_DECL_TYPECONV(GridColumnHeaderRenderer)
-WXGO_DECL_TYPECONV(GridRowHeaderRendererDefault)
-WXGO_DECL_TYPECONV(GridColumnHeaderRendererDefault)
-WXGO_DECL_TYPECONV(GridCornerHeaderRendererDefault)
-WXGO_DECL_TYPECONV(GridCellAttrProvider)
-WXGO_DECL_TYPECONV(GridCellCoords)
-WXGO_DECL_TYPECONV(GridTableBase)
-WXGO_DECL_TYPECONV(GridTableMessage)
-WXGO_DECL_TYPECONV(GridStringTable)
-WXGO_DECL_TYPECONV(Grid)
-WXGO_DECL_TYPECONV(GridUpdateLocker)
-WXGO_DECL_TYPECONV(GridEvent)
-WXGO_DECL_TYPECONV(GridSizeEvent)
-WXGO_DECL_TYPECONV(GridRangeSelectEvent)
-WXGO_DECL_TYPECONV(GridEditorCreatedEvent)
 class wxGridCellRenderer : public wxClientDataContainer, public wxRefCounter
 {
 public:
@@ -50,21 +16,25 @@ public:
 protected:
     virtual ~wxGridCellRenderer();
 };
+WXGO_DECL_TYPECONV(GridCellStringRenderer)
 class wxGridCellStringRenderer : public wxGridCellRenderer
 {
 public:
     wxGridCellStringRenderer();
 };
+WXGO_DECL_TYPECONV(GridCellAutoWrapStringRenderer)
 class wxGridCellAutoWrapStringRenderer : public wxGridCellStringRenderer
 {
 public:
     wxGridCellAutoWrapStringRenderer();
 };
+WXGO_DECL_TYPECONV(GridCellBoolRenderer)
 class wxGridCellBoolRenderer : public wxGridCellRenderer
 {
 public:
     wxGridCellBoolRenderer();
 };
+WXGO_DECL_TYPECONV(GridCellDateTimeRenderer)
 class wxGridCellDateTimeRenderer : public wxGridCellStringRenderer
 {
 public:
@@ -72,6 +42,7 @@ public:
                                const wxString& informat = wxDefaultDateTimeFormat);
     virtual void SetParameters(const wxString& params);
 };
+WXGO_DECL_TYPECONV(GridCellEnumRenderer)
 class wxGridCellEnumRenderer : public wxGridCellStringRenderer
 {
 public:
@@ -84,6 +55,7 @@ public:
 #define wxGRID_FLOAT_FORMAT_COMPACT      0x0040
 #define wxGRID_FLOAT_FORMAT_UPPER        0x0080
 #define wxGRID_FLOAT_FORMAT_DEFAULT      wxGRID_FLOAT_FORMAT_FIXED
+WXGO_DECL_TYPECONV(GridCellFloatRenderer)
 class wxGridCellFloatRenderer : public wxGridCellStringRenderer
 {
 public:
@@ -97,11 +69,13 @@ public:
     void SetPrecision(int precision);
     void SetWidth(int width);
 };
+WXGO_DECL_TYPECONV(GridCellNumberRenderer)
 class wxGridCellNumberRenderer : public wxGridCellStringRenderer
 {
 public:
     wxGridCellNumberRenderer();
 };
+WXGO_DECL_TYPECONV(GridCellEditor)
 class wxGridCellEditor : public wxClientDataContainer, public wxRefCounter
 {
 public:
@@ -128,6 +102,7 @@ public:
 protected:
     virtual ~wxGridCellEditor();
 };
+WXGO_DECL_TYPECONV(GridCellTextEditor)
 class wxGridCellTextEditor : public wxGridCellEditor
 {
 public:
@@ -135,11 +110,13 @@ public:
     virtual void SetParameters(const wxString& params);
     virtual void SetValidator(const wxValidator& validator);
 };
+WXGO_DECL_TYPECONV(GridCellAutoWrapStringEditor)
 class wxGridCellAutoWrapStringEditor : public wxGridCellTextEditor
 {
 public:
     wxGridCellAutoWrapStringEditor();
 };
+WXGO_DECL_TYPECONV(GridCellBoolEditor)
 class wxGridCellBoolEditor : public wxGridCellEditor
 {
 public:
@@ -148,6 +125,7 @@ public:
     static void UseStringValues(const wxString& valueTrue = "1",
                                 const wxString& valueFalse = wxEmptyString);
 };
+WXGO_DECL_TYPECONV(GridCellChoiceEditor)
 class wxGridCellChoiceEditor : public wxGridCellEditor
 {
 public:
@@ -158,11 +136,13 @@ public:
                            bool allowOthers = false);
     virtual void SetParameters(const wxString& params);
 };
+WXGO_DECL_TYPECONV(GridCellEnumEditor)
 class wxGridCellEnumEditor : public wxGridCellChoiceEditor
 {
 public:
     wxGridCellEnumEditor( const wxString& choices = wxEmptyString );
 };
+WXGO_DECL_TYPECONV(GridCellFloatEditor)
 class wxGridCellFloatEditor : public wxGridCellTextEditor
 {
 public:
@@ -170,6 +150,7 @@ public:
                           int format = wxGRID_FLOAT_FORMAT_DEFAULT);
     virtual void SetParameters(const wxString& params);
 };
+WXGO_DECL_TYPECONV(GridCellNumberEditor)
 class wxGridCellNumberEditor : public wxGridCellTextEditor
 {
 public:
@@ -179,6 +160,7 @@ protected:
     bool HasRange() const;
     wxString GetString() const;
 };
+WXGO_DECL_TYPECONV(GridCellAttr)
 class wxGridCellAttr : public wxClientDataContainer, public wxRefCounter
 {
 public:
@@ -220,6 +202,7 @@ public:
 protected:
     virtual ~wxGridCellAttr();
 };
+WXGO_DECL_TYPECONV(GridCornerHeaderRenderer)
 class wxGridCornerHeaderRenderer
 {
 public:
@@ -227,6 +210,7 @@ public:
                             wxDC& dc,
                             wxRect& rect) const = 0;
 };
+WXGO_DECL_TYPECONV(GridHeaderLabelsRenderer)
 class wxGridHeaderLabelsRenderer : public wxGridCornerHeaderRenderer
 {
 public:
@@ -238,12 +222,15 @@ public:
                            int vertAlign,
                            int textOrientation) const;
 };
+WXGO_DECL_TYPECONV(GridRowHeaderRenderer)
 class wxGridRowHeaderRenderer : public wxGridHeaderLabelsRenderer
 {
 };
+WXGO_DECL_TYPECONV(GridColumnHeaderRenderer)
 class wxGridColumnHeaderRenderer : public wxGridHeaderLabelsRenderer
 {
 };
+WXGO_DECL_TYPECONV(GridRowHeaderRendererDefault)
 class wxGridRowHeaderRendererDefault : public wxGridRowHeaderRenderer
 {
 public:
@@ -251,6 +238,7 @@ public:
                             wxDC& dc,
                             wxRect& rect) const;
 };
+WXGO_DECL_TYPECONV(GridColumnHeaderRendererDefault)
 class wxGridColumnHeaderRendererDefault : public wxGridColumnHeaderRenderer
 {
 public:
@@ -258,6 +246,7 @@ public:
                             wxDC& dc,
                             wxRect& rect) const;
 };
+WXGO_DECL_TYPECONV(GridCornerHeaderRendererDefault)
 class wxGridCornerHeaderRendererDefault : public wxGridCornerHeaderRenderer
 {
 public:
@@ -265,6 +254,7 @@ public:
                             wxDC& dc,
                             wxRect& rect) const;
 };
+WXGO_DECL_TYPECONV(GridCellAttrProvider)
 class wxGridCellAttrProvider : public wxClientDataContainer
 {
 public:
@@ -279,6 +269,7 @@ public:
     virtual const wxGridRowHeaderRenderer& GetRowHeaderRenderer(int row);
     virtual const wxGridCornerHeaderRenderer& GetCornerRenderer();
 };
+WXGO_DECL_TYPECONV(GridCellCoords)
 class wxGridCellCoords
 {
 public:
@@ -294,6 +285,7 @@ public:
      bool operator!=(const wxGridCellCoords& other) const;
     bool operator!() const;
 };
+WXGO_DECL_TYPECONV(GridTableBase)
 class wxGridTableBase : public wxObject
 {
 public:
@@ -350,6 +342,7 @@ public:
 #define wxGRIDTABLE_NOTIFY_COLS_INSERTED wxGRIDTABLE_NOTIFY_ROWS_DELETED + 1
 #define wxGRIDTABLE_NOTIFY_COLS_APPENDED wxGRIDTABLE_NOTIFY_COLS_INSERTED + 1
 #define wxGRIDTABLE_NOTIFY_COLS_DELETED wxGRIDTABLE_NOTIFY_COLS_APPENDED + 1
+WXGO_DECL_TYPECONV(GridTableMessage)
 class wxGridTableMessage
 {
 public:
@@ -366,6 +359,7 @@ public:
     void SetCommandInt2( int comInt2 );
     int  GetCommandInt2();
 };
+WXGO_DECL_TYPECONV(GridStringTable)
 class wxGridStringTable : public wxGridTableBase
 {
 public:
@@ -402,6 +396,7 @@ struct wxGridSizesInfo
 #define wxGRID_DRAW_BOX_RECT  0x008
 #define wxGRID_DRAW_SELECTION  0x010
 #define wxGRID_DRAW_DEFAULT  wxGRID_DRAW_ROWS_HEADER |                          wxGRID_DRAW_COLS_HEADER |                          wxGRID_DRAW_CELL_LINES |                          wxGRID_DRAW_BOX_RECT
+WXGO_DECL_TYPECONV(Grid)
 class wxGrid : public wxScrolledWindow
 {
 public:
@@ -714,6 +709,7 @@ protected:
     int GetColLeft(int col) const;
     int GetRowMinimalHeight(int col) const;
 };
+WXGO_DECL_TYPECONV(GridUpdateLocker)
 class wxGridUpdateLocker
 {
 public:
@@ -721,6 +717,7 @@ public:
     ~wxGridUpdateLocker();
     void Create(wxGrid* grid);
 };
+WXGO_DECL_TYPECONV(GridEvent)
 class wxGridEvent : public wxNotifyEvent
 {
 public:
@@ -737,6 +734,7 @@ public:
     bool Selecting();
     bool ShiftDown() const;
 };
+WXGO_DECL_TYPECONV(GridSizeEvent)
 class wxGridSizeEvent : public wxNotifyEvent
 {
 public:
@@ -751,6 +749,7 @@ public:
     bool MetaDown() const;
     bool ShiftDown() const;
 };
+WXGO_DECL_TYPECONV(GridRangeSelectEvent)
 class wxGridRangeSelectEvent : public wxNotifyEvent
 {
 public:
@@ -772,6 +771,7 @@ public:
     bool Selecting();
     bool ShiftDown() const;
 };
+WXGO_DECL_TYPECONV(GridEditorCreatedEvent)
 class wxGridEditorCreatedEvent : public wxCommandEvent
 {
 public:

@@ -1,10 +1,10 @@
-WXGO_DECL_TYPECONV(WrapSizer)
 enum
 {
     wxEXTEND_LAST_ON_EACH_LINE,
     wxREMOVE_LEADING_SPACES,
     wxWRAPSIZER_DEFAULT_FLAGS
 };
+WXGO_DECL_TYPECONV(WrapSizer)
 class wxWrapSizer : public wxBoxSizer
 {
 public:

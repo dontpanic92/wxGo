@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(HtmlHelpWindow)
 enum
 {
     wxID_HTML_PANEL = wxID_HIGHEST + 10,
@@ -27,6 +26,7 @@ enum
     wxID_HTML_SEARCHCHOICE,
     wxID_HTML_COUNTINFO
 };
+WXGO_DECL_TYPECONV(HtmlHelpWindow)
 class wxHtmlHelpWindow : public wxWindow
 {
 public:

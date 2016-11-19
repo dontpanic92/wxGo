@@ -1,5 +1,3 @@
-WXGO_DECL_TYPECONV(AnimationCtrl)
-WXGO_DECL_TYPECONV(Animation)
 %typedef int wxAnimationType;
 #define wxANIMATION_TYPE_INVALID 0
 #define wxANIMATION_TYPE_GIF wxANIMATION_TYPE_INVALID + 1
@@ -7,6 +5,7 @@ WXGO_DECL_TYPECONV(Animation)
 #define wxANIMATION_TYPE_ANY wxANIMATION_TYPE_ANI + 1
 #define wxAC_NO_AUTORESIZE       (0x0010)
 #define wxAC_DEFAULT_STYLE       (wxBORDER_NONE)
+WXGO_DECL_TYPECONV(AnimationCtrl)
 class wxAnimationCtrl : public wxControl
 {
 public:
@@ -34,6 +33,7 @@ public:
     virtual void SetInactiveBitmap(const wxBitmap& bmp);
     virtual void Stop();
 };
+WXGO_DECL_TYPECONV(Animation)
 class wxAnimation : public wxObject
 {
 public:

@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(AuiDockArt)
 %typedef int wxAuiPaneDockArtSetting;
 #define wxAUI_DOCKART_SASH_SIZE  0
 #define wxAUI_DOCKART_CAPTION_SIZE  1
@@ -42,6 +41,7 @@ WXGO_DECL_TYPECONV(AuiDockArt)
 #define wxAUI_BUTTON_CUSTOM1  201
 #define wxAUI_BUTTON_CUSTOM2  202
 #define wxAUI_BUTTON_CUSTOM3  203
+WXGO_DECL_TYPECONV(AuiDockArt)
 class wxAuiDockArt
 {
 public:

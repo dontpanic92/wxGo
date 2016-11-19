@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(ArtProvider)
 typedef wxString wxArtClient;
 typedef wxString wxArtID;
 %constant wxArtClient wxART_TOOLBAR;
@@ -65,6 +64,7 @@ typedef wxString wxArtID;
 %constant wxArtID wxART_FIND_AND_REPLACE;     
 %constant wxArtID wxART_FULL_SCREEN;
 %constant wxArtID wxART_EDIT;
+WXGO_DECL_TYPECONV(ArtProvider)
 class wxArtProvider : public wxObject
 {
 public:

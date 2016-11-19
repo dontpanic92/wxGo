@@ -1,9 +1,8 @@
-WXGO_DECL_TYPECONV(HtmlTagHandler)
-WXGO_DECL_TYPECONV(HtmlParser)
 %typedef int wxHtmlURLType;
 #define wxHTML_URL_PAGE 0
 #define wxHTML_URL_IMAGE wxHTML_URL_PAGE + 1
 #define wxHTML_URL_OTHER wxHTML_URL_IMAGE + 1
+WXGO_DECL_TYPECONV(HtmlTagHandler)
 class wxHtmlTagHandler : public wxObject
 {
 public:
@@ -17,6 +16,7 @@ protected:
     void ParseInnerSource(const wxString& source);
     wxHtmlParser* m_Parser;
 };
+WXGO_DECL_TYPECONV(HtmlParser)
 class wxHtmlParser
 {
 public:

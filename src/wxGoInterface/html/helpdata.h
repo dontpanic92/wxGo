@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(HtmlBookRecord)
-WXGO_DECL_TYPECONV(HtmlHelpData)
 class wxHtmlBookRecord
 {
 public:
@@ -29,6 +28,7 @@ struct wxHtmlHelpDataItem
     wxString GetFullPath() const;
     wxString GetIndentedName() const;
 };
+WXGO_DECL_TYPECONV(HtmlHelpData)
 class wxHtmlHelpData : public wxObject
 {
 public:

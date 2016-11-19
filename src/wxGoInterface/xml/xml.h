@@ -1,7 +1,3 @@
-WXGO_DECL_TYPECONV(XmlNode)
-WXGO_DECL_TYPECONV(XmlAttribute)
-WXGO_DECL_TYPECONV(XmlDoctype)
-WXGO_DECL_TYPECONV(XmlDocument)
 %typedef int wxXmlNodeType;
 #define wxXML_ELEMENT_NODE        1
 #define wxXML_ATTRIBUTE_NODE      2
@@ -16,6 +12,7 @@ WXGO_DECL_TYPECONV(XmlDocument)
 #define wxXML_DOCUMENT_FRAG_NODE  11
 #define wxXML_NOTATION_NODE       12
 #define wxXML_HTML_DOCUMENT_NODE  13
+WXGO_DECL_TYPECONV(XmlNode)
 class wxXmlNode
 {
 public:
@@ -61,6 +58,7 @@ public:
     void SetType(wxXmlNodeType type);
     wxXmlNode& operator=(const wxXmlNode& node);
 };
+WXGO_DECL_TYPECONV(XmlAttribute)
 class wxXmlAttribute
 {
 public:
@@ -75,6 +73,7 @@ public:
     void SetNext(wxXmlAttribute* next);
     void SetValue(const wxString& value);
 };
+WXGO_DECL_TYPECONV(XmlDoctype)
 class wxXmlDoctype
 {
 public:
@@ -92,6 +91,7 @@ public:
 %typedef int wxXmlDocumentLoadFlag;
 #define wxXMLDOC_NONE 0
 #define wxXMLDOC_KEEP_WHITESPACE_NODES wxXMLDOC_NONE + 1
+WXGO_DECL_TYPECONV(XmlDocument)
 class wxXmlDocument : public wxObject
 {
 public:

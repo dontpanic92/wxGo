@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(SpinEvent)
-WXGO_DECL_TYPECONV(SpinButton)
 class wxSpinEvent : public wxNotifyEvent
 {
 public:
@@ -7,6 +6,7 @@ public:
     int GetPosition() const;
     void SetPosition(int pos);
 };
+WXGO_DECL_TYPECONV(SpinButton)
 class wxSpinButton : public wxControl
 {
 public:

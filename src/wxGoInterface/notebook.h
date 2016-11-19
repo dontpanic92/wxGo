@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(BookCtrlEvent)
-WXGO_DECL_TYPECONV(Notebook)
 class wxBookCtrlEvent : public wxNotifyEvent
 {
 public:
@@ -29,6 +28,7 @@ enum
 #define wxNB_FLAT             0x0800
 %constant wxEventType wxEVT_NOTEBOOK_PAGE_CHANGED;
 %constant wxEventType wxEVT_NOTEBOOK_PAGE_CHANGING;
+WXGO_DECL_TYPECONV(Notebook)
 class wxNotebook : public wxBookCtrlBase
 {
 public:

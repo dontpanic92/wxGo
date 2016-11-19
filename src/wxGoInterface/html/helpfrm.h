@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(HtmlHelpFrame)
 #define wxHF_TOOLBAR                0x0001
 #define wxHF_CONTENTS               0x0002
 #define wxHF_INDEX                  0x0004
@@ -14,6 +13,7 @@ WXGO_DECL_TYPECONV(HtmlHelpFrame)
 #define wxHF_DEFAULT_STYLE          (wxHF_TOOLBAR | wxHF_CONTENTS | \
                                      wxHF_INDEX | wxHF_SEARCH | \
                                      wxHF_BOOKMARKS | wxHF_PRINT)
+WXGO_DECL_TYPECONV(HtmlHelpFrame)
 class wxHtmlHelpFrame : public wxFrame
 {
 public:

@@ -1,13 +1,4 @@
 WXGO_DECL_TYPECONV(DataFormat)
-WXGO_DECL_TYPECONV(DataObject)
-WXGO_DECL_TYPECONV(DataObjectComposite)
-WXGO_DECL_TYPECONV(DataObjectSimple)
-WXGO_DECL_TYPECONV(CustomDataObject)
-WXGO_DECL_TYPECONV(BitmapDataObject)
-WXGO_DECL_TYPECONV(TextDataObject)
-WXGO_DECL_TYPECONV(URLDataObject)
-WXGO_DECL_TYPECONV(FileDataObject)
-WXGO_DECL_TYPECONV(HTMLDataObject)
 class wxDataFormat
 {
 public:
@@ -23,6 +14,7 @@ public:
     bool operator ==(wxDataFormatId format) const;
 };
 const wxDataFormat wxFormatInvalid;
+WXGO_DECL_TYPECONV(DataObject)
 class wxDataObject
 {
 public:
@@ -43,6 +35,7 @@ public:
     virtual bool SetData(const wxDataFormat& format, size_t len, const void* buf);
     bool IsSupported(const wxDataFormat& format, Direction dir = Get) const;
 };
+WXGO_DECL_TYPECONV(DataObjectComposite)
 class wxDataObjectComposite : public wxDataObject
 {
 public:
@@ -52,6 +45,7 @@ public:
     wxDataObjectSimple *GetObject(const wxDataFormat& format,
                                   wxDataObject::Direction dir = wxDataObject::Get) const;
 };
+WXGO_DECL_TYPECONV(DataObjectSimple)
 class wxDataObjectSimple : public wxDataObject
 {
 public:
@@ -62,6 +56,7 @@ public:
     virtual bool SetData(size_t len, const void* buf);
     void SetFormat(const wxDataFormat& format);
 };
+WXGO_DECL_TYPECONV(CustomDataObject)
 class wxCustomDataObject : public wxDataObjectSimple
 {
 public:
@@ -74,6 +69,7 @@ public:
     virtual bool SetData(size_t size, const void* data);
     void TakeData(size_t size, void* data);
 };
+WXGO_DECL_TYPECONV(BitmapDataObject)
 class wxBitmapDataObject : public wxDataObjectSimple
 {
 public:
@@ -81,6 +77,7 @@ public:
     virtual wxBitmap GetBitmap() const;
     virtual void SetBitmap(const wxBitmap& bitmap);
 };
+WXGO_DECL_TYPECONV(TextDataObject)
 class wxTextDataObject : public wxDataObjectSimple
 {
 public:
@@ -93,6 +90,7 @@ public:
                                wxDataObject::Direction dir = wxDataObject::Get) const;
     virtual void SetText(const wxString& strText);
 };
+WXGO_DECL_TYPECONV(URLDataObject)
 class wxURLDataObject: public wxTextDataObject
 {
 public:
@@ -100,6 +98,7 @@ public:
     wxString GetURL() const;
     void SetURL(const wxString& url);
 };
+WXGO_DECL_TYPECONV(FileDataObject)
 class wxFileDataObject : public wxDataObjectSimple
 {
 public:
@@ -107,6 +106,7 @@ public:
     void AddFile(const wxString& file);
     const wxArrayString& GetFilenames() const;
 };
+WXGO_DECL_TYPECONV(HTMLDataObject)
 class wxHTMLDataObject : public wxDataObjectSimple
 {
 public:

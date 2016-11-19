@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(Variant)
-WXGO_DECL_TYPECONV(VariantData)
 class wxVariant : public wxObject
 {
 public:
@@ -91,6 +90,7 @@ public:
     bool operator ==(const wxArrayString& value) const;
     bool operator ==(const wxDateTime& value) const;
 };
+WXGO_DECL_TYPECONV(VariantData)
 class wxVariantData : public wxObjectRefData
 {
 public:

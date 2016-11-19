@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(DatePickerCtrl)
 enum
 {
     wxDP_DEFAULT = 0,
@@ -7,6 +6,7 @@ enum
     wxDP_SHOWCENTURY = 4,
     wxDP_ALLOWNONE = 8
 };
+WXGO_DECL_TYPECONV(DatePickerCtrl)
 class wxDatePickerCtrl : public wxControl
 {
 public:

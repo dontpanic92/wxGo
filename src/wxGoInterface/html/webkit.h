@@ -1,9 +1,6 @@
-WXGO_DECL_TYPECONV(WebKitCtrl)
-WXGO_DECL_TYPECONV(WebKitBeforeLoadEvent)
-WXGO_DECL_TYPECONV(WebKitStateChangedEvent)
-WXGO_DECL_TYPECONV(WebKitNewWindowEvent)
 #ifndef _WX_WEBKIT_H
 #define _WX_WEBKIT_H
+WXGO_DECL_TYPECONV(WebKitCtrl)
 class wxWebKitCtrl : public wxControl
 {
 public:
@@ -66,6 +63,7 @@ enum {
     wxWEBKIT_NAV_FORM_RESUBMITTED = 16,
     wxWEBKIT_NAV_OTHER = 32
 };
+WXGO_DECL_TYPECONV(WebKitBeforeLoadEvent)
 class wxWebKitBeforeLoadEvent : public wxCommandEvent
 {
 public:
@@ -77,6 +75,7 @@ public:
     int GetNavigationType();
     wxWebKitBeforeLoadEvent( wxWindow* win = 0 );
 };
+WXGO_DECL_TYPECONV(WebKitStateChangedEvent)
 class wxWebKitStateChangedEvent : public wxCommandEvent
 {
 public:
@@ -86,6 +85,7 @@ public:
     void SetURL(const wxString& url);
     wxWebKitStateChangedEvent( wxWindow* win = 0 );
 };
+WXGO_DECL_TYPECONV(WebKitNewWindowEvent)
 class wxWebKitNewWindowEvent : public wxCommandEvent
 {
 public:

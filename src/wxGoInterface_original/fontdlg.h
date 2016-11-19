@@ -57,8 +57,8 @@ public:
         Returns the @ref wxFontData "font data" associated with the
         font dialog.
     */
-    const wxFontData& GetFontData() const;
-    //wxFontData& GetFontData();
+    //const wxFontData& GetFontData() const;
+    wxFontData& GetFontData();
     //@}
 
     /**

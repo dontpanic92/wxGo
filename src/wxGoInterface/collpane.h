@@ -1,7 +1,6 @@
-WXGO_DECL_TYPECONV(CollapsiblePaneEvent)
-WXGO_DECL_TYPECONV(CollapsiblePane)
 #define wxCP_DEFAULT_STYLE          (wxTAB_TRAVERSAL | wxNO_BORDER)
 #define wxCP_NO_TLW_RESIZE          (0x0002)
+WXGO_DECL_TYPECONV(CollapsiblePaneEvent)
 class wxCollapsiblePaneEvent : public wxCommandEvent
 {
 public:
@@ -10,6 +9,7 @@ public:
     void SetCollapsed(bool collapsed);
 };
 %constant wxEventType wxEVT_COLLAPSIBLEPANE_CHANGED;
+WXGO_DECL_TYPECONV(CollapsiblePane)
 class wxCollapsiblePane : public wxControl
 {
 public:

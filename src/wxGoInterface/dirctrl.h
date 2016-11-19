@@ -1,5 +1,3 @@
-WXGO_DECL_TYPECONV(GenericDirCtrl)
-WXGO_DECL_TYPECONV(DirFilterListCtrl)
 enum
 {
     wxDIRCTRL_DIR_ONLY       = 0x0010,
@@ -10,6 +8,7 @@ enum
     wxDIRCTRL_MULTIPLE       = 0x0200,
     wxDIRCTRL_DEFAULT_STYLE  = wxDIRCTRL_3D_INTERNAL
 };
+WXGO_DECL_TYPECONV(GenericDirCtrl)
 class wxGenericDirCtrl : public wxControl
 {
 public:
@@ -55,6 +54,7 @@ public:
     virtual void SelectPaths(const wxArrayString& paths);
     virtual void UnselectAll();
 };
+WXGO_DECL_TYPECONV(DirFilterListCtrl)
 class wxDirFilterListCtrl: public wxChoice
 {
 public:

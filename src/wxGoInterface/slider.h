@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(Slider)
 #define wxSL_HORIZONTAL      wxHORIZONTAL 
 #define wxSL_VERTICAL        wxVERTICAL   
 #define wxSL_TICKS           0x0010
@@ -13,6 +12,7 @@ WXGO_DECL_TYPECONV(Slider)
 #define wxSL_MIN_MAX_LABELS  0x2000
 #define wxSL_VALUE_LABEL     0x4000
 #define wxSL_LABELS          (wxSL_MIN_MAX_LABELS|wxSL_VALUE_LABEL)
+WXGO_DECL_TYPECONV(Slider)
 class wxSlider : public wxControl
 {
 public:

@@ -1,6 +1,3 @@
-WXGO_DECL_TYPECONV(PGProperty)
-WXGO_DECL_TYPECONV(PGCell)
-WXGO_DECL_TYPECONV(PGChoices)
 #define wxNullProperty  ((wxPGProperty*)NULL)
 #define wxPG_ATTR_DEFAULT_VALUE           wxS("DefaultValue")
 #define wxPG_ATTR_MIN                     wxS("Min")
@@ -57,6 +54,7 @@ WXGO_DECL_TYPECONV(PGChoices)
     ((wxPGPropertyFlags)(wxPG_PROP_AGGREGATE | \
                          wxPG_PROP_CATEGORY | \
                          wxPG_PROP_MISC_PARENT))
+WXGO_DECL_TYPECONV(PGProperty)
 class wxPGProperty : public wxObject
 {
 public:
@@ -182,6 +180,7 @@ public:
 protected:
     void Empty();
 };
+WXGO_DECL_TYPECONV(PGCell)
 class wxPGCell : public wxObject
 {
 public:
@@ -207,6 +206,7 @@ public:
     const wxColour& GetBgCol() const;
     wxPGCell& operator=( const wxPGCell& other );
 };
+WXGO_DECL_TYPECONV(PGChoices)
 class wxPGChoices
 {
 public:

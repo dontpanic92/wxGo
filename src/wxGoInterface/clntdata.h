@@ -1,6 +1,4 @@
 WXGO_DECL_TYPECONV(ClientDataContainer)
-WXGO_DECL_TYPECONV(ClientData)
-WXGO_DECL_TYPECONV(StringClientData)
 class wxClientDataContainer
 {
 public:
@@ -11,12 +9,14 @@ public:
     void SetClientData(void* data);
     void SetClientObject(wxClientData* data);
 };
+WXGO_DECL_TYPECONV(ClientData)
 class wxClientData
 {
 public:
     wxClientData();
     virtual ~wxClientData();
 };
+WXGO_DECL_TYPECONV(StringClientData)
 class wxStringClientData : public wxClientData
 {
 public:

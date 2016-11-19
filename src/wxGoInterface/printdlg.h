@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(PrintDialog)
-WXGO_DECL_TYPECONV(PageSetupDialog)
 class wxPrintDialog : public wxObject
 {
 public:
@@ -11,6 +10,7 @@ public:
     virtual wxPrintData& GetPrintData();
     virtual int ShowModal();
 };
+WXGO_DECL_TYPECONV(PageSetupDialog)
 class wxPageSetupDialog : public wxObject
 {
 public:

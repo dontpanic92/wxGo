@@ -1,5 +1,3 @@
-WXGO_DECL_TYPECONV(Brush)
-WXGO_DECL_TYPECONV(BrushList)
 %typedef int wxBrushStyle;
 #define wxBRUSHSTYLE_INVALID  -1
 #define wxBRUSHSTYLE_SOLID  wxSOLID
@@ -15,6 +13,7 @@ WXGO_DECL_TYPECONV(BrushList)
 #define wxBRUSHSTYLE_VERTICAL_HATCH wxBRUSHSTYLE_HORIZONTAL_HATCH + 1
 #define wxBRUSHSTYLE_FIRST_HATCH wxBRUSHSTYLE_VERTICAL_HATCH + 1
 #define wxBRUSHSTYLE_LAST_HATCH wxBRUSHSTYLE_FIRST_HATCH + 1
+WXGO_DECL_TYPECONV(Brush)
 class wxBrush : public wxGDIObject
 {
 public:
@@ -49,6 +48,7 @@ wxBrush* const wxLIGHT_GREY_BRUSH;
 wxBrush* const wxTRANSPARENT_BRUSH;
 wxBrush* const wxCYAN_BRUSH;
 wxBrush* const wxRED_BRUSH;
+WXGO_DECL_TYPECONV(BrushList)
 class wxBrushList
 {
 public:

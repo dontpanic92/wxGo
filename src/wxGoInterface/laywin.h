@@ -1,7 +1,3 @@
-WXGO_DECL_TYPECONV(LayoutAlgorithm)
-WXGO_DECL_TYPECONV(SashLayoutWindow)
-WXGO_DECL_TYPECONV(QueryLayoutInfoEvent)
-WXGO_DECL_TYPECONV(CalculateLayoutEvent)
 %typedef int wxLayoutOrientation;
 #define wxLAYOUT_HORIZONTAL 0
 #define wxLAYOUT_VERTICAL wxLAYOUT_HORIZONTAL + 1
@@ -11,6 +7,7 @@ WXGO_DECL_TYPECONV(CalculateLayoutEvent)
 #define wxLAYOUT_LEFT wxLAYOUT_TOP + 1
 #define wxLAYOUT_RIGHT wxLAYOUT_LEFT + 1
 #define wxLAYOUT_BOTTOM wxLAYOUT_RIGHT + 1
+WXGO_DECL_TYPECONV(LayoutAlgorithm)
 class wxLayoutAlgorithm : public wxObject
 {
 public:
@@ -20,6 +17,7 @@ public:
     bool LayoutMDIFrame(wxMDIParentFrame* frame, wxRect* rect = NULL);
     bool LayoutWindow(wxWindow* parent, wxWindow* mainWindow = NULL);
 };
+WXGO_DECL_TYPECONV(SashLayoutWindow)
 class wxSashLayoutWindow : public wxSashWindow
 {
 public:
@@ -42,6 +40,7 @@ public:
     void SetDefaultSize(const wxSize& size);
     void SetOrientation(wxLayoutOrientation orientation);
 };
+WXGO_DECL_TYPECONV(QueryLayoutInfoEvent)
 class wxQueryLayoutInfoEvent : public wxEvent
 {
 public:
@@ -58,6 +57,7 @@ public:
     void SetSize(const wxSize& size);
 };
 %constant wxEventType wxEVT_QUERY_LAYOUT_INFO;
+WXGO_DECL_TYPECONV(CalculateLayoutEvent)
 class wxCalculateLayoutEvent : public wxEvent
 {
 public:

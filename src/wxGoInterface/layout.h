@@ -1,5 +1,3 @@
-WXGO_DECL_TYPECONV(IndividualLayoutConstraint)
-WXGO_DECL_TYPECONV(LayoutConstraints)
 %typedef int wxEdge;
 #define wxLeft 0
 #define wxTop wxLeft + 1
@@ -22,6 +20,7 @@ WXGO_DECL_TYPECONV(LayoutConstraints)
 #define wxSameAs wxRightOf + 1
 #define wxAbsolute wxSameAs + 1
 const int wxLAYOUT_DEFAULT_MARGIN = 0;
+WXGO_DECL_TYPECONV(IndividualLayoutConstraint)
 class wxIndividualLayoutConstraint : public wxObject
 {
 public:
@@ -58,6 +57,7 @@ public:
     bool SatisfyConstraint(wxLayoutConstraints *constraints, wxWindow *win);
     int GetEdge(wxEdge which, wxWindow *thisWin, wxWindow *other) const;
 };
+WXGO_DECL_TYPECONV(LayoutConstraints)
 class wxLayoutConstraints : public wxObject
 {
 public:

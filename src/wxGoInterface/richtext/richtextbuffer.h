@@ -1,42 +1,3 @@
-WXGO_DECL_TYPECONV(TextAttrDimension)
-WXGO_DECL_TYPECONV(TextAttrDimensions)
-WXGO_DECL_TYPECONV(TextAttrSize)
-WXGO_DECL_TYPECONV(TextAttrDimensionConverter)
-WXGO_DECL_TYPECONV(TextAttrBorder)
-WXGO_DECL_TYPECONV(TextAttrBorders)
-WXGO_DECL_TYPECONV(TextAttrShadow)
-WXGO_DECL_TYPECONV(TextBoxAttr)
-WXGO_DECL_TYPECONV(RichTextAttr)
-WXGO_DECL_TYPECONV(RichTextProperties)
-WXGO_DECL_TYPECONV(RichTextFontTable)
-WXGO_DECL_TYPECONV(RichTextRange)
-WXGO_DECL_TYPECONV(RichTextSelection)
-WXGO_DECL_TYPECONV(RichTextDrawingContext)
-WXGO_DECL_TYPECONV(RichTextObject)
-WXGO_DECL_TYPECONV(RichTextCompositeObject)
-WXGO_DECL_TYPECONV(RichTextParagraphLayoutBox)
-WXGO_DECL_TYPECONV(RichTextBox)
-WXGO_DECL_TYPECONV(RichTextField)
-WXGO_DECL_TYPECONV(RichTextFieldType)
-WXGO_DECL_TYPECONV(RichTextFieldTypeStandard)
-WXGO_DECL_TYPECONV(RichTextLine)
-WXGO_DECL_TYPECONV(RichTextParagraph)
-WXGO_DECL_TYPECONV(RichTextPlainText)
-WXGO_DECL_TYPECONV(RichTextImageBlock)
-WXGO_DECL_TYPECONV(RichTextImage)
-WXGO_DECL_TYPECONV(RichTextBuffer)
-WXGO_DECL_TYPECONV(RichTextCell)
-WXGO_DECL_TYPECONV(RichTextTable)
-WXGO_DECL_TYPECONV(RichTextTableBlock)
-WXGO_DECL_TYPECONV(RichTextObjectAddress)
-WXGO_DECL_TYPECONV(RichTextCommand)
-WXGO_DECL_TYPECONV(RichTextAction)
-WXGO_DECL_TYPECONV(RichTextFileHandler)
-WXGO_DECL_TYPECONV(RichTextPlainTextHandler)
-WXGO_DECL_TYPECONV(RichTextDrawingHandler)
-WXGO_DECL_TYPECONV(RichTextBufferDataObject)
-WXGO_DECL_TYPECONV(RichTextRenderer)
-WXGO_DECL_TYPECONV(RichTextStdRenderer)
 extern const wxChar wxRichTextLineBreakChar;
 typedef int wxDataObjectBase::Direction;
 %typedef int wxRichTextFileType;
@@ -113,6 +74,7 @@ typedef unsigned short wxTextAttrDimensionFlags;
 #define wxTEXT_BOX_ATTR_POSITION_ABSOLUTE        0x0020
 #define wxTEXT_BOX_ATTR_POSITION_FIXED           0x0040
 #define wxTEXT_BOX_ATTR_POSITION_MASK            0x00F0
+WXGO_DECL_TYPECONV(TextAttrDimension)
 class wxTextAttrDimension
 {
 public:
@@ -141,6 +103,7 @@ public:
     int                         m_value;
     wxTextAttrDimensionFlags    m_flags;
 };
+WXGO_DECL_TYPECONV(TextAttrDimensions)
 class wxTextAttrDimensions
 {
 public:
@@ -161,6 +124,7 @@ public:
     wxTextAttrDimension         m_right;
     wxTextAttrDimension         m_bottom;
 };
+WXGO_DECL_TYPECONV(TextAttrSize)
 class wxTextAttrSize
 {
 public:
@@ -183,6 +147,7 @@ public:
     wxTextAttrDimension         m_width;
     wxTextAttrDimension         m_height;
 };
+WXGO_DECL_TYPECONV(TextAttrDimensionConverter)
 class wxTextAttrDimensionConverter
 {
 public:
@@ -237,6 +202,7 @@ public:
 #define wxTEXT_BOX_ATTR_WHITESPACE_PREFORMATTED          3
 #define wxTEXT_BOX_ATTR_WHITESPACE_PREFORMATTED_LINE     4
 #define wxTEXT_BOX_ATTR_WHITESPACE_PREFORMATTED_WRAP     5
+WXGO_DECL_TYPECONV(TextAttrBorder)
 class wxTextAttrBorder
 {
 public:
@@ -275,6 +241,7 @@ public:
     wxTextAttrDimension         m_borderWidth;
     int                         m_flags;
 };
+WXGO_DECL_TYPECONV(TextAttrBorders)
 class wxTextAttrBorders
 {
 public:
@@ -300,6 +267,7 @@ public:
     wxTextAttrBorder& GetBottom() { return m_bottom; }
     wxTextAttrBorder m_left, m_right, m_top, m_bottom;
 };
+WXGO_DECL_TYPECONV(TextAttrShadow)
 class wxTextAttrShadow
 {
 public:
@@ -340,6 +308,7 @@ public:
     wxTextAttrDimension         m_blurDistance;
     wxTextAttrDimension         m_opacity;
 };
+WXGO_DECL_TYPECONV(TextBoxAttr)
 class wxTextBoxAttr
 {
 public:
@@ -433,6 +402,7 @@ public:
     wxString                        m_boxStyleName;
     wxTextAttrShadow                m_shadow;
 };
+WXGO_DECL_TYPECONV(RichTextAttr)
 class wxRichTextAttr: public wxTextAttr
 {
 public:
@@ -454,6 +424,7 @@ public:
 };
 class wxRichTextAttrArray;
 class wxRichTextVariantArray;
+WXGO_DECL_TYPECONV(RichTextProperties)
 class wxRichTextProperties: public wxObject
 {
 public:
@@ -489,6 +460,7 @@ public:
 protected:
     wxRichTextVariantArray  m_properties;
 };
+WXGO_DECL_TYPECONV(RichTextFontTable)
 class wxRichTextFontTable: public wxObject
 {
 public:
@@ -505,6 +477,7 @@ public:
 protected:
     double m_fontScale;
 };
+WXGO_DECL_TYPECONV(RichTextRange)
 class wxRichTextRange
 {
 public:
@@ -538,6 +511,7 @@ class wxRichTextRangeArray;
 #define wxRICHTEXT_ALL  wxRichTextRange(-2, -2)
 #define wxRICHTEXT_NONE  wxRichTextRange(-1, -1)
 #define wxRICHTEXT_NO_SELECTION wxRichTextRange(-2, -2)
+WXGO_DECL_TYPECONV(RichTextSelection)
 class wxRichTextSelection
 {
 public:
@@ -573,6 +547,7 @@ public:
     wxRichTextRangeArray            m_ranges;
     wxRichTextParagraphLayoutBox*   m_container;
 };
+WXGO_DECL_TYPECONV(RichTextDrawingContext)
 class wxRichTextDrawingContext: public wxObject
 {
 public:
@@ -600,6 +575,7 @@ public:
     bool                m_enableDelayedImageLoading;
     bool                m_layingOut;
 };
+WXGO_DECL_TYPECONV(RichTextObject)
 class wxRichTextObject: public wxObject
 {
 public:
@@ -728,6 +704,7 @@ protected:
     wxRichTextProperties    m_properties;
 };
 class wxRichTextObjectList;
+WXGO_DECL_TYPECONV(RichTextCompositeObject)
 class wxRichTextCompositeObject: public wxRichTextObject
 {
 public:
@@ -766,6 +743,7 @@ public:
 protected:
     wxRichTextObjectList    m_children;
 };
+WXGO_DECL_TYPECONV(RichTextParagraphLayoutBox)
 class wxRichTextParagraphLayoutBox: public wxRichTextCompositeObject
 {
 public:
@@ -878,6 +856,7 @@ protected:
     bool            m_partialParagraph;
     wxRichTextFloatCollector* m_floatCollector;
 };
+WXGO_DECL_TYPECONV(RichTextBox)
 class wxRichTextBox: public wxRichTextParagraphLayoutBox
 {
 public:
@@ -892,6 +871,7 @@ public:
     void Copy(const wxRichTextBox& obj);
 protected:
 };
+WXGO_DECL_TYPECONV(RichTextField)
 class wxRichTextField: public wxRichTextParagraphLayoutBox
 {
 public:
@@ -916,6 +896,7 @@ public:
     void Copy(const wxRichTextField& obj);
 protected:
 };
+WXGO_DECL_TYPECONV(RichTextFieldType)
 class wxRichTextFieldType: public wxObject
 {
 public:
@@ -938,6 +919,7 @@ protected:
     wxString  m_name;
 };
 class wxRichTextFieldTypeHashMap;
+WXGO_DECL_TYPECONV(RichTextFieldTypeStandard)
 class wxRichTextFieldTypeStandard: public wxRichTextFieldType
 {
 public:
@@ -994,6 +976,7 @@ protected:
     int         m_verticalMargin;
     wxBitmap    m_bitmap;
 };
+WXGO_DECL_TYPECONV(RichTextLine)
 class wxRichTextLine
 {
 public:
@@ -1030,6 +1013,7 @@ protected:
 #endif
 };
 class wxRichTextLineList;
+WXGO_DECL_TYPECONV(RichTextParagraph)
 class wxRichTextParagraph: public wxRichTextCompositeObject
 {
 public:
@@ -1075,6 +1059,7 @@ protected:
     static wxArrayInt  sm_defaultTabs;
 friend class wxRichTextFloatCollector;
 };
+WXGO_DECL_TYPECONV(RichTextPlainText)
 class wxRichTextPlainText: public wxRichTextObject
 {
 public:
@@ -1112,6 +1097,7 @@ private:
 protected:
     wxString    m_text;
 };
+WXGO_DECL_TYPECONV(RichTextImageBlock)
 class wxRichTextImageBlock: public wxObject
 {
 public:
@@ -1149,6 +1135,7 @@ protected:
     size_t              m_dataSize;
     wxBitmapType        m_imageType;
 };
+WXGO_DECL_TYPECONV(RichTextImage)
 class wxRichTextImage: public wxRichTextObject
 {
 public:
@@ -1194,6 +1181,7 @@ protected:
 };
 class wxRichTextCommand;
 class wxRichTextAction;
+WXGO_DECL_TYPECONV(RichTextBuffer)
 class wxRichTextBuffer: public wxRichTextParagraphLayoutBox
 {
 public:
@@ -1345,6 +1333,7 @@ protected:
     static float            sm_bulletProportion;
     double                  m_scale;
 };
+WXGO_DECL_TYPECONV(RichTextCell)
 class wxRichTextCell: public wxRichTextBox
 {
 public:
@@ -1366,6 +1355,7 @@ protected:
 };
 class wxRichTextObjectPtrArray;
 class wxRichTextObjectPtrArrayArray;
+WXGO_DECL_TYPECONV(RichTextTable)
 class wxRichTextTable: public wxRichTextBox
 {
 public:
@@ -1414,6 +1404,7 @@ protected:
     int m_colCount;
     wxRichTextObjectPtrArrayArray   m_cells;
 };
+WXGO_DECL_TYPECONV(RichTextTableBlock)
 class wxRichTextTableBlock
 {
 public:
@@ -1444,6 +1435,7 @@ public:
 #define wxRICHTEXT_CHANGE_ATTRIBUTES wxRICHTEXT_DELETE + 1
 #define wxRICHTEXT_CHANGE_STYLE wxRICHTEXT_CHANGE_ATTRIBUTES + 1
 #define wxRICHTEXT_CHANGE_OBJECT wxRICHTEXT_CHANGE_STYLE + 1
+WXGO_DECL_TYPECONV(RichTextObjectAddress)
 class wxRichTextObjectAddress
 {
 public:
@@ -1461,6 +1453,7 @@ protected:
     wxArrayInt  m_address;
 };
 class wxRichTextAction;
+WXGO_DECL_TYPECONV(RichTextCommand)
 class wxRichTextCommand: public wxCommand
 {
 public:
@@ -1476,6 +1469,7 @@ public:
 protected:
     wxList  m_actions;
 };
+WXGO_DECL_TYPECONV(RichTextAction)
 class wxRichTextAction: public wxObject
 {
 public:
@@ -1532,6 +1526,7 @@ protected:
 #define wxRICHTEXT_HANDLER_SAVE_IMAGES_TO_BASE64    0x0040
 #define wxRICHTEXT_HANDLER_NO_HEADER_FOOTER         0x0080
 #define wxRICHTEXT_HANDLER_CONVERT_FACENAMES        0x0100
+WXGO_DECL_TYPECONV(RichTextFileHandler)
 class wxRichTextFileHandler: public wxObject
 {
 public:
@@ -1569,6 +1564,7 @@ protected:
     int       m_flags;
     bool      m_visible;
 };
+WXGO_DECL_TYPECONV(RichTextPlainTextHandler)
 class wxRichTextPlainTextHandler: public wxRichTextFileHandler
 {
 public:
@@ -1583,6 +1579,7 @@ protected:
     virtual bool DoLoadFile(wxRichTextBuffer *buffer, wxInputStream& stream);
     virtual bool DoSaveFile(wxRichTextBuffer *buffer, wxOutputStream& stream);
 };
+WXGO_DECL_TYPECONV(RichTextDrawingHandler)
 class wxRichTextDrawingHandler: public wxObject
 {
 public:
@@ -1600,6 +1597,7 @@ public:
 protected:
     wxString  m_name;
 };
+WXGO_DECL_TYPECONV(RichTextBufferDataObject)
 class wxRichTextBufferDataObject: public wxDataObjectSimple
 {
 public:
@@ -1619,6 +1617,7 @@ private:
     wxRichTextBuffer*       m_richTextBuffer;           
     static const wxChar*    ms_richTextBufferFormatId;  
 };
+WXGO_DECL_TYPECONV(RichTextRenderer)
 class wxRichTextRenderer: public wxObject
 {
 public:
@@ -1630,6 +1629,7 @@ public:
     virtual bool EnumerateStandardBulletNames(wxArrayString& bulletNames) = 0;
     virtual bool MeasureBullet(wxRichTextParagraph* paragraph, wxDC& dc, const wxRichTextAttr& attr, wxSize& sz) = 0;
 };
+WXGO_DECL_TYPECONV(RichTextStdRenderer)
 class wxRichTextStdRenderer: public wxRichTextRenderer
 {
 public:

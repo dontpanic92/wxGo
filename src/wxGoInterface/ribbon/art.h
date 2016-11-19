@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(RibbonArtProvider)
 %typedef int wxRibbonArtSetting;
 #define wxRIBBON_ART_TAB_SEPARATION_SIZE 0
 #define wxRIBBON_ART_PAGE_BORDER_LEFT_SIZE wxRIBBON_ART_TAB_SEPARATION_SIZE + 1
@@ -122,6 +121,7 @@ WXGO_DECL_TYPECONV(RibbonArtProvider)
 #define wxRIBBON_BUTTON_DROPDOWN   1 << 1
 #define wxRIBBON_BUTTON_HYBRID     wxRIBBON_BUTTON_NORMAL | wxRIBBON_BUTTON_DROPDOWN
 #define wxRIBBON_BUTTON_TOGGLE     1 << 2
+WXGO_DECL_TYPECONV(RibbonArtProvider)
 class wxRibbonArtProvider
 {
 public:

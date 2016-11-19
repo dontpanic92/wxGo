@@ -1,8 +1,8 @@
-WXGO_DECL_TYPECONV(Toolbook)
 #define wxTBK_BUTTONBAR            0x0100
 #define wxTBK_HORZ_LAYOUT          0x8000
 %constant wxEventType wxEVT_TOOLBOOK_PAGE_CHANGED;
 %constant wxEventType wxEVT_TOOLBOOK_PAGE_CHANGING;
+WXGO_DECL_TYPECONV(Toolbook)
 class wxToolbook : public wxBookCtrlBase
 {
 public:

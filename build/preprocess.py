@@ -73,17 +73,15 @@ def replace_enum(match_object):
         
     return code
 
-def gen_conv_decl(code):
-    exception_list = ["wxGoApp", "wxScrolled", "wxString"]
-    decl = ""
-    for match_object in regex2.finditer(code):
-        if not is_top_level(match_object):
-            continue
-        classname = match_object.group(1).strip()
-        if classname in exception_list:
-            continue
-        conv_name = classname[2:] if classname.startswith("wx") else classname
-        decl += "WXGO_DECL_TYPECONV(" + conv_name + ")\n"
+exception_list = ["wxGoApp", "wxScrolled", "wxString"]
+def gen_conv_decl(match_object):
+    if not is_top_level(match_object):
+        return match_object.group(0)
+    classname = match_object.group(1).strip()
+    if classname in exception_list:
+        return match_object.group(0)
+    conv_name = classname[2:] if classname.startswith("wx") else classname
+    decl = "WXGO_DECL_TYPECONV(" + conv_name + ")\n" + match_object.group(0)
     return decl
 
 def preprocess(ori_file, new_file):
@@ -94,9 +92,10 @@ def preprocess(ori_file, new_file):
     if len(code) == 0:
         return
     code = regex.sub(replace_enum, code)
-    conv_decl = gen_conv_decl(code)
+    #conv_decl = gen_conv_decl(code)
+    code = regex2.sub(gen_conv_decl, code)
     code = os.linesep.join([s for s in code.splitlines() if s.rstrip()])
-    file(new_file, "w").write(conv_decl + code) 
+    file(new_file, "w").write(code) 
      
 def preprocess_all(ori_folder, new_folder):
     for f in os.listdir(ori_folder):

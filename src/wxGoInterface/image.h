@@ -1,6 +1,3 @@
-WXGO_DECL_TYPECONV(ImageHandler)
-WXGO_DECL_TYPECONV(Image)
-WXGO_DECL_TYPECONV(ImageHistogram)
 %typedef int wxImageResolution;
 #define wxIMAGE_RESOLUTION_NONE  0
 #define wxIMAGE_RESOLUTION_INCHES  1
@@ -55,6 +52,7 @@ enum
     wxBMP_1BPP         =  1, 
     wxBMP_1BPP_BW      =  2  
 };
+WXGO_DECL_TYPECONV(ImageHandler)
 class wxImageHandler : public wxObject
 {
 public:
@@ -83,6 +81,7 @@ protected:
 const unsigned char wxIMAGE_ALPHA_TRANSPARENT = 0;
 const unsigned char wxIMAGE_ALPHA_OPAQUE = 0xff;
 const unsigned char wxIMAGE_ALPHA_THRESHOLD = 0x80;
+WXGO_DECL_TYPECONV(Image)
 class wxImage : public wxObject
 {
 public:
@@ -250,6 +249,7 @@ public:
     static wxImage::HSVValue RGBtoHSV(const wxImage::RGBValue& rgb);
     static wxImage::RGBValue HSVtoRGB(const wxImage::HSVValue& hsv);
 };
+WXGO_DECL_TYPECONV(ImageHistogram)
 class wxImageHistogram : public wxImageHistogramBase
 {
 public:

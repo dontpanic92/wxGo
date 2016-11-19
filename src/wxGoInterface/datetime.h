@@ -1,8 +1,4 @@
 WXGO_DECL_TYPECONV(DateTime)
-WXGO_DECL_TYPECONV(DateTimeWorkDays)
-WXGO_DECL_TYPECONV(DateSpan)
-WXGO_DECL_TYPECONV(TimeSpan)
-WXGO_DECL_TYPECONV(DateTimeHolidayAuthority)
 class wxDateTime
 {
 public:
@@ -270,10 +266,12 @@ WXGO_GETTER_TO_VAR(DateTime, DefaultDateTime);
 const wxDateTime wxDefaultDateTime;
 WXGO_GETTER_TO_VAR(DateTime, InvalidDateTime);
 const wxDateTime wxInvalidDateTime;
+WXGO_DECL_TYPECONV(DateTimeWorkDays)
 class wxDateTimeWorkDays
 {
 public:
 };
+WXGO_DECL_TYPECONV(DateSpan)
 class wxDateSpan
 {
 public:
@@ -304,6 +302,7 @@ public:
     bool operator!=(const wxDateSpan& other) const;
     bool operator==(const wxDateSpan& other) const;
 };
+WXGO_DECL_TYPECONV(TimeSpan)
 class wxTimeSpan
 {
 public:
@@ -343,6 +342,7 @@ public:
     static wxTimeSpan Weeks(long weeks);
 };
 %nodefaultctor wxDateTimeHolidayAuthority;
+WXGO_DECL_TYPECONV(DateTimeHolidayAuthority)
 class wxDateTimeHolidayAuthority
 {
 public:

@@ -1,6 +1,4 @@
 WXGO_DECL_TYPECONV(HtmlDCRenderer)
-WXGO_DECL_TYPECONV(HtmlEasyPrinting)
-WXGO_DECL_TYPECONV(HtmlPrintout)
 class wxHtmlDCRenderer : public wxObject
 {
 public:
@@ -20,6 +18,7 @@ public:
                      bool isdir = true);
     void SetSize(int width, int height);
 };
+WXGO_DECL_TYPECONV(HtmlEasyPrinting)
 class wxHtmlEasyPrinting : public wxObject
 {
 public:
@@ -53,6 +52,7 @@ enum {
     wxPAGE_EVEN,
     wxPAGE_ALL
 };
+WXGO_DECL_TYPECONV(HtmlPrintout)
 class wxHtmlPrintout : public wxPrintout
 {
 public:

@@ -1,6 +1,3 @@
-WXGO_DECL_TYPECONV(FindDialogEvent)
-WXGO_DECL_TYPECONV(FindReplaceData)
-WXGO_DECL_TYPECONV(FindReplaceDialog)
 %typedef int wxFindReplaceFlags;
 #define wxFR_DOWN        1
 #define wxFR_WHOLEWORD   2
@@ -10,6 +7,7 @@ WXGO_DECL_TYPECONV(FindReplaceDialog)
 #define wxFR_NOUPDOWN       2
 #define wxFR_NOMATCHCASE    4
 #define wxFR_NOWHOLEWORD    8
+WXGO_DECL_TYPECONV(FindDialogEvent)
 class wxFindDialogEvent : public wxCommandEvent
 {
 public:
@@ -25,6 +23,7 @@ public:
 %constant wxEventType wxEVT_FIND_REPLACE;
 %constant wxEventType wxEVT_FIND_REPLACE_ALL;
 %constant wxEventType wxEVT_FIND_CLOSE;
+WXGO_DECL_TYPECONV(FindReplaceData)
 class wxFindReplaceData : public wxObject
 {
 public:
@@ -36,6 +35,7 @@ public:
     void SetFlags(wxUint32 flags);
     void SetReplaceString(const wxString& str);
 };
+WXGO_DECL_TYPECONV(FindReplaceDialog)
 class wxFindReplaceDialog : public wxDialog
 {
 public:

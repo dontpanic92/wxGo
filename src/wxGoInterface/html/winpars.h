@@ -1,12 +1,11 @@
 WXGO_DECL_TYPECONV(HtmlTagsModule)
-WXGO_DECL_TYPECONV(HtmlWinTagHandler)
-WXGO_DECL_TYPECONV(HtmlWinParser)
 class wxHtmlTagsModule : public wxModule
 {
 public:
     virtual void FillHandlersTable(wxHtmlWinParser* parser);
 };
 %nodefaultctor wxHtmlWinTagHandler;
+WXGO_DECL_TYPECONV(HtmlWinTagHandler)
 class wxHtmlWinTagHandler : public wxHtmlTagHandler
 {
 public:
@@ -15,6 +14,7 @@ protected:
     wxHtmlWinParser* m_WParser;
 };
 %nodefaultctor wxHtmlWinParser;
+WXGO_DECL_TYPECONV(HtmlWinParser)
 class wxHtmlWinParser : public wxHtmlParser
 {
 public:

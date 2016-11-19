@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(PGPropArgCls)
-WXGO_DECL_TYPECONV(PropertyGridInterface)
 class wxPGPropArgCls
 {
 public:
@@ -54,6 +53,7 @@ public:
     const wxString& GetName() const { return *m_ptr.stringName; }
 };
 typedef const wxPGPropArgCls& wxPGPropArg;
+WXGO_DECL_TYPECONV(PropertyGridInterface)
 class wxPropertyGridInterface
 {
 public:

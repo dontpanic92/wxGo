@@ -1,8 +1,3 @@
-WXGO_DECL_TYPECONV(AuiToolBarEvent)
-WXGO_DECL_TYPECONV(AuiToolBarItem)
-WXGO_DECL_TYPECONV(AuiToolBarArt)
-WXGO_DECL_TYPECONV(AuiDefaultToolBarArt)
-WXGO_DECL_TYPECONV(AuiToolBar)
 %typedef int wxAuiToolBarStyle;
 #define wxAUI_TB_TEXT           1 << 0
 #define wxAUI_TB_NO_TOOLTIPS    1 << 1
@@ -25,6 +20,7 @@ WXGO_DECL_TYPECONV(AuiToolBar)
 #define wxAUI_TBTOOL_TEXT_RIGHT  1
 #define wxAUI_TBTOOL_TEXT_TOP  2
 #define wxAUI_TBTOOL_TEXT_BOTTOM  3
+WXGO_DECL_TYPECONV(AuiToolBarEvent)
 class wxAuiToolBarEvent : public wxNotifyEvent
 {
 public:
@@ -33,6 +29,7 @@ public:
     wxRect GetItemRect() const;
     int GetToolId() const;
 };
+WXGO_DECL_TYPECONV(AuiToolBarItem)
 class wxAuiToolBarItem
 {
 public:
@@ -79,6 +76,7 @@ public:
     void SetAlignment(int l);
     int GetAlignment() const;
 };
+WXGO_DECL_TYPECONV(AuiToolBarArt)
 class wxAuiToolBarArt
 {
 public:
@@ -145,6 +143,7 @@ public:
                          wxWindow* wnd,
                          const wxAuiToolBarItemArray& items) = 0;
 };
+WXGO_DECL_TYPECONV(AuiDefaultToolBarArt)
 class wxAuiDefaultToolBarArt : public wxAuiToolBarArt
 {
 public:
@@ -210,6 +209,7 @@ public:
     virtual int ShowDropDown(wxWindow* wnd,
                              const wxAuiToolBarItemArray& items);
 };
+WXGO_DECL_TYPECONV(AuiToolBar)
 class wxAuiToolBar : public wxControl
 {
 public:

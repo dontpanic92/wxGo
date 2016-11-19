@@ -1,45 +1,3 @@
-WXGO_DECL_TYPECONV(Event)
-WXGO_DECL_TYPECONV(CommandEvent)
-WXGO_DECL_TYPECONV(EvtHandler)
-WXGO_DECL_TYPECONV(EventBlocker)
-WXGO_DECL_TYPECONV(PropagationDisabler)
-WXGO_DECL_TYPECONV(PropagateOnce)
-WXGO_DECL_TYPECONV(KeyEvent)
-WXGO_DECL_TYPECONV(JoystickEvent)
-WXGO_DECL_TYPECONV(ScrollWinEvent)
-WXGO_DECL_TYPECONV(SysColourChangedEvent)
-WXGO_DECL_TYPECONV(WindowCreateEvent)
-WXGO_DECL_TYPECONV(PaintEvent)
-WXGO_DECL_TYPECONV(MaximizeEvent)
-WXGO_DECL_TYPECONV(UpdateUIEvent)
-WXGO_DECL_TYPECONV(ClipboardTextEvent)
-WXGO_DECL_TYPECONV(MouseEvent)
-WXGO_DECL_TYPECONV(DropFilesEvent)
-WXGO_DECL_TYPECONV(ActivateEvent)
-WXGO_DECL_TYPECONV(ContextMenuEvent)
-WXGO_DECL_TYPECONV(EraseEvent)
-WXGO_DECL_TYPECONV(FocusEvent)
-WXGO_DECL_TYPECONV(ChildFocusEvent)
-WXGO_DECL_TYPECONV(MouseCaptureLostEvent)
-WXGO_DECL_TYPECONV(DisplayChangedEvent)
-WXGO_DECL_TYPECONV(PaletteChangedEvent)
-WXGO_DECL_TYPECONV(QueryNewPaletteEvent)
-WXGO_DECL_TYPECONV(NotifyEvent)
-WXGO_DECL_TYPECONV(ThreadEvent)
-WXGO_DECL_TYPECONV(HelpEvent)
-WXGO_DECL_TYPECONV(ScrollEvent)
-WXGO_DECL_TYPECONV(IdleEvent)
-WXGO_DECL_TYPECONV(InitDialogEvent)
-WXGO_DECL_TYPECONV(WindowDestroyEvent)
-WXGO_DECL_TYPECONV(NavigationKeyEvent)
-WXGO_DECL_TYPECONV(MouseCaptureChangedEvent)
-WXGO_DECL_TYPECONV(CloseEvent)
-WXGO_DECL_TYPECONV(MenuEvent)
-WXGO_DECL_TYPECONV(ShowEvent)
-WXGO_DECL_TYPECONV(IconizeEvent)
-WXGO_DECL_TYPECONV(MoveEvent)
-WXGO_DECL_TYPECONV(SizeEvent)
-WXGO_DECL_TYPECONV(SetCursorEvent)
 %typedef int wxEventPropagation;
 #define wxEVENT_PROPAGATE_NONE  0
 #define wxEVENT_PROPAGATE_MAX  INT_MAX
@@ -51,6 +9,7 @@ WXGO_DECL_TYPECONV(SetCursorEvent)
 #define wxEVT_CATEGORY_THREAD  16
 #define wxEVT_CATEGORY_ALL  wxEVT_CATEGORY_UI|wxEVT_CATEGORY_USER_INPUT|wxEVT_CATEGORY_SOCKET| \        wxEVT_CATEGORY_TIMER|wxEVT_CATEGORY_THREAD
 %nodefaultctor wxEvent;
+WXGO_DECL_TYPECONV(Event)
 class wxEvent : public wxObject
 {
 public:
@@ -71,6 +30,7 @@ public:
     void Skip(bool skip = true);
     int StopPropagation();
 };
+WXGO_DECL_TYPECONV(CommandEvent)
 class wxCommandEvent : public wxEvent
 {
 public:
@@ -91,6 +51,7 @@ public:
     void SetString(const wxString& string);
 };
 typedef int wxEventType;
+WXGO_DECL_TYPECONV(EvtHandler)
 class wxEvtHandler : public wxObject, public wxTrackable
 {
 public:
@@ -120,6 +81,7 @@ public:
     static void AddFilter(wxEventFilter* filter);
     static void RemoveFilter(wxEventFilter* filter);
 };
+WXGO_DECL_TYPECONV(EventBlocker)
 class wxEventBlocker : public wxEvtHandler
 {
 public:
@@ -127,12 +89,14 @@ public:
     virtual ~wxEventBlocker();
     void Block(wxEventType eventType);
 };
+WXGO_DECL_TYPECONV(PropagationDisabler)
 class wxPropagationDisabler
 {
 public:
     wxPropagationDisabler(wxEvent& event);
     ~wxPropagationDisabler();
 };
+WXGO_DECL_TYPECONV(PropagateOnce)
 class wxPropagateOnce
 {
 public:
@@ -146,6 +110,7 @@ public:
 #define WXK_CATEGORY_TAB WXK_CATEGORY_JUMP + 1
 #define WXK_CATEGORY_CUT WXK_CATEGORY_TAB + 1
 #define WXK_CATEGORY_NAVIGATION WXK_CATEGORY_CUT + 1
+WXGO_DECL_TYPECONV(KeyEvent)
 class wxKeyEvent : public wxEvent,
                    public wxKeyboardState
 {
@@ -176,6 +141,7 @@ enum
     wxJOY_BUTTON3    = 4,
     wxJOY_BUTTON4    = 8
 };
+WXGO_DECL_TYPECONV(JoystickEvent)
 class wxJoystickEvent : public wxEvent
 {
 public:
@@ -194,6 +160,7 @@ public:
     bool IsMove() const;
     bool IsZMove() const;
 };
+WXGO_DECL_TYPECONV(ScrollWinEvent)
 class wxScrollWinEvent : public wxEvent
 {
 public:
@@ -204,22 +171,26 @@ public:
     void SetOrientation(int orient);
     void SetPosition(int pos);    
 };
+WXGO_DECL_TYPECONV(SysColourChangedEvent)
 class wxSysColourChangedEvent : public wxEvent
 {
 public:
     wxSysColourChangedEvent();
 };
+WXGO_DECL_TYPECONV(WindowCreateEvent)
 class wxWindowCreateEvent : public wxCommandEvent
 {
 public:
     wxWindowCreateEvent(wxWindow* win = NULL);
     wxWindow *GetWindow() const;
 };
+WXGO_DECL_TYPECONV(PaintEvent)
 class wxPaintEvent : public wxEvent
 {
 public:
     wxPaintEvent(int id = 0);
 };
+WXGO_DECL_TYPECONV(MaximizeEvent)
 class wxMaximizeEvent : public wxEvent
 {
 public:
@@ -228,6 +199,7 @@ public:
 %typedef int wxUpdateUIMode;
 #define wxUPDATE_UI_PROCESS_ALL 0
 #define wxUPDATE_UI_PROCESS_SPECIFIED wxUPDATE_UI_PROCESS_ALL + 1
+WXGO_DECL_TYPECONV(UpdateUIEvent)
 class wxUpdateUIEvent : public wxCommandEvent
 {
 public:
@@ -251,6 +223,7 @@ public:
     static void SetUpdateInterval(long updateInterval);
     void Show(bool show);
 };
+WXGO_DECL_TYPECONV(ClipboardTextEvent)
 class wxClipboardTextEvent : public wxCommandEvent
 {
 public:
@@ -259,6 +232,7 @@ public:
 %typedef int wxMouseWheelAxis;
 #define wxMOUSE_WHEEL_VERTICAL 0
 #define wxMOUSE_WHEEL_HORIZONTAL wxMOUSE_WHEEL_VERTICAL + 1
+WXGO_DECL_TYPECONV(MouseEvent)
 class wxMouseEvent : public wxEvent,
                      public wxMouseState
 {
@@ -299,6 +273,7 @@ public:
     bool RightDown() const;
     bool RightUp() const;
 };
+WXGO_DECL_TYPECONV(DropFilesEvent)
 class wxDropFilesEvent : public wxEvent
 {
 public:
@@ -308,6 +283,7 @@ public:
     int GetNumberOfFiles() const;
     wxPoint GetPosition() const;
 };
+WXGO_DECL_TYPECONV(ActivateEvent)
 class wxActivateEvent : public wxEvent
 {
 public:
@@ -321,6 +297,7 @@ public:
     bool GetActive() const;
     Reason GetActivationReason() const;
 };
+WXGO_DECL_TYPECONV(ContextMenuEvent)
 class wxContextMenuEvent : public wxCommandEvent
 {
 public:
@@ -329,12 +306,14 @@ public:
     const wxPoint& GetPosition() const;
     void SetPosition(const wxPoint& point);
 };
+WXGO_DECL_TYPECONV(EraseEvent)
 class wxEraseEvent : public wxEvent
 {
 public:
     wxEraseEvent(int id = 0, wxDC* dc = NULL);
     wxDC* GetDC() const;
 };
+WXGO_DECL_TYPECONV(FocusEvent)
 class wxFocusEvent : public wxEvent
 {
 public:
@@ -342,22 +321,26 @@ public:
     wxWindow *GetWindow() const;
     void SetWindow(wxWindow *win);
 };
+WXGO_DECL_TYPECONV(ChildFocusEvent)
 class wxChildFocusEvent : public wxCommandEvent
 {
 public:
     wxChildFocusEvent(wxWindow* win = NULL);
     wxWindow *GetWindow() const;
 };
+WXGO_DECL_TYPECONV(MouseCaptureLostEvent)
 class wxMouseCaptureLostEvent : public wxEvent
 {
 public:
     wxMouseCaptureLostEvent(wxWindowID windowId = 0);
 };
+WXGO_DECL_TYPECONV(DisplayChangedEvent)
 class wxDisplayChangedEvent : public wxEvent
 {
 public:
     wxDisplayChangedEvent();
 };
+WXGO_DECL_TYPECONV(PaletteChangedEvent)
 class wxPaletteChangedEvent : public wxEvent
 {
 public:
@@ -365,6 +348,7 @@ public:
     void SetChangedWindow(wxWindow* win);
     wxWindow* GetChangedWindow() const;
 };
+WXGO_DECL_TYPECONV(QueryNewPaletteEvent)
 class wxQueryNewPaletteEvent : public wxEvent
 {
 public:
@@ -372,6 +356,7 @@ public:
     void SetPaletteRealized(bool realized);
     bool GetPaletteRealized();
 };
+WXGO_DECL_TYPECONV(NotifyEvent)
 class wxNotifyEvent : public wxCommandEvent
 {
 public:
@@ -380,6 +365,7 @@ public:
     bool IsAllowed() const;
     void Veto();
 };
+WXGO_DECL_TYPECONV(ThreadEvent)
 class wxThreadEvent : public wxEvent
 {
 public:
@@ -397,6 +383,7 @@ public:
     void SetInt(int intCommand);
     void SetString(const wxString& string);
 };
+WXGO_DECL_TYPECONV(HelpEvent)
 class wxHelpEvent : public wxCommandEvent
 {
 public:
@@ -415,6 +402,7 @@ public:
     void SetOrigin(wxHelpEvent::Origin origin);
     void SetPosition(const wxPoint& pt);
 };
+WXGO_DECL_TYPECONV(ScrollEvent)
 class wxScrollEvent : public wxCommandEvent
 {
 public:
@@ -428,6 +416,7 @@ public:
 %typedef int wxIdleMode;
 #define wxIDLE_PROCESS_ALL 0
 #define wxIDLE_PROCESS_SPECIFIED wxIDLE_PROCESS_ALL + 1
+WXGO_DECL_TYPECONV(IdleEvent)
 class wxIdleEvent : public wxEvent
 {
 public:
@@ -437,17 +426,20 @@ public:
     void RequestMore(bool needMore = true);
     static void SetMode(wxIdleMode mode);
 };
+WXGO_DECL_TYPECONV(InitDialogEvent)
 class wxInitDialogEvent : public wxEvent
 {
 public:
     wxInitDialogEvent(int id = 0);
 };
+WXGO_DECL_TYPECONV(WindowDestroyEvent)
 class wxWindowDestroyEvent : public wxCommandEvent
 {
 public:
     wxWindowDestroyEvent(wxWindow* win = NULL);
     wxWindow *GetWindow() const;
 };
+WXGO_DECL_TYPECONV(NavigationKeyEvent)
 class wxNavigationKeyEvent : public wxEvent
 {
 public:
@@ -470,6 +462,7 @@ public:
     void SetFromTab(bool fromTab);
     void SetWindowChange(bool windowChange);
 };
+WXGO_DECL_TYPECONV(MouseCaptureChangedEvent)
 class wxMouseCaptureChangedEvent : public wxEvent
 {
 public:
@@ -477,6 +470,7 @@ public:
                                wxWindow* gainedCapture = NULL);
     wxWindow* GetCapturedWindow() const;
 };
+WXGO_DECL_TYPECONV(CloseEvent)
 class wxCloseEvent : public wxEvent
 {
 public:
@@ -487,6 +481,7 @@ public:
     void SetLoggingOff(bool loggingOff);
     void Veto(bool veto = true);
 };
+WXGO_DECL_TYPECONV(MenuEvent)
 class wxMenuEvent : public wxEvent
 {
 public:
@@ -495,6 +490,7 @@ public:
     int GetMenuId() const;
     bool IsPopup() const;
 };
+WXGO_DECL_TYPECONV(ShowEvent)
 class wxShowEvent : public wxEvent
 {
 public:
@@ -502,12 +498,14 @@ public:
     void SetShow(bool show);
     bool IsShown() const;
 };
+WXGO_DECL_TYPECONV(IconizeEvent)
 class wxIconizeEvent : public wxEvent
 {
 public:
     wxIconizeEvent(int id = 0, bool iconized = true);
     bool IsIconized() const;
 };
+WXGO_DECL_TYPECONV(MoveEvent)
 class wxMoveEvent : public wxEvent
 {
 public:
@@ -517,6 +515,7 @@ public:
     void SetRect(const wxRect& rect);
     void SetPosition(const wxPoint& pos);    
 };
+WXGO_DECL_TYPECONV(SizeEvent)
 class wxSizeEvent : public wxEvent
 {
 public:
@@ -526,6 +525,7 @@ public:
     wxRect GetRect() const;
     void SetRect(wxRect rect);
 };
+WXGO_DECL_TYPECONV(SetCursorEvent)
 class wxSetCursorEvent : public wxEvent
 {
 public:

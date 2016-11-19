@@ -1,5 +1,5 @@
-WXGO_DECL_TYPECONV(Clipboard)
 #define wxTheClipboard
+WXGO_DECL_TYPECONV(Clipboard)
 class wxClipboard : public wxObject
 {
 public:

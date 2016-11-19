@@ -1,6 +1,3 @@
-WXGO_DECL_TYPECONV(TextAttr)
-WXGO_DECL_TYPECONV(TextCtrl)
-WXGO_DECL_TYPECONV(TextUrlEvent)
 #define wxTE_NO_VSCROLL     0x0002
 #define wxTE_READONLY       0x0010
 #define wxTE_MULTILINE      0x0020
@@ -108,6 +105,7 @@ typedef long wxTextCoord;
 #define wxTE_HT_ON_TEXT wxTE_HT_BEFORE + 1
 #define wxTE_HT_BELOW wxTE_HT_ON_TEXT + 1
 #define wxTE_HT_BEYOND wxTE_HT_BELOW + 1
+WXGO_DECL_TYPECONV(TextAttr)
 class wxTextAttr
 {
 public:
@@ -223,6 +221,7 @@ public:
     void SetURL(const wxString& url);
     void operator=(const wxTextAttr& attr);
 };
+WXGO_DECL_TYPECONV(TextCtrl)
 class wxTextCtrl : public wxControl,
                    public wxTextEntry
 {
@@ -274,6 +273,7 @@ public:
 %constant wxEventType wxEVT_TEXT_ENTER;
 %constant wxEventType wxEVT_TEXT_URL;
 %constant wxEventType wxEVT_TEXT_MAXLEN;
+WXGO_DECL_TYPECONV(TextUrlEvent)
 class wxTextUrlEvent : public wxCommandEvent
 {
 public:

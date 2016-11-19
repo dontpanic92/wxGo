@@ -1,12 +1,11 @@
 WXGO_DECL_TYPECONV(MDIClientWindow)
-WXGO_DECL_TYPECONV(MDIParentFrame)
-WXGO_DECL_TYPECONV(MDIChildFrame)
 class wxMDIClientWindow : public wxWindow
 {
 public:
     wxMDIClientWindow();
     virtual bool CreateClient(wxMDIParentFrame* parent, long style = 0);
 };
+WXGO_DECL_TYPECONV(MDIParentFrame)
 class wxMDIParentFrame : public wxFrame
 {
 public:
@@ -37,6 +36,7 @@ public:
     virtual void SetWindowMenu(wxMenu* menu);
     virtual void Tile(wxOrientation orient = wxHORIZONTAL);
 };
+WXGO_DECL_TYPECONV(MDIChildFrame)
 class wxMDIChildFrame : public wxFrame
 {
 public:

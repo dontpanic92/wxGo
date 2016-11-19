@@ -1,10 +1,9 @@
-WXGO_DECL_TYPECONV(ComboPopup)
-WXGO_DECL_TYPECONV(ComboCtrl)
 enum
 {
     wxCC_SPECIAL_DCLICK             = 0x0100,
     wxCC_STD_BUTTON                 = 0x0200
 };
+WXGO_DECL_TYPECONV(ComboPopup)
 class wxComboPopup
 {
 public:
@@ -45,6 +44,7 @@ struct wxComboCtrlFeatures
                           Borderless 
     };
 };
+WXGO_DECL_TYPECONV(ComboCtrl)
 class wxComboCtrl : public wxControl,
                     public wxTextEntry
 {

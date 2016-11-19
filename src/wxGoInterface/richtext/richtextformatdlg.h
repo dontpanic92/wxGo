@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(RichTextFormattingDialogFactory)
-WXGO_DECL_TYPECONV(RichTextFormattingDialog)
 class wxRichTextFormattingDialogFactory : public wxObject
 {
 public:
@@ -22,6 +21,7 @@ public:
 #define wxRICHTEXT_FORMAT_TABS              0x0004
 #define wxRICHTEXT_FORMAT_BULLETS           0x0008
 #define wxRICHTEXT_FORMAT_INDENTS_SPACING   0x0010
+WXGO_DECL_TYPECONV(RichTextFormattingDialog)
 class wxRichTextFormattingDialog : public wxPropertySheetDialog
 {
 public:

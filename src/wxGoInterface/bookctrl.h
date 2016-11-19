@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(BookCtrlBase)
 enum
 {
     wxBK_HITTEST_NOWHERE = 1,
@@ -13,6 +12,7 @@ enum
 #define wxBK_LEFT             0x0040
 #define wxBK_RIGHT            0x0080
 #define wxBK_ALIGN_MASK       (wxBK_TOP | wxBK_BOTTOM | wxBK_LEFT | wxBK_RIGHT)
+WXGO_DECL_TYPECONV(BookCtrlBase)
 class wxBookCtrlBase : public wxControl, public wxWithImages
 {
 public:

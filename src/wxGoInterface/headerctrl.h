@@ -1,12 +1,10 @@
-WXGO_DECL_TYPECONV(HeaderCtrl)
-WXGO_DECL_TYPECONV(HeaderCtrlSimple)
-WXGO_DECL_TYPECONV(HeaderCtrlEvent)
 enum
 {
     wxHD_ALLOW_REORDER = 0x0001,
     wxHD_ALLOW_HIDE = 0x0002,
     wxHD_DEFAULT_STYLE = wxHD_ALLOW_REORDER
 };
+WXGO_DECL_TYPECONV(HeaderCtrl)
 class wxHeaderCtrl : public wxControl
 {
 public:
@@ -46,6 +44,7 @@ protected:
     virtual bool UpdateColumnWidthToFit(unsigned int idx, int widthTitle);
     virtual void OnColumnCountChanging(unsigned int count);
 };
+WXGO_DECL_TYPECONV(HeaderCtrlSimple)
 class wxHeaderCtrlSimple : public wxHeaderCtrl
 {
 public:
@@ -66,6 +65,7 @@ public:
 protected:
     virtual int GetBestFittingWidth(unsigned int idx) const;
 };
+WXGO_DECL_TYPECONV(HeaderCtrlEvent)
 class wxHeaderCtrlEvent : public wxNotifyEvent
 {
 public:

@@ -1,7 +1,5 @@
-WXGO_DECL_TYPECONV(EventLoopBase)
-WXGO_DECL_TYPECONV(EventLoopActivator)
-WXGO_DECL_TYPECONV(GUIEventLoop)
 %nodefaultctor wxEventLoopBase;
+WXGO_DECL_TYPECONV(EventLoopBase)
 class wxEventLoopBase
 {
 public:
@@ -26,12 +24,14 @@ public:
 protected:
     virtual void OnExit();
 };
+WXGO_DECL_TYPECONV(EventLoopActivator)
 class wxEventLoopActivator
 {
 public:
     wxEventLoopActivator(wxEventLoopBase *loop);
     ~wxEventLoopActivator();
 };
+WXGO_DECL_TYPECONV(GUIEventLoop)
 class wxGUIEventLoop : public wxEventLoopBase
 {
 public:

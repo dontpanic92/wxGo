@@ -1,10 +1,9 @@
-WXGO_DECL_TYPECONV(RibbonGallery)
-WXGO_DECL_TYPECONV(RibbonGalleryEvent)
 %typedef int wxRibbonGalleryButtonState;
 #define wxRIBBON_GALLERY_BUTTON_NORMAL 0
 #define wxRIBBON_GALLERY_BUTTON_HOVERED wxRIBBON_GALLERY_BUTTON_NORMAL + 1
 #define wxRIBBON_GALLERY_BUTTON_ACTIVE wxRIBBON_GALLERY_BUTTON_HOVERED + 1
 #define wxRIBBON_GALLERY_BUTTON_DISABLED wxRIBBON_GALLERY_BUTTON_ACTIVE + 1
+WXGO_DECL_TYPECONV(RibbonGallery)
 class wxRibbonGallery : public wxRibbonControl
 {
 public:
@@ -43,6 +42,7 @@ public:
     bool ScrollPixels(int pixels);
     void EnsureVisible(const wxRibbonGalleryItem* item);
 };
+WXGO_DECL_TYPECONV(RibbonGalleryEvent)
 class wxRibbonGalleryEvent : public wxCommandEvent
 {
 public:

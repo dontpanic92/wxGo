@@ -1,9 +1,8 @@
-WXGO_DECL_TYPECONV(HelpControllerBase)
-WXGO_DECL_TYPECONV(HelpController)
 #define wxHELP_NETSCAPE     1
 %typedef int wxHelpSearchMode;
 #define wxHELP_SEARCH_INDEX 0
 #define wxHELP_SEARCH_ALL wxHELP_SEARCH_INDEX + 1
+WXGO_DECL_TYPECONV(HelpControllerBase)
 class wxHelpControllerBase : public wxObject
 {
 public:
@@ -34,6 +33,7 @@ public:
     virtual void SetParentWindow(wxWindow* parentWindow);
     virtual void SetViewer(const wxString& viewer, long flags=wxHELP_NETSCAPE);
 };
+WXGO_DECL_TYPECONV(HelpController)
 class wxHelpController : public wxHelpControllerBase
 {
 public:

@@ -1,14 +1,14 @@
-WXGO_DECL_TYPECONV(TaskBarIconEvent)
-WXGO_DECL_TYPECONV(TaskBarIcon)
 %typedef int wxTaskBarIconType;
 #define wxTBI_DOCK 0
 #define wxTBI_CUSTOM_STATUSITEM wxTBI_DOCK + 1
 #define wxTBI_DEFAULT_TYPE wxTBI_CUSTOM_STATUSITEM + 1
+WXGO_DECL_TYPECONV(TaskBarIconEvent)
 class wxTaskBarIconEvent : public wxEvent
 {
 public:
     wxTaskBarIconEvent(wxEventType evtType, wxTaskBarIcon *tbIcon);
 };
+WXGO_DECL_TYPECONV(TaskBarIcon)
 class wxTaskBarIcon : public wxEvtHandler
 {
 public:

@@ -1,6 +1,4 @@
 WXGO_DECL_TYPECONV(PreferencesEditor)
-WXGO_DECL_TYPECONV(PreferencesPage)
-WXGO_DECL_TYPECONV(StockPreferencesPage)
 class wxPreferencesEditor
 {
 public:
@@ -12,6 +10,7 @@ public:
     static bool ShouldApplyChangesImmediately();
     static bool ShownModally();
 };
+WXGO_DECL_TYPECONV(PreferencesPage)
 class wxPreferencesPage
 {
 public:
@@ -21,6 +20,7 @@ public:
     virtual wxBitmap GetLargeIcon() const = 0;
     virtual wxWindow *CreateWindow(wxWindow *parent) = 0;
 };
+WXGO_DECL_TYPECONV(StockPreferencesPage)
 class wxStockPreferencesPage : public wxPreferencesPage
 {
 public:

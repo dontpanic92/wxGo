@@ -1,6 +1,3 @@
-WXGO_DECL_TYPECONV(HeaderColumn)
-WXGO_DECL_TYPECONV(SettableHeaderColumn)
-WXGO_DECL_TYPECONV(HeaderColumnSimple)
 enum
 {
     wxCOL_WIDTH_DEFAULT = -1,
@@ -14,6 +11,7 @@ enum
     wxCOL_HIDDEN      = 8,
     wxCOL_DEFAULT_FLAGS = wxCOL_RESIZABLE | wxCOL_REORDERABLE
 };
+WXGO_DECL_TYPECONV(HeaderColumn)
 class wxHeaderColumn
 {
 public:
@@ -32,6 +30,7 @@ public:
     virtual bool IsSortKey() const = 0;
     virtual bool IsSortOrderAscending() const = 0;
 };
+WXGO_DECL_TYPECONV(SettableHeaderColumn)
 class wxSettableHeaderColumn : public wxHeaderColumn
 {
 public:
@@ -53,6 +52,7 @@ public:
     virtual void SetSortOrder(bool ascending) = 0;
     void ToggleSortOrder();
 };
+WXGO_DECL_TYPECONV(HeaderColumnSimple)
 class wxHeaderColumnSimple : public wxSettableHeaderColumn
 {
 public:

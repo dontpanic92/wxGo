@@ -1,6 +1,4 @@
 WXGO_DECL_TYPECONV(PageSetupDialogData)
-WXGO_DECL_TYPECONV(PrintData)
-WXGO_DECL_TYPECONV(PrintDialogData)
 class wxPageSetupDialogData : public wxObject
 {
 public:
@@ -56,6 +54,7 @@ public:
 #define wxPRINTBIN_CASSETTE wxPRINTBIN_LARGECAPACITY + 1
 #define wxPRINTBIN_FORMSOURCE wxPRINTBIN_CASSETTE + 1
 #define wxPRINTBIN_USER wxPRINTBIN_FORMSOURCE + 1
+WXGO_DECL_TYPECONV(PrintData)
 class wxPrintData : public wxObject
 {
 public:
@@ -88,6 +87,7 @@ public:
     wxPrintMode GetPrintMode() const ;
     void SetPrintMode(wxPrintMode printMode) ;
 };
+WXGO_DECL_TYPECONV(PrintDialogData)
 class wxPrintDialogData : public wxObject
 {
 public:

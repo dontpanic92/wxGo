@@ -1,5 +1,3 @@
-WXGO_DECL_TYPECONV(GenericProgressDialog)
-WXGO_DECL_TYPECONV(ProgressDialog)
 #define wxPD_CAN_ABORT          0x0001
 #define wxPD_APP_MODAL          0x0002
 #define wxPD_AUTO_HIDE          0x0004
@@ -8,6 +6,7 @@ WXGO_DECL_TYPECONV(ProgressDialog)
 #define wxPD_SMOOTH             0x0020
 #define wxPD_REMAINING_TIME     0x0040
 #define wxPD_CAN_SKIP           0x0080
+WXGO_DECL_TYPECONV(GenericProgressDialog)
 class wxGenericProgressDialog : public wxDialog
 {
 public:
@@ -27,6 +26,7 @@ public:
     virtual bool Update(int value, const wxString& newmsg = wxEmptyString,
                         bool* skip = NULL);
 };
+WXGO_DECL_TYPECONV(ProgressDialog)
 class wxProgressDialog : public wxGenericProgressDialog
 {
 public:

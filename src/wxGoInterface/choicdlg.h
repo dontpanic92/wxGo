@@ -1,8 +1,7 @@
-WXGO_DECL_TYPECONV(MultiChoiceDialog)
-WXGO_DECL_TYPECONV(SingleChoiceDialog)
 #define wxCHOICE_WIDTH 150
 #define wxCHOICE_HEIGHT 200
 #define wxCHOICEDLG_STYLE (wxDEFAULT_DIALOG_STYLE | wxOK | wxCANCEL | wxCENTRE | wxRESIZE_BORDER)
+WXGO_DECL_TYPECONV(MultiChoiceDialog)
 class wxMultiChoiceDialog : public wxDialog
 {
 public:
@@ -21,6 +20,7 @@ public:
     void SetSelections(const wxArrayInt& selections);
     int ShowModal();
 };
+WXGO_DECL_TYPECONV(SingleChoiceDialog)
 class wxSingleChoiceDialog : public wxDialog
 {
 public:

@@ -1,8 +1,3 @@
-WXGO_DECL_TYPECONV(ListCtrl)
-WXGO_DECL_TYPECONV(ListEvent)
-WXGO_DECL_TYPECONV(ListItemAttr)
-WXGO_DECL_TYPECONV(ListView)
-WXGO_DECL_TYPECONV(ListItem)
 #define wxLC_VRULES          0x0001
 #define wxLC_HRULES          0x0002
 #define wxLC_ICON            0x0004
@@ -83,6 +78,7 @@ enum
     wxLIST_FIND_LEFT,
     wxLIST_FIND_RIGHT
 };
+WXGO_DECL_TYPECONV(ListCtrl)
 class wxListCtrl : public wxControl
 {
 public:
@@ -206,6 +202,7 @@ protected:
     virtual int OnGetItemImage(long item) const;
     virtual wxString OnGetItemText(long item, long column) const;
 };
+WXGO_DECL_TYPECONV(ListEvent)
 class wxListEvent : public wxNotifyEvent
 {
 public:
@@ -246,6 +243,7 @@ public:
 %constant wxEventType wxEVT_LIST_ITEM_FOCUSED;
 %constant wxEventType wxEVT_LIST_ITEM_CHECKED;
 %constant wxEventType wxEVT_LIST_ITEM_UNCHECKED;
+WXGO_DECL_TYPECONV(ListItemAttr)
 class wxListItemAttr
 {
 public:
@@ -263,6 +261,7 @@ public:
     void SetFont(const wxFont& font);
     void SetTextColour(const wxColour& colour);
 };
+WXGO_DECL_TYPECONV(ListView)
 class wxListView : public wxListCtrl
 {
 public:
@@ -283,6 +282,7 @@ public:
     void Select(long n, bool on = true);
     void SetColumnImage(int col, int image);
 };
+WXGO_DECL_TYPECONV(ListItem)
 class wxListItem : public wxObject
 {
 public:

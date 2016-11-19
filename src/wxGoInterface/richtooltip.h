@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(RichToolTip)
 %typedef int wxTipKind;
 #define wxTipKind_None 0
 #define wxTipKind_TopLeft wxTipKind_None + 1
@@ -8,6 +7,7 @@ WXGO_DECL_TYPECONV(RichToolTip)
 #define wxTipKind_Bottom wxTipKind_BottomLeft + 1
 #define wxTipKind_BottomRight wxTipKind_Bottom + 1
 #define wxTipKind_Auto wxTipKind_BottomRight + 1
+WXGO_DECL_TYPECONV(RichToolTip)
 class wxRichToolTip
 {
 public:

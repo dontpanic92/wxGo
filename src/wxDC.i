@@ -14,8 +14,8 @@
 
 %include "wxGoInterface/dc.h"
 %include "wxGoInterface/dcclient.h"
-#ifndef __WXMSW__
 %include "wxGoInterface/dcgraph.h"
+#ifndef __WXMSW__
 %include "wxGoInterface/dcps.h"
 #endif
 #ifdef __WXMSW__

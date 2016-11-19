@@ -7,5 +7,5 @@ public:
     bool IsAvailable() const;
     void SetValue(int value);
     void SetRange(int range);
-    bool Pulse();
+    void Pulse();
 };

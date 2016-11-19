@@ -1,6 +1,3 @@
-WXGO_DECL_TYPECONV(AuiManager)
-WXGO_DECL_TYPECONV(AuiPaneInfo)
-WXGO_DECL_TYPECONV(AuiManagerEvent)
 %typedef int wxAuiManagerDock;
 #define wxAUI_DOCK_NONE  0
 #define wxAUI_DOCK_TOP  1
@@ -20,6 +17,7 @@ WXGO_DECL_TYPECONV(AuiManagerEvent)
 #define wxAUI_MGR_NO_VENETIAN_BLINDS_FADE   1 << 7
 #define wxAUI_MGR_LIVE_RESIZE               1 << 8
 #define wxAUI_MGR_DEFAULT  wxAUI_MGR_ALLOW_FLOATING |                        wxAUI_MGR_TRANSPARENT_HINT |                        wxAUI_MGR_HINT_FADE |                        wxAUI_MGR_NO_VENETIAN_BLINDS_FADE
+WXGO_DECL_TYPECONV(AuiManager)
 class wxAuiManager : public wxEvtHandler
 {
 public:
@@ -61,6 +59,7 @@ protected:
     virtual bool ProcessDockResult(wxAuiPaneInfo& target,
                                    const wxAuiPaneInfo& new_pos);
 };
+WXGO_DECL_TYPECONV(AuiPaneInfo)
 class wxAuiPaneInfo
 {
 public:
@@ -144,6 +143,7 @@ public:
     wxAuiPaneInfo& Window(wxWindow* w);
     wxAuiPaneInfo& operator=(const wxAuiPaneInfo& c);
 };
+WXGO_DECL_TYPECONV(AuiManagerEvent)
 class wxAuiManagerEvent : public wxEvent
 {
 public:

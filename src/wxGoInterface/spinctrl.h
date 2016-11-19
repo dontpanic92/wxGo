@@ -1,6 +1,4 @@
 WXGO_DECL_TYPECONV(SpinCtrl)
-WXGO_DECL_TYPECONV(SpinCtrlDouble)
-WXGO_DECL_TYPECONV(SpinDoubleEvent)
 class wxSpinCtrl : public wxControl
 {
 public:
@@ -28,6 +26,7 @@ public:
     virtual void SetValue(const wxString& text);
     void SetValue(int value);
 };
+WXGO_DECL_TYPECONV(SpinCtrlDouble)
 class wxSpinCtrlDouble : public wxControl
 {
 public:
@@ -58,6 +57,7 @@ public:
     virtual void SetValue(const wxString& text);
     void SetValue(double value);
 };
+WXGO_DECL_TYPECONV(SpinDoubleEvent)
 class wxSpinDoubleEvent : public wxNotifyEvent
 {
 public:

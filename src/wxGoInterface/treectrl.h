@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(TreeCtrl)
-WXGO_DECL_TYPECONV(TreeEvent)
 class wxTreeCtrl : public wxControl
 {
 public:
@@ -142,6 +141,7 @@ public:
     void UnselectItem(const wxTreeItemId& item);
     virtual void SelectChildren(const wxTreeItemId& parent);
 };
+WXGO_DECL_TYPECONV(TreeEvent)
 class wxTreeEvent : public wxNotifyEvent
 {
 public:

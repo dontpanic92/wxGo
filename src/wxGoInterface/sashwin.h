@@ -1,5 +1,3 @@
-WXGO_DECL_TYPECONV(SashWindow)
-WXGO_DECL_TYPECONV(SashEvent)
 #define wxSW_NOBORDER         0x0000
 #define wxSW_BORDER           0x0020
 #define wxSW_3DSASH           0x0040
@@ -14,6 +12,7 @@ WXGO_DECL_TYPECONV(SashEvent)
 %typedef int wxSashDragStatus;
 #define wxSASH_STATUS_OK 0
 #define wxSASH_STATUS_OUT_OF_RANGE wxSASH_STATUS_OK + 1
+WXGO_DECL_TYPECONV(SashWindow)
 class wxSashWindow : public wxWindow
 {
 public:
@@ -42,6 +41,7 @@ public:
     wxSashEdgePosition SashHitTest(int x, int y, int tolerance = 2);
     void SizeWindows();
 };
+WXGO_DECL_TYPECONV(SashEvent)
 class wxSashEvent : public wxCommandEvent
 {
 public:

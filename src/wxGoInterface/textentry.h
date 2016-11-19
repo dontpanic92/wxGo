@@ -1,5 +1,5 @@
-WXGO_DECL_TYPECONV(TextEntry)
 typedef long wxTextPos;
+WXGO_DECL_TYPECONV(TextEntry)
 class wxTextEntry
 {
 public:

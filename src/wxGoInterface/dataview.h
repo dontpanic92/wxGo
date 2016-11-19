@@ -1,29 +1,4 @@
 WXGO_DECL_TYPECONV(DataViewModel)
-WXGO_DECL_TYPECONV(DataViewListModel)
-WXGO_DECL_TYPECONV(DataViewIndexListModel)
-WXGO_DECL_TYPECONV(DataViewVirtualListModel)
-WXGO_DECL_TYPECONV(DataViewItemAttr)
-WXGO_DECL_TYPECONV(DataViewItem)
-WXGO_DECL_TYPECONV(DataViewCtrl)
-WXGO_DECL_TYPECONV(DataViewModelNotifier)
-WXGO_DECL_TYPECONV(DataViewRenderer)
-WXGO_DECL_TYPECONV(DataViewTextRenderer)
-WXGO_DECL_TYPECONV(DataViewIconTextRenderer)
-WXGO_DECL_TYPECONV(DataViewProgressRenderer)
-WXGO_DECL_TYPECONV(DataViewCustomRenderer)
-WXGO_DECL_TYPECONV(DataViewSpinRenderer)
-WXGO_DECL_TYPECONV(DataViewToggleRenderer)
-WXGO_DECL_TYPECONV(DataViewChoiceRenderer)
-WXGO_DECL_TYPECONV(DataViewChoiceByIndexRenderer)
-WXGO_DECL_TYPECONV(DataViewDateRenderer)
-WXGO_DECL_TYPECONV(DataViewBitmapRenderer)
-WXGO_DECL_TYPECONV(DataViewColumn)
-WXGO_DECL_TYPECONV(DataViewListCtrl)
-WXGO_DECL_TYPECONV(DataViewTreeCtrl)
-WXGO_DECL_TYPECONV(DataViewListStore)
-WXGO_DECL_TYPECONV(DataViewTreeStore)
-WXGO_DECL_TYPECONV(DataViewIconText)
-WXGO_DECL_TYPECONV(DataViewEvent)
 class wxDataViewModel : public wxRefCounter
 {
 public:
@@ -74,6 +49,7 @@ public:
 protected:
     virtual ~wxDataViewModel();
 };
+WXGO_DECL_TYPECONV(DataViewListModel)
 class wxDataViewListModel : public wxDataViewModel
 {
 public:
@@ -92,6 +68,7 @@ public:
     virtual bool SetValueByRow(const wxVariant& variant, unsigned int row,
                                unsigned int col) = 0;
 };
+WXGO_DECL_TYPECONV(DataViewIndexListModel)
 class wxDataViewIndexListModel : public wxDataViewListModel
 {
 public:
@@ -106,6 +83,7 @@ public:
     void RowValueChanged(unsigned int row, unsigned int col);
     void RowsDeleted(const wxArrayInt& rows);
 };
+WXGO_DECL_TYPECONV(DataViewVirtualListModel)
 class wxDataViewVirtualListModel : public wxDataViewListModel
 {
 public:
@@ -120,6 +98,7 @@ public:
     void RowValueChanged(unsigned int row, unsigned int col);
     void RowsDeleted(const wxArrayInt& rows);
 };
+WXGO_DECL_TYPECONV(DataViewItemAttr)
 class wxDataViewItemAttr
 {
 public:
@@ -138,6 +117,7 @@ public:
     bool IsDefault() const;
     wxFont GetEffectiveFont(const wxFont& font) const;
 };
+WXGO_DECL_TYPECONV(DataViewItem)
 class wxDataViewItem
 {
 public:
@@ -178,6 +158,7 @@ public:
 %constant wxEventType wxEVT_DATAVIEW_ITEM_BEGIN_DRAG;
 %constant wxEventType wxEVT_DATAVIEW_ITEM_DROP_POSSIBLE;
 %constant wxEventType wxEVT_DATAVIEW_ITEM_DROP;
+WXGO_DECL_TYPECONV(DataViewCtrl)
 class wxDataViewCtrl : public wxControl
 {
 public:
@@ -385,6 +366,7 @@ public:
     virtual bool SetRowHeight(int rowHeight);
     virtual void ToggleSortByColumn(int column);
 };
+WXGO_DECL_TYPECONV(DataViewModelNotifier)
 class wxDataViewModelNotifier
 {
 public:
@@ -415,6 +397,7 @@ public:
 #define wxDATAVIEW_CELL_PRELIT       2
 #define wxDATAVIEW_CELL_INSENSITIVE  4
 #define wxDATAVIEW_CELL_FOCUSED      8
+WXGO_DECL_TYPECONV(DataViewRenderer)
 class wxDataViewRenderer : public wxObject
 {
 public:
@@ -446,6 +429,7 @@ public:
 protected:
     wxDataViewCtrl* GetView() const;
 };
+WXGO_DECL_TYPECONV(DataViewTextRenderer)
 class wxDataViewTextRenderer : public wxDataViewRenderer
 {
 public:
@@ -454,6 +438,7 @@ public:
                            wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT,
                            int align = wxDVR_DEFAULT_ALIGNMENT );
 };
+WXGO_DECL_TYPECONV(DataViewIconTextRenderer)
 class wxDataViewIconTextRenderer : public wxDataViewRenderer
 {
 public:
@@ -463,6 +448,7 @@ public:
                                int align = wxDVR_DEFAULT_ALIGNMENT );
 };
 %feature("") wxDataViewProgressRenderer;
+WXGO_DECL_TYPECONV(DataViewProgressRenderer)
 class wxDataViewProgressRenderer : public wxDataViewRenderer
 {
 public:
@@ -472,6 +458,7 @@ public:
                                wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT,
                                int align = wxDVR_DEFAULT_ALIGNMENT );
 };
+WXGO_DECL_TYPECONV(DataViewCustomRenderer)
 class wxDataViewCustomRenderer : public wxDataViewRenderer
 {
 public:
@@ -513,6 +500,7 @@ public:
 protected:
     wxSize GetTextExtent(const wxString& str) const;
 };
+WXGO_DECL_TYPECONV(DataViewSpinRenderer)
 class wxDataViewSpinRenderer : public wxDataViewCustomRenderer
 {
 public:
@@ -520,6 +508,7 @@ public:
                            wxDataViewCellMode mode = wxDATAVIEW_CELL_EDITABLE,
                            int align = wxDVR_DEFAULT_ALIGNMENT);
 };
+WXGO_DECL_TYPECONV(DataViewToggleRenderer)
 class wxDataViewToggleRenderer : public wxDataViewRenderer
 {
 public:
@@ -528,6 +517,7 @@ public:
                              wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT,
                              int align = wxDVR_DEFAULT_ALIGNMENT);
 };
+WXGO_DECL_TYPECONV(DataViewChoiceRenderer)
 class wxDataViewChoiceRenderer: public wxDataViewRenderer
 {
 public:
@@ -537,6 +527,8 @@ public:
     wxString GetChoice(size_t index) const;
     const wxArrayString& GetChoices() const;
 };
+#ifndef __WXOSX__
+WXGO_DECL_TYPECONV(DataViewChoiceByIndexRenderer)
 class wxDataViewChoiceByIndexRenderer : public wxDataViewChoiceRenderer
 {
 public:
@@ -544,6 +536,8 @@ public:
                               wxDataViewCellMode mode = wxDATAVIEW_CELL_EDITABLE,
                               int alignment = wxDVR_DEFAULT_ALIGNMENT );
 };
+#endif
+WXGO_DECL_TYPECONV(DataViewDateRenderer)
 class wxDataViewDateRenderer : public wxDataViewRenderer
 {
 public:
@@ -552,6 +546,7 @@ public:
                            wxDataViewCellMode mode = wxDATAVIEW_CELL_ACTIVATABLE,
                            int align = wxDVR_DEFAULT_ALIGNMENT);
 };
+WXGO_DECL_TYPECONV(DataViewBitmapRenderer)
 class wxDataViewBitmapRenderer : public wxDataViewRenderer
 {
 public:
@@ -565,6 +560,7 @@ public:
 #define wxDATAVIEW_COL_SORTABLE       2
 #define wxDATAVIEW_COL_REORDERABLE    4
 #define wxDATAVIEW_COL_HIDDEN         8
+WXGO_DECL_TYPECONV(DataViewColumn)
 class wxDataViewColumn : public wxSettableHeaderColumn
 {
 public:
@@ -584,6 +580,7 @@ public:
     wxDataViewCtrl* GetOwner() const;
     wxDataViewRenderer* GetRenderer() const;
 };
+WXGO_DECL_TYPECONV(DataViewListCtrl)
 class wxDataViewListCtrl: public wxDataViewCtrl
 {
 public:
@@ -642,6 +639,7 @@ public:
     bool GetToggleValue( unsigned int row, unsigned int col ) const;
     void SetItemData(const wxDataViewItem& item, wxUIntPtr data);
 };
+WXGO_DECL_TYPECONV(DataViewTreeCtrl)
 class wxDataViewTreeCtrl : public wxDataViewCtrl
 {
 public:
@@ -707,6 +705,7 @@ public:
     void SetItemText(const wxDataViewItem& item,
                      const wxString& text);
 };
+WXGO_DECL_TYPECONV(DataViewListStore)
 class wxDataViewListStore: public wxDataViewIndexListModel
 {
 public:
@@ -730,6 +729,7 @@ public:
     virtual bool SetValueByRow( const wxVariant &value,
                            unsigned int row, unsigned int col );
 };
+WXGO_DECL_TYPECONV(DataViewTreeStore)
 class wxDataViewTreeStore : public wxDataViewModel
 {
 public:
@@ -779,6 +779,7 @@ public:
                              const wxIcon& icon);
     void SetItemIcon(const wxDataViewItem& item, const wxIcon& icon);
 };
+WXGO_DECL_TYPECONV(DataViewIconText)
 class wxDataViewIconText : public wxObject
 {
 public:
@@ -790,6 +791,7 @@ public:
     void SetIcon(const wxIcon& icon);
     void SetText(const wxString& text);
 };
+WXGO_DECL_TYPECONV(DataViewEvent)
 class wxDataViewEvent : public wxNotifyEvent
 {
 public:

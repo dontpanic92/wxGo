@@ -1,5 +1,3 @@
-WXGO_DECL_TYPECONV(MediaEvent)
-WXGO_DECL_TYPECONV(MediaCtrl)
 %typedef int wxMediaState;
 #define wxMEDIASTATE_STOPPED 0
 #define wxMEDIASTATE_PAUSED wxMEDIASTATE_STOPPED + 1
@@ -9,11 +7,13 @@ WXGO_DECL_TYPECONV(MediaCtrl)
 #define wxMEDIACTRLPLAYERCONTROLS_STEP            1 << 0
 #define wxMEDIACTRLPLAYERCONTROLS_VOLUME          1 << 1
 #define wxMEDIACTRLPLAYERCONTROLS_DEFAULT         wxMEDIACTRLPLAYERCONTROLS_STEP |                    wxMEDIACTRLPLAYERCONTROLS_VOLUME
+WXGO_DECL_TYPECONV(MediaEvent)
 class wxMediaEvent : public wxNotifyEvent
 {
 public:
     wxMediaEvent(wxEventType commandType = wxEVT_NULL, int winid = 0);
 };
+WXGO_DECL_TYPECONV(MediaCtrl)
 class wxMediaCtrl : public wxControl
 {
 public:

@@ -1,9 +1,9 @@
-WXGO_DECL_TYPECONV(Gauge)
 #define wxGA_HORIZONTAL      wxHORIZONTAL
 #define wxGA_VERTICAL        wxVERTICAL
 #define wxGA_PROGRESS        0x0010
 #define wxGA_SMOOTH          0x0020
 #define wxGA_TEXT            0x0040
+WXGO_DECL_TYPECONV(Gauge)
 class wxGauge : public wxControl
 {
 public:

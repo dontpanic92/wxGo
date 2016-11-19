@@ -1,20 +1,11 @@
 WXGO_DECL_TYPECONV(GraphicsObject)
-WXGO_DECL_TYPECONV(GraphicsPath)
-WXGO_DECL_TYPECONV(GraphicsBitmap)
-WXGO_DECL_TYPECONV(GraphicsContext)
-WXGO_DECL_TYPECONV(GraphicsGradientStop)
-WXGO_DECL_TYPECONV(GraphicsGradientStops)
-WXGO_DECL_TYPECONV(GraphicsRenderer)
-WXGO_DECL_TYPECONV(GraphicsBrush)
-WXGO_DECL_TYPECONV(GraphicsFont)
-WXGO_DECL_TYPECONV(GraphicsPen)
-WXGO_DECL_TYPECONV(GraphicsMatrix)
 class wxGraphicsObject : public wxObject
 {
 public:
     wxGraphicsRenderer* GetRenderer() const;
     bool IsNull() const;
 };
+WXGO_DECL_TYPECONV(GraphicsPath)
 class wxGraphicsPath : public wxGraphicsObject
 {
 public:
@@ -81,6 +72,7 @@ public:
 #define wxCOMPOSITION_DEST_ATOP wxCOMPOSITION_DEST_OUT + 1
 #define wxCOMPOSITION_XOR wxCOMPOSITION_DEST_ATOP + 1
 #define wxCOMPOSITION_ADD wxCOMPOSITION_XOR + 1
+WXGO_DECL_TYPECONV(GraphicsBitmap)
 class wxGraphicsBitmap : public wxGraphicsObject
 {
 public:
@@ -88,6 +80,7 @@ public:
     wxImage ConvertToImage() const;
     void* GetNativeBitmap() const;
 };
+WXGO_DECL_TYPECONV(GraphicsContext)
 class wxGraphicsContext : public wxGraphicsObject
 {
 public:
@@ -212,6 +205,7 @@ public:
     void GetSize(wxDouble* width, wxDouble* height) const;
     virtual void GetDPI( wxDouble* dpiX, wxDouble* dpiY);
 };
+WXGO_DECL_TYPECONV(GraphicsGradientStop)
 class wxGraphicsGradientStop
 {
 public:
@@ -221,6 +215,7 @@ public:
     float GetPosition() const;
     void SetPosition(float pos);
 };
+WXGO_DECL_TYPECONV(GraphicsGradientStops)
 class wxGraphicsGradientStops
 {
 public:
@@ -235,6 +230,7 @@ public:
     void SetEndColour(wxColour col);
     wxColour GetEndColour() const;
 };
+WXGO_DECL_TYPECONV(GraphicsRenderer)
 class wxGraphicsRenderer : public wxObject
 {
 public:
@@ -283,18 +279,22 @@ public:
     static wxGraphicsRenderer* GetDefaultRenderer();
     static wxGraphicsRenderer* GetCairoRenderer();
 };
+WXGO_DECL_TYPECONV(GraphicsBrush)
 class wxGraphicsBrush : public wxGraphicsObject
 {
 public:
 };
+WXGO_DECL_TYPECONV(GraphicsFont)
 class wxGraphicsFont : public wxGraphicsObject
 {
 public:
 };
+WXGO_DECL_TYPECONV(GraphicsPen)
 class wxGraphicsPen : public wxGraphicsObject
 {
 public:
 };
+WXGO_DECL_TYPECONV(GraphicsMatrix)
 class wxGraphicsMatrix : public wxGraphicsObject
 {
 public:

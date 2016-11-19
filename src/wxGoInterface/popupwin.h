@@ -1,5 +1,4 @@
 WXGO_DECL_TYPECONV(PopupWindow)
-WXGO_DECL_TYPECONV(PopupTransientWindow)
 class wxPopupWindow: public wxNonOwnedWindow
 {
 public:
@@ -9,6 +8,7 @@ public:
     virtual void Position(const wxPoint& ptOrigin,
                           const wxSize& sizePopup);
 };
+WXGO_DECL_TYPECONV(PopupTransientWindow)
 class wxPopupTransientWindow : public wxPopupWindow
 {
 public:

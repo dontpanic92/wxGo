@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(ImageList)
 enum
 {
     wxIMAGE_LIST_NORMAL, 
@@ -9,6 +8,7 @@ enum
 #define wxIMAGELIST_DRAW_TRANSPARENT    0x0002
 #define wxIMAGELIST_DRAW_SELECTED       0x0004
 #define wxIMAGELIST_DRAW_FOCUSED        0x0008
+WXGO_DECL_TYPECONV(ImageList)
 class wxImageList : public wxObject
 {
 public:

@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(PropertySheetDialog)
 %typedef int wxPropertySheetDialogFlags;
 #define wxPROPSHEET_DEFAULT  0x0001
 #define wxPROPSHEET_NOTEBOOK  0x0002
@@ -8,6 +7,7 @@ WXGO_DECL_TYPECONV(PropertySheetDialog)
 #define wxPROPSHEET_BUTTONTOOLBOOK  0x0020
 #define wxPROPSHEET_TREEBOOK  0x0040
 #define wxPROPSHEET_SHRINKTOFIT  0x0100
+WXGO_DECL_TYPECONV(PropertySheetDialog)
 class wxPropertySheetDialog : public wxDialog
 {
 public:

@@ -1,5 +1,3 @@
-WXGO_DECL_TYPECONV(StatusBarPane)
-WXGO_DECL_TYPECONV(StatusBar)
 #define wxSTB_SIZEGRIP         0x0010
 #define wxSTB_SHOW_TIPS        0x0020
 #define wxSTB_ELLIPSIZE_START   0x0040
@@ -10,6 +8,7 @@ WXGO_DECL_TYPECONV(StatusBar)
 #define wxSB_FLAT      0x0001
 #define wxSB_RAISED    0x0002
 #define wxSB_SUNKEN    0x0003
+WXGO_DECL_TYPECONV(StatusBarPane)
 class wxStatusBarPane
 {
 public:
@@ -18,6 +17,7 @@ public:
     int GetStyle() const;
     wxString GetText() const;
 };
+WXGO_DECL_TYPECONV(StatusBar)
 class wxStatusBar : public wxControl
 {
 public:

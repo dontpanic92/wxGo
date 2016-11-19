@@ -1,6 +1,6 @@
-WXGO_DECL_TYPECONV(PickerBase)
 #define wxPB_USE_TEXTCTRL           0x0002
 #define wxPB_SMALL                  0x8000
+WXGO_DECL_TYPECONV(PickerBase)
 class wxPickerBase : public wxControl
 {
 public:

@@ -1,6 +1,3 @@
-WXGO_DECL_TYPECONV(RichTextHeaderFooterData)
-WXGO_DECL_TYPECONV(RichTextPrintout)
-WXGO_DECL_TYPECONV(RichTextPrinting)
 %typedef int wxRichTextOddEvenPage;
 #define wxRICHTEXT_PAGE_ODD 0
 #define wxRICHTEXT_PAGE_EVEN wxRICHTEXT_PAGE_ODD + 1
@@ -9,6 +6,7 @@ WXGO_DECL_TYPECONV(RichTextPrinting)
 #define wxRICHTEXT_PAGE_LEFT 0
 #define wxRICHTEXT_PAGE_CENTRE wxRICHTEXT_PAGE_LEFT + 1
 #define wxRICHTEXT_PAGE_RIGHT wxRICHTEXT_PAGE_CENTRE + 1
+WXGO_DECL_TYPECONV(RichTextHeaderFooterData)
 class wxRichTextHeaderFooterData : public wxObject
 {
 public:
@@ -43,6 +41,7 @@ public:
     void SetTextColour(const wxColour& col);
     void operator=(const wxRichTextHeaderFooterData& data);
 };
+WXGO_DECL_TYPECONV(RichTextPrintout)
 class wxRichTextPrintout : public wxPrintout
 {
 public:
@@ -62,6 +61,7 @@ public:
                     int right = 254);
     void SetRichTextBuffer(wxRichTextBuffer* buffer);
 };
+WXGO_DECL_TYPECONV(RichTextPrinting)
 class wxRichTextPrinting : public wxObject
 {
 public:

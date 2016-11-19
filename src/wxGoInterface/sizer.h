@@ -1,11 +1,4 @@
 WXGO_DECL_TYPECONV(Sizer)
-WXGO_DECL_TYPECONV(BoxSizer)
-WXGO_DECL_TYPECONV(StdDialogButtonSizer)
-WXGO_DECL_TYPECONV(SizerItem)
-WXGO_DECL_TYPECONV(SizerFlags)
-WXGO_DECL_TYPECONV(GridSizer)
-WXGO_DECL_TYPECONV(FlexGridSizer)
-WXGO_DECL_TYPECONV(StaticBoxSizer)
 class wxSizer : public wxObject
 {
 public:
@@ -133,6 +126,7 @@ public:
     bool Show(size_t index, bool show = true);
     virtual void ShowItems(bool show);
 };
+WXGO_DECL_TYPECONV(BoxSizer)
 class wxBoxSizer : public wxSizer
 {
 public:
@@ -143,6 +137,7 @@ public:
     void SetOrientation(int orient);
     virtual void RecalcSizes();
 };
+WXGO_DECL_TYPECONV(StdDialogButtonSizer)
 class wxStdDialogButtonSizer : public wxBoxSizer
 {
 public:
@@ -155,6 +150,7 @@ public:
     virtual void RecalcSizes();
     virtual wxSize CalcMin();
 };
+WXGO_DECL_TYPECONV(SizerItem)
 class wxSizerItem : public wxObject
 {
 public:
@@ -207,6 +203,7 @@ public:
     void SetUserData(wxObject* userData);
     void Show(bool show);
 };
+WXGO_DECL_TYPECONV(SizerFlags)
 class wxSizerFlags
 {
 public:
@@ -234,6 +231,7 @@ public:
 #define wxFLEX_GROWMODE_NONE 0
 #define wxFLEX_GROWMODE_SPECIFIED wxFLEX_GROWMODE_NONE + 1
 #define wxFLEX_GROWMODE_ALL wxFLEX_GROWMODE_SPECIFIED + 1
+WXGO_DECL_TYPECONV(GridSizer)
 class wxGridSizer : public wxSizer
 {
 public:
@@ -254,6 +252,7 @@ public:
     virtual wxSize CalcMin();
     virtual void RecalcSizes();
 };
+WXGO_DECL_TYPECONV(FlexGridSizer)
 class wxFlexGridSizer : public wxGridSizer
 {
 public:
@@ -274,6 +273,7 @@ public:
     virtual void RecalcSizes();
     virtual wxSize CalcMin();
 };
+WXGO_DECL_TYPECONV(StaticBoxSizer)
 class wxStaticBoxSizer : public wxBoxSizer
 {
 public:

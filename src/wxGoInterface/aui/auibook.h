@@ -1,11 +1,3 @@
-WXGO_DECL_TYPECONV(AuiNotebook)
-WXGO_DECL_TYPECONV(AuiNotebookPage)
-WXGO_DECL_TYPECONV(AuiTabContainerButton)
-WXGO_DECL_TYPECONV(AuiTabContainer)
-WXGO_DECL_TYPECONV(AuiTabArt)
-WXGO_DECL_TYPECONV(AuiNotebookEvent)
-WXGO_DECL_TYPECONV(AuiDefaultTabArt)
-WXGO_DECL_TYPECONV(AuiSimpleTabArt)
 %typedef int wxAuiNotebookOption;
 #define wxAUI_NB_TOP                  1 << 0
 #define wxAUI_NB_LEFT                 1 << 1
@@ -22,6 +14,7 @@ WXGO_DECL_TYPECONV(AuiSimpleTabArt)
 #define wxAUI_NB_CLOSE_ON_ALL_TABS    1 << 12
 #define wxAUI_NB_MIDDLE_CLICK_CLOSE   1 << 13
 #define wxAUI_NB_DEFAULT_STYLE  wxAUI_NB_TOP |                             wxAUI_NB_TAB_SPLIT |                             wxAUI_NB_TAB_MOVE |                             wxAUI_NB_SCROLL_BUTTONS |                             wxAUI_NB_CLOSE_ON_ACTIVE_TAB |                             wxAUI_NB_MIDDLE_CLICK_CLOSE
+WXGO_DECL_TYPECONV(AuiNotebook)
 class wxAuiNotebook : public wxBookCtrlBase
 {
 public:
@@ -75,6 +68,7 @@ public:
     virtual void Split(size_t page, int direction);
     bool ShowWindowMenu();
 };
+WXGO_DECL_TYPECONV(AuiNotebookPage)
 class wxAuiNotebookPage
 {
 public:
@@ -86,6 +80,7 @@ public:
     bool active;          
     bool hover;           
 };
+WXGO_DECL_TYPECONV(AuiTabContainerButton)
 class wxAuiTabContainerButton
 {
 public:
@@ -96,6 +91,7 @@ public:
     wxBitmap disBitmap;
     wxRect rect;
 };
+WXGO_DECL_TYPECONV(AuiTabContainer)
 class wxAuiTabContainer
 {
 public:
@@ -147,6 +143,7 @@ protected:
     size_t m_tabOffset;
     unsigned int m_flags;
 };
+WXGO_DECL_TYPECONV(AuiTabArt)
 class wxAuiTabArt
 {
 public:
@@ -172,6 +169,7 @@ public:
     virtual void SetActiveColour(const wxColour& colour) = 0;
     virtual void SetSizingInfo(const wxSize& tab_ctrl_size, size_t tab_count) = 0;
 };
+WXGO_DECL_TYPECONV(AuiNotebookEvent)
 class wxAuiNotebookEvent : public wxBookCtrlEvent
 {
 public:
@@ -193,6 +191,7 @@ public:
 %constant wxEventType wxEVT_AUINOTEBOOK_TAB_RIGHT_DOWN;
 %constant wxEventType wxEVT_AUINOTEBOOK_TAB_RIGHT_UP;
 %constant wxEventType wxEVT_AUINOTEBOOK_BG_DCLICK;
+WXGO_DECL_TYPECONV(AuiDefaultTabArt)
 class wxAuiDefaultTabArt : public wxAuiTabArt
 {
 public:
@@ -264,6 +263,7 @@ protected:
     int m_tabCtrlHeight;
     unsigned int m_flags;
 };
+WXGO_DECL_TYPECONV(AuiSimpleTabArt)
 class wxAuiSimpleTabArt : public wxAuiTabArt
 {
 public:

@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(FileName)
 %typedef int wxPathFormat;
 #define wxPATH_NATIVE  0
 #define wxPATH_UNIX wxPATH_NATIVE  + 1
@@ -39,6 +38,7 @@ enum
     wxFILE_EXISTS_ANY       = 0x1FFF,  
 };
 %constant wxULongLong wxInvalidSize;
+WXGO_DECL_TYPECONV(FileName)
 class wxFileName
 {
 public:

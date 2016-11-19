@@ -1,10 +1,3 @@
-WXGO_DECL_TYPECONV(PreviewControlBar)
-WXGO_DECL_TYPECONV(PreviewCanvas)
-WXGO_DECL_TYPECONV(PreviewFrame)
-WXGO_DECL_TYPECONV(PrintPreview)
-WXGO_DECL_TYPECONV(Printer)
-WXGO_DECL_TYPECONV(Printout)
-WXGO_DECL_TYPECONV(PrintAbortDialog)
 %typedef int wxPrinterError;
 #define wxPRINTER_NO_ERROR  0
 #define wxPRINTER_CANCELLED wxPRINTER_NO_ERROR  + 1
@@ -28,6 +21,7 @@ WXGO_DECL_TYPECONV(PrintAbortDialog)
 #define wxID_PREVIEW_GOTO       8
 #define wxID_PREVIEW_ZOOM_IN    9
 #define wxID_PREVIEW_ZOOM_OUT   10
+WXGO_DECL_TYPECONV(PreviewControlBar)
 class wxPreviewControlBar : public wxPanel
 {
 public:
@@ -44,6 +38,7 @@ public:
     virtual int GetZoomControl();
     virtual void SetZoomControl(int percent);
 };
+WXGO_DECL_TYPECONV(PreviewCanvas)
 class wxPreviewCanvas : public wxScrolledWindow
 {
 public:
@@ -59,6 +54,7 @@ public:
 #define wxPreviewFrame_AppModal 0
 #define wxPreviewFrame_WindowModal wxPreviewFrame_AppModal + 1
 #define wxPreviewFrame_NonModal wxPreviewFrame_WindowModal + 1
+WXGO_DECL_TYPECONV(PreviewFrame)
 class wxPreviewFrame : public wxFrame
 {
 public:
@@ -75,6 +71,7 @@ public:
     virtual void InitializeWithModality(wxPreviewFrameModalityKind kind);
     void OnCloseWindow(wxCloseEvent& event);
 };
+WXGO_DECL_TYPECONV(PrintPreview)
 class wxPrintPreview : public wxObject
 {
 public:
@@ -102,6 +99,7 @@ public:
     virtual void SetPrintout(wxPrintout* printout);
     virtual void SetZoom(int percent);
 };
+WXGO_DECL_TYPECONV(Printer)
 class wxPrinter : public wxObject
 {
 public:
@@ -117,6 +115,7 @@ public:
                              const wxString& message);
     virtual bool Setup(wxWindow* parent);
 };
+WXGO_DECL_TYPECONV(Printout)
 class wxPrintout : public wxObject
 {
 public:
@@ -154,6 +153,7 @@ public:
     virtual bool OnPrintPage(int pageNum) = 0;
     void SetLogicalOrigin(wxCoord x, wxCoord y);
 };
+WXGO_DECL_TYPECONV(PrintAbortDialog)
 class wxPrintAbortDialog: public wxDialog
 {
 public:

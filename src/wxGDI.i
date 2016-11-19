@@ -21,11 +21,7 @@
 
 %include "wxGoInterface/gdicmn.h"
 %include "wxGoInterface/gdiobj.h"
-#ifndef __WXMSW__ 
-// In Windows wxWidgets doesn't support graphics context
-// by default if we are not using MSVC. 
 %include "wxGoInterface/graphics.h"
-#endif
 %include "wxGoInterface/cursor.h"
 %include "wxGoInterface/region.h"
 %include "wxGoInterface/palette.h"

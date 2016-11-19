@@ -1,7 +1,5 @@
-WXGO_DECL_TYPECONV(BitmapHandler)
-WXGO_DECL_TYPECONV(Bitmap)
-WXGO_DECL_TYPECONV(Mask)
 #define wxBITMAP_SCREEN_DEPTH       (-1)
+WXGO_DECL_TYPECONV(BitmapHandler)
 class wxBitmapHandler : public wxObject
 {
 public:
@@ -20,6 +18,7 @@ public:
     void SetName(const wxString& name);
     void SetType(wxBitmapType type);
 };
+WXGO_DECL_TYPECONV(Bitmap)
 class wxBitmap : public wxGDIObject
 {
 public:
@@ -66,6 +65,7 @@ public:
     virtual void SetWidth(int width);
 };
 %constant wxBitmap wxNullBitmap;
+WXGO_DECL_TYPECONV(Mask)
 class wxMask : public wxObject
 {
 public:

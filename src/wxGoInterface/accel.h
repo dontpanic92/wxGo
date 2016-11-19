@@ -1,5 +1,3 @@
-WXGO_DECL_TYPECONV(AcceleratorEntry)
-WXGO_DECL_TYPECONV(AcceleratorTable)
 %typedef int wxAcceleratorEntryFlags;
 #define wxACCEL_NORMAL 0
 #define wxACCEL_ALT wxACCEL_NORMAL + 1
@@ -7,6 +5,7 @@ WXGO_DECL_TYPECONV(AcceleratorTable)
 #define wxACCEL_SHIFT wxACCEL_CTRL + 1
 #define wxACCEL_RAW_CTRL wxACCEL_SHIFT + 1
 #define wxACCEL_CMD wxACCEL_RAW_CTRL + 1
+WXGO_DECL_TYPECONV(AcceleratorEntry)
 class wxAcceleratorEntry
 {
 public:
@@ -26,6 +25,7 @@ public:
     bool operator==(const wxAcceleratorEntry& entry) const;
     bool operator!=(const wxAcceleratorEntry& entry) const;
 };
+WXGO_DECL_TYPECONV(AcceleratorTable)
 class wxAcceleratorTable : public wxObject
 {
 public:

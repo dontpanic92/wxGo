@@ -1,4 +1,3 @@
-WXGO_DECL_TYPECONV(TopLevelWindow)
 enum
 {
     wxUSER_ATTENTION_INFO = 1,  
@@ -22,6 +21,7 @@ enum
                                wxCLOSE_BOX |            \
                                wxCAPTION |              \
                                wxCLIP_CHILDREN)
+WXGO_DECL_TYPECONV(TopLevelWindow)
 class wxTopLevelWindow : public wxNonOwnedWindow
 {
 public:

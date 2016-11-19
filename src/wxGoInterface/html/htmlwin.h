@@ -1,7 +1,3 @@
-WXGO_DECL_TYPECONV(HtmlWindowInterface)
-WXGO_DECL_TYPECONV(HtmlWindow)
-WXGO_DECL_TYPECONV(HtmlLinkEvent)
-WXGO_DECL_TYPECONV(HtmlCellEvent)
 #define wxHW_SCROLLBAR_NEVER    0x0002
 #define wxHW_SCROLLBAR_AUTO     0x0004
 #define wxHW_NO_SELECTION       0x0008
@@ -10,6 +6,7 @@ WXGO_DECL_TYPECONV(HtmlCellEvent)
 #define wxHTML_OPEN 0
 #define wxHTML_BLOCK wxHTML_OPEN + 1
 #define wxHTML_REDIRECT wxHTML_BLOCK + 1
+WXGO_DECL_TYPECONV(HtmlWindowInterface)
 class wxHtmlWindowInterface
 {
 public:
@@ -35,6 +32,7 @@ public:
     };
     virtual wxCursor GetHTMLCursor(wxHtmlWindowInterface::HTMLCursor type) const = 0;
 };
+WXGO_DECL_TYPECONV(HtmlWindow)
 class wxHtmlWindow : public wxScrolledWindow, public wxHtmlWindowInterface
 {
 public:
@@ -105,12 +103,14 @@ protected:
 %constant wxEventType wxEVT_HTML_CELL_CLICKED;
 %constant wxEventType wxEVT_HTML_CELL_HOVER;
 %constant wxEventType wxEVT_HTML_LINK_CLICKED;
+WXGO_DECL_TYPECONV(HtmlLinkEvent)
 class wxHtmlLinkEvent : public wxCommandEvent
 {
 public:
     wxHtmlLinkEvent(int id, const wxHtmlLinkInfo& linkinfo);
     const wxHtmlLinkInfo& GetLinkInfo() const;
 };
+WXGO_DECL_TYPECONV(HtmlCellEvent)
 class wxHtmlCellEvent : public wxCommandEvent
 {
 public:
