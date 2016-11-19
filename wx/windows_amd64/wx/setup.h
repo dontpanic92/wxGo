@@ -762,7 +762,7 @@
     //
     // Notice that this will be set by configure under non-Windows platforms
     // anyhow so the value there is not important.
-#   define wxUSE_GRAPHICS_CONTEXT 0
+#   define wxUSE_GRAPHICS_CONTEXT 1
 #endif
 
 // Enable wxGraphicsContext implementation using Cairo library.
