@@ -38,6 +38,7 @@
 %include wxArt.i
 %include wxConfig.i
 %include wxMisc.i
+%include wxWebView.i
 
 %include wxAui.i
 %include wxSTC.i
