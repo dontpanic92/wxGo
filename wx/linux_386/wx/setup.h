@@ -1,4 +1,4 @@
-/* lib/wx/include/gtk2-unicode-static-3.1/wx/setup.h.  Generated from setup.h.in by configure.  */
+/* lib/wx/include/gtk3-unicode-static-3.1/wx/setup.h.  Generated from setup.h.in by configure.  */
 /* This define (__WX_SETUP_H__) is used both to ensure setup.h is included
  * only once and to indicate that we are building using configure. */
 #ifndef __WX_SETUP_H__
@@ -67,7 +67,7 @@
 #define __WXGTK220__ 1
 
 /* Define this if your version of GTK+ is >= 3.0 */
-/* #undef __WXGTK3__ */
+#define __WXGTK3__ 1
 
 /* Define this if you want to use GPE features */
 /* #undef __WXGPE__ */
@@ -323,7 +323,7 @@
 
 #define wxUSE_STC 1
 
-#define wxUSE_WEBVIEW 0
+#define wxUSE_WEBVIEW 1
 
 #ifdef __WXMSW__
 #define wxUSE_WEBVIEW_IE 0
@@ -332,9 +332,9 @@
 #endif
 
 #if defined(__WXGTK__) || defined(__WXOSX__)
-#define wxUSE_WEBVIEW_WEBKIT 0
+#define wxUSE_WEBVIEW_WEBKIT 1
 #else
-#define wxUSE_WEBVIEW_WEBKIT 0
+#define wxUSE_WEBVIEW_WEBKIT 1
 #endif
 
 
@@ -532,7 +532,7 @@
 
 #define wxUSE_HTML 1
 
-#define wxUSE_GLCANVAS       0
+#define wxUSE_GLCANVAS 1
 
 #define wxUSE_RICHTEXT 1
 
@@ -846,7 +846,7 @@
 /*
  * Use OpenGL
  */
-#define wxUSE_OPENGL 0
+#define wxUSE_OPENGL 1
 
 /*
  * Use MS HTML Help via libmspack (Unix)
@@ -926,7 +926,7 @@
 #define HAVE_FSYNC 1
 
 /* Define if round() is available */
-/* #undef HAVE_ROUND */
+#define HAVE_ROUND 1
 
 /* Define if you have ftime() */
 /* #undef HAVE_FTIME */
