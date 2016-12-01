@@ -33,7 +33,13 @@ public:
 
     virtual bool SetIcon(const wxIcon& icon,
                          const wxString& tooltip = wxEmptyString);
-
+#ifdef __WXMSW__
+    bool ShowBalloon(const wxString& title,
+                        const wxString& text,
+                        unsigned msec = 0,
+                        int flags = 0,
+                        const wxIcon& icon = wxNullIcon);
+#endif
     static bool IsAvailable();
 
 };

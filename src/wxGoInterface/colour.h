@@ -23,7 +23,6 @@ public:
     void SetRGBA(wxUint32 colRGBA);
     wxUint32 GetRGB() const;
     wxUint32 GetRGBA() const;
-    wxIntPtr GetPixel() const;
     virtual unsigned char Green() const;
     virtual bool IsOk() const;
     virtual unsigned char Red() const;
@@ -32,6 +31,8 @@ public:
              unsigned char alpha = wxALPHA_OPAQUE);
     void Set(unsigned long RGB);
     bool Set(const wxString& str);
+    bool operator !=(const wxColour& colour) const;
+    bool operator ==(const wxColour& colour) const;
     static void MakeMono(unsigned char* r, unsigned char* g, unsigned char* b, bool on);
     wxColour& MakeDisabled(unsigned char brightness = 255);
     static void MakeGrey(unsigned char* r, unsigned char* g, unsigned char* b);
