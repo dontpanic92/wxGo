@@ -25,7 +25,7 @@
 %include wxMenu.i
 %include wxColour.i
 %include wxDialogs.i
-%include wxBitmap.i
+/*%include wxBitmap.i
 %include wxStatic.i
 %include wxSlider.i
 %include wxSpin.i
@@ -38,13 +38,13 @@
 %include wxArt.i
 %include wxConfig.i
 %include wxMisc.i
-%include wxWebView.i
+%include wxWebView.i*/
 
 %include wxAui.i
-%include wxSTC.i
+/*%include wxSTC.i
 %include wxRibbon.i
 %include wxHTML.i
 %include wxRichText.i
 %include wxPropGrid.i
 %include wxXml.i
-%include wxXrc.i
+%include wxXrc.i*/
