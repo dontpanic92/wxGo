@@ -4,14 +4,16 @@
 	
 	class wxGoApp : public wxApp{
 	public:
-		wxGoApp(){
+		wxGoApp(wxString progName = "wxGo"){
 			wxApp::SetInstance(this);
     		SetExitOnFrameDelete(true);
-			char progName[] = {"wxGo"};
-			char* argv[] = {progName, NULL};
+			const char* progUtf8 = progName.utf8_str();
+			char* progNameBuf = new char[strlen(progUtf8) + 1];
+			char* argv[] = {progNameBuf, NULL};
 			int argc = 1;
     		wxEntryStart(argc, argv);
 			CallOnInit();
+			delete[] progNameBuf;
 		}
 		
 		~wxGoApp(){

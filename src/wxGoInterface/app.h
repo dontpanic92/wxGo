@@ -1,7 +1,7 @@
 class wxGoApp
 {
 public:
-    wxGoApp();
+    wxGoApp(wxString progName = "wxGo");
     ~wxGoApp();
     bool Initialize(int& argc, wxChar **argv);
     bool OnInitGui();
