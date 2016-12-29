@@ -6,8 +6,7 @@
 	private:
 		char * m_tempProgName;
 	public:
-		wxGoApp(){
-			wxGoApp("wxGo");
+		wxGoApp() : wxGoApp("wxGo") {
 		}
 		wxGoApp(const char * progName) : m_tempProgName(NULL){
 			m_tempProgName = new char[strlen(progName) + 1];
