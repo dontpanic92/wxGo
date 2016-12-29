@@ -35,6 +35,8 @@ var WXVARNAME WXTYPE = Get##WXVARNAME()
 %rename(At) operator[]; 
 %rename(Add) operator+; 
 %rename(Minus) operator-;
+%rename(AddAssign) operator+=; 
+%rename(MinusAssign) operator-=;
 
 
 %feature("notabstract") wxGUIEventLoop;
