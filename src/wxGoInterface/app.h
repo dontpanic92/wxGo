@@ -2,6 +2,7 @@ class wxGoApp
 {
 public:
     wxGoApp();
+    wxGoApp(const char *);
     ~wxGoApp();
     bool Initialize(int& argc, wxChar **argv);
     bool OnInitGui();
