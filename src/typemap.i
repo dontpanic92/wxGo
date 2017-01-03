@@ -13,13 +13,19 @@
 %}
 
 %typemap(out,fragment="AllocateString") wxString
-%{ $result = Swig_AllocateString($1.utf8_str(), $1.length()); %}
+%{ 
+    wxScopedCharBuffer $1_utf8_str = $1.utf8_str();
+    $result = Swig_AllocateString($1_utf8_str, $1_utf8_str.length()); 
+%}
 
 %typemap(goout,fragment="CopyString") wxString
 %{ $result = swigCopyString($1) %}
 
 %typemap(out,fragment="AllocateString") const wxString&
-%{ $result = Swig_AllocateString($1->utf8_str(), $1->length()); %}
+%{ 
+    wxScopedCharBuffer $1_utf8_str = $1->utf8_str();
+    $result = Swig_AllocateString($1_utf8_str, $1_utf8_str.length()); 
+%}
 
 %typemap(goout,fragment="CopyString") const wxString &
 %{ $result = swigCopyString($1) %}
@@ -46,7 +52,8 @@ _goslice_ arrayStringToGostringSlice(const wxArrayString& arr) {
     slice.len = slice.cap = count;
     
     for (int i = 0; i < count; i++) {
-        go_arr[i] = Swig_AllocateString(arr[i].utf8_str(), arr[i].length());
+        wxScopedCharBuffer utf8_str = arr[i].utf8_str();
+        go_arr[i] = Swig_AllocateString(utf8_str, utf8_str.length());
     }
     
     return slice;
@@ -294,9 +301,9 @@ type intSliceWithPointer struct {
     }
 %}
 
-%typemap(argout) (int n, const wxAcceleratorEntry entries[]) {
+%typemap(argout) (int n, const wxAcceleratorEntry entries[]) %{
     delete []$2;
-}
+%}
 
 // Typemaps for wxVariantList
 // We treat wxVariantList& as const wxVariantList&
@@ -321,11 +328,11 @@ type intSliceWithPointer struct {
     }
 %}
 
-%typemap(argout) const wxVariantList&, wxVariantList& {
+%typemap(argout) const wxVariantList&, wxVariantList& %{
     delete $1;
-}
+%}
 
-%typemap(out)  const wxVariantList&, wxVariantList& {
+%typemap(out)  const wxVariantList&, wxVariantList& %{
     _goslice_ *slice = new _goslice_;
     size_t count = $1->GetCount();
     long long *go_arr = (long long*)malloc(sizeof(long long[count]));
@@ -336,9 +343,9 @@ type intSliceWithPointer struct {
         go_arr[i] = (long long)$1->operator[](i);
     }
     $result = (long long)slice;
-}
+%}
 
-%typemap(goout) const wxVariantList&, wxVariantList& {
+%typemap(goout) const wxVariantList&, wxVariantList& %{
     slice := (*[]uint64)(unsafe.Pointer(uintptr($1)))
     newSlice := make([]Variant, len(*slice))
     for i := range newSlice {
@@ -347,7 +354,7 @@ type intSliceWithPointer struct {
     p := *(*swig_goslice)(unsafe.Pointer(uintptr($1)))
     Swig_free(p.arr)
     $result = newSlice
-}
+%}
 
 
 // Typemaps for wxChar & wxUniChar
@@ -393,7 +400,8 @@ type intSliceWithPointer struct {
 %typemap(out,fragment="AllocateString") const wxChar*
 %{ 
     wxString $1_str($1);
-    $result = Swig_AllocateString($1_str.utf8_str(), $1_str.length()); 
+    wxScopedCharBuffer $1_utf8_str = $1_str.utf8_str();
+    $result = Swig_AllocateString($1_utf8_str, $1_utf8_str.length()); 
 %}
 
 %typemap(goout,fragment="CopyString") const wxChar*
