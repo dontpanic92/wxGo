@@ -314,3 +314,8 @@ public:
     wxSize GetHintSize(int dock_direction) const;
     bool IsPaneValid(const wxAuiPaneInfo& pane) const;
 };
+%constant wxEventType wxEVT_AUITOOLBAR_TOOL_DROPDOWN;
+%constant wxEventType wxEVT_AUITOOLBAR_OVERFLOW_CLICK;
+%constant wxEventType wxEVT_AUITOOLBAR_RIGHT_CLICK;
+%constant wxEventType wxEVT_AUITOOLBAR_MIDDLE_CLICK;
+%constant wxEventType wxEVT_AUITOOLBAR_BEGIN_DRAG;

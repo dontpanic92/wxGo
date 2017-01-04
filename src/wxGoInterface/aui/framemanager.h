@@ -161,3 +161,10 @@ public:
     void SetPane(wxAuiPaneInfo* pane);
     void Veto(bool veto = true);
 };
+%constant wxEventType wxEVT_AUI_PANE_BUTTON;
+%constant wxEventType wxEVT_AUI_PANE_CLOSE;
+%constant wxEventType wxEVT_AUI_PANE_MAXIMIZE;
+%constant wxEventType wxEVT_AUI_PANE_RESTORE;
+%constant wxEventType wxEVT_AUI_PANE_ACTIVATED;
+%constant wxEventType wxEVT_AUI_RENDER;
+%constant wxEventType wxEVT_AUI_FIND_MANAGER;
