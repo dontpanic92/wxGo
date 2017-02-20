@@ -59,6 +59,9 @@ fi;
 rm *.a
 mv *.syso $GOPATH/src/github.com/dontpanic92/wxGo/wx/
 
+export GOARCH=$2
+export GOOS=$1
+export CGO_ENABLED=1
 go env
 go install -tags "wxgo_binary_package_build" -x github.com/dontpanic92/wxGo/wx
 
