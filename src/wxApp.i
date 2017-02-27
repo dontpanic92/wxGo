@@ -14,10 +14,10 @@
 				strcpy(m_tempProgName, progName);
 			}
 			wxApp::SetInstance(this);
-    		SetExitOnFrameDelete(true);
+			SetExitOnFrameDelete(true);
 			char* argv[] = {m_tempProgName, NULL};
 			int argc = 1;
-    		wxEntryStart(argc, argv);
+			wxEntryStart(argc, argv);
 			CallOnInit();
 		}
 		

@@ -18,7 +18,7 @@ public:
     wxVariant(const wxDateTime& val, const wxString& name = wxEmptyString);
     wxVariant(const wxArrayString& val, const wxString& name = wxEmptyString);
     virtual ~wxVariant();
-    wxVariant operator [](size_t idx) const;
+    wxVariant& operator [](size_t idx);
     void Append(const wxVariant& value);
     void Clear();
     void ClearList();

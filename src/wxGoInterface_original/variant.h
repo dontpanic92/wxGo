@@ -270,12 +270,12 @@ public:
     /**
         Returns the value at @a idx (zero-based).
     */
-    wxVariant operator [](size_t idx) const;
+    //wxVariant operator [](size_t idx) const;
     /**
         Returns a reference to the value at @a idx (zero-based). This can be
         used to change the value at this index.
     */
-    //wxVariant& operator [](size_t idx);
+    wxVariant& operator [](size_t idx);
 
     /**
         Appends a value to the list.

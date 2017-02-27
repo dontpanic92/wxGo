@@ -56,3 +56,67 @@
 %include "wxGoInterface/variant.h"
 %include "wxGoInterface/versioninfo.h"
 %include "wxGoInterface/wupdlock.h"
+
+WXGO_DECL_TYPECONV(VariantClientData)
+%inline {
+    class wxVariantClientData : public wxClientData, public wxVariant {
+    public:
+        wxVariantClientData(const wxVariant& variant) : wxVariant(variant) {}
+
+        wxVariantClientData(const wxString& value) : wxVariant(value) {}
+
+        wxVariantClientData(wxChar value) : wxVariant(value) {}
+
+        wxVariantClientData(long value) : wxVariant(value) {}
+
+        wxVariantClientData(bool value) : wxVariant(value) {}
+
+        wxVariantClientData(double value) : wxVariant(value) {}
+
+        wxVariantClientData(wxLongLong value) : wxVariant(value) {}
+
+        wxVariantClientData(wxULongLong value) : wxVariant(value) {}
+
+        wxVariantClientData(const wxVariantList& value) : wxVariant(value) {}
+
+        wxVariantClientData(void* value) : wxVariant(value) {}
+
+        wxVariantClientData(wxObject* value) : wxVariant(value) {}
+
+        wxVariantClientData(const wxDateTime& value) : wxVariant(value) {}
+
+        wxVariantClientData(const wxArrayString& value) : wxVariant(value) {}
+    };
+}
+
+WXGO_DECL_TYPECONV(VariantTreeItemData)
+%inline {
+    class wxVariantTreeItemData : public wxTreeItemData, public wxVariant {
+    public:
+        wxVariantTreeItemData(const wxVariant& variant) : wxVariant(variant) {}
+
+        wxVariantTreeItemData(const wxString& value) : wxVariant(value) {}
+
+        wxVariantTreeItemData(wxChar value) : wxVariant(value) {}
+
+        wxVariantTreeItemData(long value) : wxVariant(value) {}
+
+        wxVariantTreeItemData(bool value) : wxVariant(value) {}
+
+        wxVariantTreeItemData(double value) : wxVariant(value) {}
+
+        wxVariantTreeItemData(wxLongLong value) : wxVariant(value) {}
+
+        wxVariantTreeItemData(wxULongLong value) : wxVariant(value) {}
+
+        wxVariantTreeItemData(const wxVariantList& value) : wxVariant(value) {}
+
+        wxVariantTreeItemData(void* value) : wxVariant(value) {}
+
+        wxVariantTreeItemData(wxObject* value) : wxVariant(value) {}
+
+        wxVariantTreeItemData(const wxDateTime& value) : wxVariant(value) {}
+
+        wxVariantTreeItemData(const wxArrayString& value) : wxVariant(value) {}
+    };
+}

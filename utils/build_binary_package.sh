@@ -26,7 +26,7 @@ done;
 
 if [ "$1" == "darwin" ]; then
     # cocoa/power.mm compiled twice! Delete one of them
-    rm baselib_cocoa_power_darwin_amd64.o
+    rm baselib_cocoa_power.o
 fi;
 
 # Windows has a limit of maximum command line characers. If we simply copy 
@@ -59,6 +59,10 @@ fi;
 rm *.a
 mv *.syso $GOPATH/src/github.com/dontpanic92/wxGo/wx/
 
+export GOARCH=$2
+export GOOS=$1
+export CGO_ENABLED=1
+go version
 go env
 go install -tags "wxgo_binary_package_build" -x github.com/dontpanic92/wxGo/wx
 
