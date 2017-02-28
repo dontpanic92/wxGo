@@ -1,3 +1,6 @@
+# use known working MSYS2
+os: Previous Visual Studio 2015
+
 version: 1.0.{build}
 platform: x64
 clone_folder: c:\project\src\github.com\dontpanic92\wxGo
