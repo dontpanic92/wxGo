@@ -11,7 +11,7 @@ Compilation
 
 Currently wxGo can compile and run on Windows, Linux and Mac OS X on amd64 architecture.
 
-####1. Requisites
+#### 1. Requisites
 
 - 64-bit Go
 - GCC / MinGW ver > 5 for Linux / Windows
@@ -24,7 +24,7 @@ __Remarks__
 The precompiled wxWidgets is compiled with gcc > 5 ( 6.2.1 on Linux, 5.3.0 on Windows using tdm-gcc). So if you want to use the precompiled wxWidgets, your gcc version has also to be > 5, because [GCC changed its ABI since GCC 5 release series](https://gcc.gnu.org/gcc-5/changes.html#libstdcxx).
 
 
-####2. Build & Install
+#### 2. Build & Install
 
 ```
 go get github.com/dontpanic92/wxGo/wx
@@ -37,12 +37,12 @@ Custom Compilation
 
 This seciton will introduce how to customize wxGo.
 
-####1. Compilation phases
+#### 1. Compilation phases
 
 wxGo needs a 2-phase compilation. The first is the SWIG phase, that is using [SWIG](https://github.com/SWIG/SWIG) to generate the wrapper code. And the second is the Go phase, which has been described above.
 
 
-####2. Customize SWIG phase
+#### 2. Customize SWIG phase
 
 You can regenerate the wrapper code using SWIG. Compilation dependencies are:
 
@@ -54,7 +54,7 @@ You can regenerate the wrapper code using SWIG. Compilation dependencies are:
 
 We use a customized SWIG to generate the wrapper code. Please clone https://github.com/dontpanic92/SWIG and simply `./configure && make && sudo make install`. Then you can modify the source as you want, and run `make` in the `build` folder.
 
-####3. Customize wxWidgets build
+#### 3. Customize wxWidgets build
 
 If you want to use other wxWidgets build rather than the precompiled one, what you have to do is quite simple.
 
