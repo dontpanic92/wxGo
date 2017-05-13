@@ -70,7 +70,7 @@ Usage
 
 After importing `github.com/dontpanic92/wxGo/wx`, the following code will create an empty dialog with a "Hello World" as its caption.
 
-```
+```go
     wx.NewApp()
     f := wx.NewDialog(wx.NullWindow, -1, "Hello World")
     f.ShowModal()
@@ -79,7 +79,7 @@ After importing `github.com/dontpanic92/wxGo/wx`, the following code will create
 
 All the wx-Classes' objects can be created using `wx.NewCLASS`. Now let us add some controls on it :
 
-```
+```go
     wx.NewApp()
     f := wx.NewDialog(wx.NullWindow, -1, "Hello World")
 
@@ -99,7 +99,7 @@ All the wx-Classes' objects can be created using `wx.NewCLASS`. Now let us add s
 
 And then we can bind an event on the checkbox :
 
-```
+```go
 func checkboxClicked(e wx.Event) {
     wx.MessageBox("Checkbox clicked!")
 }
