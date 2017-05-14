@@ -21,42 +21,377 @@ class SwigDirector_GoCallbackDispatcher : public wxGoCallbackDispatcher
   SwigDirector_GoCallbackDispatcher(int swig_p);
   virtual ~SwigDirector_GoCallbackDispatcher();
   wxClassInfo *_swig_upcall_GetClassInfo() const {
-    return wxObject::GetClassInfo();
+    return wxGoCallbackDispatcher::GetClassInfo();
   }
   virtual wxClassInfo *GetClassInfo() const;
   wxObjectRefData *_swig_upcall_CreateRefData() const {
-    return wxObject::CreateRefData();
+    return wxGoCallbackDispatcher::CreateRefData();
   }
   virtual wxObjectRefData *CreateRefData() const;
   wxObjectRefData *_swig_upcall_CloneRefData(wxObjectRefData const *data) const {
-    return wxObject::CloneRefData(data);
+    return wxGoCallbackDispatcher::CloneRefData(data);
   }
   virtual wxObjectRefData *CloneRefData(wxObjectRefData const *data) const;
   void _swig_upcall_QueueEvent(wxEvent *event) {
-    wxEvtHandler::QueueEvent(event);
+    wxGoCallbackDispatcher::QueueEvent(event);
   }
   virtual void QueueEvent(wxEvent *event);
   void _swig_upcall_AddPendingEvent(wxEvent const &event) {
-    wxEvtHandler::AddPendingEvent(event);
+    wxGoCallbackDispatcher::AddPendingEvent(event);
   }
   virtual void AddPendingEvent(wxEvent const &event);
   bool _swig_upcall_ProcessEvent(wxEvent &event) {
-    return wxEvtHandler::ProcessEvent(event);
+    return wxGoCallbackDispatcher::ProcessEvent(event);
   }
   virtual bool ProcessEvent(wxEvent &event);
   bool _swig_upcall_SearchEventTable(wxEventTable &table, wxEvent &event) {
-    return wxEvtHandler::SearchEventTable(table,event);
+    return wxGoCallbackDispatcher::SearchEventTable(table,event);
   }
   virtual bool SearchEventTable(wxEventTable &table, wxEvent &event);
   void _swig_upcall_SetNextHandler(wxEvtHandler *handler) {
-    wxEvtHandler::SetNextHandler(handler);
+    wxGoCallbackDispatcher::SetNextHandler(handler);
   }
   virtual void SetNextHandler(wxEvtHandler *handler);
   void _swig_upcall_SetPreviousHandler(wxEvtHandler *handler) {
-    wxEvtHandler::SetPreviousHandler(handler);
+    wxGoCallbackDispatcher::SetPreviousHandler(handler);
   }
   virtual void SetPreviousHandler(wxEvtHandler *handler);
   virtual void Callback(wxEvent &event);
+ private:
+  intgo go_val;
+  Swig_memory *swig_mem;
+};
+
+class SwigDirector_DocTemplate : public wxDocTemplate
+{
+ public:
+  SwigDirector_DocTemplate(int swig_p, wxDocManager *manager, wxString const &descr, wxString const &filter, wxString const &dir, wxString const &ext, wxString const &docTypeName, wxString const &viewTypeName, wxClassInfo *docClassInfo, wxClassInfo *viewClassInfo, long flags);
+  SwigDirector_DocTemplate(int swig_p, wxDocManager *manager, wxString const &descr, wxString const &filter, wxString const &dir, wxString const &ext, wxString const &docTypeName, wxString const &viewTypeName, wxClassInfo *docClassInfo, wxClassInfo *viewClassInfo);
+  SwigDirector_DocTemplate(int swig_p, wxDocManager *manager, wxString const &descr, wxString const &filter, wxString const &dir, wxString const &ext, wxString const &docTypeName, wxString const &viewTypeName, wxClassInfo *docClassInfo);
+  SwigDirector_DocTemplate(int swig_p, wxDocManager *manager, wxString const &descr, wxString const &filter, wxString const &dir, wxString const &ext, wxString const &docTypeName, wxString const &viewTypeName);
+  virtual ~SwigDirector_DocTemplate();
+  wxClassInfo *_swig_upcall_GetClassInfo() const {
+    return wxDocTemplate::GetClassInfo();
+  }
+  virtual wxClassInfo *GetClassInfo() const;
+  wxObjectRefData *_swig_upcall_CreateRefData() const {
+    return wxDocTemplate::CreateRefData();
+  }
+  virtual wxObjectRefData *CreateRefData() const;
+  wxObjectRefData *_swig_upcall_CloneRefData(wxObjectRefData const *data) const {
+    return wxDocTemplate::CloneRefData(data);
+  }
+  virtual wxObjectRefData *CloneRefData(wxObjectRefData const *data) const;
+  wxDocument *_swig_upcall_CreateDocument__SWIG_0(wxString const &path, long flags) {
+    return wxDocTemplate::CreateDocument(path,flags);
+  }
+  virtual wxDocument *CreateDocument(wxString const &path, long flags);
+  wxDocument *_swig_upcall_CreateDocument__SWIG_1(wxString const &path) {
+    return wxDocTemplate::CreateDocument(path);
+  }
+  virtual wxDocument *CreateDocument(wxString const &path);
+  wxView *_swig_upcall_CreateView__SWIG_0(wxDocument *doc, long flags) {
+    return wxDocTemplate::CreateView(doc,flags);
+  }
+  virtual wxView *CreateView(wxDocument *doc, long flags);
+  wxView *_swig_upcall_CreateView__SWIG_1(wxDocument *doc) {
+    return wxDocTemplate::CreateView(doc);
+  }
+  virtual wxView *CreateView(wxDocument *doc);
+  bool _swig_upcall_FileMatchesTemplate(wxString const &path) {
+    return wxDocTemplate::FileMatchesTemplate(path);
+  }
+  virtual bool FileMatchesTemplate(wxString const &path);
+  wxString _swig_upcall_GetDocumentName() const {
+    return wxDocTemplate::GetDocumentName();
+  }
+  virtual wxString GetDocumentName() const;
+  wxString _swig_upcall_GetViewName() const {
+    return wxDocTemplate::GetViewName();
+  }
+  virtual wxString GetViewName() const;
+  bool _swig_upcall_InitDocument__SWIG_0(wxDocument *doc, wxString const &path, long flags) {
+    return wxDocTemplate::InitDocument(doc,path,flags);
+  }
+  virtual bool InitDocument(wxDocument *doc, wxString const &path, long flags);
+  bool _swig_upcall_InitDocument__SWIG_1(wxDocument *doc, wxString const &path) {
+    return wxDocTemplate::InitDocument(doc,path);
+  }
+  virtual bool InitDocument(wxDocument *doc, wxString const &path);
+  wxDocument *_swig_upcall_DoCreateDocument() {
+    return wxDocTemplate::DoCreateDocument();
+  }
+  virtual wxDocument *DoCreateDocument();
+  wxView *_swig_upcall_DoCreateView() {
+    return wxDocTemplate::DoCreateView();
+  }
+  virtual wxView *DoCreateView();
+ private:
+  intgo go_val;
+  Swig_memory *swig_mem;
+};
+
+class SwigDirector_View : public wxView
+{
+ public:
+  SwigDirector_View(int swig_p);
+  virtual ~SwigDirector_View();
+  wxClassInfo *_swig_upcall_GetClassInfo() const {
+    return wxView::GetClassInfo();
+  }
+  virtual wxClassInfo *GetClassInfo() const;
+  wxObjectRefData *_swig_upcall_CreateRefData() const {
+    return wxView::CreateRefData();
+  }
+  virtual wxObjectRefData *CreateRefData() const;
+  wxObjectRefData *_swig_upcall_CloneRefData(wxObjectRefData const *data) const {
+    return wxView::CloneRefData(data);
+  }
+  virtual wxObjectRefData *CloneRefData(wxObjectRefData const *data) const;
+  void _swig_upcall_QueueEvent(wxEvent *event) {
+    wxView::QueueEvent(event);
+  }
+  virtual void QueueEvent(wxEvent *event);
+  void _swig_upcall_AddPendingEvent(wxEvent const &event) {
+    wxView::AddPendingEvent(event);
+  }
+  virtual void AddPendingEvent(wxEvent const &event);
+  bool _swig_upcall_ProcessEvent(wxEvent &event) {
+    return wxView::ProcessEvent(event);
+  }
+  virtual bool ProcessEvent(wxEvent &event);
+  bool _swig_upcall_SearchEventTable(wxEventTable &table, wxEvent &event) {
+    return wxView::SearchEventTable(table,event);
+  }
+  virtual bool SearchEventTable(wxEventTable &table, wxEvent &event);
+  void _swig_upcall_SetNextHandler(wxEvtHandler *handler) {
+    wxView::SetNextHandler(handler);
+  }
+  virtual void SetNextHandler(wxEvtHandler *handler);
+  void _swig_upcall_SetPreviousHandler(wxEvtHandler *handler) {
+    wxView::SetPreviousHandler(handler);
+  }
+  virtual void SetPreviousHandler(wxEvtHandler *handler);
+  void _swig_upcall_Activate(bool activate) {
+    wxView::Activate(activate);
+  }
+  virtual void Activate(bool activate);
+  bool _swig_upcall_Close__SWIG_0(bool deleteWindow) {
+    return wxView::Close(deleteWindow);
+  }
+  virtual bool Close(bool deleteWindow);
+  bool _swig_upcall_Close__SWIG_1() {
+    return wxView::Close();
+  }
+  virtual bool Close();
+  void _swig_upcall_OnActivateView(bool activate, wxView *activeView, wxView *deactiveView) {
+    wxView::OnActivateView(activate,activeView,deactiveView);
+  }
+  virtual void OnActivateView(bool activate, wxView *activeView, wxView *deactiveView);
+  void _swig_upcall_OnChangeFilename() {
+    wxView::OnChangeFilename();
+  }
+  virtual void OnChangeFilename();
+  bool _swig_upcall_OnClose(bool deleteWindow) {
+    return wxView::OnClose(deleteWindow);
+  }
+  virtual bool OnClose(bool deleteWindow);
+  void _swig_upcall_OnClosingDocument() {
+    wxView::OnClosingDocument();
+  }
+  virtual void OnClosingDocument();
+  bool _swig_upcall_OnCreate(wxDocument *doc, long flags) {
+    return wxView::OnCreate(doc,flags);
+  }
+  virtual bool OnCreate(wxDocument *doc, long flags);
+  wxPrintout *_swig_upcall_OnCreatePrintout() {
+    return wxView::OnCreatePrintout();
+  }
+  virtual wxPrintout *OnCreatePrintout();
+  virtual void OnDraw(wxDC *dc);
+  void _swig_upcall_OnUpdate__SWIG_0(wxView *sender, wxObject *hint) {
+    wxView::OnUpdate(sender,hint);
+  }
+  virtual void OnUpdate(wxView *sender, wxObject *hint);
+  void _swig_upcall_OnUpdate__SWIG_1(wxView *sender) {
+    wxView::OnUpdate(sender);
+  }
+  virtual void OnUpdate(wxView *sender);
+  void _swig_upcall_SetDocument(wxDocument *doc) {
+    wxView::SetDocument(doc);
+  }
+  virtual void SetDocument(wxDocument *doc);
+ private:
+  intgo go_val;
+  Swig_memory *swig_mem;
+};
+
+class SwigDirector_Document : public wxDocument
+{
+ public:
+  SwigDirector_Document(int swig_p, wxDocument *parent);
+  SwigDirector_Document(int swig_p);
+  virtual ~SwigDirector_Document();
+  wxClassInfo *_swig_upcall_GetClassInfo() const {
+    return wxDocument::GetClassInfo();
+  }
+  virtual wxClassInfo *GetClassInfo() const;
+  wxObjectRefData *_swig_upcall_CreateRefData() const {
+    return wxDocument::CreateRefData();
+  }
+  virtual wxObjectRefData *CreateRefData() const;
+  wxObjectRefData *_swig_upcall_CloneRefData(wxObjectRefData const *data) const {
+    return wxDocument::CloneRefData(data);
+  }
+  virtual wxObjectRefData *CloneRefData(wxObjectRefData const *data) const;
+  void _swig_upcall_QueueEvent(wxEvent *event) {
+    wxDocument::QueueEvent(event);
+  }
+  virtual void QueueEvent(wxEvent *event);
+  void _swig_upcall_AddPendingEvent(wxEvent const &event) {
+    wxDocument::AddPendingEvent(event);
+  }
+  virtual void AddPendingEvent(wxEvent const &event);
+  bool _swig_upcall_ProcessEvent(wxEvent &event) {
+    return wxDocument::ProcessEvent(event);
+  }
+  virtual bool ProcessEvent(wxEvent &event);
+  bool _swig_upcall_SearchEventTable(wxEventTable &table, wxEvent &event) {
+    return wxDocument::SearchEventTable(table,event);
+  }
+  virtual bool SearchEventTable(wxEventTable &table, wxEvent &event);
+  void _swig_upcall_SetNextHandler(wxEvtHandler *handler) {
+    wxDocument::SetNextHandler(handler);
+  }
+  virtual void SetNextHandler(wxEvtHandler *handler);
+  void _swig_upcall_SetPreviousHandler(wxEvtHandler *handler) {
+    wxDocument::SetPreviousHandler(handler);
+  }
+  virtual void SetPreviousHandler(wxEvtHandler *handler);
+  bool _swig_upcall_AddView(wxView *view) {
+    return wxDocument::AddView(view);
+  }
+  virtual bool AddView(wxView *view);
+  bool _swig_upcall_Close() {
+    return wxDocument::Close();
+  }
+  virtual bool Close();
+  bool _swig_upcall_DeleteAllViews() {
+    return wxDocument::DeleteAllViews();
+  }
+  virtual bool DeleteAllViews();
+  bool _swig_upcall_DeleteContents() {
+    return wxDocument::DeleteContents();
+  }
+  virtual bool DeleteContents();
+  wxCommandProcessor *_swig_upcall_GetCommandProcessor() const {
+    return wxDocument::GetCommandProcessor();
+  }
+  virtual wxCommandProcessor *GetCommandProcessor() const;
+  wxDocManager *_swig_upcall_GetDocumentManager() const {
+    return wxDocument::GetDocumentManager();
+  }
+  virtual wxDocManager *GetDocumentManager() const;
+  wxDocTemplate *_swig_upcall_GetDocumentTemplate() const {
+    return wxDocument::GetDocumentTemplate();
+  }
+  virtual wxDocTemplate *GetDocumentTemplate() const;
+  wxWindow *_swig_upcall_GetDocumentWindow() const {
+    return wxDocument::GetDocumentWindow();
+  }
+  virtual wxWindow *GetDocumentWindow() const;
+  wxString _swig_upcall_GetUserReadableName() const {
+    return wxDocument::GetUserReadableName();
+  }
+  virtual wxString GetUserReadableName() const;
+  bool _swig_upcall_IsModified() const {
+    return wxDocument::IsModified();
+  }
+  virtual bool IsModified() const;
+  void _swig_upcall_Modify(bool modify) {
+    wxDocument::Modify(modify);
+  }
+  virtual void Modify(bool modify);
+  void _swig_upcall_OnChangedViewList() {
+    wxDocument::OnChangedViewList();
+  }
+  virtual void OnChangedViewList();
+  bool _swig_upcall_OnCloseDocument() {
+    return wxDocument::OnCloseDocument();
+  }
+  virtual bool OnCloseDocument();
+  bool _swig_upcall_OnCreate(wxString const &path, long flags) {
+    return wxDocument::OnCreate(path,flags);
+  }
+  virtual bool OnCreate(wxString const &path, long flags);
+  wxCommandProcessor *_swig_upcall_OnCreateCommandProcessor() {
+    return wxDocument::OnCreateCommandProcessor();
+  }
+  virtual wxCommandProcessor *OnCreateCommandProcessor();
+  bool _swig_upcall_OnNewDocument() {
+    return wxDocument::OnNewDocument();
+  }
+  virtual bool OnNewDocument();
+  bool _swig_upcall_OnOpenDocument(wxString const &filename) {
+    return wxDocument::OnOpenDocument(filename);
+  }
+  virtual bool OnOpenDocument(wxString const &filename);
+  bool _swig_upcall_OnSaveDocument(wxString const &filename) {
+    return wxDocument::OnSaveDocument(filename);
+  }
+  virtual bool OnSaveDocument(wxString const &filename);
+  bool _swig_upcall_OnSaveModified() {
+    return wxDocument::OnSaveModified();
+  }
+  virtual bool OnSaveModified();
+  bool _swig_upcall_RemoveView(wxView *view) {
+    return wxDocument::RemoveView(view);
+  }
+  virtual bool RemoveView(wxView *view);
+  bool _swig_upcall_Save() {
+    return wxDocument::Save();
+  }
+  virtual bool Save();
+  bool _swig_upcall_SaveAs() {
+    return wxDocument::SaveAs();
+  }
+  virtual bool SaveAs();
+  bool _swig_upcall_Revert() {
+    return wxDocument::Revert();
+  }
+  virtual bool Revert();
+  void _swig_upcall_SetCommandProcessor(wxCommandProcessor *processor) {
+    wxDocument::SetCommandProcessor(processor);
+  }
+  virtual void SetCommandProcessor(wxCommandProcessor *processor);
+  void _swig_upcall_SetDocumentTemplate(wxDocTemplate *templ) {
+    wxDocument::SetDocumentTemplate(templ);
+  }
+  virtual void SetDocumentTemplate(wxDocTemplate *templ);
+  void _swig_upcall_OnChangeFilename(bool notifyViews) {
+    wxDocument::OnChangeFilename(notifyViews);
+  }
+  virtual void OnChangeFilename(bool notifyViews);
+  void _swig_upcall_UpdateAllViews__SWIG_0(wxView *sender, wxObject *hint) {
+    wxDocument::UpdateAllViews(sender,hint);
+  }
+  virtual void UpdateAllViews(wxView *sender, wxObject *hint);
+  void _swig_upcall_UpdateAllViews__SWIG_1(wxView *sender) {
+    wxDocument::UpdateAllViews(sender);
+  }
+  virtual void UpdateAllViews(wxView *sender);
+  void _swig_upcall_UpdateAllViews__SWIG_2() {
+    wxDocument::UpdateAllViews();
+  }
+  virtual void UpdateAllViews();
+  bool _swig_upcall_DoSaveDocument(wxString const &file) {
+    return wxDocument::DoSaveDocument(file);
+  }
+  virtual bool DoSaveDocument(wxString const &file);
+  bool _swig_upcall_DoOpenDocument(wxString const &file) {
+    return wxDocument::DoOpenDocument(file);
+  }
+  virtual bool DoOpenDocument(wxString const &file);
  private:
   intgo go_val;
   Swig_memory *swig_mem;

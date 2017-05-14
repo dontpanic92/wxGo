@@ -13,7 +13,7 @@ By dontpanic, 2015/5/27
 import sys, os, re
 
 regex = re.compile("^const (.+?) int = (.+?)$", re.MULTILINE) 
-regex_ctor = re.compile("^func New(.+?)\((.+?)\).+? {$", re.MULTILINE)
+regex_ctor = re.compile("^func New(.+?)\((.+?)\)(.+?) {$", re.MULTILINE)
 
 def calc_new_value(var_value):
     values = var_value.split('+')
@@ -42,7 +42,11 @@ def add_tracked_type(code):
     for match_object in regex_ctor.finditer(code):
         type_name = match_object.group(1)
         ctor_param = match_object.group(2)
+
         if "__SWIG_" in type_name or type_name in exceptions:
+            continue
+        
+        if type_name.startswith("Director"):
             continue
         
         ctor_args = ""

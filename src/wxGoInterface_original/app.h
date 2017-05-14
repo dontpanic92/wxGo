@@ -78,4 +78,6 @@ public:
     void WakeUpIdle();
     
     bool ProcessIdle();
+
+    static wxGoApp *GetInstance();
 };

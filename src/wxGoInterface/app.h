@@ -41,4 +41,5 @@ public:
 	bool Yield(bool onlyIfNeeded = false);
     void WakeUpIdle();
     bool ProcessIdle();
+    static wxGoApp *GetInstance();
 };

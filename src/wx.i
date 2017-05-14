@@ -20,6 +20,7 @@
 %include wxManagedWnd.i
 %include wxControl.i
 %include wxMiscWnd.i
+%include wxDocView.i
 %include wxSizer.i
 %include wxBookCtrl.i
 %include wxMenu.i

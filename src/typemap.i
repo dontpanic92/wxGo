@@ -12,8 +12,26 @@
     $1 = &$1_str;
 %}
 
-%typemap(out,fragment="AllocateString") wxString
+%typemap(directorin,fragment="AllocateString") wxString
 %{ 
+    wxScopedCharBuffer $1_utf8_str = $1.utf8_str();
+    $input = Swig_AllocateString($1_utf8_str, $1_utf8_str.length()); 
+%}
+
+%typemap(godirectorin,fragment="CopyString") wxString
+%{ $result = swigCopyString($input) %}
+
+%typemap(directorin,fragment="AllocateString") const wxString&
+%{ 
+    wxScopedCharBuffer $1_utf8_str = $1.utf8_str();
+    $input = Swig_AllocateString($1_utf8_str, $1_utf8_str.length()); 
+%}
+
+%typemap(godirectorin,fragment="CopyString") const wxString&
+%{ $result = swigCopyString($input) %}
+
+%typemap(out,fragment="AllocateString") wxString
+%{
     wxScopedCharBuffer $1_utf8_str = $1.utf8_str();
     $result = Swig_AllocateString($1_utf8_str, $1_utf8_str.length()); 
 %}
@@ -29,6 +47,40 @@
 
 %typemap(goout,fragment="CopyString") const wxString &
 %{ $result = swigCopyString($1) %}
+
+%typemap(godirectorout) wxString
+%{
+  {
+    p := Swig_malloc(len($input))
+    s := (*[1<<30]byte)(unsafe.Pointer(p))[:len($input)]
+    copy(s, $input)
+    $result = *(*string)(unsafe.Pointer(&s))
+  }
+%}
+
+%typemap(directorout,warning=SWIGWARN_TYPEMAP_THREAD_UNSAFE_MSG) wxString
+%{
+  $result = wxString::FromUTF8($input.p, $input.n);
+  free($input.p);
+%}
+
+%typemap(godirectorout) const wxString&
+%{
+  {
+    p := Swig_malloc(len($input))
+    s := (*[1<<30]byte)(unsafe.Pointer(p))[:len($input)]
+    copy(s, $input)
+    $result = *(*string)(unsafe.Pointer(&s))
+  }
+%}
+
+%typemap(directorout,warning=SWIGWARN_TYPEMAP_THREAD_UNSAFE_MSG) const wxString&
+%{
+  static $*1_ltype $1_str;
+  $1_str = wxString::FromUTF8($input.p, $input.n);
+  free($input.p);
+  $result = &$1_str;
+%}
 
 
 //Typemaps for wxArrayString
