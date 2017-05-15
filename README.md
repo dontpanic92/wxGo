@@ -3,8 +3,8 @@ wxGo
 
 Golang wxWidgets Wrapper
 
-[![Travis CI Build Status](https://travis-ci.org/dontpanic92/wxGo.svg)](https://travis-ci.org/dontpanic92/wxGo)
-[![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/ywus0amnmy72uaa4?svg=true)](https://ci.appveyor.com/project/dontpanic92/wxgo)
+[![Travis CI Build Status](https://travis-ci.org/dontpanic92/wxGo.svg)](https://travis-ci.org/dontpanic92/wxGo.svg?branch=master)
+[![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/ywus0amnmy72uaa4/branch/master?svg=true)](https://ci.appveyor.com/project/dontpanic92/wxgo/branch/master)
 
 Compilation 
 ----
