@@ -6,6 +6,11 @@ if [ -z $1 ] || [ -z $2 ]; then
 fi;
 
 WXGO_SUFFIX=$1_$2
+WXGO_LIB_FOLDER=$WXGO_SUFFIX
+
+if [ "$3" == "gtk2" ]; then
+WXGO_LIB_FOLDER=${WXGO_LIB_FOLDER}_gtk2
+fi
 
 wxGoTmpDir="/tmp/wxGo_tmp_$WXGO_SUFFIX"
 
@@ -16,7 +21,7 @@ fi;
 
 mkdir -p $wxGoTmpDir/pkg/$WXGO_SUFFIX/github.com/dontpanic92/wxGo/
 mkdir -p $wxGoTmpDir/src/github.com/dontpanic92/wxGo/wx
-cp $GOPATH/src/github.com/dontpanic92/wxGo/wx/$WXGO_SUFFIX/lib/*.a $wxGoTmpDir
+cp $GOPATH/src/github.com/dontpanic92/wxGo/wx/$WXGO_LIB_FOLDER/lib/*.a $wxGoTmpDir
 
 cd $wxGoTmpDir
 
@@ -64,7 +69,7 @@ export GOOS=$1
 export CGO_ENABLED=1
 go version
 go env
-go install -tags "wxgo_binary_package_build" -x github.com/dontpanic92/wxGo/wx
+go install -tags "wxgo_binary_package_build $3" -x github.com/dontpanic92/wxGo/wx
 
 
 cp $GOPATH/pkg/$WXGO_SUFFIX/github.com/dontpanic92/wxGo/wx.a $wxGoTmpDir/pkg/$WXGO_SUFFIX/github.com/dontpanic92/wxGo/wx.a
@@ -73,15 +78,15 @@ echo -e "//go:binary-only-package\n\npackage wx" > $wxGoTmpDir/src/github.com/do
 
 rm $GOPATH/src/github.com/dontpanic92/wxGo/wx/*_$WXGO_SUFFIX.syso
 
-zip -9 wxGo_$WXGO_SUFFIX.zip -r pkg src
+zip -9 wxGo_$WXGO_LIB_FOLDER.zip -r pkg src
 
 cd -
 
-if [ -e wxGo_$WXGO_SUFFIX.zip ]; then
-    rm wxGo_$WXGO_SUFFIX.zip
+if [ -e wxGo_$WXGO_LIB_FOLDER.zip ]; then
+    rm wxGo_$WXGO_LIB_FOLDER.zip
 fi;
 
-mv $wxGoTmpDir/wxGo_$WXGO_SUFFIX.zip .
+mv $wxGoTmpDir/wxGo_$WXGO_LIB_FOLDER.zip .
 
 rm -r $wxGoTmpDir
 

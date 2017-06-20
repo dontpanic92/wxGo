@@ -165,13 +165,6 @@ func swigCopyStringSlice(strSlice *[]string) []string {
     Swig_free(uintptr($1))
 %}
 
-%{
-struct StringSliceWithPointer {
-    _goslice_ slice;
-    _goslice_* ptr;
-};
-%}
-
 %insert(go_header) %{
 type stringSliceWithPointer struct {
     slice []string
@@ -194,7 +187,7 @@ type stringSliceWithPointer struct {
 %}
 
 %typemap(in) wxArrayString & %{
-    StringSliceWithPointer* $1_ptr = (StringSliceWithPointer*)$input;
+    sliceWithPointer* $1_ptr = (sliceWithPointer*)$input;
 
     $*1_ltype $1_arr;
     $1_arr = gostringSliceToArrayString($1_ptr->slice);
@@ -290,7 +283,7 @@ func swigCopyIntSlice(intSlice *[]int) []int {
 %}
 
 %{
-struct IntSliceWithPointer {
+struct sliceWithPointer {
     _goslice_ slice;
     _goslice_* ptr;
 };
@@ -318,7 +311,7 @@ type intSliceWithPointer struct {
 %}
 
 %typemap(in) wxArrayInt & %{
-    IntSliceWithPointer* $1_ptr = (IntSliceWithPointer*)$input;
+    sliceWithPointer* $1_ptr = (sliceWithPointer*)$input;
 
     $*1_ltype $1_arr;
     $1_arr = intgoSliceToArrayInt($1_ptr->slice);
@@ -408,6 +401,139 @@ type intSliceWithPointer struct {
     $result = newSlice
 %}
 
+// Typemaps for wxVectors
+
+%define _APPLY_WXVECTOR(wxtype, ref, deref)
+%{
+wxVector< wx##wxtype ref > wxtype##SliceToVector (_goslice_ slice) {
+    wxVector< wx##wxtype ref > vector;
+    for (int i = 0; i < slice.len; i++) {
+        wx##wxtype * a = (( wx##wxtype ** )slice.array)[i];
+        vector.push_back( deref a);
+    }
+    return vector;
+}
+
+_goslice_ vectorTo##wxtype##Slice (const wxVector< wx##wxtype ref >& arr) {
+    _goslice_ slice;
+    size_t count = arr.size();
+    wx##wxtype * ref go_arr = ( wx##wxtype * ref )malloc(sizeof( wx##wxtype ref [count]));
+    slice.array = go_arr;
+    slice.len = slice.cap = count;
+    
+    for (int i = 0; i < count; i++) {
+        go_arr[i] = arr[i];
+    }
+    
+    return slice;
+}
+%}
+
+%insert(go_header) %{
+func swigCopy##wxtype##Slice (s *[] wxtype ) [] wxtype {
+    newSlice := make([] wxtype, len(*s))
+    for i := range newSlice {
+        newSlice[i] = (*s)[i]
+    }
+    p := *(*swig_goslice)(unsafe.Pointer(s))
+    Swig_free(p.arr)
+    return newSlice
+}
+%}
+
+%typemap(gotype) wxVector< wx##wxtype ref > "[] wxtype"
+
+%typemap(in) wxVector< wx##wxtype ref > %{
+    $1 = wxtype##SliceToVector($input);
+%}
+
+%typemap(out) wxVector< wx##wxtype ref > %{
+    $result = vectorTo##wxtype##Slice ($1);
+%}
+
+%typemap(goout) wxVector< wx##wxtype ref > %{
+    $result = swigCopy##wxtype##Slice(&$1)
+%}
+
+
+%typemap(gotype) const wxVector< wx##wxtype ref >& "[] wxtype"
+%typemap(imtype) const wxVector< wx##wxtype ref >& "[] wxtype"
+
+%typemap(goin) const wxVector< wx##wxtype ref > & %{
+    $result = $1
+%}
+
+%typemap(goargout) const wxVector< wx##wxtype ref > & %{
+%}
+
+%typemap(argout) const wxVector< wx##wxtype ref > & %{
+%}
+
+%typemap(in) const wxVector< wx##wxtype ref > & %{
+    $*1_ltype $1_arr;
+    $1_arr = wxtype##SliceToVector ($input);
+    $1 = &$1_arr;
+%}
+
+%typemap(out) const wxVector< wx##wxtype ref > & %{
+    $result = vectorTo##wxtype##Slice (*$1);
+%}
+
+%typemap(goout) const wxVector< wx##wxtype ref > & %{
+    $result = swigCopy##wxtype##Slice(&$1)
+%}
+
+%insert(go_header) %{
+type wxtype##SliceWithPointer struct {
+    slice [] wxtype
+    ptr uintptr
+}
+%}
+
+%typemap(gotype) wxVector< wx##wxtype ref > * "*[] wxtype"
+%typemap(imtype) wxVector< wx##wxtype ref > * "* wxtype##SliceWithPointer"
+
+%typemap(goin) wxVector< wx##wxtype ref > * %{
+    var $1_var wxtype##SliceWithPointer
+    $result = &$1_var
+    $result.slice = *$1
+%}
+
+%typemap(goargout) wxVector< wx##wxtype ref > * %{
+    *$1 = swigCopyIntSlice((*[]int)(unsafe.Pointer($1_var.ptr)))
+    Swig_free($1_var.ptr)
+%}
+
+%typemap(in) wxVector< wx##wxtype ref > * %{
+    sliceWithPointer* $1_ptr = (sliceWithPointer*)$input;
+
+    $*1_ltype $1_arr;
+    $1_arr = type##SliceToVector($1_ptr->slice);
+    $1 = &$1_arr; 
+%}
+
+%typemap(argout) wxVector< wx##wxtype ref > * %{
+    $1_ptr->ptr = (_goslice_*)malloc(sizeof(_goslice_));
+    *$1_ptr->ptr = arrayIntToIntgoSlice(*$1);
+%}
+
+%enddef
+#define APPLY_WXVECTOR(type) _APPLY_WXVECTOR(type, ,*)
+#define APPLY_POINTER_WXVECTOR(type) _APPLY_WXVECTOR(type, *, )
+
+%{
+    #include <wx/variant.h>
+    #include <wx/docview.h>
+    #include <wx/treelist.h>
+    #include <wx/dataview.h>
+%}
+
+APPLY_WXVECTOR(Variant)
+APPLY_WXVECTOR(TreeListItem)
+APPLY_POINTER_WXVECTOR(View)
+APPLY_POINTER_WXVECTOR(Document)
+APPLY_POINTER_WXVECTOR(DocTemplate)
+APPLY_POINTER_WXVECTOR(DataViewColumn)
 
 // Typemaps for wxChar & wxUniChar
 
