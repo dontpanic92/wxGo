@@ -417,7 +417,7 @@ wxVector< wx##wxtype ref > wxtype##SliceToVector (_goslice_ slice) {
 _goslice_ vectorTo##wxtype##Slice (const wxVector< wx##wxtype ref >& arr) {
     _goslice_ slice;
     size_t count = arr.size();
-    wx##wxtype * ref go_arr = ( wx##wxtype * ref )malloc(sizeof( wx##wxtype ref [count]));
+    wx##wxtype * ref go_arr = ( wx##wxtype * ref )malloc(sizeof( wx##wxtype ref) * count);
     slice.array = go_arr;
     slice.len = slice.cap = count;
     
