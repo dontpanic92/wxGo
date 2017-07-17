@@ -19,7 +19,7 @@ Currently wxGo can compile and run on Windows, Linux and Mac OS X on amd64 archi
 
 __Remarks__
 
-32-bit go will [run out of memory](https://github.com/dontpanic92/wxGo/issues/3) due to ~5GB memory comsumption when compiling and I have no idea on how to decline the memory usage. Any suggestion or discussion will help.
+32-bit go will [run out of memory](https://github.com/dontpanic92/wxGo/issues/3) due to ~5GB memory consumption when compiling and I have no idea on how to decline the memory usage. Any suggestion or discussion will help.
 
 The precompiled wxWidgets is compiled with gcc > 5 ( 6.2.1 on Linux, 5.3.0 on Windows using tdm-gcc). So if you want to use the precompiled wxWidgets, your gcc version has also to be > 5, because [GCC changed its ABI since GCC 5 release series](https://gcc.gnu.org/gcc-5/changes.html#libstdcxx).
 
@@ -35,7 +35,7 @@ You can add `-x` option to print each command it executes.
 Custom Compilation
 ----
 
-This seciton will introduce how to customize wxGo.
+This section will introduce how to customize wxGo.
 
 #### 1. Compilation phases
 
@@ -111,17 +111,17 @@ func checkboxClicked(e wx.Event) {
 
 Bravo!
 
-__Remarks : about the memory menagement__
+__Remarks : about the memory management__
 
 All `wx.NewCLASS` functions will allocate memory on C++ side (on heap), thus it will not be tracked by Go's garbage collector. However, in most cases we don't need to worry about it, because wxWidgets will handle it. Some common cases are listed below:
 
 - √ When a `wxWindow` (or its subclasses) being deleted , it will automatically delete all of its children.
 
-- √ When we click the close botton of a `wxFrame`, by default the `Destroy` will be called and it will be deleted by itself (and also all children). 
+- √ When we click the close button of a `wxFrame`, by default the `Destroy` will be called and it will be deleted by itself (and also all children). 
 
 - × However when we close a `wxDialog`, the `Destroy` won't be called by default and we have to manually destroy it.
 
-- × If an object isn't in the GUI hierachy, we have to free the memory by calling `DeleteCLASS`. 
+- × If an object isn't in the GUI hierarchy, we have to free the memory by calling `DeleteCLASS`. 
 
 In a word, `p := wx.NewCLASS` in Go acts the same as `p = new wxCLASS()` in C++. Where we need a `delete p`, then we need a `wx.DeleteCLASS`.
 
