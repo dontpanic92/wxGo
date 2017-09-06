@@ -29,5 +29,5 @@ build_script:
 
     cd %APPVEYOR_BUILD_FOLDER%
 
-    go get -v -t -x .\\...
+    go get -v -t -x -tags mingw-workaround .\\...
 
