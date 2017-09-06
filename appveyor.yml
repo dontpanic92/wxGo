@@ -7,12 +7,8 @@ clone_folder: c:\project\src\github.com\dontpanic92\wxGo
 clone_depth: 5
 environment:
   matrix:
-  - GOROOT: c:\go16
   - GOROOT: c:\go17
-
-matrix:
-  allow_failures:
-    - GOROOT: c:\go16
+  - GOROOT: c:\go18
 
 build_script:
 - cmd: >-
@@ -29,5 +25,5 @@ build_script:
 
     cd %APPVEYOR_BUILD_FOLDER%
 
-    go get -v -t -x -tags mingw-workaround .\\...
+    go get -v -t -x -tags mingw_workaround .\\...
 
