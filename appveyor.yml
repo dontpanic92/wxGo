@@ -7,8 +7,9 @@ clone_folder: c:\project\src\github.com\dontpanic92\wxGo
 clone_depth: 5
 environment:
   matrix:
-  - GOROOT: c:\go17
+  - GOROOT: c:\go19
   - GOROOT: c:\go18
+  - GOROOT: c:\go17
 
 build_script:
 - cmd: >-
