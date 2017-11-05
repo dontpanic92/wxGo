@@ -5,5 +5,5 @@ package wx
 // #cgo mingw_workaround LDFLAGS: -Wl,--subsystem,windows,--allow-multiple-definition
 // #cgo !mingw_workaround LDFLAGS: -Wl,--subsystem,windows
 // #cgo LDFLAGS: -l:libstdc++.a -mwindows -lopengl32 -lglu32 -lrpcrt4 -loleaut32 -lole32 -luuid -lwinspool -lwinmm -lshell32 -lshlwapi -lcomctl32 -lcomdlg32 -ladvapi32 -lversion -lwsock32 -lgdi32 -lntdll -lmsvcrt
-// #cgo CXXFLAGS: -fpermissive
+// #cgo CXXFLAGS: -fpermissive -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=0
 import "C"
