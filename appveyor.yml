@@ -8,8 +8,8 @@ clone_depth: 5
 environment:
   matrix:
   - GOROOT: c:\go19
-  - GOROOT: c:\go18
-  - GOROOT: c:\go17
+#  - GOROOT: c:\go18
+#  - GOROOT: c:\go17
 
 build_script:
 - cmd: >-
@@ -26,13 +26,12 @@ build_script:
 
     cd %APPVEYOR_BUILD_FOLDER%
 
-    go get -v -t -x -tags mingw_workaround .\\...
+# go get -v -t -x -tags mingw_workaround .\\...
 
     cd utils
 
+    set GOPATH=/c/project
     bash build_binary_package.sh windows amd64
-    
-    bash build_binary_package.sh windows 386
 
 artifacts:
   - path: utils/*.zip

@@ -78,7 +78,11 @@ echo -e "//go:binary-only-package\n\npackage wx" > $wxGoTmpDir/src/github.com/do
 
 rm $GOPATH/src/github.com/dontpanic92/wxGo/wx/*_$WXGO_SUFFIX.syso
 
-zip -9 wxGo_$WXGO_LIB_FOLDER.zip -r pkg src
+if command -v zip >/dev/null 2>&1; then
+    zip -9 wxGo_$WXGO_LIB_FOLDER.zip -r pkg src
+else
+    7z a wxGo_$WXGO_LIB_FOLDER.zip pkg src
+fi;
 
 cd -
 
