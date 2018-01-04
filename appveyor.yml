@@ -28,3 +28,12 @@ build_script:
 
     go get -v -t -x -tags mingw_workaround .\\...
 
+    cd utils
+
+    bash build_binary_package.sh windows amd64
+    
+    bash build_binary_package.sh windows 386
+
+artifacts:
+  - path: utils/*.zip
+
