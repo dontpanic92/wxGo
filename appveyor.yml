@@ -26,11 +26,12 @@ build_script:
 
     cd %APPVEYOR_BUILD_FOLDER%
 
-# go get -v -t -x -tags mingw_workaround .\\...
+    go get -v -t -x -tags mingw_workaround .\\...
 
     cd utils
 
     set GOPATH=/c/project
+    
     bash build_binary_package.sh windows amd64
 
 artifacts:
