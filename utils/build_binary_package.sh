@@ -1,5 +1,13 @@
 #!/bin/bash
 
+function go_version {
+    version=$(go version)
+    regex="(go[0-9].[0-9].[0-9])"
+    if [[ $version =~ $regex ]]; then 
+         echo ${BASH_REMATCH[1]}
+    fi
+}
+
 if [ -z $1 ] || [ -z $2 ]; then
     echo -e "Please specify OS ARCH. Example:\nbash $0 linux amd64"
     exit 1
@@ -90,7 +98,7 @@ if [ -e wxGo_$WXGO_LIB_FOLDER.zip ]; then
     rm wxGo_$WXGO_LIB_FOLDER.zip
 fi;
 
-mv $wxGoTmpDir/wxGo_$WXGO_LIB_FOLDER.zip .
+mv $wxGoTmpDir/wxGo_$WXGO_LIB_FOLDER.zip ./wxGo_${WXGO_LIB_FOLDER}_$(go_version).zip
 
 rm -r $wxGoTmpDir
 

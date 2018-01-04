@@ -34,7 +34,10 @@ addons:
       - libgstreamer-plugins-base1.0-dev
       - libwebkitgtk-3.0-dev
       
-      
+before_install:
+  - rvm install 2.2.6
+  - gem install dropbox-deployment
+
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then free -m; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 90; fi
@@ -45,4 +48,13 @@ script:
   - g++ --version
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ld --version; fi
   - travis_wait 50 go get -t -v -x ./...
-  
+  - cd utils
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then travis_wait 50 bash build_binary_package.sh linux amd64; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then travis_wait 50 bash build_binary_package.sh darwin amd64; fi
+
+after_success:
+  - echo "deploy:" > dropbox-deployment.yml
+  - echo "  dropbox_path: /Builds" >> dropbox-deployment.yml
+  - echo "  artifacts_path: \*.zip" >> dropbox-deployment.yml
+  - echo "  debug: true" >> dropbox-deployment.yml
+  - dropbox-deployment
