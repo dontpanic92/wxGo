@@ -50,11 +50,13 @@ script:
   - travis_wait 50 go get -t -v -x ./...
   - cd utils
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then travis_wait 50 bash build_binary_package.sh linux amd64; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then travis_wait 50 bash build_binary_package.sh darwin amd64; fi
-
-after_success:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then travis_wait 50 bash build_binary_package.sh darwin amd64; fi  
   - echo "deploy:" > dropbox-deployment.yml
   - echo "  dropbox_path: /Builds" >> dropbox-deployment.yml
   - echo "  artifacts_path: \*.zip" >> dropbox-deployment.yml
   - echo "  debug: true" >> dropbox-deployment.yml
+
+after_success:
+  - pwd
+  - ls
   - dropbox-deployment
