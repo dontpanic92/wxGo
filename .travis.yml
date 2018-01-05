@@ -4,7 +4,6 @@ dist: trusty
 language: go
 
 go:
-  - 1.7
   - 1.8
   - 1.9
   - tip
@@ -47,10 +46,10 @@ script:
   - gcc --version
   - g++ --version
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ld --version; fi
-#  - travis_wait 50 go get -t -v -x ./...
+  - travis_wait 50 go get -t -v -x ./...
   - cd utils
-#  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then travis_wait 50 bash build_binary_package.sh linux amd64; fi
-#  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then travis_wait 50 bash build_binary_package.sh darwin amd64; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then travis_wait 50 bash build_binary_package.sh linux amd64; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then travis_wait 50 bash build_binary_package.sh darwin amd64; fi
 
 # the following base64 encoded string is:
 # deploy:
@@ -58,11 +57,10 @@ script:
 #  artifacts_path: *.zip
 #  debug: true
 # It is a pain to contain YAML in YAML
-
 after_success:
-  - echo QWxhZGRpbjpvcGVuIHNlc2FtZQ== | base64 --decode > dropbox-deployment.yml
+  - echo ZGVwbG95OgogIGRyb3Bib3hfcGF0aDogL0J1aWxkcwogIGFydGlmYWN0c19wYXRoOiAqLnppcAogIGRlYnVnOiB0cnVlCg== | base64 --decode > dropbox-deployment.yml
   - pwd
   - ls
   - cat dropbox-deployment.yml
-#  - dropbox-deployment
+  - dropbox-deployment
 #  - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then dropbox-deployment; fi
