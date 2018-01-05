@@ -47,17 +47,22 @@ script:
   - gcc --version
   - g++ --version
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ld --version; fi
-  - travis_wait 50 go get -t -v -x ./...
+#  - travis_wait 50 go get -t -v -x ./...
   - cd utils
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then travis_wait 50 bash build_binary_package.sh linux amd64; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then travis_wait 50 bash build_binary_package.sh darwin amd64; fi
+#  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then travis_wait 50 bash build_binary_package.sh linux amd64; fi
+#  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then travis_wait 50 bash build_binary_package.sh darwin amd64; fi
+
+# the following base64 encoded string is:
+# deploy:
+#  dropbox_path: /Builds
+#  artifacts_path: *.zip
+#  debug: true
+# It is a pain to contain YAML in YAML
 
 after_success:
-  - echo "deploy:" > dropbox-deployment.yml
-  - echo "  dropbox_path:\ /Builds" >> dropbox-deployment.yml
-  - echo "  artifacts_path:\ \*.zip" >> dropbox-deployment.yml
-  - echo "  debug:\ true" >> dropbox-deployment.yml
+  - echo QWxhZGRpbjpvcGVuIHNlc2FtZQ== | base64 --decode > dropbox-deployment.yml
   - pwd
   - ls
-  - dropbox-deployment
+  - cat dropbox-deployment.yml
+#  - dropbox-deployment
 #  - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then dropbox-deployment; fi
