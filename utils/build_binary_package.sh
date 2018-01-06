@@ -1,5 +1,15 @@
 #!/bin/bash
 
+function go_version {
+    version=$(go version)
+    regex="(go[0-9].[0-9](.[0-9])?)"
+    if [[ $version =~ $regex ]]; then 
+        echo ${BASH_REMATCH[1]}
+    else
+        echo "tip"
+    fi
+}
+
 if [ -z $1 ] || [ -z $2 ]; then
     echo -e "Please specify OS ARCH. Example:\nbash $0 linux amd64"
     exit 1
@@ -78,7 +88,11 @@ echo -e "//go:binary-only-package\n\npackage wx" > $wxGoTmpDir/src/github.com/do
 
 rm $GOPATH/src/github.com/dontpanic92/wxGo/wx/*_$WXGO_SUFFIX.syso
 
-zip -9 wxGo_$WXGO_LIB_FOLDER.zip -r pkg src
+if command -v zip >/dev/null 2>&1; then
+    zip -9 wxGo_$WXGO_LIB_FOLDER.zip -r pkg src
+else
+    7z a wxGo_$WXGO_LIB_FOLDER.zip pkg src
+fi;
 
 cd -
 
@@ -86,7 +100,7 @@ if [ -e wxGo_$WXGO_LIB_FOLDER.zip ]; then
     rm wxGo_$WXGO_LIB_FOLDER.zip
 fi;
 
-mv $wxGoTmpDir/wxGo_$WXGO_LIB_FOLDER.zip .
+mv $wxGoTmpDir/wxGo_$WXGO_LIB_FOLDER.zip ./wxGo_${WXGO_LIB_FOLDER}_$(go_version).zip
 
 rm -r $wxGoTmpDir
 

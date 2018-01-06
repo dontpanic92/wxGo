@@ -4,9 +4,8 @@ dist: trusty
 language: go
 
 go:
-  - 1.7
-  - 1.8
-  - 1.9
+  - 1.8.x
+  - 1.9.x
   - tip
 
 os:
@@ -34,7 +33,10 @@ addons:
       - libgstreamer-plugins-base1.0-dev
       - libwebkitgtk-3.0-dev
       
-      
+before_install:
+  - rvm install 2.2.6
+  - gem install dropbox-deployment
+
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then free -m; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 90; fi
@@ -45,4 +47,21 @@ script:
   - g++ --version
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ld --version; fi
   - travis_wait 50 go get -t -v -x ./...
-  
+  - cd utils
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then travis_wait 50 bash build_binary_package.sh linux amd64; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then travis_wait 50 bash build_binary_package.sh darwin amd64; fi
+
+# the following base64 encoded string is:
+# deploy:
+#   dropbox_path: /builds
+#   artifacts_path: "builds"
+#   debug: true
+# It is a pain to contain YAML in YAML
+after_success:
+  - mkdir builds
+  - mv *.zip builds
+  - echo ZGVwbG95OgogIGRyb3Bib3hfcGF0aDogL2J1aWxkcwogIGFydGlmYWN0c19wYXRoOiAiYnVpbGRzIgogIGRlYnVnOiB0cnVlCg== | base64 --decode > dropbox-deployment.yml
+  - pwd
+  - ls
+  - cat dropbox-deployment.yml
+  - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then dropbox-deployment; fi

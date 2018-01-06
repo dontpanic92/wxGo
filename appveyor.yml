@@ -28,3 +28,11 @@ build_script:
 
     go get -v -t -x -tags mingw_workaround .\\...
 
+    cd utils
+
+    set GOPATH=/c/project
+
+    bash build_binary_package.sh windows amd64
+
+artifacts:
+  - path: utils/*.zip
