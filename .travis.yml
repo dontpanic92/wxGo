@@ -54,11 +54,11 @@ script:
 # the following base64 encoded string is:
 # deploy:
 #  dropbox_path: /Builds
-#  artifacts_path: *.zip
+#  artifacts_path: "*.zip"
 #  debug: true
 # It is a pain to contain YAML in YAML
 after_success:
-  - echo ZGVwbG95OgogIGRyb3Bib3hfcGF0aDogL0J1aWxkcwogIGFydGlmYWN0c19wYXRoOiAqLnppcAogIGRlYnVnOiB0cnVlCg== | base64 --decode > dropbox-deployment.yml
+  - echo ZGVwbG95OgogIGRyb3Bib3hfcGF0aDogL0J1aWxkcwogIGFydGlmYWN0c19wYXRoOiAiKi56aXAiCiAgZGVidWc6IHRydWUK | base64 --decode > dropbox-deployment.yml
   - pwd
   - ls
   - cat dropbox-deployment.yml
