@@ -40,7 +40,7 @@ func (f *MyFrame)evtOpenFile(wx.Event) {
     path := wx.LoadFileSelector("Text", "*")
     if path != "" {
         textCtrl := wx.NewTextCtrl(f.notebook, wx.ID_ANY, "", wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE)
-        textCtrl.SetMinSize(wx.NewSize(600, 400))
+        textCtrl.SetMinSize(wx.NewSizeT(600, 400))
         f.notebook.AddPage(textCtrl, path)
         textCtrl.LoadFile(path)
         textCtrl.SetFocus()

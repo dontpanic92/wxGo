@@ -8,9 +8,7 @@ type ControlDialog struct {
 
 func NewControlDialog() ControlDialog {
     f := ControlDialog{}
-    f.Dialog = wx.NewDialog(wx.NullWindow, -1, "Controls")
-    
-    f.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
+    f.Dialog = wx.NewDialog(wx.NullWindow, -1, "Controls", wx.DefaultPosition, wx.NewSizeT(600, 400))
 		
     bSizer2 := wx.NewBoxSizer( wx.HORIZONTAL )
     bSizer3 := wx.NewBoxSizer( wx.VERTICAL )
