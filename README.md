@@ -46,7 +46,7 @@ wxGo needs a 2-phase compilation. The first is the SWIG phase, that is using [SW
 
 You can regenerate the wrapper code using SWIG. Compilation dependencies are:
 
-- python 2
+- python 2 or 3
 - sed
 - make
 - A customized SWIG

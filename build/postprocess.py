@@ -10,6 +10,7 @@ a negative number. It is not elegant but works.
 By dontpanic, 2015/5/27
 """
 
+from __future__ import print_function
 import sys, os, re
 
 regex = re.compile("^const (.+?) int = (.+?)$", re.MULTILINE) 
@@ -31,7 +32,7 @@ def replace_hex(match_object):
     new_value = calc_new_value(var_value)
     if new_value > 0x7FFFFFFF:
         new_value = new_value - 0xFFFFFFFF - 1
-        print "Found const", var_name, "change it from", var_value, "to", new_value
+        print("Found const", var_name, "change it from", var_value, "to", new_value)
         return "const " + var_name + " int = " + str(new_value)
     else:
         return match_object.group(0)
@@ -67,14 +68,16 @@ def add_tracked_type(code):
     return code
 
 def postprocess(filename):
-    print "Postprocessing", filename
-    code = file(filename).read()
+    print("Postprocessing", filename)
+    with open(filename) as f:
+        code = f.read()
     code = regex.sub(replace_hex, code)
     code = add_tracked_type(code)
-    file(filename, "w").write(code)
+    with open(filename, "w") as f:
+        f.write(code)
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print "Usage: python2 preprocess.py wx.go"
+        print("Usage: python preprocess.py wx.go")
     else:
         postprocess(sys.argv[1])
