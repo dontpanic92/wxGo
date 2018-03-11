@@ -9,5 +9,4 @@ package wx
 // #cgo !gtk2 LDFLAGS: -lgtk-3 -lgdk-3 -lcairo-gobject -lwebkitgtk-3.0
 // #cgo gtk2 LDFLAGS: -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangoft2-1.0 -lfontconfig -lfreetype -lwebkitgtk-1.0
 // #cgo LDFLAGS: -pthread -lstdc++ -lGL -lGLU -lgthread-2.0 -lX11 -lXxf86vm -lSM -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo -lnotify -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lpng -ljpeg -ltiff -lexpat -lz -ldl -lm -lgstreamer-1.0 -lgstvideo-1.0 
-// #cgo LDFLAGS: -s
 import "C"
