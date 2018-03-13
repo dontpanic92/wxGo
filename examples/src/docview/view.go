@@ -6,7 +6,7 @@ import "github.com/dontpanic92/wxGo/wx"
  * It may be not intuitive because of the different design and machanism
  * between C++ and go, but the folowing code works, thanks to SWIG.
  * Here we take the wxView class as an example to see how it works.
- * 
+ *
  * We will deal with 3 things here:
  * 1. a director object
  * 2. overwrittenMethodsForView object that holds all overwritten
@@ -19,7 +19,7 @@ import "github.com/dontpanic92/wxGo/wx"
  *    holds all overwritten virtual methods, e.g. wxView::OnCreate, etc.
  * 2. The director object
  *    We use wx.NewDirectorView to create a director object of wxView. A director
- *    is an object that is responsible for "routing". It contains TWO parts: 
+ *    is an object that is responsible for "routing". It contains TWO parts:
  *    the C++ part, which is a sub class of the base class (here the base class
  *    is wxView), and it implements ALL virtual functions that the base class has,
  *    including pure virtual functions. The other part is the Go part, which contains
@@ -68,8 +68,8 @@ var viewTrack map[uintptr]MyTextView = make(map[uintptr]MyTextView)
 
 // This struct will hold all overwritten virtual methods.
 type overwrittenMethodsForView struct {
-	view		wx.View
-	textCtrl	wx.TextCtrl
+	view     wx.View
+	textCtrl wx.TextCtrl
 }
 
 func (self *overwrittenMethodsForView) OnCreate(doc wx.Document, flags int) bool {
@@ -77,11 +77,11 @@ func (self *overwrittenMethodsForView) OnCreate(doc wx.Document, flags int) bool
 	// Do NOT call view.OnCreate in this function - that will cause recursion
 	// because this function is extactly the view.OnCreate!
 	if !wx.DirectorViewOnCreate(self.view, doc, flags) {
-        return false
+		return false
 	}
-	
+
 	document := doc.SwigGetDocument()
-	
+
 	subFrame := wx.NewDocMDIChildFrame(document, self.view, wx.ToDocMDIParentFrame(wx.AppGetInstance().GetTopWindow()), wx.ID_ANY, "Child Frame", wx.DefaultPosition, wx.NewSizeT(300, 300))
 
 	menuFile := wx.NewMenu()
@@ -114,11 +114,11 @@ func (self *overwrittenMethodsForView) OnDraw(dc wx.DC) {
 
 func (self *overwrittenMethodsForView) OnClose(deleteWindow bool) bool {
 	if !wx.DirectorViewOnClose(self.view, deleteWindow) {
-        return false
+		return false
 	}
 
 	self.view.Activate(false)
-	if (deleteWindow) {
+	if deleteWindow {
 		self.view.GetFrame().Destroy()
 		self.view.SetFrame(wx.ToFrame(wx.NullWindow))
 	}
@@ -128,15 +128,15 @@ func (self *overwrittenMethodsForView) OnClose(deleteWindow bool) bool {
 }
 
 func (self *overwrittenMethodsForView) OnCopy(e wx.Event) {
-	self.textCtrl.Copy();
+	self.textCtrl.Copy()
 }
 
 func (self *overwrittenMethodsForView) OnPaste(e wx.Event) {
-	self.textCtrl.Paste();
+	self.textCtrl.Paste()
 }
 
 func (self *overwrittenMethodsForView) OnSelectAll(e wx.Event) {
-	self.textCtrl.SelectAll();
+	self.textCtrl.SelectAll()
 }
 
 func (self myTextView) GetCtrl() wx.TextCtrl {

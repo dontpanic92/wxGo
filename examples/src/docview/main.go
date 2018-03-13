@@ -11,10 +11,10 @@ func NewMainFrame() *MainFrame {
 	self := &MainFrame{}
 	self.docMan = wx.NewDocManager()
 	NewMyTextDocTemplate(self.docMan, "Text", "*.txt;*.text", "", "txt;text",
-                          "Text Doc", "Text View")
+		"Text Doc", "Text View")
 
 	self.Frame = wx.NewDocMDIParentFrame(self.docMan, wx.ToFrame(wx.NullWindow), wx.ID_ANY,
-				"wxGo DocView Sample");
+		"wxGo DocView Sample")
 
 	menuFile := wx.NewMenu()
 	menuFile.Append(wx.ID_NEW)
@@ -32,7 +32,6 @@ func NewMainFrame() *MainFrame {
 
 	return self
 }
-
 
 func main() {
 	wx1 := wx.NewApp()
