@@ -3,49 +3,48 @@ package main
 import "github.com/dontpanic92/wxGo/wx"
 
 type MyFrame struct {
-    wx.Frame
-    statusbar	wx.StatusBar
-    toolbar		wx.ToolBar
-	menubar		wx.MenuBar
-	browser		wx.WebView
+	wx.Frame
+	statusbar wx.StatusBar
+	toolbar   wx.ToolBar
+	menubar   wx.MenuBar
+	browser   wx.WebView
 
-	backBtn		wx.ToolBarToolBase
-	forwardBtn	wx.ToolBarToolBase
-	stopBtn		wx.ToolBarToolBase
-	goBtn		wx.ToolBarToolBase
+	backBtn    wx.ToolBarToolBase
+	forwardBtn wx.ToolBarToolBase
+	stopBtn    wx.ToolBarToolBase
+	goBtn      wx.ToolBarToolBase
 
-	urlBox		wx.TextCtrl
+	urlBox wx.TextCtrl
 }
 
-func (f *MyFrame)evtAbout(wx.Event) {
-    aboutinfo := wx.NewAboutDialogInfo()
-    aboutinfo.SetName("wxGo Web Explorer")
-    aboutinfo.AddDeveloper("dontpanic")
-    aboutinfo.SetDescription("A Web Explorer using wxGo.")
-    aboutinfo.SetWebSite("http://github.com/dontpanic92/wxGo")
-    aboutinfo.SetVersion("0.1")
-    wx.AboutBox(aboutinfo)
-    wx.DeleteAboutDialogInfo(aboutinfo)
+func (f *MyFrame) evtAbout(wx.Event) {
+	aboutinfo := wx.NewAboutDialogInfo()
+	aboutinfo.SetName("wxGo Web Explorer")
+	aboutinfo.AddDeveloper("dontpanic")
+	aboutinfo.SetDescription("A Web Explorer using wxGo.")
+	aboutinfo.SetWebSite("http://github.com/dontpanic92/wxGo")
+	aboutinfo.SetVersion("0.1")
+	wx.AboutBox(aboutinfo)
+	wx.DeleteAboutDialogInfo(aboutinfo)
 }
-
 
 func NewMyFrame() *MyFrame {
-    self := &MyFrame{}
-    self.Frame = wx.NewFrame(wx.NullWindow, -1, "wxGo Web Explorer", wx.DefaultPosition, wx.NewSizeT(800, 600))
-	
+	self := &MyFrame{}
+	self.Frame = wx.NewFrame(wx.NullWindow, -1, "wxGo Web Explorer", wx.DefaultPosition, wx.NewSizeT(800, 600))
+
 	// Statusbar
-    self.statusbar = self.CreateStatusBar()
-    self.statusbar.SetStatusText("Ready")
-    self.statusbar.SetFieldsCount(2)
-    self.statusbar.SetStatusText("Welcome to wxWidgets", 1)
-	
+	self.statusbar = self.CreateStatusBar()
+	self.statusbar.SetStatusText("Ready")
+	self.statusbar.SetFieldsCount(2)
+	self.statusbar.SetStatusText("Welcome to wxWidgets", 1)
+
 	// Menubar
-    self.menubar = wx.NewMenuBar()
-    menuHelp := wx.NewMenu()
-    menuItemAbout := wx.NewMenuItem(menuHelp, wx.ID_ANY, "&About", "About", wx.ITEM_NORMAL)
-    menuHelp.Append(menuItemAbout)
-    self.menubar.Append(menuHelp, "&Help")
-    self.SetMenuBar(self.menubar)
+	self.menubar = wx.NewMenuBar()
+	menuHelp := wx.NewMenu()
+	menuItemAbout := wx.NewMenuItem(menuHelp, wx.ID_ANY, "&About", "About", wx.ITEM_NORMAL)
+	menuHelp.Append(menuItemAbout)
+	self.menubar.Append(menuHelp, "&Help")
+	self.SetMenuBar(self.menubar)
 
 	// Toolbar
 	self.toolbar = self.CreateToolBar(wx.TB_HORIZONTAL, wx.ID_ANY)
@@ -61,14 +60,14 @@ func NewMyFrame() *MyFrame {
 	self.toolbar.Realize()
 
 	// Content Area
-    mainSizer := wx.NewBoxSizer(wx.VERTICAL)
+	mainSizer := wx.NewBoxSizer(wx.VERTICAL)
 	self.SetSizer(mainSizer)
-	
+
 	self.browser = wx.WebViewNew(self, wx.ID_ANY)
-    self.browser.LoadURL("http://www.wxwidgets.org")
-    self.browser.SetMinSize(wx.NewSizeT(600, 400))
-    mainSizer.Add(self.browser, 1, wx.EXPAND, 5)
-        
+	self.browser.LoadURL("http://www.wxwidgets.org")
+	self.browser.SetMinSize(wx.NewSizeT(600, 400))
+	mainSizer.Add(self.browser, 1, wx.EXPAND, 5)
+
 	self.Layout()
 
 	// Menu event bindings
@@ -85,12 +84,12 @@ func NewMyFrame() *MyFrame {
 		self.statusbar.SetStatusText("Ready")
 		self.UpdateState()
 	}, self.browser.GetId())
-	
+
 	// Toolbar tools event bindings
 	wx.Bind(self, wx.EVT_TOOL, func(e wx.Event) {
 		self.browser.GoBack()
 	}, self.backBtn.GetId())
-	
+
 	wx.Bind(self, wx.EVT_TOOL, func(e wx.Event) {
 		self.browser.GoForward()
 	}, self.forwardBtn.GetId())
@@ -112,21 +111,21 @@ func NewMyFrame() *MyFrame {
 
 	// Frame event bindings
 	wx.Bind(self, wx.EVT_IDLE, func(wx.Event) {
-		if (self.browser.IsBusy()) {
+		if self.browser.IsBusy() {
 			self.toolbar.EnableTool(self.stopBtn.GetId(), true)
 		} else {
 			self.toolbar.EnableTool(self.stopBtn.GetId(), false)
 		}
 	}, wx.ID_ANY)
 
-    return self
+	return self
 }
 
 func (self *MyFrame) UpdateState() {
 	self.toolbar.EnableTool(self.backBtn.GetId(), self.browser.CanGoBack())
 	self.toolbar.EnableTool(self.forwardBtn.GetId(), self.browser.CanGoForward())
 
-	if (self.browser.IsBusy()) {
+	if self.browser.IsBusy() {
 		self.toolbar.EnableTool(self.stopBtn.GetId(), true)
 	} else {
 		self.toolbar.EnableTool(self.stopBtn.GetId(), false)
@@ -138,9 +137,9 @@ func (self *MyFrame) UpdateState() {
 
 //Main Function
 func main() {
-    wx1 := wx.NewApp()
-    f := NewMyFrame()
-    f.Show()
-    wx1.MainLoop()
-    return
+	wx1 := wx.NewApp()
+	f := NewMyFrame()
+	f.Show()
+	wx1.MainLoop()
+	return
 }
