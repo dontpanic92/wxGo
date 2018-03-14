@@ -22,7 +22,7 @@ func NewMyFrame() *MyFrame {
 	self.auiManager = wx.NewAuiManager()
 	self.auiManager.SetManagedWindow(self)
 
-	// We should call auiManager.UnInit() in frame's desructor, but unfortunately
+	// We should call auiManager.UnInit() in frame's destructor, but unfortunately
 	// we can't get a callback when frame's destructor called. So we do this in the
 	// EVT_CLOSE_WINDOW. And also because we listen the CloseEvent, we have to call
 	// Destroy() manually.
