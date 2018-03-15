@@ -2,9 +2,9 @@ package main
 
 import "github.com/dontpanic92/wxGo/wx"
 
-/* This file demostrates how to subclass a C++ class in Go.
- * It may be not intuitive because of the different design and machanism
- * between C++ and go, but the folowing code works, thanks to SWIG.
+/* This file demonstrates how to subclass a C++ class in Go.
+ * It may be not intuitive because of the different design and mechanism
+ * between C++ and go, but the following code works, thanks to SWIG.
  * Here we take the wxView class as an example to see how it works.
  *
  * We will deal with 3 things here:
@@ -44,7 +44,7 @@ import "github.com/dontpanic92/wxGo/wx"
  *      wx.View (the director object)------  <---------------> overwrittenMethodsForView-----------------
  *        responsible for routing virtual calls                    virtual void OnCreate
  *      -----------------------------------                        virtual void OnDraw
- *                                                                 (Other virtual function implemtations)
+ *                                                                 (Other virtual function implementations)
  *      (User-defined part of myTextView)                      ------------------------------------------
  *   ========================================
 **/
@@ -75,7 +75,7 @@ type overwrittenMethodsForView struct {
 func (self *overwrittenMethodsForView) OnCreate(doc wx.Document, flags int) bool {
 	// Use wx.DirectorXYZABC to call super function XYZ::ABC
 	// Do NOT call view.OnCreate in this function - that will cause recursion
-	// because this function is extactly the view.OnCreate!
+	// because this function is exactly the view.OnCreate!
 	if !wx.DirectorViewOnCreate(self.view, doc, flags) {
 		return false
 	}
@@ -160,9 +160,9 @@ func NewMyTextView() MyTextView {
 	return mtv
 }
 
-// In this case, wxWidgets will be resonsible for
+// In this case, wxWidgets will be responsible for
 // release the view object. If the C++ code won't delete
-// the obejct and you want Go to recycle the memory
+// the object and you want Go to recycle the memory
 // automatically, use the following function:
 /* func NewMyTextViewT() MyTextView {
 	myTextView := NewMyTextView()
