@@ -12,6 +12,7 @@ type MyFrame struct {
 	backBtn    wx.ToolBarToolBase
 	forwardBtn wx.ToolBarToolBase
 	stopBtn    wx.ToolBarToolBase
+	refreshBtn wx.ToolBarToolBase
 	goBtn      wx.ToolBarToolBase
 
 	urlBox wx.TextCtrl
@@ -51,6 +52,7 @@ func NewMyFrame() *MyFrame {
 	self.backBtn = self.toolbar.AddTool(wx.ID_ANY, "Back", wx.ArtProviderGetBitmap(wx.ART_GO_BACK), wx.NullBitmap, wx.ITEM_NORMAL, "Back", "Go Back")
 	self.forwardBtn = self.toolbar.AddTool(wx.ID_ANY, "Forward", wx.ArtProviderGetBitmap(wx.ART_GO_FORWARD), wx.NullBitmap, wx.ITEM_NORMAL, "Forward", "Go Forward")
 	self.stopBtn = self.toolbar.AddTool(wx.ID_ANY, "Stop", wx.ArtProviderGetBitmap(wx.ART_CROSS_MARK), wx.NullBitmap, wx.ITEM_NORMAL, "Stop", "Stop")
+	self.refreshBtn = self.toolbar.AddTool(wx.ID_ANY, "Refresh", wx.NewBitmap(refresh_xpm), wx.NullBitmap, wx.ITEM_NORMAL, "Reload", "Refresh current page")
 
 	self.urlBox = wx.NewTextCtrl(self.toolbar, wx.ID_ANY, "", wx.DefaultPosition, wx.NewSizeT(400, -1), wx.TE_PROCESS_ENTER)
 	self.toolbar.AddControl(self.urlBox)
@@ -97,6 +99,10 @@ func NewMyFrame() *MyFrame {
 	wx.Bind(self, wx.EVT_TOOL, func(e wx.Event) {
 		self.browser.Stop()
 	}, self.stopBtn.GetId())
+
+	wx.Bind(self, wx.EVT_TOOL, func(e wx.Event) {
+		self.browser.Reload()
+	}, self.refreshBtn.GetId())
 
 	wx.Bind(self, wx.EVT_TOOL, func(e wx.Event) {
 		self.browser.LoadURL(self.urlBox.GetValue())

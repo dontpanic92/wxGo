@@ -1,3 +1,26 @@
+// Typemap for xpmData
+%typemap(gotype) (const char* const* xpmData), (const char* const* bits) "[]string"
+%typemap(imtype) (const char* const* xpmData), (const char* const* bits) "uint64"
+
+%typemap(in) (const char* const* xpmData), (const char* const* bits) %{
+	wxArrayString $1_arrstr = gostringSliceToArrayString(*(_goslice_*)$input);
+	size_t count = $1_arrstr.GetCount();
+	wxVector<wxCharBuffer> charBuffers(count);
+	$1 = new char*[count];
+	for (size_t i = 0; i < count; i++)
+	{
+		charBuffers[i] = $1_arrstr[i].mb_str();
+		$1[i] = charBuffers[i].data();
+	}
+%}
+
+%typemap(argout) (const char* const* xpmData), (const char* const* bits) %{
+	delete[] $1;
+%}
+
+%typemap(goin) (const char* const* xpmData), (const char* const* bits)  %{
+    $result = uint64((uintptr)(unsafe.Pointer(&$1)))
+%}
 
 %{
 	#include "wx/gdicmn.h"
