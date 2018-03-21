@@ -22,6 +22,21 @@
     $result = uint64((uintptr)(unsafe.Pointer(&$1)))
 %}
 
+// Typemap for []byte
+
+%typemap(gotype) (const char bits[]), (const char maskBits[]) "[]byte"
+%typemap(in) (const char bits[]), (const char maskBits[]) %{
+	$1 = $input.p;
+%}
+
+%typemap(gotype) (const void* data, size_t size) "[]byte"
+%typemap(in) (const void* data, size_t size) %{
+	$1 = $input.array;
+	$2 = $input.len;
+%}
+
+
+
 %{
 	#include "wx/gdicmn.h"
 	#include "wx/gdiobj.h"

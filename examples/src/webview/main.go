@@ -1,5 +1,5 @@
 package main
-
+import "fmt"
 import "github.com/dontpanic92/wxGo/wx"
 
 type MyFrame struct {
@@ -60,6 +60,14 @@ func NewMyFrame() *MyFrame {
 	self.goBtn = self.toolbar.AddTool(wx.ID_ANY, "Go!", wx.ArtProviderGetBitmap(wx.ART_GOTO_LAST), wx.NullBitmap, wx.ITEM_NORMAL, "Go!", "Go!")
 
 	self.toolbar.Realize()
+
+	fmt.Println(len(cursor_png))
+	// Cursor
+	bitmap := wx.BitmapNewFromPNGData(cursor_png)
+	fmt.Println(":::::", bitmap.IsOk())
+	image := bitmap.ConvertToImage()
+	cursor := wx.NewCursor(image)
+	self.SetCursor(cursor)
 
 	// Content Area
 	mainSizer := wx.NewBoxSizer(wx.VERTICAL)
@@ -144,6 +152,7 @@ func (self *MyFrame) UpdateState() {
 //Main Function
 func main() {
 	wx1 := wx.NewApp()
+	wx.InitAllImageHandlers()
 	f := NewMyFrame()
 	f.Show()
 	wx1.MainLoop()
