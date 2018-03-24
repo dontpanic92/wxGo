@@ -6,6 +6,10 @@ Golang wxWidgets Wrapper
 [![Travis CI Build Status](https://travis-ci.org/dontpanic92/wxGo.svg?branch=master)](https://travis-ci.org/dontpanic92/wxGo)
 [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/ywus0amnmy72uaa4/branch/master?svg=true)](https://ci.appveyor.com/project/dontpanic92/wxgo/branch/master)
 
+Notes
+----
+For Golang 1.10.0 and 1.9.4, there is a "Invalid flag" issue which causes the build fails. Please check [Here](https://github.com/dontpanic92/wxGo/issues/44#issuecomment-368310742) for workaround.
+
 Compilation 
 ----
 
